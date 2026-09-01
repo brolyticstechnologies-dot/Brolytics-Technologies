@@ -317,6 +317,18 @@ export interface SiteContent {
   };
   pricing?: PricingTier[];
   pricingCategories?: PricingCategory[];
+  pricingHero?: {
+    badge: string;
+    title: string;
+    titleAccent: string;
+    subtitle: string;
+    ctaText: string;
+    ctaLink: string;
+    phoneText: string;
+    phoneLink: string;
+    disclaimer: string;
+  };
 }
 
 export type ContentSection = keyof SiteContent;
+

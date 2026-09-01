@@ -17,7 +17,10 @@ export default async function PricingPage() {
     <div className="flex flex-col min-h-screen bg-white text-silver-900">
       <Header variant="light" />
       <main className="flex-grow">
-        <PricingClient pricingCategories={content.pricingCategories} />
+        <PricingClient
+          pricingCategories={content.pricingCategories}
+          pricingHero={content.pricingHero}
+        />
       </main>
       <Footer content={content.footer} siteSettings={content.siteSettings} />
     </div>

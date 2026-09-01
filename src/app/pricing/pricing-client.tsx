@@ -130,11 +130,39 @@ function SectionCard({ section }: { section: PricingCategory["sections"][number]
   );
 }
 
-export function PricingClient({ pricingCategories }: { pricingCategories?: PricingCategory[] }) {
+interface PricingHeroProps {
+  badge?: string;
+  title?: string;
+  titleAccent?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  phoneText?: string;
+  phoneLink?: string;
+  disclaimer?: string;
+}
+
+export function PricingClient({
+  pricingCategories,
+  pricingHero,
+}: {
+  pricingCategories?: PricingCategory[];
+  pricingHero?: PricingHeroProps;
+}) {
   const categories = pricingCategories && pricingCategories.length > 0 ? pricingCategories : defaultPricingCategories;
   const [activeCategory, setActiveCategory] = useState(categories[0]?.id || "");
   const [mobileOpen, setMobileOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const heroBadge = pricingHero?.badge || "Complete Pricing";
+  const heroTitle = pricingHero?.title || "Transparent Pricing —";
+  const heroTitleAccent = pricingHero?.titleAccent || "No Hidden Costs.";
+  const heroSubtitle = pricingHero?.subtitle || "Exact prices straight from our founder. Browse by category, choose your service and get a clear picture before you talk to us.";
+  const heroCtaText = pricingHero?.ctaText || "Get a Custom Quote";
+  const heroCtaLink = pricingHero?.ctaLink || "/#contact";
+  const heroPhoneText = pricingHero?.phoneText || "+91 85075 07173";
+  const heroPhoneLink = pricingHero?.phoneLink || "tel:+918507507173";
+  const heroDisclaimer = pricingHero?.disclaimer || "All prices are starting prices in Indian Rupees (INR) and exclude GST, domain, hosting, third-party API costs and government charges unless specified.";
 
   const activeData = categories.find((c) => c.id === activeCategory) || categories[0];
 
@@ -161,39 +189,49 @@ export function PricingClient({ pricingCategories }: { pricingCategories?: Prici
           <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-silver-200/40 blur-[80px]" />
         </div>
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/[0.04] mb-5">
-            <IndianRupee className="w-3.5 h-3.5 text-primary" />
-            <span className="text-[11px] font-bold uppercase tracking-widest text-primary">
-              Complete Pricing
-            </span>
-          </div>
+          {heroBadge && (
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/[0.04] mb-5">
+              <IndianRupee className="w-3.5 h-3.5 text-primary" />
+              <span className="text-[11px] font-bold uppercase tracking-widest text-primary">
+                {heroBadge}
+              </span>
+            </div>
+          )}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight mb-5">
-            <span className="text-silver-900">Transparent Pricing —</span>{" "}
-            <span className="text-gradient-red">No Hidden Costs.</span>
+            <span className="text-silver-900">{heroTitle}</span>{" "}
+            <span className="text-gradient-red">{heroTitleAccent}</span>
           </h1>
-          <p className="text-lg text-silver-500 max-w-2xl mx-auto leading-relaxed mb-8">
-            Exact prices straight from our founder. Browse by category, choose your service and get a clear picture before you talk to us.
-          </p>
+          {heroSubtitle && (
+            <p className="text-lg text-silver-500 max-w-2xl mx-auto leading-relaxed mb-8">
+              {heroSubtitle}
+            </p>
+          )}
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02]"
-            >
-              <Sparkles className="w-4 h-4" />
-              Get a Custom Quote
-            </Link>
-            <Link
-              href="tel:+918507507173"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-silver-200 text-silver-700 font-semibold text-sm hover:border-primary/30 hover:text-primary transition-all duration-300"
-            >
-              <Phone className="w-4 h-4" />
-              +91 85075 07173
-            </Link>
+            {heroCtaText && (
+              <Link
+                href={heroCtaLink}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02]"
+              >
+                <Sparkles className="w-4 h-4" />
+                {heroCtaText}
+              </Link>
+            )}
+            {heroPhoneText && (
+              <Link
+                href={heroPhoneLink}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-silver-200 text-silver-700 font-semibold text-sm hover:border-primary/30 hover:text-primary transition-all duration-300"
+              >
+                <Phone className="w-4 h-4" />
+                {heroPhoneText}
+              </Link>
+            )}
           </div>
           {/* Disclaimer */}
-          <p className="mt-6 text-xs text-silver-400 max-w-xl mx-auto">
-            All prices are starting prices in Indian Rupees (INR) and exclude GST, domain, hosting, third-party API costs and government charges unless specified.
-          </p>
+          {heroDisclaimer && (
+            <p className="mt-6 text-xs text-silver-400 max-w-xl mx-auto">
+              {heroDisclaimer}
+            </p>
+          )}
         </div>
       </section>
 

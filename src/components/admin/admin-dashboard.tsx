@@ -585,7 +585,64 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
           </TabsContent>
 
           {/* PRICING */}
-          <TabsContent value="pricing">
+          <TabsContent value="pricing" className="space-y-6">
+            <EditorPanel title="Pricing Page Header & Hero Banner" onSave={() => saveSection('pricingHero')} saving={isSaving}>
+              <p className="text-xs text-silver-500 mb-4">
+                Edit the header badge, title, subtitle, call button, phone number, and disclaimer on the /pricing page.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <TextField
+                  label="Badge"
+                  value={content.pricingHero?.badge ?? 'Complete Pricing'}
+                  onChange={(v) => update('pricingHero', { ...(content.pricingHero ?? {} as any), badge: v })}
+                />
+                <TextField
+                  label="Title"
+                  value={content.pricingHero?.title ?? 'Transparent Pricing —'}
+                  onChange={(v) => update('pricingHero', { ...(content.pricingHero ?? {} as any), title: v })}
+                />
+                <TextField
+                  label="Title Accent"
+                  value={content.pricingHero?.titleAccent ?? 'No Hidden Costs.'}
+                  onChange={(v) => update('pricingHero', { ...(content.pricingHero ?? {} as any), titleAccent: v })}
+                />
+                <TextField
+                  label="Custom Quote CTA Text"
+                  value={content.pricingHero?.ctaText ?? 'Get a Custom Quote'}
+                  onChange={(v) => update('pricingHero', { ...(content.pricingHero ?? {} as any), ctaText: v })}
+                />
+                <TextField
+                  label="Custom Quote CTA Link"
+                  value={content.pricingHero?.ctaLink ?? '/#contact'}
+                  onChange={(v) => update('pricingHero', { ...(content.pricingHero ?? {} as any), ctaLink: v })}
+                />
+                <TextField
+                  label="Phone CTA Text"
+                  value={content.pricingHero?.phoneText ?? '+91 85075 07173'}
+                  onChange={(v) => update('pricingHero', { ...(content.pricingHero ?? {} as any), phoneText: v })}
+                />
+                <TextField
+                  label="Phone CTA Link"
+                  value={content.pricingHero?.phoneLink ?? 'tel:+918507507173'}
+                  onChange={(v) => update('pricingHero', { ...(content.pricingHero ?? {} as any), phoneLink: v })}
+                />
+              </div>
+              <div className="mt-4 space-y-4">
+                <TextAreaField
+                  label="Subtitle Description"
+                  value={content.pricingHero?.subtitle ?? ''}
+                  onChange={(v) => update('pricingHero', { ...(content.pricingHero ?? {} as any), subtitle: v })}
+                  rows={2}
+                />
+                <TextAreaField
+                  label="Pricing Disclaimer Note"
+                  value={content.pricingHero?.disclaimer ?? ''}
+                  onChange={(v) => update('pricingHero', { ...(content.pricingHero ?? {} as any), disclaimer: v })}
+                  rows={2}
+                />
+              </div>
+            </EditorPanel>
+
             <EditorPanel title="Pricing Categories Manager" onSave={() => saveSection('pricingCategories')} saving={isSaving}>
               <p className="text-xs text-silver-500 mb-4">
                 Manage pricing categories, sections, tables, rows, and feature lists.

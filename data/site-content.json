@@ -2848,5 +2848,16 @@
         }
       ]
     }
-  ]
+  ],
+  "pricingHero": {
+    "badge": "Complete Pricing",
+    "title": "Transparent Pricing —",
+    "titleAccent": "No Hidden Costs.",
+    "subtitle": "Exact prices straight from our founder. Browse by category, choose your service and get a clear picture before you talk to us.",
+    "ctaText": "Get a Custom Quote",
+    "ctaLink": "/#contact",
+    "phoneText": "+91 85075 07173",
+    "phoneLink": "tel:+918507507173",
+    "disclaimer": "All prices are starting prices in Indian Rupees (INR) and exclude GST, domain, hosting, third-party API costs and government charges unless specified."
+  }
 }
