@@ -683,8 +683,8 @@
         "Trust"
       ],
       "floatingStat": {
-        "value": "50+",
-        "label": "Professionals"
+        "value": "5+",
+        "label": "Specialists"
       },
       "stats": [
         {
@@ -704,20 +704,20 @@
         "badge": "Our Story",
         "title": "Who We",
         "titleAccent": "Are",
-        "subtitle": "Brolytics Technologies is a certified organization in India. Formerly operating as Witech, a proprietorship firm, we transformed into a private limited company to drive growth and enhance client satisfaction."
+        "subtitle": "Brolytics Technologies is a registered organization in India. Formerly operating as Witech, a proprietorship firm, we transformed into a private limited company to drive growth and deliver specialized tech solutions."
       },
       "teamTitle": "Our Team: The Heart of Brolytics",
       "teamParagraphs": [
-        "Our success is fueled by a talented team of over 50 professionals — seasoned developers, UI/UX designers, data scientists, project managers, and industry experts — who bring a wealth of experience from global tech hubs like Silicon Valley, Bangalore, and Berlin. What sets us apart is our culture of collaboration and continuous learning.",
-        "At Brolytics Technologies, professional growth is non-negotiable. Our team members regularly upskill through certifications in emerging technologies. This ensures we're always at the forefront, ready to navigate the latest trends and disruptions in the digital landscape."
+        "Our success is fueled by a tight-knit, focused team of specialized professionals operating remotely across India. We bring together deep expertise in full-stack web development, cross-platform mobile apps, and custom software architecture to deliver high-impact digital solutions.",
+        "We prioritize quality and direct collaboration. By maintaining a lean and highly skilled core team, we ensure agile execution and tailored solutions for every client. We continuously upskill in modern frameworks to stay ahead in the rapidly evolving tech landscape."
       ],
       "upskills": [
-        "Blockchain",
-        "AWS",
-        "Azure",
-        "Google Cloud",
-        "Cybersecurity",
-        "AI & ML"
+        "Web Development",
+        "Mobile Apps",
+        "Cloud & APIs",
+        "UI/UX Design",
+        "SEO & Marketing",
+        "AI & Automation"
       ],
       "journey": [
         {
@@ -729,13 +729,13 @@
         {
           "icon": "rocket",
           "title": "Brolytics Technologies Pvt. Ltd.",
-          "description": "Transformed into a certified private limited company to drive growth and enhance client satisfaction.",
+          "description": "Transformed into a registered private limited company to drive growth and enhance client satisfaction.",
           "active": false
         },
         {
           "icon": "sparkles",
           "title": "Today",
-          "description": "50+ professionals delivering impactful digital solutions for 26+ happy clients worldwide.",
+          "description": "A focused team of tech specialists delivering impactful digital solutions and modern applications for our clients.",
           "active": true
         }
       ],
