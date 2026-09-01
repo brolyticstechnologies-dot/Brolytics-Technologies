@@ -189,13 +189,13 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                         return (
                           <DropdownMenuItem key={s.slug} asChild>
                             <Link href={`/services/${s.slug}`}
-                              className="flex items-start gap-3 p-3 rounded-2xl border border-transparent hover:border-primary/20 hover:bg-primary/[0.05] transition-all duration-200 cursor-pointer group">
-                              <div className="p-2 bg-silver-100 rounded-xl group-hover:bg-primary/15 transition-colors duration-300 flex-shrink-0">
-                                <Icon className="h-4 w-4 text-silver-500 group-hover:text-primary transition-colors duration-300" />
+                              className="flex items-start gap-3 p-3 rounded-2xl border border-transparent hover:border-primary hover:bg-primary transition-all duration-200 cursor-pointer group hover:shadow-md hover:shadow-primary/20">
+                              <div className="p-2 bg-silver-100 rounded-xl group-hover:bg-white/20 transition-colors duration-200 flex-shrink-0">
+                                <Icon className="h-4 w-4 text-silver-600 group-hover:text-white transition-colors duration-200" />
                               </div>
                               <div className="min-w-0">
-                                <p className="text-sm font-semibold text-silver-800 group-hover:text-silver-900 transition-colors duration-200 leading-tight">{s.title}</p>
-                                <p className="text-[11px] text-silver-400 mt-0.5 group-hover:text-silver-500 transition-colors duration-200">{s.description}</p>
+                                <p className="text-sm font-semibold text-silver-900 group-hover:text-white transition-colors duration-200 leading-tight">{s.title}</p>
+                                <p className="text-[11px] text-silver-500 mt-0.5 group-hover:text-white/85 transition-colors duration-200">{s.description}</p>
                               </div>
                             </Link>
                           </DropdownMenuItem>

@@ -232,31 +232,26 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                                       key={li}
                                       href={`/services/${link.slug}`}
                                       onClick={() => setMegaOpen(false)}
-                                      className={cn(
-                                        "flex items-start gap-2.5 p-2 rounded-xl transition-all duration-200 group",
-                                        light
-                                          ? "hover:bg-silver-50 hover:shadow-sm"
-                                          : "hover:bg-white/[0.05]"
-                                      )}
+                                      className="flex items-start gap-2.5 p-2 rounded-xl transition-all duration-200 group hover:bg-primary hover:shadow-md hover:scale-[1.02]"
                                     >
                                       <div className={cn(
                                         "p-1.5 rounded-lg shrink-0 mt-0.5 transition-colors duration-200",
                                         light
-                                          ? "bg-silver-100 group-hover:bg-primary/10"
-                                          : "bg-white/[0.05] group-hover:bg-primary/15"
+                                          ? "bg-silver-100 group-hover:bg-white/20"
+                                          : "bg-white/[0.05] group-hover:bg-white/20"
                                       )}>
                                         <LinkIcon className={cn(
                                           "w-3 h-3 transition-colors duration-200",
                                           light
-                                            ? "text-silver-500 group-hover:text-primary"
-                                            : "text-neutral-500 group-hover:text-primary"
+                                            ? "text-silver-600 group-hover:text-white"
+                                            : "text-neutral-400 group-hover:text-white"
                                         )} />
                                       </div>
                                       <div className="min-w-0">
                                         <p className={cn(
                                           "text-[13px] font-semibold leading-tight transition-colors duration-200",
                                           light
-                                            ? "text-silver-800 group-hover:text-silver-900"
+                                            ? "text-silver-800 group-hover:text-white"
                                             : "text-neutral-200 group-hover:text-white"
                                         )}>
                                           {link.label}
@@ -264,8 +259,8 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                                         <p className={cn(
                                           "text-[11px] mt-0.5 leading-tight transition-colors duration-200",
                                           light
-                                            ? "text-silver-400 group-hover:text-silver-500"
-                                            : "text-neutral-600 group-hover:text-neutral-400"
+                                            ? "text-silver-500 group-hover:text-white/85"
+                                            : "text-neutral-400 group-hover:text-white/85"
                                         )}>
                                           {link.desc}
                                         </p>
