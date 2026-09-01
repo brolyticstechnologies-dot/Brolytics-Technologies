@@ -1,0 +1,2852 @@
+{
+  "hero": {
+    "badge": "Your Digital Growth Partner",
+    "titleLine1": "We Design & Build",
+    "titleLine3": "Solutions That Drive Growth.",
+    "description": "From idea to launch — custom software, mobile apps, websites, AI solutions and digital marketing, engineered under one roof by Brolytics Technologies.",
+    "slides": [
+      {
+        "word": "Mobile Apps",
+        "src": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+        "alt": "Mobile app development"
+      },
+      {
+        "word": "Websites",
+        "src": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+        "alt": "Website design"
+      },
+      {
+        "word": "AI Solutions",
+        "src": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+        "alt": "Artificial intelligence"
+      },
+      {
+        "word": "Software",
+        "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+        "alt": "Digital team collaboration"
+      },
+      {
+        "word": "Brands",
+        "src": "https://images.unsplash.com/photo-1561070791-2526d30994b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+        "alt": "Brand and graphic design"
+      }
+    ],
+    "highlights": [
+      "On-time delivery",
+      "Dedicated support",
+      "Quality guaranteed"
+    ],
+    "proofPoints": [
+      {
+        "icon": "users",
+        "value": "26+",
+        "label": "Happy Clients"
+      },
+      {
+        "icon": "briefcase",
+        "value": "31+",
+        "label": "Projects Delivered"
+      }
+    ],
+    "clientCount": "26+",
+    "rating": "4.9/5",
+    "satisfaction": "98%",
+    "primaryCta": "Start Your Project",
+    "secondaryCta": "View Our Work",
+    "navCta": "Book a Meeting"
+  },
+  "services": [
+    {
+      "slug": "mobile-app-development",
+      "title": "Mobile App Development",
+      "description": "Native & Cross-platform apps",
+      "icon": "smartphone",
+      "tags": [
+        "iOS",
+        "Android",
+        "Cross-platform"
+      ]
+    },
+    {
+      "slug": "website-development",
+      "title": "Website Development",
+      "description": "Responsive & Modern websites",
+      "icon": "globe",
+      "tags": [
+        "React",
+        "Next.js",
+        "SEO-ready"
+      ]
+    },
+    {
+      "slug": "custom-software-development",
+      "title": "Custom Software Development",
+      "description": "Tailored business solutions",
+      "icon": "code",
+      "tags": [
+        "Cloud",
+        "API-first",
+        "Scalable"
+      ]
+    },
+    {
+      "slug": "graphics-design",
+      "title": "Graphics Design",
+      "description": "Creative visual content",
+      "icon": "palette",
+      "tags": [
+        "Branding",
+        "UI/UX",
+        "Visual ID"
+      ]
+    },
+    {
+      "slug": "seo-and-digital-marketing",
+      "title": "SEO & Digital Marketing",
+      "description": "Grow your online reach",
+      "icon": "megaphone",
+      "tags": [
+        "SEO",
+        "Ads",
+        "Analytics"
+      ]
+    },
+    {
+      "slug": "ai-services",
+      "title": "AI Services",
+      "description": "Intelligent automation",
+      "icon": "bot",
+      "tags": [
+        "ML",
+        "Automation",
+        "LLMs"
+      ]
+    }
+  ],
+  "servicesOverview": {
+    "header": {
+      "badge": "Solutions That Scale",
+      "title": "Our",
+      "titleAccent": "Services",
+      "subtitle": "Comprehensive solutions designed to drive innovation, efficiency, and growth across diverse industries with cutting-edge technology."
+    },
+    "bottomCtaTitle": "6 Services. One Trusted Partner.",
+    "bottomCtaSubtitle": "From strategy to launch — we handle your entire digital journey.",
+    "bottomCtaButton": "Start Your Project"
+  },
+  "stats": {
+    "header": {
+      "badge": "Numbers That Matter",
+      "title": "Our",
+      "titleAccent": "Achievements",
+      "subtitle": "Our success is measured by the numbers that matter most — satisfied clients, successful projects, and lasting partnerships."
+    },
+    "items": [
+      {
+        "end": 26,
+        "label": "Happy Clients",
+        "hint": "Trusted partnerships",
+        "icon": "smile",
+        "plus": true
+      },
+      {
+        "end": 31,
+        "label": "Projects Completed",
+        "hint": "Delivered on time",
+        "icon": "briefcase",
+        "plus": true
+      },
+      {
+        "end": 3,
+        "label": "Years Experience",
+        "hint": "Industry expertise",
+        "icon": "calendar",
+        "plus": true
+      },
+      {
+        "end": 20,
+        "label": "Team Members",
+        "hint": "Skilled experts",
+        "icon": "users",
+        "plus": true
+      },
+      {
+        "end": 6,
+        "label": "Industries Served",
+        "hint": "Diverse sectors",
+        "icon": "building",
+        "plus": true
+      }
+    ],
+    "bannerTitle": "Growing 200%+ Year Over Year",
+    "bannerSubtitle": "Consistent delivery, happy clients, and measurable business impact.",
+    "satisfaction": "98%",
+    "rating": "4.9"
+  },
+  "aboutUs": {
+    "header": {
+      "badge": "Innovation Driven",
+      "title": "About",
+      "titleAccent": "Brolytics",
+      "subtitle": "Transforming visions into reality through innovative solutions and exceptional service that drive business growth."
+    },
+    "image": "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2xsYWJvcmF0aW9uJTIwZ3JvdXB8ZW58MHx8fHwxNzQ4MzM2MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "imageAlt": "Creative team collaborating on innovative solutions",
+    "badge1": "Innovation First",
+    "badge2": "Future Ready",
+    "heading": "Thinking Outside the Box with",
+    "headingAccent": "Innovation",
+    "paragraphs": [
+      "At Brolytics, we believe innovation is the key to unlocking potential. As a modern IT services company, we specialize in crafting bespoke digital solutions—from dynamic websites and mobile apps to intelligent AI systems and custom software—that drive growth and efficiency.",
+      "Our team thrives on tackling complex challenges with creative strategies, ensuring our clients stay ahead in today's dynamic digital landscape. We are committed to delivering solutions that are not only innovative and reliable but also create a significant and lasting impact on your business."
+    ],
+    "ctaText": "More About Us"
+  },
+  "coreValues": {
+    "badge": "Principles We Live By",
+    "title": "Our Core Values",
+    "subtitle": "The principles that guide everything we do and drive our commitment to excellence in every project we undertake.",
+    "items": [
+      {
+        "icon": "lightbulb",
+        "title": "Innovation First",
+        "description": "We embrace cutting-edge technologies to deliver solutions that keep you ahead of the competition."
+      },
+      {
+        "icon": "users",
+        "title": "Client-Centric",
+        "description": "Your success is our priority. We build lasting partnerships through exceptional service and support."
+      },
+      {
+        "icon": "award",
+        "title": "Quality Excellence",
+        "description": "We maintain the highest standards in everything we do, ensuring reliable and impactful results."
+      },
+      {
+        "icon": "target",
+        "title": "Results-Driven",
+        "description": "Every solution is designed with measurable outcomes and tangible business value in mind."
+      },
+      {
+        "icon": "heart",
+        "title": "Passionate Team",
+        "description": "Our dedicated professionals bring expertise, creativity, and commitment to every project."
+      },
+      {
+        "icon": "shield",
+        "title": "Trust & Security",
+        "description": "We prioritize data security and build trust through transparency and reliable service delivery."
+      }
+    ]
+  },
+  "ourWork": {
+    "header": {
+      "badge": "Portfolio Showcase",
+      "title": "Our",
+      "titleAccent": "Work",
+      "subtitle": "A showcase of impactful work across platforms — demonstrating innovation, performance, and real business results."
+    },
+    "achievementStats": [
+      {
+        "icon": "clock",
+        "value": "3+",
+        "label": "Years Experience",
+        "description": "Building digital solutions"
+      },
+      {
+        "icon": "trending-up",
+        "value": "200%",
+        "label": "Growth Rate",
+        "description": "Average client improvement"
+      },
+      {
+        "icon": "star",
+        "value": "4.9/5",
+        "label": "Client Rating",
+        "description": "Exceeding expectations"
+      },
+      {
+        "icon": "target",
+        "value": "98%",
+        "label": "Success Rate",
+        "description": "Quality guaranteed"
+      }
+    ],
+    "projects": [
+      {
+        "id": "enterprise-erp",
+        "imageUrl": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "aiHint": "web app dashboard",
+        "category": "Custom Software",
+        "year": "2024",
+        "title": "Enterprise Resource Planning System",
+        "shortDescription": "Cloud ERP unifying manufacturing ops — inventory, HR, finance & analytics.",
+        "detailedDescription": "A complete ERP system that integrates every facet of a manufacturing operation — from inventory to HR — into a single cohesive platform with real-time analytics and automated workflows.",
+        "challenge": "Siloed data across departments led to inefficiencies, communication gaps, and costly errors in production and inventory.",
+        "solution": "A custom cloud-based ERP with modular architecture: real-time inventory tracking, CRM, HR portal, finance automation, and a central analytics dashboard with role-based access.",
+        "impact": {
+          "metric": "40%",
+          "label": "Increase in Operational Efficiency",
+          "subtext": "Measured across all departments within 6 months"
+        },
+        "results": "40% increase in operational efficiency across all departments",
+        "technologies": [
+          "React",
+          "Node.js",
+          "PostgreSQL",
+          "AWS",
+          "Docker"
+        ],
+        "duration": "6 months",
+        "href": "/our-work#case-study-enterprise-erp"
+      },
+      {
+        "id": "test-series-desktop",
+        "imageUrl": "/testseries.jpeg",
+        "aiHint": "windows desktop test series app",
+        "category": "Custom Software",
+        "year": "2023",
+        "title": "Test Series Desktop App",
+        "shortDescription": "Offline-first Windows app for competitive exam preparation with real-time analytics.",
+        "detailedDescription": "A secure, offline-first desktop app that lets students take timed mock tests, review performance with detailed analytics, and access a large question bank without a constant internet connection.",
+        "challenge": "Students in areas with poor connectivity needed a reliable, fast platform to practice — existing web solutions were inaccessible and slow.",
+        "solution": "A native WPF application storing data locally, with a secure test environment, instant scoring, question-wise reports, and an online sync to fetch new tests and upload results.",
+        "impact": {
+          "metric": "10,000+",
+          "label": "Students Using the App",
+          "subtext": "92% satisfaction rate across all user surveys"
+        },
+        "results": "Used by 10k+ students with 92% satisfaction rate",
+        "technologies": [
+          ".NET",
+          "WPF",
+          "SQLite",
+          "WinForms"
+        ],
+        "duration": "5 months",
+        "href": "/our-work#case-study-test-series-desktop"
+      },
+      {
+        "id": "gts-car-rental",
+        "imageUrl": "/gtslogo.png",
+        "aiHint": "gts car rental mobile app",
+        "category": "Mobile App",
+        "year": "2023",
+        "title": "GTS Car Rental App",
+        "shortDescription": "Ola/Uber-style ride-hailing app with real-time GPS, in-app payments & ratings.",
+        "detailedDescription": "A comprehensive ride-hailing app for iOS and Android connecting passengers with drivers — real-time GPS tracking, in-app payments, scheduling, and two-way rating.",
+        "challenge": "The client wanted to enter a competitive ride-sharing market with a reliable platform offering a superior regional experience.",
+        "solution": "Native passenger and driver apps with a powerful booking backend, Google Maps navigation, Stripe payments, and real-time chat between rider and driver.",
+        "impact": {
+          "metric": "60,000+",
+          "label": "Play Store Downloads",
+          "subtext": "Tripled user base within the first 3 months"
+        },
+        "results": "Tripled user base within 3 months | 60,000+ Play Store downloads",
+        "technologies": [
+          "Flutter",
+          "Firebase",
+          "Google Maps",
+          "Stripe"
+        ],
+        "duration": "7 months",
+        "href": "/our-work#case-study-gts-car-rental",
+        "testimonial": {
+          "quote": "Brolytics delivered exactly what we envisioned — our app outperforms competitors on both speed and UX.",
+          "name": "Rohan Mehta",
+          "role": "Founder · GTS Car Rentals"
+        }
+      },
+      {
+        "id": "golobolosys-fashion",
+        "imageUrl": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "aiHint": "ai based fashion ecommerce website",
+        "category": "Website Development",
+        "year": "2024",
+        "title": "Golobolosys Fashion Website",
+        "shortDescription": "AI-powered luxury fashion e-commerce with smart recommendations and virtual try-on.",
+        "detailedDescription": "A high-end e-commerce platform for a luxury fashion brand with an AI recommendation engine, virtual try-on, and a visually rich, seamless shopping experience.",
+        "challenge": "The brand needed an online presence matching its luxury status and a personalized experience to lift engagement and conversion.",
+        "solution": "A headless store on Next.js + Shopify with a custom AI model for personalized recommendations and an AR.js virtual try-on feature.",
+        "impact": {
+          "metric": "65%",
+          "label": "Increase in Conversion Rate",
+          "subtext": "Compared to previous website within 2 months"
+        },
+        "results": "Increased conversion rate by 65%",
+        "technologies": [
+          "Next.js",
+          "TailwindCSS",
+          "Shopify API",
+          "AI/ML",
+          "Stripe"
+        ],
+        "duration": "3 months",
+        "href": "/our-work#case-study-golobolosys-fashion"
+      },
+      {
+        "id": "rainbow-game",
+        "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "aiHint": "colorful mobile game app interface",
+        "category": "Mobile App",
+        "year": "2023",
+        "title": "Rainbow Game App",
+        "shortDescription": "Addictive cross-platform puzzle game with procedural levels and global leaderboards.",
+        "detailedDescription": "An addictive puzzle game for iOS and Android with procedurally generated levels, vibrant graphics, intuitive controls, and global leaderboards.",
+        "challenge": "In a saturated gaming market, the client wanted a simple yet engaging game that stands out visually with high replayability.",
+        "solution": "Built in Unity for cross-platform release, with procedural level generation, Game Center / Play Games leaderboards, and AdMob rewarded-ad monetization.",
+        "impact": {
+          "metric": "4.8★",
+          "label": "Rating on Google Play Store",
+          "subtext": "25,000+ verified reviews — Featured by Google"
+        },
+        "results": "Featured on Play Store | 4.8 star rating with 25k+ reviews",
+        "technologies": [
+          "Unity",
+          "C#",
+          "Firebase",
+          "AdMob"
+        ],
+        "duration": "4 months",
+        "href": "/our-work#case-study-rainbow-game"
+      },
+      {
+        "id": "custom-erp-software",
+        "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "aiHint": "ai based erp software business dashboard",
+        "category": "AI Solutions",
+        "year": "2024",
+        "title": "AI-Powered ERP Software",
+        "shortDescription": "AI-driven ERP with sales forecasting, automated workflows, and unified dashboards.",
+        "detailedDescription": "A bespoke ERP for a mid-sized enterprise that automates and integrates core business functions with AI-driven forecasting and an automated workflow engine.",
+        "challenge": "Disconnected tools caused data redundancy and no unified view of operations, hampering strategic planning.",
+        "solution": "A web ERP on Laravel + Vue.js with a Python AI module for sales forecasting, role-based dashboards, automated reports, and scalable Docker deployment.",
+        "impact": {
+          "metric": "1,200+",
+          "label": "Man-Hours Saved Per Year",
+          "subtext": "Through automated workflows and AI-driven decisions"
+        },
+        "results": "Saved 1,200+ man-hours per year",
+        "technologies": [
+          "Laravel",
+          "Vue.js",
+          "Python (AI)",
+          "Docker",
+          "MySQL"
+        ],
+        "duration": "9 months",
+        "href": "/our-work#case-study-custom-erp-software"
+      },
+      {
+        "id": "global-brand-campaign",
+        "imageUrl": "/digi.png",
+        "aiHint": "digital marketing campaign",
+        "category": "SEO & Marketing",
+        "year": "2024",
+        "title": "Global Brand Campaign",
+        "shortDescription": "Multi-channel B2B SaaS launch strategy across SEO, PPC, content and influencer marketing.",
+        "detailedDescription": "A comprehensive campaign for a B2B SaaS launch spanning SEO, content, PPC, and social to establish market presence and a qualified lead pipeline.",
+        "challenge": "Launching in a competitive market, the client needed to quickly build brand awareness and generate high-quality leads from day one.",
+        "solution": "A multi-pronged strategy: technical SEO, content marketing, targeted Google & LinkedIn ads, influencer outreach, and HubSpot lead nurturing flows.",
+        "impact": {
+          "metric": "200%",
+          "label": "Increase in Qualified Leads",
+          "subtext": "Achieved within the first 3 months of campaign launch"
+        },
+        "results": "200% increase in leads in 3 months",
+        "technologies": [
+          "SEO",
+          "PPC",
+          "HubSpot",
+          "Content Marketing",
+          "LinkedIn Ads"
+        ],
+        "duration": "Ongoing",
+        "href": "/our-work#case-study-global-brand-campaign"
+      },
+      {
+        "id": "corporate-rebranding",
+        "imageUrl": "/graph.png",
+        "aiHint": "corporate branding design",
+        "category": "Graphic Design",
+        "year": "2023",
+        "title": "Corporate Rebranding",
+        "shortDescription": "Full visual identity overhaul — logo, brand guidelines, website, and all collateral.",
+        "detailedDescription": "A full rebrand to modernize an established financial firm — new logo, brand guidelines, website design, and a complete set of marketing collateral.",
+        "challenge": "An outdated identity failed to resonate with a new generation of investors; they needed a fresh, trustworthy look.",
+        "solution": "Market research and brand workshops defined the strategy; we delivered a new identity, comprehensive brand book, redesigned site, and print/digital collateral.",
+        "impact": {
+          "metric": "35%",
+          "label": "Increase in Brand Recognition",
+          "subtext": "Based on post-launch market survey across target audience"
+        },
+        "results": "35% increase in brand recognition",
+        "technologies": [
+          "Illustrator",
+          "Photoshop",
+          "InDesign",
+          "Figma"
+        ],
+        "duration": "2 months",
+        "href": "/our-work#case-study-corporate-rebranding"
+      }
+    ],
+    "homeProjectCount": 3
+  },
+  "ourClients": {
+    "header": {
+      "badge": "Trusted Worldwide",
+      "title": "Our Clients &",
+      "titleAccent": "Trusted Partners",
+      "subtitle": "Delivering exceptional outcomes for businesses that demand the very best — across industries worldwide."
+    },
+    "clients": [
+      {
+        "name": "Tirupati",
+        "logo": "/tirupati_logo_transparent.png"
+      },
+      {
+        "name": "Globolosys",
+        "logo": "/globolosys.png"
+      },
+      {
+        "name": "GTS",
+        "logo": "/gtslogo.png"
+      },
+      {
+        "name": "Malogo",
+        "logo": "/malogo.png"
+      },
+      {
+        "name": "Alphaw",
+        "logo": "/alphaw.png"
+      },
+      {
+        "name": "Ceragon",
+        "logo": "/ceragon.png"
+      },
+      {
+        "name": "Steelmann",
+        "logo": "/steelmann.png"
+      },
+      {
+        "name": "Emergentt",
+        "logo": "/emergentt.png"
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Get In Touch",
+    "title": "Contact Us",
+    "subtitle": "Have a project in mind? We'd love to hear from you.",
+    "sideTitle": "Get in Touch",
+    "sideDescription": "Whether you have a question about our services, want to discuss a project, or just want to say hello, we'd love to hear from you.",
+    "responseTime": "24 hours",
+    "details": [
+      {
+        "icon": "mail",
+        "text": "brolyticstechnologies@gmail.com",
+        "href": "mailto:brolyticstechnologies@gmail.com"
+      },
+      {
+        "icon": "phone",
+        "text": "+91 8340715516",
+        "href": "tel:+918340715516"
+      }
+    ]
+  },
+  "footer": {
+    "ctaTitle": "Ready to build something great?",
+    "ctaSubtitle": "Let's turn your vision into a high-performing digital product.",
+    "ctaButton": "Start Your Project",
+    "brandDescription": "Brolytics Technologies — Your trusted IT partner for websites, mobile apps, AI, and custom software solutions.",
+    "brandTags": [
+      "Innovation",
+      "Excellence",
+      "Trust"
+    ],
+    "location": "India",
+    "copyright": "Brolytics Technologies",
+    "craftedText": "Crafted in India",
+    "quickLinks": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About Us",
+        "href": "/about-us"
+      },
+      {
+        "label": "Our Work",
+        "href": "/our-work"
+      },
+      {
+        "label": "Contact",
+        "href": "/#contact"
+      }
+    ],
+    "serviceLinks": [
+      {
+        "label": "Website Development",
+        "href": "/services/website-development"
+      },
+      {
+        "label": "Mobile App Development",
+        "href": "/services/mobile-app-development"
+      },
+      {
+        "label": "Custom Software",
+        "href": "/services/custom-software-development"
+      },
+      {
+        "label": "Graphics Design",
+        "href": "/services/graphics-design"
+      },
+      {
+        "label": "SEO & Marketing",
+        "href": "/services/seo-and-digital-marketing"
+      },
+      {
+        "label": "AI Services",
+        "href": "/services/ai-services"
+      }
+    ],
+    "contactInfo": [
+      {
+        "icon": "mail",
+        "text": "brolyticstechnologies@gmail.com",
+        "href": "mailto:brolyticstechnologies@gmail.com"
+      },
+      {
+        "icon": "phone",
+        "text": "+91 8340715516",
+        "href": "tel:+918340715516"
+      }
+    ],
+    "socialLinks": [
+      {
+        "icon": "facebook",
+        "href": "https://www.facebook.com/thivolve_global/",
+        "label": "Facebook"
+      },
+      {
+        "icon": "twitter",
+        "href": "#",
+        "label": "Twitter"
+      },
+      {
+        "icon": "linkedin",
+        "href": "https://www.linkedin.com/company/thivolve-global-pvt-ltd/",
+        "label": "LinkedIn"
+      },
+      {
+        "icon": "instagram",
+        "href": "https://www.instagram.com/thivolve_global/",
+        "label": "Instagram"
+      },
+      {
+        "icon": "youtube",
+        "href": "https://www.youtube.com/@faiyazmujtaba2598",
+        "label": "YouTube"
+      }
+    ]
+  },
+  "aboutPage": {
+    "hero": {
+      "badge": "Innovation Driven",
+      "title": "The Story & People Behind:",
+      "titleAccent": "Brolytics Technologies.",
+      "description": "Building the future with innovation, integrity, and a passion for excellence that transforms businesses and empowers communities.",
+      "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920",
+      "imageAlt": "Brolytics Technologies team working collaboratively",
+      "chipText": "Formerly Witech — Pvt. Ltd.",
+      "valuePills": [
+        "Innovation",
+        "Excellence",
+        "Trust"
+      ],
+      "floatingStat": {
+        "value": "50+",
+        "label": "Professionals"
+      },
+      "stats": [
+        {
+          "icon": "users",
+          "value": "26+",
+          "label": "Happy Clients"
+        },
+        {
+          "icon": "briefcase",
+          "value": "50+",
+          "label": "Projects Delivered"
+        }
+      ]
+    },
+    "whoWeAre": {
+      "header": {
+        "badge": "Our Story",
+        "title": "Who We",
+        "titleAccent": "Are",
+        "subtitle": "Brolytics Technologies is a certified organization in India. Formerly operating as Witech, a proprietorship firm, we transformed into a private limited company to drive growth and enhance client satisfaction."
+      },
+      "teamTitle": "Our Team: The Heart of Brolytics",
+      "teamParagraphs": [
+        "Our success is fueled by a talented team of over 50 professionals — seasoned developers, UI/UX designers, data scientists, project managers, and industry experts — who bring a wealth of experience from global tech hubs like Silicon Valley, Bangalore, and Berlin. What sets us apart is our culture of collaboration and continuous learning.",
+        "At Brolytics Technologies, professional growth is non-negotiable. Our team members regularly upskill through certifications in emerging technologies. This ensures we're always at the forefront, ready to navigate the latest trends and disruptions in the digital landscape."
+      ],
+      "upskills": [
+        "Blockchain",
+        "AWS",
+        "Azure",
+        "Google Cloud",
+        "Cybersecurity",
+        "AI & ML"
+      ],
+      "journey": [
+        {
+          "icon": "building2",
+          "title": "Witech",
+          "description": "Started as a proprietorship firm with big ambitions and a passion for technology.",
+          "active": false
+        },
+        {
+          "icon": "rocket",
+          "title": "Brolytics Technologies Pvt. Ltd.",
+          "description": "Transformed into a certified private limited company to drive growth and enhance client satisfaction.",
+          "active": false
+        },
+        {
+          "icon": "sparkles",
+          "title": "Today",
+          "description": "50+ professionals delivering impactful digital solutions for 26+ happy clients worldwide.",
+          "active": true
+        }
+      ],
+      "philosophy": "We don't just build code — we architect ecosystems that foster long-term growth."
+    },
+    "expertise": {
+      "header": {
+        "badge": "What We Do",
+        "title": "Our Core",
+        "titleAccent": "Expertise",
+        "subtitle": "As a modern IT services company, we specialize in crafting bespoke digital solutions tailored to your unique needs — designed to propel your business forward."
+      },
+      "items": [
+        {
+          "icon": "globe",
+          "title": "Web Development",
+          "description": "From responsive, SEO-optimized websites to scalable e-commerce platforms built on frameworks like React, Node.js, and Laravel."
+        },
+        {
+          "icon": "smartphone",
+          "title": "Mobile App Development",
+          "description": "Whether it's a cross-platform app using Flutter or native iOS/Android solutions with Swift and Kotlin."
+        },
+        {
+          "icon": "bot",
+          "title": "AI & Machine Learning Systems",
+          "description": "Leveraging tools like TensorFlow, PyTorch, and advanced NLP models for predictive analytics and automation."
+        },
+        {
+          "icon": "code",
+          "title": "Custom Software Solutions",
+          "description": "Our bespoke software development covers everything from ERP systems to CRM integrations and IoT-enabled applications."
+        }
+      ],
+      "footerNote": "Every project is approached with a client-centric methodology, incorporating agile practices to iterate quickly, minimize risks, and maximize ROI."
+    },
+    "values": {
+      "header": {
+        "badge": "Why We Exist",
+        "title": "Our Mission &",
+        "titleAccent": "Values",
+        "subtitle": "To empower businesses with transformative technology that drives sustainable success — innovative, reliable, ethically sound, scalable, and impactful."
+      },
+      "items": [
+        {
+          "icon": "lightbulb",
+          "title": "Innovation First",
+          "description": "We push boundaries, experimenting with emerging tech to solve tomorrow's problems today."
+        },
+        {
+          "icon": "handshake",
+          "title": "Client Partnership",
+          "description": "You're not just a client — you're a collaborator. We listen, adapt, and co-create to align our work with your vision."
+        },
+        {
+          "icon": "shield-check",
+          "title": "Excellence & Integrity",
+          "description": "Every line of code, every design decision, is held to the highest standards of quality, security, and transparency."
+        },
+        {
+          "icon": "leaf",
+          "title": "Sustainability & Impact",
+          "description": "We prioritize green computing practices and solutions that contribute positively to society."
+        }
+      ]
+    },
+    "team": {
+      "header": {
+        "badge": "The People",
+        "title": "Meet Our",
+        "titleAccent": "Team",
+        "subtitle": "The passionate professionals driving our success and delivering excellence across every project."
+      },
+      "members": [
+        {
+          "name": "Faiyaz Mujtaba",
+          "role": "Project Manager",
+          "image": "/faiyaz.jpeg",
+          "linkedin": "https://linkedin.com/in/faiyaz-mujtaba"
+        }
+      ]
+    },
+    "testimonials": {
+      "header": {
+        "badge": "Client Love",
+        "title": "What Our Clients",
+        "titleAccent": "Say",
+        "subtitle": "We are proud to build lasting partnerships based on trust, results, and exceptional service delivery."
+      },
+      "items": [
+        {
+          "quote": "Brolytics Technologies transformed our digital presence with a stunning website and a brilliant marketing strategy. Their team is professional, creative, and truly dedicated to client success.",
+          "name": "Syed Sayam Hussain",
+          "role": "CEO of Globolosys Fashion"
+        },
+        {
+          "quote": "The mobile app developed by Brolytics Technologies has been a game-changer for our business. It's intuitive, fast, and our users love it.",
+          "name": "Tp Singh",
+          "role": "Founder of Gts Car Rental"
+        },
+        {
+          "quote": "Working with Brolytics Technologies on our AI integration project was a fantastic experience. They delivered a solution that has significantly improved our operational efficiency.",
+          "name": "Harsh Singh Rajput",
+          "role": "CTO of Datawise"
+        }
+      ],
+      "ctaText": "Start Your Journey With Us"
+    }
+  },
+  "siteSettings": {
+    "logo": "/newwblt.png",
+    "logoAlt": "Brolytics Technologies",
+    "companyName": "Brolytics Technologies",
+    "website": "www.brolyticstechnologies.com",
+    "tagline": "Your trusted IT partner for websites, mobile apps, AI, and custom software solutions.",
+    "contactEmail": "brolyticstechnologies@gmail.com",
+    "contactPhone": "+91 8340715516"
+  },
+  "pricing": [
+    {
+      "id": "growth",
+      "name": "Growth",
+      "tagline": "For businesses ready to build & scale",
+      "isPopular": false,
+      "cta": "Get Started",
+      "ctaHref": "/#contact",
+      "pricing": {
+        "oneTime": {
+          "amount": "₹XX,XXX",
+          "label": "One-time",
+          "sublabel": "Fixed price, single delivery"
+        },
+        "monthly": {
+          "amount": "₹X,XXX",
+          "label": "/ month",
+          "sublabel": "Ongoing engagement, cancel anytime"
+        }
+      },
+      "features": [
+        {
+          "text": "Up to 15 pages / screens",
+          "included": true
+        },
+        {
+          "text": "Custom UI/UX design",
+          "included": true
+        },
+        {
+          "text": "API & third-party integrations",
+          "included": true
+        },
+        {
+          "text": "4 revision rounds",
+          "included": true
+        },
+        {
+          "text": "90-day post-launch support",
+          "included": true
+        },
+        {
+          "text": "SEO-ready structure",
+          "included": true
+        },
+        {
+          "text": "6–8 week delivery",
+          "included": true
+        },
+        {
+          "text": "Dedicated project manager",
+          "included": false
+        },
+        {
+          "text": "SLA-backed uptime guarantee",
+          "included": false
+        }
+      ]
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "tagline": "For complex, large-scale platforms",
+      "isPopular": true,
+      "cta": "Contact Us",
+      "ctaHref": "/#contact",
+      "pricing": {
+        "oneTime": {
+          "amount": "Custom Quote",
+          "label": "",
+          "sublabel": "Scoped to your exact requirements"
+        },
+        "monthly": {
+          "amount": "Custom Quote",
+          "label": "",
+          "sublabel": "Retainer with SLA & priority support"
+        }
+      },
+      "features": [
+        {
+          "text": "Unlimited pages / modules",
+          "included": true
+        },
+        {
+          "text": "Custom UI/UX design system",
+          "included": true
+        },
+        {
+          "text": "Complex API & AI integrations",
+          "included": true
+        },
+        {
+          "text": "Unlimited revision rounds",
+          "included": true
+        },
+        {
+          "text": "1-year support & maintenance",
+          "included": true
+        },
+        {
+          "text": "SEO + performance optimization",
+          "included": true
+        },
+        {
+          "text": "Priority 24h response time",
+          "included": true
+        },
+        {
+          "text": "Dedicated project manager",
+          "included": true
+        },
+        {
+          "text": "SLA-backed uptime guarantee",
+          "included": true
+        }
+      ]
+    }
+  ],
+  "pricingCategories": [
+    {
+      "id": "website",
+      "label": "Website Development",
+      "icon": "Globe",
+      "sections": [
+        {
+          "id": "static-website",
+          "title": "Static Website",
+          "subtitle": "Suitable for startups, company profiles, portfolios, consultants, small businesses, professionals and landing pages.",
+          "tables": [
+            {
+              "heading": "Pricing",
+              "rows": [
+                {
+                  "item": "1 Page Landing Page",
+                  "price": "₹8,000"
+                },
+                {
+                  "item": "3 Pages",
+                  "price": "₹12,000"
+                },
+                {
+                  "item": "5 Pages",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "7 Pages",
+                  "price": "₹20,000"
+                },
+                {
+                  "item": "10 Pages",
+                  "price": "₹25,000"
+                },
+                {
+                  "item": "Additional Page",
+                  "price": "₹2,000/page"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Includes",
+              "items": [
+                "Responsive design",
+                "Mobile compatibility",
+                "Contact form",
+                "WhatsApp integration",
+                "Google Maps",
+                "Social media links",
+                "Basic SEO",
+                "SSL configuration",
+                "Deployment"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dynamic-cms-website",
+          "title": "Dynamic / CMS Website",
+          "subtitle": "Suitable for companies that want to manage their website through an admin panel.",
+          "tables": [
+            {
+              "heading": "Pricing",
+              "rows": [
+                {
+                  "item": "Basic Dynamic Website",
+                  "price": "₹30,000"
+                },
+                {
+                  "item": "Standard Business Website",
+                  "price": "₹40,000"
+                },
+                {
+                  "item": "Advanced Business Website",
+                  "price": "₹60,000"
+                },
+                {
+                  "item": "Premium Corporate Website",
+                  "price": "₹80,000+"
+                },
+                {
+                  "item": "Additional Dynamic Page",
+                  "price": "₹3,000/page"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Possible Features",
+              "items": [
+                "Admin panel",
+                "Database",
+                "Dynamic pages",
+                "Blog",
+                "News",
+                "Gallery",
+                "Team management",
+                "Enquiry management",
+                "Banner management",
+                "Forms",
+                "User management",
+                "SEO management",
+                "Content management"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "page-wise",
+          "title": "Page-wise Development",
+          "subtitle": "Note: Complex functionality, APIs, database operations and business logic are quoted separately.",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Home",
+                  "price": "₹5,000"
+                },
+                {
+                  "item": "About",
+                  "price": "₹2,000"
+                },
+                {
+                  "item": "Services",
+                  "price": "₹2,000"
+                },
+                {
+                  "item": "Product",
+                  "price": "₹2,500"
+                },
+                {
+                  "item": "Contact",
+                  "price": "₹2,000"
+                },
+                {
+                  "item": "Portfolio",
+                  "price": "₹3,000"
+                },
+                {
+                  "item": "Gallery",
+                  "price": "₹3,000"
+                },
+                {
+                  "item": "Blog Listing",
+                  "price": "₹3,000"
+                },
+                {
+                  "item": "Blog Details",
+                  "price": "₹2,000"
+                },
+                {
+                  "item": "Team",
+                  "price": "₹2,000"
+                },
+                {
+                  "item": "FAQ",
+                  "price": "₹1,500"
+                },
+                {
+                  "item": "Career",
+                  "price": "₹3,000"
+                },
+                {
+                  "item": "Pricing",
+                  "price": "₹2,000"
+                },
+                {
+                  "item": "Login / Register",
+                  "price": "₹4,000"
+                },
+                {
+                  "item": "User Dashboard",
+                  "price": "₹8,000+"
+                },
+                {
+                  "item": "Admin Dashboard",
+                  "price": "₹10,000+"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ecommerce",
+      "label": "E-Commerce",
+      "icon": "ShoppingCart",
+      "sections": [
+        {
+          "id": "ecommerce-basic",
+          "title": "Basic E-Commerce",
+          "tables": [
+            {
+              "heading": "Starting ₹60,000",
+              "rows": []
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Includes",
+              "items": [
+                "Products",
+                "Categories",
+                "Product details",
+                "Search",
+                "Cart",
+                "Wishlist",
+                "Customer account",
+                "Checkout",
+                "Orders",
+                "Payment gateway",
+                "Coupon",
+                "Admin panel"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ecommerce-advanced",
+          "title": "Advanced E-Commerce",
+          "tables": [
+            {
+              "heading": "₹1,00,000 – ₹2,50,000+",
+              "rows": []
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Additional possibilities",
+              "items": [
+                "Inventory",
+                "Product variations",
+                "GST invoice",
+                "Shipping API",
+                "Returns / refunds",
+                "Reviews",
+                "Multiple payment methods",
+                "Advanced reports",
+                "Customer wallet"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ecommerce-marketplace",
+          "title": "Marketplace",
+          "tables": [
+            {
+              "heading": "₹2,00,000 – ₹6,00,000+",
+              "rows": []
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Includes",
+              "items": [
+                "Customer panel",
+                "Vendor panel",
+                "Admin panel",
+                "Vendor onboarding",
+                "Commission",
+                "Product management",
+                "Order management",
+                "Payment settlement",
+                "Reports",
+                "Reviews",
+                "Shipping integration"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "admin-panel",
+          "title": "Admin Panel & Dashboard",
+          "tables": [
+            {
+              "heading": "Admin Panel",
+              "rows": [
+                {
+                  "item": "Basic Admin Panel",
+                  "price": "₹20,000"
+                },
+                {
+                  "item": "Standard Admin Panel",
+                  "price": "₹35,000"
+                },
+                {
+                  "item": "Advanced Admin Panel",
+                  "price": "₹60,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Possible Modules",
+              "items": [
+                "Dashboard",
+                "Users",
+                "Roles",
+                "Permissions",
+                "Reports",
+                "Analytics",
+                "Content",
+                "Notifications",
+                "Settings",
+                "Export",
+                "Logs",
+                "Activity monitoring"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mobile",
+      "label": "Mobile Apps",
+      "icon": "Smartphone",
+      "sections": [
+        {
+          "id": "android",
+          "title": "Android Application Development",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic Android App",
+                  "price": "Starting ₹60,000"
+                },
+                {
+                  "item": "Standard Android App",
+                  "price": "Starting ₹1,00,000"
+                },
+                {
+                  "item": "Advanced Android App",
+                  "price": "₹1,50,000 – ₹3,00,000+"
+                },
+                {
+                  "item": "Complex Android Product",
+                  "price": "₹3,00,000 – ₹10,00,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Suitable for",
+              "items": [
+                "Business apps",
+                "Education",
+                "E-commerce",
+                "Booking",
+                "Delivery",
+                "CRM",
+                "Social applications",
+                "Utility apps",
+                "Enterprise applications"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ios",
+          "title": "iOS Application Development",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic iOS App",
+                  "price": "Starting ₹80,000"
+                },
+                {
+                  "item": "Standard iOS App",
+                  "price": "Starting ₹1,25,000"
+                },
+                {
+                  "item": "Advanced iOS App",
+                  "price": "₹2,00,000 – ₹4,00,000+"
+                },
+                {
+                  "item": "Complex iOS Product",
+                  "price": "₹4,00,000 – ₹10,00,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cross-platform",
+          "title": "Android + iOS Cross-Platform",
+          "subtitle": "Using technologies such as Flutter or React Native. Final pricing depends on screens, backend, APIs, integrations and business logic.",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic Mobile Product",
+                  "price": "Starting ₹1,00,000"
+                },
+                {
+                  "item": "Standard App",
+                  "price": "Starting ₹1,50,000"
+                },
+                {
+                  "item": "Advanced App",
+                  "price": "₹2,50,000 – ₹5,00,000+"
+                },
+                {
+                  "item": "Complex Product",
+                  "price": "₹5,00,000 – ₹15,00,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mobile-features",
+          "title": "Mobile App Features (Add-ons)",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Login / Register",
+                  "price": "₹5,000"
+                },
+                {
+                  "item": "OTP Authentication",
+                  "price": "₹8,000"
+                },
+                {
+                  "item": "Google Login",
+                  "price": "₹5,000"
+                },
+                {
+                  "item": "Apple Login",
+                  "price": "₹7,500"
+                },
+                {
+                  "item": "User Profile",
+                  "price": "₹5,000"
+                },
+                {
+                  "item": "Push Notifications",
+                  "price": "₹7,500"
+                },
+                {
+                  "item": "Firebase Integration",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "REST API Integration",
+                  "price": "₹10,000+"
+                },
+                {
+                  "item": "Payment Gateway",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Subscription",
+                  "price": "₹20,000+"
+                },
+                {
+                  "item": "Google Maps",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Live Location",
+                  "price": "₹15,000+"
+                },
+                {
+                  "item": "QR Scanner",
+                  "price": "₹7,500"
+                },
+                {
+                  "item": "QR Generator",
+                  "price": "₹5,000"
+                },
+                {
+                  "item": "Chat",
+                  "price": "₹20,000+"
+                },
+                {
+                  "item": "Real-Time Chat",
+                  "price": "₹30,000+"
+                },
+                {
+                  "item": "Video Calling",
+                  "price": "₹40,000+"
+                },
+                {
+                  "item": "Audio Calling",
+                  "price": "₹30,000+"
+                },
+                {
+                  "item": "Booking",
+                  "price": "₹20,000+"
+                },
+                {
+                  "item": "Rating & Review",
+                  "price": "₹7,500"
+                },
+                {
+                  "item": "Referral System",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Wallet",
+                  "price": "₹20,000+"
+                },
+                {
+                  "item": "Coupon System",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Advanced Admin Panel",
+                  "price": "₹40,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mobile-uiux",
+          "title": "Mobile App UI/UX Design",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic Mobile UI/UX",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Standard UI/UX",
+                  "price": "₹30,000"
+                },
+                {
+                  "item": "Advanced UI/UX",
+                  "price": "₹50,000+"
+                },
+                {
+                  "item": "Complete Product Design",
+                  "price": "₹75,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "May Include",
+              "items": [
+                "User flow",
+                "Wireframes",
+                "App screens",
+                "Design system",
+                "Components",
+                "Prototype",
+                "Responsive layouts"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software",
+      "label": "Custom Software & ERP",
+      "icon": "Code",
+      "sections": [
+        {
+          "id": "custom-web-app",
+          "title": "Custom Web Application",
+          "subtitle": "Custom web applications are priced according to modules and business workflows.",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic Web Application",
+                  "price": "₹75,000"
+                },
+                {
+                  "item": "Business Management System",
+                  "price": "₹1,00,000"
+                },
+                {
+                  "item": "CRM",
+                  "price": "₹1,25,000"
+                },
+                {
+                  "item": "HRMS",
+                  "price": "₹1,25,000"
+                },
+                {
+                  "item": "Inventory System",
+                  "price": "₹1,00,000"
+                },
+                {
+                  "item": "Billing Software",
+                  "price": "₹75,000"
+                },
+                {
+                  "item": "Accounting System",
+                  "price": "₹1,50,000"
+                },
+                {
+                  "item": "ERP",
+                  "price": "₹2,50,000+"
+                },
+                {
+                  "item": "Advanced ERP",
+                  "price": "₹5,00,000+"
+                },
+                {
+                  "item": "SaaS Platform",
+                  "price": "₹3,00,000+"
+                },
+                {
+                  "item": "Marketplace",
+                  "price": "₹2,00,000+"
+                },
+                {
+                  "item": "Enterprise Application",
+                  "price": "₹5,00,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "custom-software",
+          "title": "Custom Software Development",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic Business Software",
+                  "price": "Starting ₹75,000"
+                },
+                {
+                  "item": "Standard Business Software",
+                  "price": "Starting ₹1,00,000"
+                },
+                {
+                  "item": "Advanced Business Software",
+                  "price": "Starting ₹2,00,000"
+                },
+                {
+                  "item": "Enterprise Software",
+                  "price": "Starting ₹5,00,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Possible Modules",
+              "items": [
+                "Authentication",
+                "Users",
+                "Employees",
+                "Customers",
+                "Vendors",
+                "Products",
+                "Inventory",
+                "Purchase",
+                "Sales",
+                "Billing",
+                "Expenses",
+                "Payments",
+                "Reports",
+                "Notifications",
+                "Roles",
+                "Permissions",
+                "Audit logs",
+                "API",
+                "Dashboard"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "software-modules",
+          "title": "Software Module Pricing",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Authentication",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "User Management",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Roles & Permissions",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Dashboard",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Customer Management",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Employee Management",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Product Management",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Inventory",
+                  "price": "₹20,000"
+                },
+                {
+                  "item": "Purchase",
+                  "price": "₹20,000"
+                },
+                {
+                  "item": "Sales",
+                  "price": "₹20,000"
+                },
+                {
+                  "item": "Invoice",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Expenses",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Payments",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Reports",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Advanced Reports",
+                  "price": "₹30,000+"
+                },
+                {
+                  "item": "Notifications",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "File Management",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Document Management",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Audit Logs",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Multi-Branch",
+                  "price": "₹30,000+"
+                },
+                {
+                  "item": "Multi-Company",
+                  "price": "₹40,000+"
+                },
+                {
+                  "item": "API Integration",
+                  "price": "₹10,000+"
+                },
+                {
+                  "item": "Third-Party Integration",
+                  "price": "₹10,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "crm",
+          "title": "CRM Development",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic CRM",
+                  "price": "Starting ₹1,25,000"
+                },
+                {
+                  "item": "Advanced CRM",
+                  "price": "₹2,50,000 – ₹6,00,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Possible Modules",
+              "items": [
+                "Lead management",
+                "Customer management",
+                "Follow-ups",
+                "Sales pipeline",
+                "Tasks",
+                "Reminders",
+                "Calls",
+                "Enquiries",
+                "Sales reports",
+                "Employee management",
+                "Permissions",
+                "Notifications"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "erp",
+          "title": "ERP Development",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic ERP",
+                  "price": "Starting ₹2,50,000"
+                },
+                {
+                  "item": "Advanced ERP",
+                  "price": "₹5,00,000 – ₹15,00,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Possible Modules",
+              "items": [
+                "HR",
+                "Payroll",
+                "Attendance",
+                "Production",
+                "Raw material",
+                "Wastage",
+                "Purchase",
+                "Sales",
+                "Inventory",
+                "Accounting",
+                "GST",
+                "Invoicing",
+                "CRM",
+                "Customer portal",
+                "Vendor portal",
+                "Employee portal",
+                "Multi-branch",
+                "Multi-company",
+                "Analytics"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "saas",
+          "title": "SaaS Product Development",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "SaaS MVP",
+                  "price": "Starting ₹3,00,000"
+                },
+                {
+                  "item": "Standard SaaS",
+                  "price": "₹5,00,000 – ₹12,00,000+"
+                },
+                {
+                  "item": "Advanced SaaS",
+                  "price": "₹10,00,000 – ₹25,00,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Possible Features",
+              "items": [
+                "Multi-tenant architecture",
+                "Organizations",
+                "Users",
+                "Subscription plans",
+                "Billing",
+                "Payment gateway",
+                "Usage limits",
+                "Admin",
+                "User dashboard",
+                "Analytics",
+                "API",
+                "Notifications",
+                "Role permissions"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "industry-specific",
+          "title": "Industry-Specific Software",
+          "subtitle": "Final cost depends on modules and integrations.",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Education / Institute Management",
+                  "price": "Starting ₹1,50,000"
+                },
+                {
+                  "item": "Real Estate CRM",
+                  "price": "Starting ₹1,25,000"
+                },
+                {
+                  "item": "Hospital / Clinic Management",
+                  "price": "Starting ₹1,25,000"
+                },
+                {
+                  "item": "Restaurant Management",
+                  "price": "Starting ₹75,000"
+                },
+                {
+                  "item": "POS + Inventory",
+                  "price": "Starting ₹75,000"
+                },
+                {
+                  "item": "Booking Platform",
+                  "price": "Starting ₹40,000"
+                },
+                {
+                  "item": "Delivery Platform",
+                  "price": "Starting ₹1,50,000"
+                },
+                {
+                  "item": "Social / Community Platform",
+                  "price": "Starting ₹2,00,000"
+                },
+                {
+                  "item": "Marketplace",
+                  "price": "Starting ₹2,00,000"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "label": "Backend, API & DB",
+      "icon": "Server",
+      "sections": [
+        {
+          "id": "backend-dev",
+          "title": "Backend Development",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic Backend",
+                  "price": "₹25,000"
+                },
+                {
+                  "item": "REST API Backend",
+                  "price": "₹30,000"
+                },
+                {
+                  "item": "Standard Backend",
+                  "price": "₹50,000"
+                },
+                {
+                  "item": "Advanced Backend",
+                  "price": "₹1,00,000+"
+                },
+                {
+                  "item": "Enterprise Backend",
+                  "price": "₹2,50,000+"
+                },
+                {
+                  "item": "High-Scale Backend",
+                  "price": "₹5,00,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "api-dev",
+          "title": "API Development",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic REST API",
+                  "price": "₹20,000"
+                },
+                {
+                  "item": "Standard API",
+                  "price": "₹40,000"
+                },
+                {
+                  "item": "Advanced API Platform",
+                  "price": "₹1,00,000+"
+                },
+                {
+                  "item": "Enterprise API",
+                  "price": "₹2,50,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Services",
+              "items": [
+                "REST API",
+                "Authentication",
+                "Authorization",
+                "CRUD",
+                "File upload",
+                "Payment API",
+                "Notification API",
+                "Third-party APIs",
+                "Webhooks",
+                "API documentation",
+                "Rate limiting",
+                "API security"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "database-dev",
+          "title": "Database Development",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Database Design",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Database Optimization",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Database Migration",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Advanced Architecture",
+                  "price": "₹30,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "payment-gateway",
+          "title": "Payment Gateway Integration",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Payment Gateway Integration",
+                  "price": "Starting ₹10,000"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Supported Gateways",
+              "items": [
+                "Razorpay",
+                "Cashfree",
+                "PayU",
+                "Stripe",
+                "Other supported providers"
+              ]
+            },
+            {
+              "heading": "Note",
+              "items": [
+                "Gateway transaction charges and merchant fees are separate."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sms-otp-email",
+          "title": "SMS / OTP / Email / WhatsApp",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "SMS Integration",
+                  "price": "₹7,500"
+                },
+                {
+                  "item": "OTP System",
+                  "price": "₹8,000"
+                },
+                {
+                  "item": "SMTP Setup",
+                  "price": "₹5,000"
+                },
+                {
+                  "item": "Transactional Email",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Email Automation",
+                  "price": "₹20,000+"
+                },
+                {
+                  "item": "WhatsApp Integration",
+                  "price": "₹10,000+"
+                },
+                {
+                  "item": "WhatsApp Business / API Automation",
+                  "price": "₹20,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Note",
+              "items": [
+                "Third-party usage charges are separate."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "AI & Automation",
+      "icon": "Bot",
+      "sections": [
+        {
+          "id": "ai-integration",
+          "title": "AI & Machine Learning",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "AI Feature Integration",
+                  "price": "Starting ₹25,000"
+                },
+                {
+                  "item": "Advanced AI Product",
+                  "price": "₹1,00,000 – ₹10,00,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Possible Solutions",
+              "items": [
+                "AI Chatbot",
+                "AI Assistant",
+                "AI Search",
+                "AI Recommendations",
+                "AI Content Generation",
+                "AI Document Processing",
+                "AI Automation",
+                "AI API integration",
+                "AI-powered dashboards"
+              ]
+            },
+            {
+              "heading": "Note",
+              "items": [
+                "API / model / token / infrastructure costs are separate."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "automation",
+          "title": "Automation & Business Process Automation",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic Automation",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Business Automation",
+                  "price": "₹30,000"
+                },
+                {
+                  "item": "Advanced Workflow Automation",
+                  "price": "₹75,000+"
+                },
+                {
+                  "item": "Enterprise Automation",
+                  "price": "₹2,00,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Examples",
+              "items": [
+                "Lead automation",
+                "Email automation",
+                "Invoice automation",
+                "Approval workflow",
+                "Notifications",
+                "Scheduled jobs",
+                "Data synchronization",
+                "Reports"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cloud",
+      "label": "Cloud & DevOps",
+      "icon": "Cloud",
+      "sections": [
+        {
+          "id": "cloud-devops",
+          "title": "Cloud & DevOps Services",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Website Deployment",
+                  "price": "₹3,000"
+                },
+                {
+                  "item": "Web App Deployment",
+                  "price": "₹7,500"
+                },
+                {
+                  "item": "Server Configuration",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Cloud Deployment",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Docker Deployment",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "CI/CD Setup",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Advanced DevOps",
+                  "price": "₹30,000+"
+                },
+                {
+                  "item": "Kubernetes / Advanced Infrastructure",
+                  "price": "₹50,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Note",
+              "items": [
+                "Infrastructure charges are separate."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "security",
+          "title": "Security Services",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic Security Review",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Web Security Audit",
+                  "price": "₹30,000"
+                },
+                {
+                  "item": "Application Security Audit",
+                  "price": "₹30,000+"
+                },
+                {
+                  "item": "Advanced Security Assessment",
+                  "price": "₹50,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Note",
+              "items": [
+                "Security scope is finalized separately according to the application."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "domain-hosting",
+          "title": "Domain, Hosting & Deployment",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Domain",
+                  "price": "~₹800 – ₹2,500/year"
+                },
+                {
+                  "item": "Shared Hosting",
+                  "price": "~₹3,000 – ₹10,000/year"
+                },
+                {
+                  "item": "VPS / Cloud",
+                  "price": "~₹12,000/year onward"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Note",
+              "items": [
+                "Actual third-party pricing depends on provider, plan and infrastructure."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "app-store",
+          "title": "App Store & Play Store Deployment",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Google Play Store Deployment",
+                  "price": "₹5,000"
+                },
+                {
+                  "item": "Apple App Store Deployment",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Store Listing Assistance",
+                  "price": "₹5,000+"
+                },
+                {
+                  "item": "Production Release Support",
+                  "price": "₹5,000+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Note",
+              "items": [
+                "Developer account fees are separate."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "design-marketing",
+      "label": "Design & Marketing",
+      "icon": "Palette",
+      "sections": [
+        {
+          "id": "ui-ux-design",
+          "title": "UI/UX & Product Design",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Logo",
+                  "price": "₹3,000"
+                },
+                {
+                  "item": "Website UI/UX",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Mobile UI/UX",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Dashboard UI",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Design System",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Complete Product Design",
+                  "price": "₹30,000+"
+                },
+                {
+                  "item": "Premium Branding",
+                  "price": "₹25,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "graphic-design",
+          "title": "Graphic Design & Branding",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Logo",
+                  "price": "₹3,000"
+                },
+                {
+                  "item": "Business Card",
+                  "price": "₹1,000"
+                },
+                {
+                  "item": "Letterhead",
+                  "price": "₹1,000"
+                },
+                {
+                  "item": "Social Media Creative",
+                  "price": "₹500"
+                },
+                {
+                  "item": "Poster",
+                  "price": "₹1,000"
+                },
+                {
+                  "item": "Brochure",
+                  "price": "₹3,000"
+                },
+                {
+                  "item": "Company Profile",
+                  "price": "₹5,000"
+                },
+                {
+                  "item": "Presentation",
+                  "price": "₹3,000"
+                },
+                {
+                  "item": "Brand Identity",
+                  "price": "₹15,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "seo",
+          "title": "SEO Services",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic SEO Setup",
+                  "price": "₹7,500"
+                },
+                {
+                  "item": "Monthly SEO",
+                  "price": "₹10,000/month"
+                },
+                {
+                  "item": "Advanced SEO",
+                  "price": "₹20,000 – ₹50,000+/month"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Services",
+              "items": [
+                "Technical SEO",
+                "On-page SEO",
+                "Keyword research",
+                "Sitemap",
+                "Search Console",
+                "Analytics",
+                "Meta optimization",
+                "Local SEO",
+                "Reporting"
+              ]
+            },
+            {
+              "heading": "Note",
+              "items": [
+                "Advertising budget is separate."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "digital-marketing",
+          "title": "Digital Marketing",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Social Media Management",
+                  "price": "₹8,000/month"
+                },
+                {
+                  "item": "Social Media + Content",
+                  "price": "₹15,000/month"
+                },
+                {
+                  "item": "Digital Marketing",
+                  "price": "₹25,000/month"
+                },
+                {
+                  "item": "Advanced Marketing",
+                  "price": "₹40,000+/month"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Services Can Include",
+              "items": [
+                "Social media",
+                "Creative design",
+                "Content",
+                "Campaign management",
+                "Lead generation",
+                "Analytics",
+                "Reporting"
+              ]
+            },
+            {
+              "heading": "Note",
+              "items": [
+                "Ad spend is separate."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "label": "Testing, Migration & Support",
+      "icon": "Wrench",
+      "sections": [
+        {
+          "id": "testing",
+          "title": "Software Testing & QA",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Manual Testing",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Web Application Testing",
+                  "price": "₹20,000"
+                },
+                {
+                  "item": "Mobile App Testing",
+                  "price": "₹20,000"
+                },
+                {
+                  "item": "API Testing",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Complete QA",
+                  "price": "₹30,000+"
+                },
+                {
+                  "item": "Automation Testing",
+                  "price": "₹30,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "migration",
+          "title": "Software Migration & Modernization",
+          "subtitle": "Final pricing depends on source code quality, application size, database size, compatibility and business logic.",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Small Website Migration",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Framework Migration",
+                  "price": "₹25,000+"
+                },
+                {
+                  "item": "PHP / Laravel Migration",
+                  "price": "₹25,000+"
+                },
+                {
+                  "item": "Node / Python / Java / .NET Migration",
+                  "price": "₹40,000+"
+                },
+                {
+                  "item": "Frontend Framework Migration",
+                  "price": "₹30,000+"
+                },
+                {
+                  "item": "Mobile App Migration",
+                  "price": "₹50,000+"
+                },
+                {
+                  "item": "Database Migration",
+                  "price": "₹15,000+"
+                },
+                {
+                  "item": "Full Software Migration",
+                  "price": "₹75,000+"
+                },
+                {
+                  "item": "Legacy Modernization",
+                  "price": "₹1,50,000+"
+                },
+                {
+                  "item": "Enterprise Migration",
+                  "price": "₹3,00,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "data-migration",
+          "title": "Data Migration & Import",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Excel / CSV Import",
+                  "price": "₹5,000"
+                },
+                {
+                  "item": "Basic Data Migration",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "Database Migration",
+                  "price": "₹15,000"
+                },
+                {
+                  "item": "Large Data Migration",
+                  "price": "₹25,000+"
+                },
+                {
+                  "item": "Enterprise Data Migration",
+                  "price": "₹1,00,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "documentation",
+          "title": "Documentation & Source Code",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Technical Documentation",
+                  "price": "₹10,000"
+                },
+                {
+                  "item": "API Documentation",
+                  "price": "₹7,500"
+                },
+                {
+                  "item": "Complete Documentation",
+                  "price": "₹20,000+"
+                },
+                {
+                  "item": "Project Handover",
+                  "price": "Included / As agreed"
+                },
+                {
+                  "item": "Source Code Transfer",
+                  "price": "As per agreement"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "maintenance",
+          "title": "Maintenance & AMC",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Basic Website Maintenance",
+                  "price": "₹1,500/month"
+                },
+                {
+                  "item": "Business Website Maintenance",
+                  "price": "₹3,000/month"
+                },
+                {
+                  "item": "Web Application Maintenance",
+                  "price": "₹5,000/month"
+                },
+                {
+                  "item": "Mobile Application Maintenance",
+                  "price": "₹5,000/month"
+                },
+                {
+                  "item": "Software AMC",
+                  "price": "₹15,000/year"
+                },
+                {
+                  "item": "Advanced AMC",
+                  "price": "₹30,000/year+"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "AMC May Include",
+              "items": [
+                "Bug fixing",
+                "Minor updates",
+                "Security updates",
+                "Backup monitoring",
+                "Database maintenance",
+                "Server monitoring",
+                "Technical support"
+              ]
+            },
+            {
+              "heading": "Note",
+              "items": [
+                "New modules and major features are charged separately."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "packages",
+      "label": "Project Packages",
+      "icon": "Package",
+      "sections": [
+        {
+          "id": "packages-overview",
+          "title": "Project Packages",
+          "subtitle": "Bundled packages for common project types. All prices are starting prices; final quote depends on scope.",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "STARTER — Landing pages, portfolio, small websites, startup presence",
+                  "price": "₹15,000 – ₹30,000"
+                },
+                {
+                  "item": "BUSINESS — Business websites, corporate websites, CMS, lead generation",
+                  "price": "₹35,000 – ₹75,000"
+                },
+                {
+                  "item": "PROFESSIONAL — Advanced websites, e-commerce, booking, business applications",
+                  "price": "₹75,000 – ₹2,00,000"
+                },
+                {
+                  "item": "CUSTOM SOFTWARE — CRM, ERP, automation, custom web applications",
+                  "price": "₹2,00,000 – ₹5,00,000+"
+                },
+                {
+                  "item": "ENTERPRISE / PRODUCT — SaaS, enterprise ERP, large-scale platforms, multi-branch systems, complex products",
+                  "price": "₹5,00,000+"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Project Timeline",
+          "subtitle": "Final timeline is confirmed after scope approval.",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Landing Page",
+                  "price": "3–7 Days"
+                },
+                {
+                  "item": "Static Website",
+                  "price": "5–15 Days"
+                },
+                {
+                  "item": "Business Website",
+                  "price": "10–30 Days"
+                },
+                {
+                  "item": "E-Commerce",
+                  "price": "20–60 Days"
+                },
+                {
+                  "item": "Basic Mobile App",
+                  "price": "30–60 Days"
+                },
+                {
+                  "item": "Advanced Mobile App",
+                  "price": "60–120+ Days"
+                },
+                {
+                  "item": "CRM",
+                  "price": "45–90+ Days"
+                },
+                {
+                  "item": "ERP",
+                  "price": "90–180+ Days"
+                },
+                {
+                  "item": "SaaS",
+                  "price": "120–240+ Days"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "payment-terms",
+          "title": "Payment Terms",
+          "tables": [
+            {
+              "rows": [
+                {
+                  "item": "Small Projects",
+                  "price": "50% Advance + 50% Before Final Delivery"
+                },
+                {
+                  "item": "Medium Projects",
+                  "price": "40% Advance + 30% Milestone + 30% Final Delivery"
+                },
+                {
+                  "item": "Large Projects",
+                  "price": "30% Advance + Milestone-Based Payments"
+                }
+              ]
+            }
+          ],
+          "lists": [
+            {
+              "heading": "Note",
+              "items": [
+                "Development begins after project confirmation and advance payment."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ══════════════════════════════════════════════════
+       Brolytics — Professional Light Theme
+       Palette: White · Silver (Slate) · Maroon
+       ══════════════════════════════════════════════════ */
+
+    --background: 0 0% 100%;            /* Pure white */
+    --background-alt: 210 40% 98%;      /* #F8FAFC off-white / silver tint */
+    --foreground: 222 47% 11%;           /* Slate-900 near-black text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 345 63% 34%;               /* Signature Maroon */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;           /* Silver-50 surface */
+    --secondary-foreground: 222 47% 20%;
+
+    --muted: 210 40% 96%;               /* Silver muted surface */
+    --muted-foreground: 215 16% 47%;    /* Slate-500 secondary text */
+
+    --accent: 345 63% 34%;                /* Maroon accent */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 345 72% 38%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;              /* Silver-200 border */
+    --input: 0 0% 100%;
+    --input-border: 214 32% 88%;
+    --ring: 345 55% 40%;
+
+    /* Silver metallic scale */
+    --silver-50: 210 40% 98%;
+    --silver-100: 210 40% 96%;
+    --silver-200: 214 32% 91%;
+    --silver-300: 213 27% 84%;
+    --silver-400: 215 20% 65%;
+    --silver-500: 215 16% 47%;
+    --silver-600: 215 19% 35%;
+    --silver-700: 215 25% 27%;
+    --silver-800: 217 33% 17%;
+    --silver-900: 222 47% 11%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Kept for any component relying on .dark; mirrors the deep-silver inverse */
+    --background: 222 47% 6%;
+    --background-alt: 222 47% 9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 345 58% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 90%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 345 58% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 345 72% 42%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 15%;
+    --input-border: 217 33% 22%;
+    --ring: 345 55% 44%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-semibold text-foreground;
+  }
+  a {
+    @apply transition-colors;
+  }
+
+  /* Silver scrollbar */
+  ::-webkit-scrollbar { width: 11px; height: 11px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--silver-100)); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(hsl(var(--silver-300)), hsl(var(--silver-400)));
+    border-radius: 999px;
+    border: 2px solid hsl(var(--silver-100));
+  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary)); }
+  ::selection { background: hsl(var(--primary) / 0.18); color: hsl(var(--silver-900)); }
+}
+
+/* ══════════════════════════════════════════════════
+   Reusable design-system utilities
+   ══════════════════════════════════════════════════ */
+@layer components {
+  /* Metallic silver gradient text */
+  .text-silver {
+    background-image: linear-gradient(135deg, hsl(var(--silver-900)) 0%, hsl(var(--silver-600)) 45%, hsl(var(--silver-400)) 70%, hsl(var(--silver-700)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  /* Maroon gradient text */
+  .text-gradient-red {
+    background-image: linear-gradient(120deg, hsl(345 68% 26%), hsl(345 55% 40%), hsl(345 63% 32%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Premium white card with silver border + soft elevation */
+  .card-silver {
+    background: linear-gradient(180deg, #ffffff 0%, hsl(var(--silver-50)) 100%);
+    border: 1px solid hsl(var(--silver-200));
+    box-shadow: 0 1px 2px hsl(var(--silver-900) / 0.04), 0 8px 24px -12px hsl(var(--silver-900) / 0.12);
+  }
+
+  /* Glass surface for light backgrounds */
+  .glass-light {
+    background: hsl(0 0% 100% / 0.7);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid hsl(0 0% 100% / 0.6);
+  }
+
+  /* Thin silver hairline used to frame sections */
+  .hairline {
+    background: linear-gradient(90deg, transparent, hsl(var(--silver-300)), transparent);
+  }
+
+  /* Scroll reveal base */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   Keyframes (available globally; utilities also in tailwind config)
+   ══════════════════════════════════════════════════ */
+@keyframes shine-sweep {
+  0%   { transform: translateX(-120%) skewX(-12deg); }
+  100% { transform: translateX(220%)  skewX(-12deg); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes aurora-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(4%, -3%) scale(1.08); }
+  66%  { transform: translate(-3%, 4%) scale(0.96); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes text-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Accessibility: honour reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-on-scroll { opacity: 1 !important; transform: none !important; }
+}
