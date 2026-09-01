@@ -53,7 +53,15 @@
     "satisfaction": "98%",
     "primaryCta": "Start Your Project",
     "secondaryCta": "View Our Work",
-    "navCta": "Book a Meeting"
+    "navCta": "Book a Meeting",
+    "marqueeItems": [
+      "Website Development",
+      "Mobile App Development",
+      "Custom Software Solutions",
+      "Graphics & UI/UX Design",
+      "SEO & Digital Marketing",
+      "AI & Machine Learning Services"
+    ]
   },
   "services": [
     {
@@ -550,7 +558,7 @@
       },
       {
         "icon": "phone",
-        "text": "+91 8340715516",
+        "text": "+91 8340715516, +91 8507507173",
         "href": "tel:+918340715516"
       }
     ]

@@ -200,6 +200,7 @@ export interface SiteContent {
     primaryCta: string;
     secondaryCta: string;
     navCta: string;
+    marqueeItems?: string[];
   };
   services: ServiceItem[];
   servicesOverview: {

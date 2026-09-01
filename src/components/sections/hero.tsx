@@ -452,20 +452,30 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
         </div>
 
         {/* ══════ SERVICES MARQUEE ══════ */}
-        <div className="relative z-10 border-t border-silver-200 bg-white/60 backdrop-blur-sm overflow-hidden">
-          <div className="marquee-track flex w-max items-center py-4">
-            {[0, 1].map(copy => (
-              <div key={copy} className="flex items-center flex-shrink-0" aria-hidden={copy === 1}>
-                {services.map(s => (
-                  <span key={`${copy}-${s.slug}`} className="flex items-center">
-                    <span className="text-xs font-bold uppercase tracking-[0.25em] text-silver-400 whitespace-nowrap px-8">{s.title}</span>
-                    <Sparkles className="h-3 w-3 text-primary/50 flex-shrink-0" />
-                  </span>
+        {(() => {
+          const marqueeList = content.marqueeItems && content.marqueeItems.length > 0
+            ? content.marqueeItems
+            : services.map(s => s.title);
+
+          if (!marqueeList || marqueeList.length === 0) return null;
+
+          return (
+            <div className="relative z-10 border-t border-silver-200 bg-white/60 backdrop-blur-sm overflow-hidden">
+              <div className="marquee-track flex w-max items-center py-4">
+                {[0, 1].map(copy => (
+                  <div key={copy} className="flex items-center flex-shrink-0" aria-hidden={copy === 1}>
+                    {marqueeList.map((item, idx) => (
+                      <span key={`${copy}-${idx}-${item}`} className="flex items-center">
+                        <span className="text-xs font-bold uppercase tracking-[0.25em] text-silver-400 whitespace-nowrap px-8">{item}</span>
+                        <Sparkles className="h-3 w-3 text-primary/50 flex-shrink-0" />
+                      </span>
+                    ))}
+                  </div>
                 ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          );
+        })()}
 
       </section>
     </>

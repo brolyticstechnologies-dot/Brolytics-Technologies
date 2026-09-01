@@ -182,6 +182,74 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
                 ))}
                 <AddButton label="Add Proof Point" onClick={() => update('hero', { ...content.hero, proofPoints: [...content.hero.proofPoints, { icon: 'star', value: '100+', label: 'New Metric' }] })} />
               </div>
+
+              <h3 className="font-bold text-silver-800 pt-6">Homepage Text Marquee Ticker</h3>
+              <p className="text-xs text-silver-500 mb-2">
+                Edit, add or remove the animated scrolling service tags running across the bottom of the hero section.
+              </p>
+              <div className="space-y-2">
+                {(content.hero.marqueeItems ?? [
+                  'Website Development',
+                  'Mobile App Development',
+                  'Custom Software Solutions',
+                  'Graphics & UI/UX Design',
+                  'SEO & Digital Marketing',
+                  'AI & Machine Learning Services',
+                ]).map((item, i) => (
+                  <div key={i} className="flex gap-2 items-center">
+                    <div className="flex-1">
+                      <TextField
+                        label=""
+                        value={item}
+                        onChange={(v) => {
+                          const current = [...(content.hero.marqueeItems ?? [
+                            'Website Development',
+                            'Mobile App Development',
+                            'Custom Software Solutions',
+                            'Graphics & UI/UX Design',
+                            'SEO & Digital Marketing',
+                            'AI & Machine Learning Services',
+                          ])];
+                          current[i] = v;
+                          update('hero', { ...content.hero, marqueeItems: current });
+                        }}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const current = [...(content.hero.marqueeItems ?? [
+                          'Website Development',
+                          'Mobile App Development',
+                          'Custom Software Solutions',
+                          'Graphics & UI/UX Design',
+                          'SEO & Digital Marketing',
+                          'AI & Machine Learning Services',
+                        ])];
+                        current.splice(i, 1);
+                        update('hero', { ...content.hero, marqueeItems: current });
+                      }}
+                      className="text-red-500 text-xs px-2 py-1 hover:underline"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+                <AddButton
+                  label="Add Marquee Item"
+                  onClick={() => {
+                    const current = [...(content.hero.marqueeItems ?? [
+                      'Website Development',
+                      'Mobile App Development',
+                      'Custom Software Solutions',
+                      'Graphics & UI/UX Design',
+                      'SEO & Digital Marketing',
+                      'AI & Machine Learning Services',
+                    ])];
+                    update('hero', { ...content.hero, marqueeItems: [...current, 'New Service Tag'] });
+                  }}
+                />
+              </div>
             </EditorPanel>
           </TabsContent>
 
