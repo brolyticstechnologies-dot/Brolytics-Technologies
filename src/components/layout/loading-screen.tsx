@@ -2,182 +2,165 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import type { HTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
-interface LoadingScreenProps extends HTMLAttributes<HTMLDivElement> {
-  show?: boolean;
-  onFinish?: () => void;
-}
-
-export function LoadingScreen({ className, show = true, onFinish, ...props }: LoadingScreenProps) {
-  const [phase, setPhase] = useState(2); // Start at 2 — everything visible instantly
+export function LoadingScreen() {
   const [progress, setProgress] = useState(0);
-  const [internalShow, setInternalShow] = useState(show);
+  const [exiting, setExiting] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    if (!show) return;
+    setMounted(true);
 
-    // Animate progress bar immediately
-    let raf: number;
-    let start: number | null = null;
-    const duration = 1100; // bar fills in 1.1s
+    // Skip splash if already seen in current browser session
+    try {
+      if (sessionStorage.getItem('brolytics_splash_seen') === 'true') {
+        setVisible(false);
+        return;
+      }
+    } catch {
+      // Storage unavailable or disabled
+    }
 
-    const animateBar = (ts: number) => {
-      if (!start) start = ts;
-      const elapsed = ts - start;
+    const duration = 1200; // Total 1.2s load animation
+    const startTime = performance.now();
+    let animFrame: number;
+
+    const updateProgress = (now: number) => {
+      const elapsed = now - startTime;
       const pct = Math.min((elapsed / duration) * 100, 100);
       setProgress(pct);
+
       if (pct < 100) {
-        raf = requestAnimationFrame(animateBar);
+        animFrame = requestAnimationFrame(updateProgress);
       } else {
-        // Bar done — trigger exit immediately
-        setPhase(3);
+        // Progress reached 100% — trigger exit fade
+        setExiting(true);
+        setTimeout(() => {
+          try {
+            sessionStorage.setItem('brolytics_splash_seen', 'true');
+          } catch {}
+          setVisible(false);
+        }, 450);
       }
     };
 
-    const t3 = setTimeout(() => {
-      raf = requestAnimationFrame(animateBar);
-    }, 50);
+    animFrame = requestAnimationFrame(updateProgress);
 
-    // Safety exit fallback (in case RAF doesn't fire)
-    const t4 = setTimeout(() => setPhase(3), 1300);
-
-    // Unmount
-    const t5 = setTimeout(() => {
-      sessionStorage.setItem('brolyticsLoadingSeen', 'true');
-      setInternalShow(false);
-      if (onFinish) onFinish();
-    }, 1900);
+    // Hard fallback timeout: guaranteed to never stay open longer than 1.8s
+    const hardTimeout = setTimeout(() => {
+      setProgress(100);
+      setExiting(true);
+      setTimeout(() => setVisible(false), 400);
+    }, 1800);
 
     return () => {
-      clearTimeout(t3);
-      clearTimeout(t4); clearTimeout(t5);
-      cancelAnimationFrame(raf);
+      cancelAnimationFrame(animFrame);
+      clearTimeout(hardTimeout);
     };
-  }, [show, onFinish]);
+  }, []);
 
-  if (!internalShow) return null;
-
-  const exiting = phase >= 3;
+  // Don't render if not visible
+  if (!visible) return null;
 
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[200] flex flex-col items-center justify-center overflow-hidden bg-white",
-        "transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]",
-        exiting ? "opacity-0 scale-[1.06] pointer-events-none" : "opacity-100 scale-100",
-        className
+        "fixed inset-0 z-[99999] flex flex-col items-center justify-center overflow-hidden bg-white",
+        "transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]",
+        exiting ? "opacity-0 scale-[1.05] pointer-events-none" : "opacity-100 scale-100"
       )}
-      {...props}
     >
-      {/* ── Ambient glow ── */}
+      {/* ── Ambient Background Glow ── */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[50vh] rounded-[100%] blur-[140px] pointer-events-none transition-opacity duration-700"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[800px] h-[50vh] rounded-[100%] blur-[140px] pointer-events-none transition-opacity duration-500"
         style={{
-          background: 'radial-gradient(ellipse, hsl(345 63% 34% / 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse, hsl(345 63% 34% / 0.12) 0%, transparent 70%)',
           opacity: exiting ? 0 : 1,
         }}
       />
 
-      {/* ── Subtle dot grid ── */}
+      {/* ── Subtle Geometric Dot Grid ── */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        className="absolute inset-0 pointer-events-none opacity-[0.035]"
         style={{
-          backgroundImage: 'radial-gradient(circle, hsl(345 63% 34%) 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
+          backgroundImage: 'radial-gradient(circle, hsl(345 63% 34%) 1.5px, transparent 1.5px)',
+          backgroundSize: '28px 28px',
         }}
       />
 
-      {/* ── Main content ── */}
-      <div className="relative z-10 flex flex-col items-center gap-3 w-full px-4">
-
-        {/* Logo — pops in on mount */}
+      {/* ── Central Content ── */}
+      <div className="relative z-10 flex flex-col items-center gap-4 w-full px-6 max-w-lg mx-auto">
+        
+        {/* Brand Logo */}
         <div
-          className="relative w-full overflow-hidden"
+          className="relative w-full overflow-hidden flex items-center justify-center"
           style={{
-            maxWidth: '860px',
-            height: 'clamp(130px, 26vw, 240px)',
-            animation: exiting ? 'none' : 'popIn 0.55s cubic-bezier(0.34,1.56,0.64,1) both',
-            opacity: exiting ? 0 : undefined,
-            transform: exiting ? 'scale(1.08)' : undefined,
-            transition: exiting ? 'opacity 0.6s ease, transform 0.6s ease' : 'none',
+            height: 'clamp(110px, 22vw, 190px)',
+            animation: 'logoPopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both',
           }}
         >
           <Image
             src="/newwblt.png"
-            alt="Brolytics"
+            alt="Brolytics Technologies"
             fill
-            className="object-contain scale-125"
+            className="object-contain scale-110"
             priority
           />
-
-          {/* Shimmer sweep */}
-          {!exiting && (
-            <div
-              className="absolute inset-0 pointer-events-none overflow-hidden rounded-lg"
-              aria-hidden
-            >
-              <div className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/35 to-transparent skew-x-[-20deg] animate-[shimmerSweep_2.4s_ease-in-out_1.2s_infinite]" />
-            </div>
-          )}
         </div>
 
-        {/* Tagline — slides up after logo */}
+        {/* Tagline */}
         <p
-          className="text-[11px] md:text-[13px] font-semibold tracking-[0.28em] uppercase text-silver-400"
+          className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-silver-500 text-center"
           style={{
-            animation: exiting ? 'none' : 'slideUpFade 0.5s ease 0.35s both',
-            opacity: exiting ? 0 : undefined,
-            transition: exiting ? 'opacity 0.5s ease' : 'none',
+            animation: 'fadeInUp 0.5s ease 0.2s both',
           }}
         >
           Crafting Digital Excellence
         </p>
 
-        {/* Progress bar — slides up after tagline */}
+        {/* Progress Bar Container */}
         <div
-          className="flex flex-col items-center gap-3 w-[clamp(220px,42vw,400px)]"
+          className="flex flex-col items-center gap-2.5 w-full max-w-[320px] sm:max-w-[360px] mt-3"
           style={{
-            animation: phase >= 2 && !exiting ? 'slideUpFade 0.45s ease 0s both' : 'none',
-            opacity: phase >= 2 && !exiting ? undefined : 0,
-            transition: exiting ? 'opacity 0.4s ease' : 'none',
+            animation: 'fadeInUp 0.5s ease 0.3s both',
           }}
         >
-          {/* Track */}
-          <div className="w-full h-[3px] rounded-full bg-silver-100 overflow-hidden">
+          {/* Progress Bar Track */}
+          <div className="w-full h-2 rounded-full bg-silver-100 border border-silver-200/80 p-[1px] overflow-hidden shadow-inner">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-primary/70 via-primary to-primary/80"
+              className="h-full rounded-full bg-gradient-to-r from-primary/80 via-primary to-primary shadow-sm"
               style={{
                 width: `${progress}%`,
                 transition: 'width 0.05s linear',
-                boxShadow: '0 0 10px hsl(345 63% 34% / 0.5)',
+                boxShadow: '0 0 12px hsl(345 63% 34% / 0.45)',
               }}
             />
           </div>
 
-          {/* Percentage */}
-          <span className="text-[11px] font-mono font-semibold text-silver-400 tabular-nums">
-            {Math.round(progress)}%
-          </span>
+          {/* Percentage Counter */}
+          <div className="flex items-center justify-between w-full px-1">
+            <span className="text-[11px] font-bold tracking-wider text-silver-400 uppercase">
+              Loading Experience
+            </span>
+            <span className="text-xs font-mono font-bold text-silver-700 tabular-nums">
+              {Math.round(progress)}%
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* Keyframes */}
-      <style>{`
-        @keyframes popIn {
-          0%   { opacity: 0; transform: scale(0.4); }
-          70%  { opacity: 1; transform: scale(1.06); }
+      {/* ── Keyframe Animations ── */}
+      <style jsx global>{`
+        @keyframes logoPopIn {
+          0% { opacity: 0; transform: scale(0.6); }
+          70% { opacity: 1; transform: scale(1.04); }
           100% { opacity: 1; transform: scale(1); }
         }
-        @keyframes slideUpFade {
-          0%   { opacity: 0; transform: translateY(16px); }
+        @keyframes fadeInUp {
+          0% { opacity: 0; transform: translateY(12px); }
           100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes shimmerSweep {
-          0%   { left: -40%; }
-          60%  { left: 120%; }
-          100% { left: 120%; }
         }
       `}</style>
     </div>

@@ -33,12 +33,14 @@ export function OurClients({ content: contentProp }: OurClientsProps = {}) {
   const content = contentProp ?? siteContent?.ourClients;
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.12 });
 
-  if (!content) return null;
+  if (!content || !content.clients || content.clients.length === 0) return null;
 
   const { header } = content;
   const clients = content.clients;
   const row1 = [...clients, ...clients, ...clients];
-  const row2 = [...clients.slice(4), ...clients.slice(0, 4), ...clients.slice(4), ...clients.slice(0, 4)];
+  const row2 = clients.length > 4 
+    ? [...clients.slice(4), ...clients.slice(0, 4), ...clients.slice(4), ...clients.slice(0, 4)]
+    : row1;
 
   return (
     <section

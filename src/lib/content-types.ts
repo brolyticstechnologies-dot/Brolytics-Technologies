@@ -162,6 +162,8 @@ export interface TeamMember {
   role: string;
   image: string;
   linkedin: string;
+  tagline?: string;
+  email?: string;
 }
 
 export interface Testimonial {

@@ -8,7 +8,7 @@ import {
   CheckCircle, Info, Sparkles, Clock, Phone,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { pricingCategories, type PricingCategory } from "@/data/brolytics-pricing";
+import { pricingCategories as defaultPricingCategories, type PricingCategory } from "@/data/brolytics-pricing";
 
 const iconMap: Record<string, React.ReactNode> = {
   Globe: <Globe className="w-4 h-4" />,
@@ -37,6 +37,9 @@ function PriceTag({ price }: { price: string }) {
 }
 
 function SectionCard({ section }: { section: PricingCategory["sections"][number] }) {
+  const tables = section.tables || [];
+  const lists = section.lists || [];
+
   return (
     <div className="mb-10 last:mb-0">
       <h3 className="text-xl font-bold text-silver-900 mb-1">{section.title}</h3>
@@ -46,93 +49,108 @@ function SectionCard({ section }: { section: PricingCategory["sections"][number]
           {section.subtitle}
         </p>
       )}
-      {section.tables.map((table, ti) => (
-        <div key={ti} className="mb-6">
-          {table.heading && (
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
-              {table.heading}
-            </p>
-          )}
-          {table.rows.length > 0 && (
-            <div className="rounded-xl border border-silver-200 overflow-hidden shadow-sm">
-              <table className="w-full text-sm">
-                <tbody>
-                  {table.rows.map((row, ri) => (
-                    <tr
-                      key={ri}
-                      className={cn(
-                        "border-b border-silver-100 last:border-0 transition-colors duration-150",
-                        ri % 2 === 0 ? "bg-white" : "bg-silver-50/60"
-                      )}
-                    >
-                      <td className="px-4 py-3 text-silver-700 leading-snug w-full">
-                        {row.item}
-                        {row.note && <span className="ml-2 text-xs text-silver-400">({row.note})</span>}
-                      </td>
-                      <td className="px-4 py-3 text-right shrink-0">
-                        <PriceTag price={row.price} />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-          {table.note && (
-            <p className="mt-2 text-xs text-silver-400 italic flex gap-1.5 items-center">
-              <Info className="w-3 h-3 shrink-0" /> {table.note}
-            </p>
-          )}
-        </div>
-      ))}
-      {section.lists && section.lists.length > 0 && (
+      {tables.map((table, ti) => {
+        const rows = table.rows || [];
+        return (
+          <div key={ti} className="mb-6">
+            {table.heading && (
+              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
+                {table.heading}
+              </p>
+            )}
+            {rows.length > 0 && (
+              <div className="rounded-xl border border-silver-200 overflow-hidden shadow-sm">
+                <table className="w-full text-sm">
+                  <tbody>
+                    {rows.map((row, ri) => (
+                      <tr
+                        key={ri}
+                        className={cn(
+                          "border-b border-silver-100 last:border-0 transition-colors duration-150",
+                          ri % 2 === 0 ? "bg-white" : "bg-silver-50/60"
+                        )}
+                      >
+                        <td className="px-4 py-3 text-silver-700 leading-snug w-full">
+                          {row.item}
+                          {row.note && <span className="ml-2 text-xs text-silver-400">({row.note})</span>}
+                        </td>
+                        <td className="px-4 py-3 text-right shrink-0">
+                          <PriceTag price={row.price} />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            {table.note && (
+              <p className="mt-2 text-xs text-silver-400 italic flex gap-1.5 items-center">
+                <Info className="w-3 h-3 shrink-0" /> {table.note}
+              </p>
+            )}
+          </div>
+        );
+      })}
+      {lists.length > 0 && (
         <div className="grid sm:grid-cols-2 gap-4 mt-2">
-          {section.lists.map((list, li) => (
-            <div
-              key={li}
-              className={cn(
-                "rounded-xl border border-silver-200 p-4",
-                list.heading === "Note" ? "bg-amber-50 border-amber-200" : "bg-silver-50"
-              )}
-            >
-              {list.heading && (
-                <p className={cn(
-                  "text-xs font-bold uppercase tracking-widest mb-2",
-                  list.heading === "Note" ? "text-amber-600" : "text-silver-500"
-                )}>
-                  {list.heading}
-                </p>
-              )}
-              <ul className="space-y-1.5">
-                {list.items.map((item, idx) => (
-                  <li key={idx} className="flex gap-2 text-sm text-silver-700">
-                    <CheckCircle className={cn("w-3.5 h-3.5 mt-0.5 shrink-0",
-                      list.heading === "Note" ? "text-amber-500" : "text-primary"
-                    )} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {lists.map((list, li) => {
+            const items = list.items || [];
+            return (
+              <div
+                key={li}
+                className={cn(
+                  "rounded-xl border border-silver-200 p-4",
+                  list.heading === "Note" ? "bg-amber-50 border-amber-200" : "bg-silver-50"
+                )}
+              >
+                {list.heading && (
+                  <p className={cn(
+                    "text-xs font-bold uppercase tracking-widest mb-2",
+                    list.heading === "Note" ? "text-amber-600" : "text-silver-500"
+                  )}>
+                    {list.heading}
+                  </p>
+                )}
+                <ul className="space-y-1.5">
+                  {items.map((item, idx) => (
+                    <li key={idx} className="flex gap-2 text-sm text-silver-700">
+                      <CheckCircle className={cn("w-3.5 h-3.5 mt-0.5 shrink-0",
+                        list.heading === "Note" ? "text-amber-500" : "text-primary"
+                      )} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
   );
 }
 
-export function PricingClient() {
-  const [activeCategory, setActiveCategory] = useState(pricingCategories[0].id);
+export function PricingClient({ pricingCategories }: { pricingCategories?: PricingCategory[] }) {
+  const categories = pricingCategories && pricingCategories.length > 0 ? pricingCategories : defaultPricingCategories;
+  const [activeCategory, setActiveCategory] = useState(categories[0]?.id || "");
   const [mobileOpen, setMobileOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const activeData = pricingCategories.find((c) => c.id === activeCategory)!;
+  const activeData = categories.find((c) => c.id === activeCategory) || categories[0];
 
   useEffect(() => {
     if (contentRef.current) {
       contentRef.current.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [activeCategory]);
+
+  if (!categories || categories.length === 0 || !activeData) {
+    return (
+      <div className="py-20 text-center text-silver-500">
+        <p>No pricing information currently available.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -195,7 +213,7 @@ export function PricingClient() {
           </button>
           {mobileOpen && (
             <div className="mt-2 rounded-xl border border-silver-200 bg-white shadow-xl overflow-hidden">
-              {pricingCategories.map((cat) => (
+              {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => { setActiveCategory(cat.id); setMobileOpen(false); }}
@@ -222,7 +240,7 @@ export function PricingClient() {
                 </p>
               </div>
               <nav className="p-2">
-                {pricingCategories.map((cat) => (
+                {categories.map((cat) => (
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}

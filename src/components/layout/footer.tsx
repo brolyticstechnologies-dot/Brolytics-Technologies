@@ -55,10 +55,10 @@ export function Footer({ content: contentProp, siteSettings: settingsProp }: Foo
 
   if (!content || !siteSettings) return null;
 
-  const socialLinks = content.socialLinks.map(s => ({ ...s, icon: getIcon(s.icon) }));
-  const quickLinks = content.quickLinks;
-  const serviceLinks = content.serviceLinks;
-  const contactInfo = content.contactInfo.map(c => ({
+  const socialLinks = (content.socialLinks || []).map(s => ({ ...s, icon: getIcon(s.icon) }));
+  const quickLinks = content.quickLinks || [];
+  const serviceLinks = content.serviceLinks || [];
+  const contactInfo = (content.contactInfo || []).map(c => ({
     icon: getIcon(c.icon),
     label: c.icon === 'mail' ? 'Email Us' : 'Call Us',
     value: c.text,

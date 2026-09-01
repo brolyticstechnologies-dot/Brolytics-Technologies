@@ -1,10 +1,8 @@
-"use client";
-
+import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { LoadingScreen } from '@/components/layout/loading-screen';
-import { useState, useEffect } from 'react';
+import { LoadingScreen } from "@/components/layout/loading-screen";
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -16,35 +14,21 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+export const metadata: Metadata = {
+  title: 'Brolytics Technologies | IT Services & Software Solutions',
+  description: 'Custom Software, Websites, Mobile Apps, AI, and Scalable Cloud Solutions by Brolytics Technologies.',
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Hard fallback — never stay stuck beyond 2.5s
-  useEffect(() => {
-    const fallback = setTimeout(() => setIsLoading(false), 2500);
-    return () => clearTimeout(fallback);
-  }, []);
-
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <title>Brolytics Technologies</title>
-        <meta name="description" content="Innovative and reliable solutions by Brolytics Technologies" />
-      </head>
-      <body suppressHydrationWarning={true} className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
-        {isLoading && (
-          <LoadingScreen
-            show={true}
-            onFinish={() => setIsLoading(false)}
-          />
-        )}
-        <div style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
-          {children}
-        </div>
+      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+        <LoadingScreen />
+        {children}
         <Toaster />
       </body>
     </html>
