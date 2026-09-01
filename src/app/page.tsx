@@ -6,6 +6,7 @@ import { ServicesOverview } from '@/components/sections/services-overview';
 import { StatsSection } from '@/components/sections/stats-section';
 import { TechStackTeaser } from '@/components/sections/tech-stack-teaser';
 import { OurWork } from '@/components/sections/our-work';
+import { BookSlotSection } from '@/components/sections/book-slot-section';
 import { ContactForm } from '@/components/sections/contact-form';
 import { OurClients } from '@/components/sections/our-clients';
 import { getSiteContent } from '@/lib/content';
@@ -23,6 +24,7 @@ export default async function HomePage() {
         <AboutUs content={content.aboutUs} coreValues={content.coreValues} />
         <OurWork content={content.ourWork} />
         <OurClients content={content.ourClients} />
+        <BookSlotSection />
         <ContactForm content={content.contact} />
       </main>
       <Footer content={content.footer} siteSettings={content.siteSettings} />

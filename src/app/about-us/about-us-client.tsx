@@ -774,20 +774,26 @@ export function AboutUsClient({
                 ))}
               </div>
 
-              {testimonials.ctaText && (
-                <div className={cn(
-                  "text-center mt-16 transition-all duration-1000 delay-500",
-                  testimonialsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                )}>
-                  <Button size="lg" asChild
-                    className="group relative overflow-hidden bg-primary hover:bg-primary text-white font-bold px-8 py-6 text-base rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/35">
-                    <Link href="/#contact" className="flex items-center gap-2.5">
-                      <span>{testimonials.ctaText}</span>
-                      <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-                  </Button>
-                </div>
-              )}
+              <div className={cn(
+                "text-center mt-16 transition-all duration-1000 delay-500 flex flex-col sm:flex-row items-center justify-center gap-3.5",
+                testimonialsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              )}>
+                <Button size="lg" asChild
+                  className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-base rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/35">
+                  <Link href="/book-a-slot" className="flex items-center gap-2.5">
+                    <span>📅 Book a 30-Min Strategy Slot</span>
+                    <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+
+                <Button size="lg" variant="outline" asChild
+                  className="border-silver-300 hover:border-primary/40 bg-white hover:bg-silver-50 text-silver-800 font-bold px-7 py-6 text-base rounded-2xl transition-all duration-300 hover:scale-[1.02] shadow-xs">
+                  <Link href="/#contact" className="flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-primary" />
+                    <span>Send Project Inquiry</span>
+                  </Link>
+                </Button>
+              </div>
             </div>
           </section>
         )}

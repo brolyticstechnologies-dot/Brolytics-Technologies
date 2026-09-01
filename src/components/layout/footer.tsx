@@ -165,37 +165,39 @@ export function Footer({ content: contentProp, siteSettings: settingsProp }: Foo
             </ul>
           </div>
 
-          {/* Contact */}
-          <div className="lg:col-span-3 space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-silver-500 mb-5">Get In Touch</h3>
-            {contactInfo.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="group flex items-center gap-3 p-3.5 rounded-xl bg-white border border-silver-200 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 transition-all duration-300"
-                >
-                  <div className="p-2 rounded-lg bg-primary/10 border border-primary/15 group-hover:scale-105 transition-transform duration-300">
-                    <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-silver-400">{item.label}</p>
-                    <p className="text-sm font-semibold text-silver-900 group-hover:text-primary transition-colors duration-300">{item.value}</p>
-                  </div>
-                </Link>
-              );
-            })}
-            <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-silver-200">
-              <div className="p-2 rounded-lg bg-primary/10 border border-primary/15">
-                <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-silver-400">Location</p>
-                <p className="text-sm text-silver-600 leading-relaxed">{content.location}</p>
+            {/* Contact */}
+            <div className="lg:col-span-3 space-y-3">
+              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-silver-500 mb-5">Get In Touch</h3>
+              {contactInfo.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="group flex items-center gap-3 p-3 sm:p-3.5 rounded-xl bg-white border border-silver-200 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 transition-all duration-300 overflow-hidden"
+                  >
+                    <div className="p-2 rounded-lg bg-primary/10 border border-primary/15 shrink-0 group-hover:scale-105 transition-transform duration-300">
+                      <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-silver-400">{item.label}</p>
+                      <p className="text-xs sm:text-[13px] font-semibold text-silver-900 group-hover:text-primary transition-colors duration-300 truncate" title={item.value}>
+                        {item.value}
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
+              <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl bg-white border border-silver-200 overflow-hidden">
+                <div className="p-2 rounded-lg bg-primary/10 border border-primary/15 shrink-0">
+                  <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-silver-400">Location</p>
+                  <p className="text-xs sm:text-sm text-silver-600 leading-relaxed truncate">{content.location}</p>
+                </div>
               </div>
             </div>
-          </div>
         </div>
 
         {/* Social + newsletter */}

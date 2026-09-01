@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { LoadingScreen } from "@/components/layout/loading-screen";
+import { FloatingBookSlotBtn } from "@/components/booking/floating-book-slot-btn";
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <LoadingScreen />
         {children}
+        <FloatingBookSlotBtn />
         <Toaster />
       </body>
     </html>

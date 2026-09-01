@@ -88,6 +88,7 @@ const allServices = [
 
 const navLinks = [
   { href: "/",             label: "Home"       },
+  { href: "/book-a-slot",  label: "Book a Slot"},
   { href: "/technologies", label: "Tech Stack" },
   { href: "/our-work",     label: "Our Work"   },
   { href: "/pricing",      label: "Pricing"    },
@@ -97,6 +98,7 @@ const navLinks = [
 
 const mobileNavLinks = [
   { href: "/", label: "Home" },
+  { href: "/book-a-slot", label: "📅 Book a Strategy Slot" },
   {
     href: "/#services",
     label: "Services",
@@ -302,14 +304,23 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                             );
                           })}
                         </div>
-                        <Link
-                          href="/pricing"
-                          onClick={() => setMegaOpen(false)}
-                          className="flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary/80 transition-colors shrink-0 ml-3"
-                        >
-                          View Pricing
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </Link>
+                        <div className="flex items-center gap-3 shrink-0 ml-3">
+                          <Link
+                            href="/book-a-slot"
+                            onClick={() => setMegaOpen(false)}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 hover:bg-primary text-primary hover:text-white text-xs font-bold transition-all duration-200"
+                          >
+                            <span>📅 Book Strategy Call</span>
+                          </Link>
+                          <Link
+                            href="/pricing"
+                            onClick={() => setMegaOpen(false)}
+                            className="flex items-center gap-1 text-xs font-bold text-silver-600 hover:text-primary transition-colors"
+                          >
+                            <span>Pricing</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -328,10 +339,13 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
             {/* ── Right CTA ── */}
             <div className="flex items-center gap-2 sm:gap-3">
               <Button size="sm" asChild
-                className="flex items-center gap-1 sm:gap-2 relative overflow-hidden bg-primary hover:bg-primary/90 text-white font-bold px-3 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-primary/35 hover:scale-[1.03] group">
-                <Link href="/book-a-slot">
-                  <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
-                  <span>Book a Meeting</span>
+                className="flex items-center gap-1 sm:gap-2 relative overflow-hidden bg-primary hover:bg-primary/90 text-white font-bold px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-primary/35 hover:scale-[1.03] group">
+                <Link href="/book-a-slot" className="flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2 shrink-0">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75 animate-ping" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                  </span>
+                  <span>Book a Slot</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 </Link>
               </Button>

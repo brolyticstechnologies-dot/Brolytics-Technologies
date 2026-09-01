@@ -491,14 +491,22 @@ export function PricingClient({
                     {commercialFramework.commitmentText}
                   </p>
 
-                  <Link
-                    href={commercialFramework.ctaLink || "/#contact"}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white text-xs sm:text-sm font-bold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/30 hover:scale-[1.02]"
-                  >
-                    <Sparkles className="w-4 h-4" />
-                    {commercialFramework.ctaText || "Request a Custom Quotation"}
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      href="/book-a-slot"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white text-xs sm:text-sm font-bold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/30 hover:scale-[1.02]"
+                    >
+                      <span>📅 Book a 30-Min Strategy Slot</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    <Link
+                      href={commercialFramework.ctaLink || "/#contact"}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 text-white text-xs sm:text-sm font-bold hover:bg-white/20 transition-all duration-300 border border-white/20"
+                    >
+                      <Sparkles className="w-4 h-4" />
+                      {commercialFramework.ctaText || "Request Custom Quotation"}
+                    </Link>
+                  </div>
                 </div>
               </div>
             )}
@@ -519,11 +527,18 @@ export function PricingClient({
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3.5">
                   <Link
-                    href="/#contact"
+                    href="/book-a-slot"
                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-primary/25 hover:scale-[1.02]"
                   >
-                    <Sparkles className="w-4 h-4" />
-                    Start Your Project
+                    <span>📅 Book 30-Min Strategy Call</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link
+                    href="/#contact"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-silver-300 bg-white text-silver-800 font-semibold text-sm hover:border-primary/40 hover:text-primary hover:bg-primary/[0.02] transition-all duration-300 shadow-sm"
+                  >
+                    <Sparkles className="w-4 h-4 text-primary" />
+                    Send Project Inquiry
                   </Link>
                   <Link
                     href="tel:+918507507173"
