@@ -14,7 +14,7 @@ import { ImageUploadField } from '@/components/admin/image-upload-field';
 import {
   LayoutDashboard, LogOut, Save, ExternalLink, Home, Users,
   BarChart3, Briefcase, MessageSquare, Settings, Star, Layers,
-  BadgeIndianRupee,
+  BadgeIndianRupee, Scale, Code, Shield,
 } from 'lucide-react';
 
 interface AdminDashboardProps {
@@ -109,10 +109,13 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
             <TabsTrigger value="aboutUs" className="rounded-lg text-xs sm:text-sm"><Users className="w-3.5 h-3.5 mr-1.5 hidden sm:inline" />About</TabsTrigger>
             <TabsTrigger value="ourWork" className="rounded-lg text-xs sm:text-sm"><Briefcase className="w-3.5 h-3.5 mr-1.5 hidden sm:inline" />Work</TabsTrigger>
             <TabsTrigger value="pricing" className="rounded-lg text-xs sm:text-sm"><BadgeIndianRupee className="w-3.5 h-3.5 mr-1.5 hidden sm:inline" />Pricing</TabsTrigger>
+            <TabsTrigger value="technologies" className="rounded-lg text-xs sm:text-sm"><Code className="w-3.5 h-3.5 mr-1.5 hidden sm:inline" />Tech Stack</TabsTrigger>
+            <TabsTrigger value="strategicPillars" className="rounded-lg text-xs sm:text-sm"><Shield className="w-3.5 h-3.5 mr-1.5 hidden sm:inline" />Pillars</TabsTrigger>
             <TabsTrigger value="ourClients" className="rounded-lg text-xs sm:text-sm"><Star className="w-3.5 h-3.5 mr-1.5 hidden sm:inline" />Clients</TabsTrigger>
             <TabsTrigger value="contact" className="rounded-lg text-xs sm:text-sm"><MessageSquare className="w-3.5 h-3.5 mr-1.5 hidden sm:inline" />Contact</TabsTrigger>
             <TabsTrigger value="footer" className="rounded-lg text-xs sm:text-sm">Footer</TabsTrigger>
             <TabsTrigger value="aboutPage" className="rounded-lg text-xs sm:text-sm">About Page</TabsTrigger>
+            <TabsTrigger value="termsPage" className="rounded-lg text-xs sm:text-sm"><Scale className="w-3.5 h-3.5 mr-1.5 hidden sm:inline" />Terms</TabsTrigger>
             <TabsTrigger value="siteSettings" className="rounded-lg text-xs sm:text-sm"><Settings className="w-3.5 h-3.5 mr-1.5 hidden sm:inline" />Settings</TabsTrigger>
           </TabsList>
 
@@ -958,6 +961,495 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
                 }} />
               </div>
             </EditorPanel>
+
+            <EditorPanel title="Custom Quotation & Commercial Framework (Section 55)" onSave={() => saveSection('commercialFramework')} saving={isSaving}>
+              <p className="text-xs text-silver-500 mb-4">
+                Edit the transparent proposal breakdown and commitment banner shown at the bottom of the /pricing page.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <TextField
+                  label="Badge"
+                  value={content.commercialFramework?.badge ?? 'Commercial Transparency'}
+                  onChange={(v) => update('commercialFramework', { ...(content.commercialFramework ?? {} as any), badge: v })}
+                />
+                <TextField
+                  label="Title"
+                  value={content.commercialFramework?.title ?? 'How We Prepare Your'}
+                  onChange={(v) => update('commercialFramework', { ...(content.commercialFramework ?? {} as any), title: v })}
+                />
+                <TextField
+                  label="Title Accent"
+                  value={content.commercialFramework?.titleAccent ?? 'Custom Quotation'}
+                  onChange={(v) => update('commercialFramework', { ...(content.commercialFramework ?? {} as any), titleAccent: v })}
+                />
+                <TextField
+                  label="CTA Button Text"
+                  value={content.commercialFramework?.ctaText ?? 'Request a Custom Quotation'}
+                  onChange={(v) => update('commercialFramework', { ...(content.commercialFramework ?? {} as any), ctaText: v })}
+                />
+                <div className="sm:col-span-2">
+                  <TextAreaField
+                    label="Description"
+                    value={content.commercialFramework?.description ?? ''}
+                    onChange={(v) => update('commercialFramework', { ...(content.commercialFramework ?? {} as any), description: v })}
+                    rows={2}
+                  />
+                </div>
+              </div>
+
+              <h4 className="font-bold text-sm text-silver-800 pt-4">Quotation Deliverables Points (13 Points)</h4>
+              <div className="space-y-2">
+                {(content.commercialFramework?.quotationPoints ?? []).map((pt, pi) => (
+                  <div key={pi} className="flex gap-2 items-center">
+                    <div className="flex-1">
+                      <TextField
+                        label=""
+                        value={pt}
+                        onChange={(v) => {
+                          const pts = [...(content.commercialFramework?.quotationPoints ?? [])];
+                          pts[pi] = v;
+                          update('commercialFramework', { ...(content.commercialFramework ?? {} as any), quotationPoints: pts });
+                        }}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const pts = [...(content.commercialFramework?.quotationPoints ?? [])];
+                        pts.splice(pi, 1);
+                        update('commercialFramework', { ...(content.commercialFramework ?? {} as any), quotationPoints: pts });
+                      }}
+                      className="text-red-500 text-xs px-2 py-1"
+                    >
+                      X
+                    </button>
+                  </div>
+                ))}
+                <AddButton
+                  label="Add Quotation Point"
+                  onClick={() => {
+                    const pts = [...(content.commercialFramework?.quotationPoints ?? [])];
+                    update('commercialFramework', { ...(content.commercialFramework ?? {} as any), quotationPoints: [...pts, 'New Deliverable Point'] });
+                  }}
+                />
+              </div>
+
+              <h4 className="font-bold text-silver-800 pt-6">Our Commitment Banner</h4>
+              <div className="space-y-3">
+                <TextField
+                  label="Commitment Quote"
+                  value={content.commercialFramework?.commitmentQuote ?? ''}
+                  onChange={(v) => update('commercialFramework', { ...(content.commercialFramework ?? {} as any), commitmentQuote: v })}
+                />
+                <TextAreaField
+                  label="Commitment Body Text"
+                  value={content.commercialFramework?.commitmentText ?? ''}
+                  onChange={(v) => update('commercialFramework', { ...(content.commercialFramework ?? {} as any), commitmentText: v })}
+                  rows={2}
+                />
+              </div>
+            </EditorPanel>
+          </TabsContent>
+
+          {/* TECHNOLOGIES STACK */}
+          <TabsContent value="technologies" className="space-y-6">
+            <EditorPanel title="Technology Arsenal & Ecosystem" onSave={() => saveSection('technologiesPage')} saving={isSaving}>
+              <p className="text-xs text-silver-500 mb-4">
+                Manage the /technologies standalone page and curated homepage tech stack.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <TextField
+                  label="Header Badge"
+                  value={content.technologiesPage?.header?.badge ?? 'Technology Ecosystem'}
+                  onChange={(v) => update('technologiesPage', {
+                    ...(content.technologiesPage ?? {} as any),
+                    header: { ...(content.technologiesPage?.header ?? {} as any), badge: v }
+                  })}
+                />
+                <TextField
+                  label="Header Title"
+                  value={content.technologiesPage?.header?.title ?? 'Modern Engineering &'}
+                  onChange={(v) => update('technologiesPage', {
+                    ...(content.technologiesPage ?? {} as any),
+                    header: { ...(content.technologiesPage?.header ?? {} as any), title: v }
+                  })}
+                />
+                <TextField
+                  label="Header Title Accent"
+                  value={content.technologiesPage?.header?.titleAccent ?? 'Technology Arsenal'}
+                  onChange={(v) => update('technologiesPage', {
+                    ...(content.technologiesPage ?? {} as any),
+                    header: { ...(content.technologiesPage?.header ?? {} as any), titleAccent: v }
+                  })}
+                />
+                <div className="sm:col-span-2">
+                  <TextAreaField
+                    label="Header Description"
+                    value={content.technologiesPage?.header?.description ?? ''}
+                    onChange={(v) => update('technologiesPage', {
+                      ...(content.technologiesPage ?? {} as any),
+                      header: { ...(content.technologiesPage?.header ?? {} as any), description: v }
+                    })}
+                    rows={2}
+                  />
+                </div>
+              </div>
+
+              <h4 className="font-bold text-silver-800 pt-6">Curated Homepage Top Technologies</h4>
+              <div className="space-y-2">
+                {(content.technologiesPage?.curatedHomeTech ?? []).map((t, ti) => (
+                  <div key={ti} className="flex gap-2 items-center">
+                    <div className="flex-1">
+                      <TextField
+                        label=""
+                        value={t}
+                        onChange={(v) => {
+                          const list = [...(content.technologiesPage?.curatedHomeTech ?? [])];
+                          list[ti] = v;
+                          update('technologiesPage', { ...(content.technologiesPage ?? {} as any), curatedHomeTech: list });
+                        }}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const list = [...(content.technologiesPage?.curatedHomeTech ?? [])];
+                        list.splice(ti, 1);
+                        update('technologiesPage', { ...(content.technologiesPage ?? {} as any), curatedHomeTech: list });
+                      }}
+                      className="text-red-500 text-xs px-2 py-1"
+                    >
+                      X
+                    </button>
+                  </div>
+                ))}
+                <AddButton
+                  label="Add Curated Tech"
+                  onClick={() => {
+                    const list = [...(content.technologiesPage?.curatedHomeTech ?? [])];
+                    update('technologiesPage', { ...(content.technologiesPage ?? {} as any), curatedHomeTech: [...list, 'New Tech'] });
+                  }}
+                />
+              </div>
+
+              <h4 className="font-bold text-silver-800 pt-6">Technology Categories & Stack Matrix (100+ items)</h4>
+              <div className="space-y-6">
+                {(content.technologiesPage?.categories ?? []).map((cat, ci) => (
+                  <div key={cat.id || ci} className="p-5 rounded-2xl border border-silver-200 bg-silver-50/70 space-y-4">
+                    <div className="flex items-center justify-between border-b border-silver-200 pb-3">
+                      <h5 className="font-black text-silver-900 text-base">{cat.name} ({cat.items?.length || 0} items)</h5>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const cats = [...(content.technologiesPage?.categories ?? [])];
+                          cats.splice(ci, 1);
+                          update('technologiesPage', { ...(content.technologiesPage ?? {} as any), categories: cats });
+                        }}
+                        className="text-xs text-red-500 hover:underline"
+                      >
+                        Remove Category
+                      </button>
+                    </div>
+
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      <TextField
+                        label="Category ID"
+                        value={cat.id}
+                        onChange={(v) => {
+                          const cats = [...(content.technologiesPage?.categories ?? [])];
+                          cats[ci] = { ...cat, id: v };
+                          update('technologiesPage', { ...(content.technologiesPage ?? {} as any), categories: cats });
+                        }}
+                      />
+                      <TextField
+                        label="Category Name"
+                        value={cat.name}
+                        onChange={(v) => {
+                          const cats = [...(content.technologiesPage?.categories ?? [])];
+                          cats[ci] = { ...cat, name: v };
+                          update('technologiesPage', { ...(content.technologiesPage ?? {} as any), categories: cats });
+                        }}
+                      />
+                      <TextField
+                        label="Icon"
+                        value={cat.icon}
+                        onChange={(v) => {
+                          const cats = [...(content.technologiesPage?.categories ?? [])];
+                          cats[ci] = { ...cat, icon: v };
+                          update('technologiesPage', { ...(content.technologiesPage ?? {} as any), categories: cats });
+                        }}
+                      />
+                      <div className="sm:col-span-3">
+                        <TextField
+                          label="Description"
+                          value={cat.description}
+                          onChange={(v) => {
+                            const cats = [...(content.technologiesPage?.categories ?? [])];
+                            cats[ci] = { ...cat, description: v };
+                            update('technologiesPage', { ...(content.technologiesPage ?? {} as any), categories: cats });
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Category Items */}
+                    <div className="space-y-2 pt-2 border-t border-silver-200">
+                      <p className="text-xs font-bold uppercase tracking-wider text-silver-600">Technologies in this category</p>
+                      {(cat.items ?? []).map((item, ii) => (
+                        <div key={ii} className="flex gap-2 items-center">
+                          <div className="flex-1">
+                            <TextField
+                              label=""
+                              placeholder="Tech Name (e.g. Next.js)"
+                              value={item.name}
+                              onChange={(v) => {
+                                const cats = [...(content.technologiesPage?.categories ?? [])];
+                                const items = [...cat.items];
+                                items[ii] = { ...item, name: v };
+                                cats[ci] = { ...cat, items };
+                                update('technologiesPage', { ...(content.technologiesPage ?? {} as any), categories: cats });
+                              }}
+                            />
+                          </div>
+                          <div className="w-48">
+                            <TextField
+                              label=""
+                              placeholder="Subcategory (e.g. Frameworks)"
+                              value={item.subcategory ?? ''}
+                              onChange={(v) => {
+                                const cats = [...(content.technologiesPage?.categories ?? [])];
+                                const items = [...cat.items];
+                                items[ii] = { ...item, subcategory: v };
+                                cats[ci] = { ...cat, items };
+                                update('technologiesPage', { ...(content.technologiesPage ?? {} as any), categories: cats });
+                              }}
+                            />
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const cats = [...(content.technologiesPage?.categories ?? [])];
+                              const items = [...cat.items];
+                              items.splice(ii, 1);
+                              cats[ci] = { ...cat, items };
+                              update('technologiesPage', { ...(content.technologiesPage ?? {} as any), categories: cats });
+                            }}
+                            className="text-red-500 text-xs px-2 py-1"
+                          >
+                            X
+                          </button>
+                        </div>
+                      ))}
+                      <AddButton
+                        label="Add Technology"
+                        onClick={() => {
+                          const cats = [...(content.technologiesPage?.categories ?? [])];
+                          const items = [...(cat.items ?? []), { name: 'New Technology', subcategory: 'General' }];
+                          cats[ci] = { ...cat, items };
+                          update('technologiesPage', { ...(content.technologiesPage ?? {} as any), categories: cats });
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+                <AddButton
+                  label="Add New Technology Category"
+                  onClick={() => {
+                    const cats = [...(content.technologiesPage?.categories ?? []), {
+                      id: 'new-category',
+                      name: 'New Category',
+                      icon: 'code',
+                      description: 'Category description',
+                      items: []
+                    }];
+                    update('technologiesPage', { ...(content.technologiesPage ?? {} as any), categories: cats });
+                  }}
+                />
+              </div>
+            </EditorPanel>
+          </TabsContent>
+
+          {/* STRATEGIC PILLARS & VALUES */}
+          <TabsContent value="strategicPillars" className="space-y-6">
+            <EditorPanel title="Strategic Pillars (Why Brolytics)" onSave={() => saveSections(['strategicPillars', 'executionDifferentiators'])} saving={isSaving}>
+              <p className="text-xs text-silver-500 mb-4">
+                Manage the 6 Strategic Philosophy Pillars and 4 Execution Differentiators shown on the /about-us page.
+              </p>
+              
+              <h4 className="font-bold text-silver-800 text-base">6 Strategic Philosophy Pillars</h4>
+              <div className="space-y-4 mt-3">
+                {(content.strategicPillars ?? []).map((pillar, pi) => (
+                  <ArrayItemCard
+                    key={pillar.id || pi}
+                    title={pillar.title}
+                    onRemove={() => {
+                      const list = [...(content.strategicPillars ?? [])];
+                      list.splice(pi, 1);
+                      update('strategicPillars', list);
+                    }}
+                  >
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      <TextField
+                        label="Icon"
+                        value={pillar.icon}
+                        onChange={(v) => {
+                          const list = [...(content.strategicPillars ?? [])];
+                          list[pi] = { ...pillar, icon: v };
+                          update('strategicPillars', list);
+                        }}
+                      />
+                      <TextField
+                        label="Title"
+                        value={pillar.title}
+                        onChange={(v) => {
+                          const list = [...(content.strategicPillars ?? [])];
+                          list[pi] = { ...pillar, title: v };
+                          update('strategicPillars', list);
+                        }}
+                      />
+                      <TextField
+                        label="Subtitle Tag"
+                        value={pillar.subtitle ?? ''}
+                        onChange={(v) => {
+                          const list = [...(content.strategicPillars ?? [])];
+                          list[pi] = { ...pillar, subtitle: v };
+                          update('strategicPillars', list);
+                        }}
+                      />
+                      <div className="sm:col-span-3">
+                        <TextAreaField
+                          label="Description"
+                          value={pillar.description}
+                          onChange={(v) => {
+                            const list = [...(content.strategicPillars ?? [])];
+                            list[pi] = { ...pillar, description: v };
+                            update('strategicPillars', list);
+                          }}
+                          rows={2}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="mt-3 space-y-2">
+                      <p className="text-xs font-bold text-silver-700">Key Points</p>
+                      {(pillar.points ?? []).map((pt, pti) => (
+                        <div key={pti} className="flex gap-2 items-center">
+                          <div className="flex-1">
+                            <TextField
+                              label=""
+                              value={pt}
+                              onChange={(v) => {
+                                const list = [...(content.strategicPillars ?? [])];
+                                const pts = [...(pillar.points ?? [])];
+                                pts[pti] = v;
+                                list[pi] = { ...pillar, points: pts };
+                                update('strategicPillars', list);
+                              }}
+                            />
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const list = [...(content.strategicPillars ?? [])];
+                              const pts = [...(pillar.points ?? [])];
+                              pts.splice(pti, 1);
+                              list[pi] = { ...pillar, points: pts };
+                              update('strategicPillars', list);
+                            }}
+                            className="text-red-500 text-xs px-2 py-1"
+                          >
+                            X
+                          </button>
+                        </div>
+                      ))}
+                      <AddButton
+                        label="Add Point"
+                        onClick={() => {
+                          const list = [...(content.strategicPillars ?? [])];
+                          const pts = [...(pillar.points ?? []), 'New Point'];
+                          list[pi] = { ...pillar, points: pts };
+                          update('strategicPillars', list);
+                        }}
+                      />
+                    </div>
+                  </ArrayItemCard>
+                ))}
+                <AddButton
+                  label="Add Strategic Pillar"
+                  onClick={() => {
+                    const list = [...(content.strategicPillars ?? []), {
+                      id: `pillar-${Date.now()}`,
+                      title: 'New Strategic Pillar',
+                      subtitle: 'Pillar Tag',
+                      description: 'Pillar description explaining client value.',
+                      icon: 'layers',
+                      points: ['Benefit point 1', 'Benefit point 2']
+                    }];
+                    update('strategicPillars', list);
+                  }}
+                />
+              </div>
+
+              <h4 className="font-bold text-silver-800 text-base pt-8">4 Execution Differentiators (Why Clients Choose Us)</h4>
+              <div className="space-y-3 mt-3">
+                {(content.executionDifferentiators ?? []).map((diff, di) => (
+                  <ArrayItemCard
+                    key={diff.id || di}
+                    title={diff.title}
+                    onRemove={() => {
+                      const list = [...(content.executionDifferentiators ?? [])];
+                      list.splice(di, 1);
+                      update('executionDifferentiators', list);
+                    }}
+                  >
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <TextField
+                        label="Icon"
+                        value={diff.icon}
+                        onChange={(v) => {
+                          const list = [...(content.executionDifferentiators ?? [])];
+                          list[di] = { ...diff, icon: v };
+                          update('executionDifferentiators', list);
+                        }}
+                      />
+                      <TextField
+                        label="Title"
+                        value={diff.title}
+                        onChange={(v) => {
+                          const list = [...(content.executionDifferentiators ?? [])];
+                          list[di] = { ...diff, title: v };
+                          update('executionDifferentiators', list);
+                        }}
+                      />
+                      <div className="sm:col-span-2">
+                        <TextAreaField
+                          label="Description"
+                          value={diff.description}
+                          onChange={(v) => {
+                            const list = [...(content.executionDifferentiators ?? [])];
+                            list[di] = { ...diff, description: v };
+                            update('executionDifferentiators', list);
+                          }}
+                          rows={2}
+                        />
+                      </div>
+                    </div>
+                  </ArrayItemCard>
+                ))}
+                <AddButton
+                  label="Add Execution Differentiator"
+                  onClick={() => {
+                    const list = [...(content.executionDifferentiators ?? []), {
+                      id: `diff-${Date.now()}`,
+                      title: 'New Delivery Differentiator',
+                      description: 'Transparent delivery standard description.',
+                      icon: 'check-circle'
+                    }];
+                    update('executionDifferentiators', list);
+                  }}
+                />
+              </div>
+            </EditorPanel>
           </TabsContent>
 
           {/* CLIENTS */}
@@ -1195,6 +1687,220 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
                   </ArrayItemCard>
                 ))}
                 <AddButton label="Add Testimonial" onClick={() => update('aboutPage', { ...content.aboutPage, testimonials: { ...content.aboutPage.testimonials, items: [...content.aboutPage.testimonials.items, { quote: '', name: '', role: '' }] } })} />
+              </div>
+            </EditorPanel>
+          </TabsContent>
+
+          {/* TERMS & CONDITIONS */}
+          <TabsContent value="termsPage" className="space-y-6">
+            <EditorPanel title="Terms & Conditions (Section 56 & Master Service Agreement)" onSave={() => saveSection('termsPage')} saving={isSaving}>
+              <p className="text-xs text-silver-500 mb-4">
+                Manage the /terms standalone page, 10 core operational principles, and legal clauses.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <TextField
+                  label="Header Badge"
+                  value={content.termsPage?.header?.badge ?? 'Legal & Commercial Terms'}
+                  onChange={(v) => update('termsPage', {
+                    ...(content.termsPage ?? {} as any),
+                    header: { ...(content.termsPage?.header ?? {} as any), badge: v }
+                  })}
+                />
+                <TextField
+                  label="Header Title"
+                  value={content.termsPage?.header?.title ?? 'Terms & Conditions of'}
+                  onChange={(v) => update('termsPage', {
+                    ...(content.termsPage ?? {} as any),
+                    header: { ...(content.termsPage?.header ?? {} as any), title: v }
+                  })}
+                />
+                <TextField
+                  label="Header Title Accent"
+                  value={content.termsPage?.header?.titleAccent ?? 'Service & Engagement'}
+                  onChange={(v) => update('termsPage', {
+                    ...(content.termsPage ?? {} as any),
+                    header: { ...(content.termsPage?.header ?? {} as any), titleAccent: v }
+                  })}
+                />
+                <TextField
+                  label="Last Updated Date"
+                  value={content.termsPage?.header?.lastUpdated ?? 'August 2026'}
+                  onChange={(v) => update('termsPage', {
+                    ...(content.termsPage ?? {} as any),
+                    header: { ...(content.termsPage?.header ?? {} as any), lastUpdated: v }
+                  })}
+                />
+                <div className="sm:col-span-2">
+                  <TextAreaField
+                    label="Header Description"
+                    value={content.termsPage?.header?.description ?? ''}
+                    onChange={(v) => update('termsPage', {
+                      ...(content.termsPage ?? {} as any),
+                      header: { ...(content.termsPage?.header ?? {} as any), description: v }
+                    })}
+                    rows={2}
+                  />
+                </div>
+              </div>
+
+              <h4 className="font-bold text-silver-800 text-base pt-6">10 Core Operational & Commercial Terms</h4>
+              <div className="space-y-4 mt-3">
+                {(content.termsPage?.importantTerms ?? []).map((term, ti) => (
+                  <ArrayItemCard
+                    key={term.id || ti}
+                    title={`${term.id}. ${term.title}`}
+                    onRemove={() => {
+                      const list = [...(content.termsPage?.importantTerms ?? [])];
+                      list.splice(ti, 1);
+                      update('termsPage', { ...(content.termsPage ?? {} as any), importantTerms: list });
+                    }}
+                  >
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      <NumberField
+                        label="Number / ID"
+                        value={term.id}
+                        onChange={(v) => {
+                          const list = [...(content.termsPage?.importantTerms ?? [])];
+                          list[ti] = { ...term, id: v };
+                          update('termsPage', { ...(content.termsPage ?? {} as any), importantTerms: list });
+                        }}
+                      />
+                      <TextField
+                        label="Title"
+                        value={term.title}
+                        onChange={(v) => {
+                          const list = [...(content.termsPage?.importantTerms ?? [])];
+                          list[ti] = { ...term, title: v };
+                          update('termsPage', { ...(content.termsPage ?? {} as any), importantTerms: list });
+                        }}
+                      />
+                      <TextField
+                        label="Category Badge"
+                        value={term.category ?? ''}
+                        onChange={(v) => {
+                          const list = [...(content.termsPage?.importantTerms ?? [])];
+                          list[ti] = { ...term, category: v };
+                          update('termsPage', { ...(content.termsPage ?? {} as any), importantTerms: list });
+                        }}
+                      />
+                      <div className="sm:col-span-3">
+                        <TextAreaField
+                          label="Description"
+                          value={term.description}
+                          onChange={(v) => {
+                            const list = [...(content.termsPage?.importantTerms ?? [])];
+                            list[ti] = { ...term, description: v };
+                            update('termsPage', { ...(content.termsPage ?? {} as any), importantTerms: list });
+                          }}
+                          rows={2}
+                        />
+                      </div>
+                    </div>
+                  </ArrayItemCard>
+                ))}
+                <AddButton
+                  label="Add Important Term"
+                  onClick={() => {
+                    const list = [...(content.termsPage?.importantTerms ?? [])];
+                    const nextId = list.length > 0 ? Math.max(...list.map(t => t.id || 0)) + 1 : 1;
+                    update('termsPage', {
+                      ...(content.termsPage ?? {} as any),
+                      importantTerms: [
+                        ...list,
+                        {
+                          id: nextId,
+                          title: 'New Commercial Term',
+                          description: 'Term description explaining the policy.',
+                          category: 'Commercial'
+                        }
+                      ]
+                    });
+                  }}
+                />
+              </div>
+
+              <h4 className="font-bold text-silver-800 text-base pt-6">Detailed Legal & Service Clauses</h4>
+              <div className="space-y-4 mt-3">
+                {(content.termsPage?.clauses ?? []).map((clause, ci) => (
+                  <ArrayItemCard
+                    key={ci}
+                    title={clause.title}
+                    onRemove={() => {
+                      const list = [...(content.termsPage?.clauses ?? [])];
+                      list.splice(ci, 1);
+                      update('termsPage', { ...(content.termsPage ?? {} as any), clauses: list });
+                    }}
+                  >
+                    <TextField
+                      label="Clause Heading"
+                      value={clause.title}
+                      onChange={(v) => {
+                        const list = [...(content.termsPage?.clauses ?? [])];
+                        list[ci] = { ...clause, title: v };
+                        update('termsPage', { ...(content.termsPage ?? {} as any), clauses: list });
+                      }}
+                    />
+                    <div className="mt-3 space-y-2">
+                      <p className="text-xs font-bold text-silver-700">Paragraphs</p>
+                      {clause.content.map((para, pi) => (
+                        <div key={pi} className="flex gap-2 items-center">
+                          <div className="flex-1">
+                            <TextAreaField
+                              label=""
+                              value={para}
+                              onChange={(v) => {
+                                const list = [...(content.termsPage?.clauses ?? [])];
+                                const paras = [...clause.content];
+                                paras[pi] = v;
+                                list[ci] = { ...clause, content: paras };
+                                update('termsPage', { ...(content.termsPage ?? {} as any), clauses: list });
+                              }}
+                              rows={2}
+                            />
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const list = [...(content.termsPage?.clauses ?? [])];
+                              const paras = [...clause.content];
+                              paras.splice(pi, 1);
+                              list[ci] = { ...clause, content: paras };
+                              update('termsPage', { ...(content.termsPage ?? {} as any), clauses: list });
+                            }}
+                            className="text-red-500 text-xs px-2 py-1"
+                          >
+                            X
+                          </button>
+                        </div>
+                      ))}
+                      <AddButton
+                        label="Add Paragraph"
+                        onClick={() => {
+                          const list = [...(content.termsPage?.clauses ?? [])];
+                          const paras = [...clause.content, 'New clause text paragraph.'];
+                          list[ci] = { ...clause, content: paras };
+                          update('termsPage', { ...(content.termsPage ?? {} as any), clauses: list });
+                        }}
+                      />
+                    </div>
+                  </ArrayItemCard>
+                ))}
+                <AddButton
+                  label="Add Legal Clause"
+                  onClick={() => {
+                    const list = [...(content.termsPage?.clauses ?? [])];
+                    update('termsPage', {
+                      ...(content.termsPage ?? {} as any),
+                      clauses: [
+                        ...list,
+                        {
+                          title: `${list.length + 1}. New Clause Heading`,
+                          content: ['Detailed clause terms and conditions text.']
+                        }
+                      ]
+                    });
+                  }}
+                />
               </div>
             </EditorPanel>
           </TabsContent>

@@ -18,6 +18,8 @@ export default async function AboutUsPage() {
       siteSettings={content.siteSettings}
       ourWorkContent={content.ourWork}
       ourClientsContent={content.ourClients}
+      strategicPillars={content.strategicPillars}
+      executionDifferentiators={content.executionDifferentiators}
     />
   );
 }

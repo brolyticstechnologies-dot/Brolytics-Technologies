@@ -252,6 +252,10 @@ export function Footer({ content: contentProp, siteSettings: settingsProp }: Foo
               © {currentYear} <span className="text-silver-900 font-semibold">{content.copyright}</span>. All rights reserved.
             </p>
             <span className="hidden sm:inline text-silver-300">|</span>
+            <Link href="/terms" className="hover:text-primary transition-colors duration-200">
+              Terms & Conditions
+            </Link>
+            <span className="hidden sm:inline text-silver-300">|</span>
             <Link href="/privacy-policy" className="hover:text-primary transition-colors duration-200">
               Privacy Policy
             </Link>

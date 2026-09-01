@@ -4,6 +4,7 @@ import { Hero } from '@/components/sections/hero';
 import { AboutUs } from '@/components/sections/about-us';
 import { ServicesOverview } from '@/components/sections/services-overview';
 import { StatsSection } from '@/components/sections/stats-section';
+import { TechStackTeaser } from '@/components/sections/tech-stack-teaser';
 import { OurWork } from '@/components/sections/our-work';
 import { ContactForm } from '@/components/sections/contact-form';
 import { OurClients } from '@/components/sections/our-clients';
@@ -17,6 +18,7 @@ export default async function HomePage() {
       <main className="flex-grow">
         <Hero content={content.hero} services={content.services} siteSettings={content.siteSettings} />
         <ServicesOverview services={content.services} overview={content.servicesOverview} />
+        <TechStackTeaser curatedTech={content.technologiesPage?.curatedHomeTech} />
         <StatsSection content={content.stats} />
         <AboutUs content={content.aboutUs} coreValues={content.coreValues} />
         <OurWork content={content.ourWork} />

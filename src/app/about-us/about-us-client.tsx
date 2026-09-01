@@ -23,6 +23,8 @@ interface AboutUsClientProps {
   siteSettings: SiteContent["siteSettings"];
   ourWorkContent?: SiteContent["ourWork"];
   ourClientsContent?: SiteContent["ourClients"];
+  strategicPillars?: SiteContent["strategicPillars"];
+  executionDifferentiators?: SiteContent["executionDifferentiators"];
 }
 
 // ── Section heading helper ───────────────────────────────────────────────
@@ -170,11 +172,21 @@ function TeamMemberCard({ member, index, isVisible }: {
 
 // ── Main Page Component ──────────────────────────────────────────────────
 
-export function AboutUsClient({ content, footerContent, siteSettings, ourWorkContent, ourClientsContent }: AboutUsClientProps) {
+export function AboutUsClient({
+  content,
+  footerContent,
+  siteSettings,
+  ourWorkContent,
+  ourClientsContent,
+  strategicPillars,
+  executionDifferentiators,
+}: AboutUsClientProps) {
   const [loaded, setLoaded] = useState(false);
   const storyRef        = useScrollAnimation({ threshold: 0.1 });
   const expertiseRef    = useScrollAnimation({ threshold: 0.1 });
   const valuesRef       = useScrollAnimation({ threshold: 0.1 });
+  const pillarsRef      = useScrollAnimation({ threshold: 0.1 });
+  const diffsRef        = useScrollAnimation({ threshold: 0.1 });
   const teamRef         = useScrollAnimation({ threshold: 0.2 });
   const testimonialsRef = useScrollAnimation({ threshold: 0.1 });
 
@@ -555,6 +567,133 @@ export function AboutUsClient({ content, footerContent, siteSettings, ourWorkCon
                 {valueItems.map((item, i) => (
                   <FeatureCard key={item.title + i} iconName={item.icon} title={item.title} description={item.description} index={i} isVisible={valuesRef.isVisible} />
                 ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ══════ STRATEGIC PILLARS: WHY BROLYTICS TECHNOLOGIES ══════ */}
+        {strategicPillars && strategicPillars.length > 0 && (
+          <section ref={pillarsRef.ref} className="relative py-24 bg-white overflow-hidden border-t border-silver-100">
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/[0.03] rounded-full blur-[140px]" />
+            </div>
+
+            <div className="relative container mx-auto px-6 max-w-7xl">
+              <SectionHeading
+                badge="The Brolytics Advantage"
+                title="More Than a Dev Company —"
+                accent="Your Technology Partner"
+                subtitle="We believe great software starts with understanding the business, process, and long-term vision behind the technology."
+                isVisible={pillarsRef.isVisible}
+              />
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {strategicPillars.map((pillar, i) => {
+                  const Icon = getIcon(pillar.icon);
+                  return (
+                    <div
+                      key={pillar.id || i}
+                      className={cn(
+                        "flex flex-col justify-between p-8 rounded-3xl border border-silver-200/90 bg-silver-50/40 hover:bg-white hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group",
+                        pillarsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                      )}
+                      style={{ transitionDelay: `${i * 80}ms` }}
+                    >
+                      <div>
+                        <div className="flex items-center justify-between gap-3 mb-6">
+                          <div className="p-3 rounded-2xl bg-white border border-silver-200/80 text-primary shadow-sm group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">
+                            <Icon className="w-6 h-6" />
+                          </div>
+                          <span className="text-2xl font-black text-silver-300 group-hover:text-primary/30 transition-colors">
+                            0{i + 1}
+                          </span>
+                        </div>
+
+                        {pillar.subtitle && (
+                          <p className="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">
+                            {pillar.subtitle}
+                          </p>
+                        )}
+                        <h3 className="text-lg sm:text-xl font-black text-silver-900 mb-3 group-hover:text-primary transition-colors">
+                          {pillar.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-silver-500 leading-relaxed mb-6">
+                          {pillar.description}
+                        </p>
+                      </div>
+
+                      {pillar.points && pillar.points.length > 0 && (
+                        <div className="pt-4 border-t border-silver-200/70 space-y-2">
+                          {pillar.points.map((pt, pi) => (
+                            <div key={pi} className="flex items-center gap-2 text-xs font-semibold text-silver-700">
+                              <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                              <span>{pt}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ══════ WHY CLIENTS CHOOSE US (DELIVERY DIFFERENTIATORS) ══════ */}
+        {executionDifferentiators && executionDifferentiators.length > 0 && (
+          <section ref={diffsRef.ref} className="relative py-20 bg-silver-900 text-white overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute -top-40 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[140px]" />
+              <div className="absolute -bottom-40 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[140px]" />
+            </div>
+
+            <div className="relative container mx-auto px-6 max-w-7xl">
+              <div className="text-center max-w-3xl mx-auto mb-14">
+                <span className="px-4 py-1.5 rounded-full bg-white/10 text-[11px] font-bold uppercase tracking-widest text-primary-foreground border border-white/10 mb-4 inline-block">
+                  Engineered For Trust
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-4">
+                  We Build With Purpose. <span className="text-gradient-red">Every Single Line.</span>
+                </h2>
+                <p className="text-silver-400 text-sm sm:text-base">
+                  Our delivery standards are structured around transparency, scalable software engineering, and measurable client success.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {executionDifferentiators.map((diff, di) => {
+                  const Icon = getIcon(diff.icon);
+                  return (
+                    <div
+                      key={diff.id || di}
+                      className={cn(
+                        "p-6 rounded-3xl bg-white/[0.04] border border-white/10 hover:border-primary/50 hover:bg-white/[0.08] transition-all duration-300 group",
+                        diffsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                      )}
+                      style={{ transitionDelay: `${di * 90}ms` }}
+                    >
+                      <div className="p-3 rounded-2xl bg-white/10 text-primary w-fit mb-4 group-hover:scale-110 transition-transform">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <h4 className="text-base font-bold text-white mb-2">{diff.title}</h4>
+                      <p className="text-xs text-silver-400 leading-relaxed">{diff.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Technologies Ecosystem Link */}
+              <div className="mt-12 text-center">
+                <Link
+                  href="/technologies"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/15 text-white hover:bg-primary hover:border-primary transition-all duration-300 text-xs font-bold"
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  Explore Our 100+ Technologies Matrix
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
           </section>

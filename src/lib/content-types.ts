@@ -329,7 +329,74 @@ export interface SiteContent {
     phoneLink: string;
     disclaimer: string;
   };
+  technologiesPage?: {
+    header: {
+      badge?: string;
+      title: string;
+      titleAccent?: string;
+      description?: string;
+      subtitle?: string;
+    };
+    curatedHomeTech: string[];
+    categories: {
+      id: string;
+      name: string;
+      icon: string;
+      description: string;
+      items: {
+        name: string;
+        subcategory?: string;
+        badge?: string;
+      }[];
+    }[];
+  };
+  strategicPillars?: {
+    id: string;
+    title: string;
+    subtitle?: string;
+    description: string;
+    points?: string[];
+    icon: string;
+  }[];
+  executionDifferentiators?: {
+    id: string;
+    title: string;
+    description: string;
+    icon: string;
+  }[];
+  commercialFramework?: {
+    badge: string;
+    title: string;
+    titleAccent: string;
+    description: string;
+    quotationPoints: string[];
+    commitmentHeading: string;
+    commitmentQuote: string;
+    commitmentText: string;
+    ctaText: string;
+    ctaLink: string;
+  };
+  termsPage?: {
+    header: {
+      badge: string;
+      title: string;
+      titleAccent: string;
+      description: string;
+      lastUpdated: string;
+    };
+    importantTerms: {
+      id: number;
+      title: string;
+      description: string;
+      category?: string;
+    }[];
+    clauses?: {
+      title: string;
+      content: string[];
+    }[];
+  };
 }
 
 export type ContentSection = keyof SiteContent;
+
 

@@ -53,6 +53,63 @@ export async function insertContactSubmission(data: {
   }
 }
 
+export interface SlotBooking {
+  id?: string;
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  booking_date: string;
+  booking_time: string;
+  meeting_mode: string;
+  notes?: string;
+  created_at?: string;
+}
+
+/**
+ * Inserts a slot booking into Supabase (with fallback to contact_submissions)
+ */
+export async function insertSlotBooking(data: {
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  booking_date: string;
+  booking_time: string;
+  meeting_mode: string;
+  notes?: string;
+}): Promise<{ success: boolean; error?: string }> {
+  try {
+    // 1. Try slot_bookings table
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/slot_bookings`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Prefer': 'return=minimal',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      return { success: true };
+    }
+
+    // 2. Fallback to contact_submissions with structured message
+    const formattedMessage = `[MEETING SLOT BOOKED]\n• Service: ${data.service}\n• Date: ${data.booking_date}\n• Time: ${data.booking_time}\n• Mode: ${data.meeting_mode}\n• Notes: ${data.notes || 'None'}`;
+    return await insertContactSubmission({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      message: formattedMessage,
+    });
+  } catch (err: any) {
+    console.error('Supabase slot booking error:', err);
+    return { success: false, error: err?.message || 'Network error' };
+  }
+}
+
 /**
  * Retrieves all contact submissions (for admin viewing)
  */

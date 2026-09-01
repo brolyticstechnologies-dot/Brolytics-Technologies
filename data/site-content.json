@@ -582,6 +582,14 @@
         "href": "/"
       },
       {
+        "label": "Tech Stack",
+        "href": "/technologies"
+      },
+      {
+        "label": "Pricing",
+        "href": "/pricing"
+      },
+      {
         "label": "About Us",
         "href": "/about-us"
       },
@@ -2867,5 +2875,508 @@
     "phoneText": "+91 85075 07173",
     "phoneLink": "tel:+918507507173",
     "disclaimer": "All prices are starting prices in Indian Rupees (INR) and exclude GST, domain, hosting, third-party API costs and government charges unless specified."
+  },
+  "technologiesPage": {
+    "header": {
+      "badge": "Technology Ecosystem",
+      "title": "Modern Engineering &",
+      "titleAccent": "Technology Arsenal",
+      "description": "We engineer production-grade digital solutions using battle-tested, modern, and high-performance technologies tailored to your exact business requirements."
+    },
+    "curatedHomeTech": [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "Flutter",
+      "React Native",
+      "Swift",
+      "Kotlin",
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "PostgreSQL",
+      "MongoDB",
+      "Tailwind CSS",
+      "Generative AI & LLMs",
+      "Firebase",
+      "Figma"
+    ],
+    "categories": [
+      {
+        "id": "web-frontend",
+        "name": "Web Frontend",
+        "icon": "globe",
+        "description": "Modern, responsive, ultra-fast user interfaces and web applications.",
+        "items": [
+          { "name": "HTML5", "subcategory": "Core Standards" },
+          { "name": "CSS3", "subcategory": "Core Standards" },
+          { "name": "JavaScript (ES6+)", "subcategory": "Languages" },
+          { "name": "TypeScript", "subcategory": "Languages" },
+          { "name": "React.js", "subcategory": "Frameworks" },
+          { "name": "Next.js", "subcategory": "Frameworks" },
+          { "name": "Vue.js", "subcategory": "Frameworks" },
+          { "name": "Nuxt.js", "subcategory": "Frameworks" },
+          { "name": "Angular", "subcategory": "Frameworks" },
+          { "name": "Svelte", "subcategory": "Frameworks" },
+          { "name": "SvelteKit", "subcategory": "Frameworks" },
+          { "name": "SolidJS", "subcategory": "Frameworks" },
+          { "name": "Astro", "subcategory": "Frameworks" },
+          { "name": "jQuery", "subcategory": "Libraries" },
+          { "name": "Tailwind CSS", "subcategory": "Styling & UI" },
+          { "name": "Bootstrap", "subcategory": "Styling & UI" },
+          { "name": "Material UI", "subcategory": "Component Systems" },
+          { "name": "Ant Design", "subcategory": "Component Systems" },
+          { "name": "Chakra UI", "subcategory": "Component Systems" }
+        ]
+      },
+      {
+        "id": "web-backend",
+        "name": "Backend & Web Frameworks",
+        "icon": "server",
+        "description": "Scalable APIs, microservices, cloud backends, and enterprise architectures.",
+        "items": [
+          { "name": "Node.js", "subcategory": "JavaScript / TypeScript" },
+          { "name": "Express.js", "subcategory": "JavaScript / TypeScript" },
+          { "name": "NestJS", "subcategory": "JavaScript / TypeScript" },
+          { "name": "Fastify", "subcategory": "JavaScript / TypeScript" },
+          { "name": "Hono", "subcategory": "JavaScript / TypeScript" },
+          { "name": "Bun", "subcategory": "Runtimes" },
+          { "name": "Deno", "subcategory": "Runtimes" },
+          { "name": "PHP", "subcategory": "PHP Ecosystem" },
+          { "name": "Laravel", "subcategory": "PHP Ecosystem" },
+          { "name": "Symfony", "subcategory": "PHP Ecosystem" },
+          { "name": "CodeIgniter", "subcategory": "PHP Ecosystem" },
+          { "name": "Yii", "subcategory": "PHP Ecosystem" },
+          { "name": "CakePHP", "subcategory": "PHP Ecosystem" },
+          { "name": "Slim", "subcategory": "PHP Ecosystem" },
+          { "name": "Python", "subcategory": "Python Ecosystem" },
+          { "name": "Django", "subcategory": "Python Ecosystem" },
+          { "name": "FastAPI", "subcategory": "Python Ecosystem" },
+          { "name": "Flask", "subcategory": "Python Ecosystem" },
+          { "name": "Java", "subcategory": "Java Ecosystem" },
+          { "name": "Spring Boot", "subcategory": "Java Ecosystem" },
+          { "name": "Quarkus", "subcategory": "Java Ecosystem" },
+          { "name": "Micronaut", "subcategory": "Java Ecosystem" },
+          { "name": "C#", "subcategory": ".NET Ecosystem" },
+          { "name": "ASP.NET Core", "subcategory": ".NET Ecosystem" },
+          { "name": "ASP.NET MVC", "subcategory": ".NET Ecosystem" },
+          { "name": "Blazor", "subcategory": ".NET Ecosystem" },
+          { "name": "Ruby on Rails", "subcategory": "Ruby Ecosystem" },
+          { "name": "Go (Golang)", "subcategory": "Go Ecosystem" },
+          { "name": "Gin", "subcategory": "Go Ecosystem" },
+          { "name": "Fiber", "subcategory": "Go Ecosystem" },
+          { "name": "Echo", "subcategory": "Go Ecosystem" },
+          { "name": "Rust", "subcategory": "Rust Ecosystem" },
+          { "name": "Actix", "subcategory": "Rust Ecosystem" },
+          { "name": "Axum", "subcategory": "Rust Ecosystem" },
+          { "name": "Phoenix (Elixir)", "subcategory": "Functional Backends" },
+          { "name": "Scala / Play", "subcategory": "JVM Ecosystem" }
+        ]
+      },
+      {
+        "id": "mobile-tech",
+        "name": "Mobile Technology",
+        "icon": "smartphone",
+        "description": "High-performance native and cross-platform apps for iOS & Android.",
+        "items": [
+          { "name": "Kotlin", "subcategory": "Native Android" },
+          { "name": "Java (Android)", "subcategory": "Native Android" },
+          { "name": "Android SDK", "subcategory": "Native Android" },
+          { "name": "Jetpack Compose", "subcategory": "Native Android" },
+          { "name": "Swift", "subcategory": "Native iOS" },
+          { "name": "SwiftUI", "subcategory": "Native iOS" },
+          { "name": "Objective-C", "subcategory": "Native iOS" },
+          { "name": "iOS SDK", "subcategory": "Native iOS" },
+          { "name": "Flutter", "subcategory": "Cross-Platform" },
+          { "name": "Dart", "subcategory": "Cross-Platform" },
+          { "name": "React Native", "subcategory": "Cross-Platform" },
+          { "name": ".NET MAUI", "subcategory": "Cross-Platform" },
+          { "name": "Kotlin Multiplatform", "subcategory": "Cross-Platform" },
+          { "name": "Ionic & Capacitor", "subcategory": "Cross-Platform" },
+          { "name": "Firebase & FCM", "subcategory": "Mobile Services" },
+          { "name": "Push Notifications", "subcategory": "Mobile Services" },
+          { "name": "Google Maps & Geofencing", "subcategory": "Mobile Services" },
+          { "name": "Location Services", "subcategory": "Mobile Services" },
+          { "name": "Camera & QR/Barcode", "subcategory": "Mobile Services" },
+          { "name": "Biometrics & FaceID", "subcategory": "Mobile Services" },
+          { "name": "In-App Payments", "subcategory": "Mobile Services" },
+          { "name": "Deep Linking & Universal Links", "subcategory": "Mobile Services" },
+          { "name": "Social Login & OAuth", "subcategory": "Mobile Services" },
+          { "name": "Crash Reporting & Telemetry", "subcategory": "Mobile Services" }
+        ]
+      },
+      {
+        "id": "programming-languages",
+        "name": "Programming Languages",
+        "icon": "code",
+        "description": "Polyglot engineering capabilities across modern and specialized language runtimes.",
+        "items": [
+          { "name": "JavaScript", "subcategory": "Web & Scripting" },
+          { "name": "TypeScript", "subcategory": "Web & Systems" },
+          { "name": "Python", "subcategory": "AI, Data & Backend" },
+          { "name": "PHP", "subcategory": "Web & Enterprise" },
+          { "name": "Java", "subcategory": "Enterprise & Mobile" },
+          { "name": "C#", "subcategory": "Enterprise & Cloud" },
+          { "name": "C", "subcategory": "Systems & Embedded" },
+          { "name": "C++", "subcategory": "High Performance" },
+          { "name": "Go (Golang)", "subcategory": "Cloud & Microservices" },
+          { "name": "Rust", "subcategory": "Memory-Safe Systems" },
+          { "name": "Kotlin", "subcategory": "Mobile & JVM" },
+          { "name": "Swift", "subcategory": "Apple Ecosystem" },
+          { "name": "Dart", "subcategory": "Cross-Platform UI" },
+          { "name": "Ruby", "subcategory": "Rapid Web Apps" },
+          { "name": "R", "subcategory": "Statistical Analysis" },
+          { "name": "Scala", "subcategory": "Data & JVM" },
+          { "name": "Elixir", "subcategory": "Real-time Concurrency" },
+          { "name": "Erlang", "subcategory": "Fault-Tolerant Systems" },
+          { "name": "Lua", "subcategory": "Embedded & Scripting" },
+          { "name": "Solidity", "subcategory": "Smart Contracts & Web3" },
+          { "name": "Bash & PowerShell", "subcategory": "Automation & DevOps" },
+          { "name": "SQL", "subcategory": "Database Querying" }
+        ]
+      },
+      {
+        "id": "databases-data",
+        "name": "Databases & Data Systems",
+        "icon": "database",
+        "description": "Relational, document, key-value, distributed, and analytics data stores.",
+        "items": [
+          { "name": "PostgreSQL", "subcategory": "Relational (SQL)" },
+          { "name": "MySQL", "subcategory": "Relational (SQL)" },
+          { "name": "SQL Server", "subcategory": "Relational (SQL)" },
+          { "name": "Oracle Database", "subcategory": "Relational (SQL)" },
+          { "name": "MariaDB", "subcategory": "Relational (SQL)" },
+          { "name": "SQLite", "subcategory": "Embedded SQL" },
+          { "name": "IBM Db2", "subcategory": "Enterprise SQL" },
+          { "name": "MongoDB", "subcategory": "NoSQL & Document" },
+          { "name": "Firebase Firestore", "subcategory": "Real-time NoSQL" },
+          { "name": "Redis", "subcategory": "In-Memory & Cache" },
+          { "name": "Cassandra", "subcategory": "Distributed NoSQL" },
+          { "name": "DynamoDB", "subcategory": "Cloud NoSQL" },
+          { "name": "Neo4j", "subcategory": "Graph Database" },
+          { "name": "Elasticsearch", "subcategory": "Search & Analytics" },
+          { "name": "OpenSearch", "subcategory": "Search & Analytics" },
+          { "name": "Google BigQuery", "subcategory": "Data Warehousing" },
+          { "name": "ClickHouse", "subcategory": "Real-time OLAP" }
+        ]
+      },
+      {
+        "id": "cloud-devops",
+        "name": "Cloud, DevOps & Infrastructure",
+        "icon": "cloud",
+        "description": "High-availability cloud platforms, container orchestration, CI/CD pipelines, and security.",
+        "items": [
+          { "name": "Amazon Web Services (AWS)", "subcategory": "Cloud Platforms" },
+          { "name": "Microsoft Azure", "subcategory": "Cloud Platforms" },
+          { "name": "Google Cloud Platform (GCP)", "subcategory": "Cloud Platforms" },
+          { "name": "DigitalOcean", "subcategory": "Cloud Infrastructure" },
+          { "name": "Cloudflare (CDN & Edge)", "subcategory": "Edge & Security" },
+          { "name": "Vercel", "subcategory": "Serverless Hosting" },
+          { "name": "Linux (Ubuntu, Debian, RHEL)", "subcategory": "OS & Servers" },
+          { "name": "Docker", "subcategory": "Containers" },
+          { "name": "Kubernetes", "subcategory": "Orchestration" },
+          { "name": "Nginx & Apache", "subcategory": "Web Servers" },
+          { "name": "GitHub Actions", "subcategory": "CI/CD Automation" },
+          { "name": "GitLab CI/CD", "subcategory": "CI/CD Automation" },
+          { "name": "Cloud Storage & S3", "subcategory": "Storage" },
+          { "name": "Infrastructure Monitoring", "subcategory": "Observability" },
+          { "name": "Automated Backup Systems", "subcategory": "Disaster Recovery" }
+        ]
+      },
+      {
+        "id": "ai-emerging",
+        "name": "AI, Data & Emerging Tech",
+        "icon": "bot",
+        "description": "Generative AI, customized LLM agents, computer vision, blockchain, and automation.",
+        "items": [
+          { "name": "Generative AI & LLM Integration", "subcategory": "Artificial Intelligence" },
+          { "name": "Autonomous AI Agents", "subcategory": "Artificial Intelligence" },
+          { "name": "Custom AI Chatbots & RAG", "subcategory": "Artificial Intelligence" },
+          { "name": "Machine Learning Models", "subcategory": "Data Science" },
+          { "name": "Computer Vision & OCR", "subcategory": "Vision Systems" },
+          { "name": "Natural Language Processing (NLP)", "subcategory": "Language AI" },
+          { "name": "Recommendation Engines", "subcategory": "Analytics" },
+          { "name": "Predictive Analytics", "subcategory": "Analytics" },
+          { "name": "Business Process Automation", "subcategory": "Automation" },
+          { "name": "Smart Contracts & Solidity", "subcategory": "Web3 & Blockchain" },
+          { "name": "IoT Device Integration", "subcategory": "Connected Devices" },
+          { "name": "Real-Time Event Streams", "subcategory": "Distributed Systems" }
+        ]
+      },
+      {
+        "id": "dev-tools",
+        "name": "Development & Collaboration Tools",
+        "icon": "wrench",
+        "description": "Industry-standard version control, API testing, UI/UX design, and agile workflows.",
+        "items": [
+          { "name": "Git, GitHub & GitLab", "subcategory": "Version Control" },
+          { "name": "Bitbucket", "subcategory": "Version Control" },
+          { "name": "Postman & Swagger / OpenAPI", "subcategory": "API Testing & Docs" },
+          { "name": "VS Code & Visual Studio", "subcategory": "IDEs" },
+          { "name": "Android Studio & Xcode", "subcategory": "Mobile IDEs" },
+          { "name": "Figma", "subcategory": "UI/UX Design" },
+          { "name": "Jira & Trello", "subcategory": "Agile & Task Management" }
+        ]
+      }
+    ]
+  },
+  "strategicPillars": [
+    {
+      "id": "one-company-complete-solutions",
+      "title": "One Company. Complete Digital Solutions.",
+      "subtitle": "Everything Under One Roof",
+      "description": "From custom websites and mobile apps to ERP, CRM, SaaS, AI, and enterprise software—we provide complete end-to-end technology solutions under one roof.",
+      "icon": "layers",
+      "points": [
+        "Eliminates multiple vendor dependencies",
+        "Seamless cross-platform integration",
+        "Unified architecture and tech accountability"
+      ]
+    },
+    {
+      "id": "built-around-business",
+      "title": "Built Around Your Business Processes",
+      "subtitle": "No Cookie-Cutter Templates",
+      "description": "We don't force businesses into rigid ready-made software. We design and engineer solutions around your unique workflows, customers, team, and growth strategy.",
+      "icon": "briefcase",
+      "points": [
+        "Tailored to your specific operational bottlenecks",
+        "Designed for your team's exact daily workflows",
+        "Custom features that deliver real competitive advantage"
+      ]
+    },
+    {
+      "id": "product-minded-engineering",
+      "title": "Product-Minded Engineering",
+      "subtitle": "Startup & Enterprise Maturity",
+      "description": "Whether building a new startup product or modernizing legacy systems, we focus beyond code on user retention, speed, scalability, and long-term maintainability.",
+      "icon": "sparkles",
+      "points": [
+        "High-converting UX/UI design",
+        "Architected for 10x traffic expansion",
+        "Clean, documented, maintainable codebases"
+      ]
+    },
+    {
+      "id": "end-to-end-ownership",
+      "title": "End-to-End Project Ownership",
+      "subtitle": "From Concept to Scale",
+      "description": "We take full responsibility across the entire software lifecycle: Idea → Requirement → UI/UX → Development → Testing → Cloud Deployment → Growth.",
+      "icon": "shield",
+      "points": [
+        "Dedicated project leadership",
+        "Multi-stage automated and manual QA",
+        "Smooth production deployment with zero downtime"
+      ]
+    },
+    {
+      "id": "technology-creates-business-value",
+      "title": "Technology That Creates Measurable Value",
+      "subtitle": "ROI & Operational Efficiency",
+      "description": "Our objective is simple: build technology that saves human hours, automates repetitive operations, serves customers faster, and helps your business grow.",
+      "icon": "trending-up",
+      "points": [
+        "Direct operational cost reduction",
+        "Automated data workflows and reporting",
+        "Higher customer satisfaction and conversion"
+      ]
+    },
+    {
+      "id": "long-term-partnership",
+      "title": "Long-Term Engineering Partnership",
+      "subtitle": "Continuous Evolution",
+      "description": "Our relationship doesn't end at deployment. We act as your ongoing tech team supporting security patches, performance scaling, updates, and feature roadmaps.",
+      "icon": "users",
+      "points": [
+        "Proactive security and performance monitoring",
+        "Dedicated SLA support and rapid bug resolution",
+        "Continuous feature updates as your business scales"
+      ]
+    }
+  ],
+  "executionDifferentiators": [
+    {
+      "id": "transparent-commercials",
+      "title": "100% Transparent Commercials",
+      "description": "Clients receive a clear scope, feature list, pricing structure, milestones, and deliverables before development begins. Zero hidden charges.",
+      "icon": "check-circle"
+    },
+    {
+      "id": "scalable-architecture",
+      "title": "Scalable Cloud Architecture",
+      "description": "Every solution is planned for growth—from an MVP handling initial users to high-concurrency cloud infrastructure handling millions of requests.",
+      "icon": "cloud"
+    },
+    {
+      "id": "purpose-driven-design",
+      "title": "Purpose-Driven Modern Design",
+      "description": "Sleek, responsive, and intuitive interfaces crafted to delight users and maximize conversions across all device types.",
+      "icon": "palette"
+    },
+    {
+      "id": "dedicated-post-launch-support",
+      "title": "Dedicated Post-Launch Support",
+      "description": "Comprehensive warranty, technical assistance, training, and ongoing maintenance to keep your software running at peak performance.",
+      "icon": "wrench"
+    }
+  ],
+  "commercialFramework": {
+    "badge": "Commercial Transparency",
+    "title": "How We Prepare Your",
+    "titleAccent": "Custom Quotation",
+    "description": "Every business has unique requirements. After understanding your project, Brolytics Technologies prepares a comprehensive, transparent quotation covering:",
+    "quotationPoints": [
+      "Exact Project Scope & Boundaries",
+      "Detailed Feature & Module Breakdown",
+      "Selected Technology Stack & Architecture",
+      "UI/UX Design Scope & Wireframes",
+      "Transparent Development Cost (Milestone-based)",
+      "Clear Timeline & Deliverable Deadlines",
+      "Milestone-based Payment Terms (No hidden fees)",
+      "Third-Party Infrastructure & API Estimates",
+      "Quality Assurance & Multi-Device Testing Scope",
+      "Cloud Deployment & Server Setup Terms",
+      "Dedicated Post-Launch Free Support Period",
+      "Service Level Agreement (SLA) & Maintenance",
+      "Structured Change-Request & Enhancement Policy"
+    ],
+    "commitmentHeading": "Our Commitment",
+    "commitmentQuote": "We don't just develop software. We build digital solutions designed to help businesses operate, compete and grow.",
+    "commitmentText": "Whether you are launching a startup, digitizing an existing business, automating operations, or building your next software product, Brolytics Technologies is ready to turn your idea into a practical, scalable, and professional digital solution.",
+    "ctaText": "Request a Custom Quotation",
+    "ctaLink": "/#contact"
+  },
+  "termsPage": {
+    "header": {
+      "badge": "Legal & Commercial Terms",
+      "title": "Terms & Conditions of",
+      "titleAccent": "Service & Engagement",
+      "description": "Please review the fundamental operational, commercial, and legal principles governing project engagement, delivery, intellectual property, and payment with Brolytics Technologies.",
+      "lastUpdated": "August 2026"
+    },
+    "importantTerms": [
+      {
+        "id": 1,
+        "title": "Starting & Indicative Pricing",
+        "description": "All figures listed on our rate cards and website represent starting or indicative baseline prices for standard scope requirements.",
+        "category": "Commercial"
+      },
+      {
+        "id": 2,
+        "title": "Approved Requirements & Scope",
+        "description": "Final pricing for any custom software or web development project is calculated exclusively based on the mutually approved Software Requirement Specification (SRS) and feature scope.",
+        "category": "Scope"
+      },
+      {
+        "id": 3,
+        "title": "Taxes & Statutory Levies",
+        "description": "All published prices are exclusive of applicable Goods & Services Tax (GST 18%) and statutory government levies, which will be billed additionally on invoices where applicable.",
+        "category": "Commercial"
+      },
+      {
+        "id": 4,
+        "title": "Third-Party & Infrastructure Charges",
+        "description": "Third-party charges (including domain registration, cloud hosting, third-party API usage, SMS/WhatsApp gateways, Play Store/App Store developer accounts, and paid fonts/licenses) are billed separately unless explicitly included in your quotation.",
+        "category": "Infrastructure"
+      },
+      {
+        "id": 5,
+        "title": "Project Commencement & Advance Payment",
+        "description": "Development sprints, UI design, and technical engineering commence strictly after mutual written project confirmation and receipt of the agreed milestone advance payment.",
+        "category": "Payment"
+      },
+      {
+        "id": 6,
+        "title": "Scope Modifications & Change Requests",
+        "description": "Any additions or modifications to the approved scope requested during or after development will be evaluated as Change Requests (CR) and may impact the project cost and delivery timeline.",
+        "category": "Scope"
+      },
+      {
+        "id": 7,
+        "title": "Delivery Timelines & Client Approvals",
+        "description": "Estimated delivery schedules depend on project complexity, prompt provision of required content/credentials, and timely milestone reviews and approvals by the client.",
+        "category": "Delivery"
+      },
+      {
+        "id": 8,
+        "title": "Source Code & Intellectual Property Ownership",
+        "description": "Upon full and final settlement of all agreed project invoices, full source-code ownership and intellectual property rights are transferred to the client as defined in the formal service agreement.",
+        "category": "IP & Code"
+      },
+      {
+        "id": 9,
+        "title": "Maintenance, SLA & AMC Terms",
+        "description": "Post-launch warranty periods, ongoing Annual Maintenance Contracts (AMC), and Service Level Agreements (SLAs) are mutually structured and documented before project handover.",
+        "category": "Support"
+      },
+      {
+        "id": 10,
+        "title": "Supremacy of Custom Commercial Quotation",
+        "description": "A signed, formal custom project quotation and Master Service Agreement (MSA) supersede all general rate card figures and marketing estimates for that specific project engagement.",
+        "category": "Legal"
+      }
+    ],
+    "clauses": [
+      {
+        "title": "1. Engagement & Project Scope",
+        "content": [
+          "Brolytics Technologies agrees to provide digital engineering, web development, mobile application development, UI/UX design, custom software, AI integration, SEO, and digital consulting services as detailed in the formal project proposal or statement of work (SOW).",
+          "Any feature, integration, or deliverable not explicitly enumerated in the approved SOW will be treated as out of scope and quoted under our standard Change Request (CR) workflow."
+        ]
+      },
+      {
+        "title": "2. Client Obligations & Content Delivery",
+        "content": [
+          "The client agrees to provide all necessary assets (brand guidelines, logos, text copy, images, credentials, third-party API keys) in a timely manner to prevent delivery delays.",
+          "Delays exceeding 14 calendar days in client feedback or material provision may lead to project rescheduling without financial penalty to Brolytics Technologies."
+        ]
+      },
+      {
+        "title": "3. Payment Terms, Billing & Invoicing",
+        "content": [
+          "Projects are typically structured on milestone-based billing: Advance Deposit, Design & Architecture Approval, Functional Beta Milestone, and Final UAT & Deployment Milestone.",
+          "Invoices must be settled within the timeframe specified on the quotation (standard Net-7 days). Delay in milestone payments may pause active development sprints.",
+          "All payments are non-refundable once the corresponding milestone sprint or deliverable phase has been initiated or delivered."
+        ]
+      },
+      {
+        "title": "4. Intellectual Property & Source Code Transfer",
+        "content": [
+          "Until full payment is realized, all code, designs, and digital assets remain the intellectual property of Brolytics Technologies.",
+          "Upon 100% clearance of all project invoices, Brolytics Technologies grants exclusive, worldwide, royalty-free ownership of the customized project source code and bespoke assets to the client.",
+          "Pre-existing proprietary frameworks, open-source libraries, and reusable utility modules remain subject to their respective open-source or proprietary licenses."
+        ]
+      },
+      {
+        "title": "5. Confidentiality & Non-Disclosure (NDA)",
+        "content": [
+          "Both parties agree to treat all business data, technical architecture, customer records, and trade secrets shared during the engagement as strictly confidential.",
+          "Brolytics Technologies will never sell, lease, or share client data with third parties. Standard Non-Disclosure Agreements (NDAs) can be executed upon client request."
+        ]
+      },
+      {
+        "title": "6. Warranty, Bug Fixing & Post-Launch Support",
+        "content": [
+          "Brolytics Technologies provides a complimentary 30 to 90-day bug-fixing warranty (as defined in the project quotation) starting from the date of production launch.",
+          "The warranty covers bugs, broken UI, and deviations from the approved specification. It does not cover new feature requests, server misconfigurations caused by third parties, or modifications made by external developers."
+        ]
+      },
+      {
+        "title": "7. Limitation of Liability",
+        "content": [
+          "In no event shall Brolytics Technologies be liable for indirect, incidental, special, or consequential damages (including loss of profits, revenue, or business interruption) resulting from software usage, third-party outages, or cyber incidents beyond reasonable engineering control.",
+          "Total liability under any circumstance is limited to the fees paid by the client for the specific service phase giving rise to the claim."
+        ]
+      },
+      {
+        "title": "8. Governing Law & Dispute Resolution",
+        "content": [
+          "These terms shall be governed by and construed in accordance with the laws of India.",
+          "Any dispute arising out of or in connection with project engagement shall first be resolved amicably through good-faith executive discussion, failing which jurisdiction shall lie with the competent courts in India."
+        ]
+      }
+    ]
   }
 }

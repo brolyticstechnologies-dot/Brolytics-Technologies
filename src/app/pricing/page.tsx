@@ -20,6 +20,8 @@ export default async function PricingPage() {
         <PricingClient
           pricingCategories={content.pricingCategories}
           pricingHero={content.pricingHero}
+          commercialFramework={content.commercialFramework}
+          termsPage={content.termsPage}
         />
       </main>
       <Footer content={content.footer} siteSettings={content.siteSettings} />

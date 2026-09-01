@@ -166,115 +166,151 @@ export function ContactForm({ content }: ContactFormProps) {
             "transition-all duration-1000 delay-500",
             isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
           )}>
-            <form
-              onSubmit={form.handleSubmit((data) => {
-                const formData = new FormData();
-                Object.keys(data).forEach(key => {
-                  formData.append(key, (data as any)[key]);
-                });
-                formAction(formData);
-              })}
-              className="relative p-5 sm:p-8 card-silver rounded-2xl overflow-hidden"
-              id="contact-thivolve-form"
-            >
-              {/* Top accent */}
-              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-
-              <div className="relative z-10 space-y-5">
-                {/* Name */}
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-sm font-semibold text-silver-700 flex items-center gap-2">
-                    Full Name
-                    <span className="text-primary">*</span>
-                  </Label>
-                  <Input
-                    id="name"
-                    {...form.register('name')}
-                    className={inputClass}
-                    placeholder="Enter your full name"
-                  />
-                  {form.formState.errors.name && (
-                    <p className="text-sm text-primary mt-1">{form.formState.errors.name.message}</p>
-                  )}
+            {state.status === 'success' ? (
+              <div className="relative p-6 sm:p-10 card-silver rounded-3xl overflow-hidden text-center bg-white shadow-xl animate-fade-up">
+                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-5 shadow-xs">
+                  <Sparkles className="w-8 h-8" />
                 </div>
+                <span className="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider border border-emerald-200">
+                  Message Sent Successfully
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black text-silver-900 mt-4 mb-2 tracking-tight">
+                  Thank You for Reaching Out!
+                </h3>
+                <p className="text-sm sm:text-base text-silver-600 mb-8 max-w-md mx-auto leading-relaxed">
+                  Your message has been safely recorded in our system and notified to our founding team. We will review your project requirements and reply within 24 hours.
+                </p>
 
-                {/* Email & Phone */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {/* Instant Actions */}
+                <div className="space-y-3 max-w-md mx-auto">
+                  <a
+                    href="https://wa.me/918507507173?text=Hi%20Brolytics%20Technologies%2C%20I%20just%20submitted%20a%20message%20on%20your%20website%20and%20would%20like%20to%20discuss%20my%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2.5 w-full py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#25D366]/25 transition-all hover:scale-[1.02]"
+                  >
+                    <span>💬 Chat on WhatsApp with Founders</span>
+                  </a>
+
+                  <a
+                    href="/book-a-slot"
+                    className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl bg-silver-900 hover:bg-black text-white font-bold text-sm shadow-sm transition-all hover:scale-[1.01]"
+                  >
+                    <span>📅 Or Book a Dedicated 30-Min Strategy Slot</span>
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <form
+                onSubmit={form.handleSubmit((data) => {
+                  const formData = new FormData();
+                  Object.keys(data).forEach(key => {
+                    formData.append(key, (data as any)[key]);
+                  });
+                  formAction(formData);
+                })}
+                className="relative p-5 sm:p-8 card-silver rounded-2xl overflow-hidden"
+                id="contact-thivolve-form"
+              >
+                {/* Top accent */}
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+
+                <div className="relative z-10 space-y-5">
+                  {/* Name */}
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-semibold text-silver-700 flex items-center gap-2">
-                      Email Address
+                    <Label htmlFor="name" className="text-sm font-semibold text-silver-700 flex items-center gap-2">
+                      Full Name
                       <span className="text-primary">*</span>
                     </Label>
                     <Input
-                      id="email"
-                      type="email"
-                      {...form.register('email')}
+                      id="name"
+                      {...form.register('name')}
                       className={inputClass}
-                      placeholder="your@email.com"
+                      placeholder="Enter your full name"
                     />
-                    {form.formState.errors.email && (
-                      <p className="text-sm text-primary mt-1">{form.formState.errors.email.message}</p>
+                    {form.formState.errors.name && (
+                      <p className="text-sm text-primary mt-1">{form.formState.errors.name.message}</p>
                     )}
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-sm font-semibold text-silver-700 flex items-center gap-2">
-                      Phone Number
-                      <span className="text-silver-400 text-xs">(Optional)</span>
-                    </Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      {...form.register('phone')}
-                      className={inputClass}
-                      placeholder="+91 XXXXX XXXXX"
-                    />
-                    {form.formState.errors.phone && (
-                      <p className="text-sm text-primary mt-1">{form.formState.errors.phone.message}</p>
-                    )}
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-sm font-semibold text-silver-700 flex items-center gap-2">
-                    Message
-                    <span className="text-primary">*</span>
-                  </Label>
-                  <Textarea
-                    id="message"
-                    {...form.register('message')}
-                    className="bg-white border-silver-200 text-silver-900 placeholder:text-silver-400 focus:border-primary/50 focus:ring-primary/20 transition-all duration-300 rounded-xl min-h-36 resize-none hover:border-silver-300"
-                    placeholder="Tell us about your project or inquiry..."
-                  />
-                  {form.formState.errors.message && (
-                    <p className="text-sm text-primary mt-1">{form.formState.errors.message.message}</p>
-                  )}
-                </div>
-
-                {/* Submit */}
-                <Button
-                  type="submit"
-                  className="group relative w-full bg-primary hover:bg-primary text-white font-bold text-base py-6 rounded-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/35 disabled:opacity-50 disabled:hover:scale-100 overflow-hidden mt-6"
-                  disabled={form.formState.isSubmitting}
-                >
-                  <div className="relative flex items-center justify-center space-x-2">
-                    <span>{form.formState.isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
-                    {!form.formState.isSubmitting && (
-                      <Send className="h-5 w-5 transition-all duration-500 group-hover:translate-x-1 group-hover:scale-110" />
-                    )}
-                  </div>
-
-                  {form.formState.isSubmitting && (
-                    <div className="absolute right-4 flex space-x-1">
-                      <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
-                      <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                      <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                  {/* Email & Phone */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-sm font-semibold text-silver-700 flex items-center gap-2">
+                        Email Address
+                        <span className="text-primary">*</span>
+                      </Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        {...form.register('email')}
+                        className={inputClass}
+                        placeholder="your@email.com"
+                      />
+                      {form.formState.errors.email && (
+                        <p className="text-sm text-primary mt-1">{form.formState.errors.email.message}</p>
+                      )}
                     </div>
-                  )}
-                </Button>
-              </div>
-            </form>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="phone" className="text-sm font-semibold text-silver-700 flex items-center gap-2">
+                        Phone Number
+                        <span className="text-silver-400 text-xs">(Optional)</span>
+                      </Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        {...form.register('phone')}
+                        className={inputClass}
+                        placeholder="+91 XXXXX XXXXX"
+                      />
+                      {form.formState.errors.phone && (
+                        <p className="text-sm text-primary mt-1">{form.formState.errors.phone.message}</p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Message */}
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="text-sm font-semibold text-silver-700 flex items-center gap-2">
+                      Message
+                      <span className="text-primary">*</span>
+                    </Label>
+                    <Textarea
+                      id="message"
+                      {...form.register('message')}
+                      className="bg-white border-silver-200 text-silver-900 placeholder:text-silver-400 focus:border-primary/50 focus:ring-primary/20 transition-all duration-300 rounded-xl min-h-36 resize-none hover:border-silver-300"
+                      placeholder="Tell us about your project or inquiry..."
+                    />
+                    {form.formState.errors.message && (
+                      <p className="text-sm text-primary mt-1">{form.formState.errors.message.message}</p>
+                    )}
+                  </div>
+
+                  {/* Submit */}
+                  <Button
+                    type="submit"
+                    className="group relative w-full bg-primary hover:bg-primary text-white font-bold text-base py-6 rounded-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/35 disabled:opacity-50 disabled:hover:scale-100 overflow-hidden mt-6"
+                    disabled={form.formState.isSubmitting}
+                  >
+                    <div className="relative flex items-center justify-center space-x-2">
+                      <span>{form.formState.isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
+                      {!form.formState.isSubmitting && (
+                        <Send className="h-5 w-5 transition-all duration-500 group-hover:translate-x-1 group-hover:scale-110" />
+                      )}
+                    </div>
+
+                    {form.formState.isSubmitting && (
+                      <div className="absolute right-4 flex space-x-1">
+                        <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                        <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+                        <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                      </div>
+                    )}
+                  </Button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </div>

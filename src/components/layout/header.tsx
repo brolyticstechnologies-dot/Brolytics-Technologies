@@ -87,11 +87,12 @@ const allServices = [
 ];
 
 const navLinks = [
-  { href: "/",        label: "Home"     },
-  { href: "/our-work",label: "Our Work" },
-  { href: "/pricing", label: "Pricing"  },
-  { href: "/#contact",label: "Contact"  },
-  { href: "/about-us",label: "About Us" },
+  { href: "/",             label: "Home"       },
+  { href: "/technologies", label: "Tech Stack" },
+  { href: "/our-work",     label: "Our Work"   },
+  { href: "/pricing",      label: "Pricing"    },
+  { href: "/#contact",     label: "Contact"    },
+  { href: "/about-us",     label: "About Us"   },
 ];
 
 const mobileNavLinks = [
@@ -103,10 +104,11 @@ const mobileNavLinks = [
       ...allServices.map(s => ({ href: `/services/${s.slug}`, label: s.label })),
     ],
   },
-  { href: "/our-work", label: "Our Work" },
-  { href: "/pricing",  label: "Pricing"  },
-  { href: "/#contact", label: "Contact"  },
-  { href: "/about-us", label: "About Us" },
+  { href: "/technologies", label: "Tech Stack" },
+  { href: "/our-work",     label: "Our Work"   },
+  { href: "/pricing",      label: "Pricing"    },
+  { href: "/#contact",     label: "Contact"    },
+  { href: "/about-us",     label: "About Us"   },
 ];
 
 export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
@@ -327,7 +329,7 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
             <div className="flex items-center gap-2 sm:gap-3">
               <Button size="sm" asChild
                 className="flex items-center gap-1 sm:gap-2 relative overflow-hidden bg-primary hover:bg-primary/90 text-white font-bold px-3 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-primary/35 hover:scale-[1.03] group">
-                <Link href="/#contact">
+                <Link href="/book-a-slot">
                   <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
                   <span>Book a Meeting</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />

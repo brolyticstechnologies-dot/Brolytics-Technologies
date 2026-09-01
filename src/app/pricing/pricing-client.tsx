@@ -3,12 +3,33 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
-  Globe, ShoppingCart, Smartphone, Code, Server, Bot, Cloud,
-  Palette, Wrench, Package, ChevronRight, IndianRupee, ArrowRight,
-  CheckCircle, Info, Sparkles, Clock, Phone,
+  Globe,
+  ShoppingCart,
+  Smartphone,
+  Code,
+  Server,
+  Bot,
+  Cloud,
+  Palette,
+  Wrench,
+  Package,
+  ChevronRight,
+  IndianRupee,
+  ArrowRight,
+  CheckCircle2,
+  Info,
+  Sparkles,
+  Clock,
+  Phone,
+  Menu,
+  X,
+  FileCheck,
+  Quote,
+  Shield,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { pricingCategories as defaultPricingCategories, type PricingCategory } from "@/data/brolytics-pricing";
+import { pricingCategories as defaultPricingCategories } from "@/data/brolytics-pricing";
+import type { PricingCategory, SiteContent } from "@/lib/content-types";
 
 const iconMap: Record<string, React.ReactNode> = {
   Globe: <Globe className="w-4 h-4" />,
@@ -27,96 +48,109 @@ function PriceTag({ price }: { price: string }) {
   const isRange = price.includes("–") || price.includes("+");
   const isNote = price.includes("/") || price.includes("As per") || price.includes("Included") || price.includes("~");
   return (
-    <span className={cn(
-      "font-bold text-sm tabular-nums whitespace-nowrap",
-      isNote ? "text-silver-500 font-medium" : isRange ? "text-amber-600" : "text-primary"
-    )}>
+    <span
+      className={cn(
+        "inline-flex items-center gap-1 font-bold text-xs sm:text-sm px-2.5 py-1 rounded-lg shrink-0",
+        isRange
+          ? "bg-primary/10 text-primary border border-primary/20"
+          : isNote
+          ? "bg-silver-100 text-silver-700"
+          : "bg-silver-900 text-white"
+      )}
+    >
+      <IndianRupee className="w-3 h-3 shrink-0" />
       {price}
     </span>
   );
 }
 
-function SectionCard({ section }: { section: PricingCategory["sections"][number] }) {
-  const tables = section.tables || [];
-  const lists = section.lists || [];
+function SectionCard({ section }: { section: PricingCategory["sections"][0] }) {
+  const [open, setOpen] = useState(true);
 
   return (
-    <div className="mb-10 last:mb-0">
-      <h3 className="text-xl font-bold text-silver-900 mb-1">{section.title}</h3>
-      {section.subtitle && (
-        <p className="text-sm text-silver-500 mb-4 leading-relaxed flex gap-2 items-start">
-          <Info className="w-4 h-4 mt-0.5 text-silver-400 shrink-0" />
-          {section.subtitle}
-        </p>
-      )}
-      {tables.map((table, ti) => {
-        const rows = table.rows || [];
-        return (
-          <div key={ti} className="mb-6">
-            {table.heading && (
-              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
-                {table.heading}
-              </p>
-            )}
-            {rows.length > 0 && (
-              <div className="rounded-xl border border-silver-200 overflow-hidden shadow-sm">
-                <table className="w-full text-sm">
-                  <tbody>
-                    {rows.map((row, ri) => (
-                      <tr
-                        key={ri}
-                        className={cn(
-                          "border-b border-silver-100 last:border-0 transition-colors duration-150",
-                          ri % 2 === 0 ? "bg-white" : "bg-silver-50/60"
-                        )}
-                      >
-                        <td className="px-4 py-3 text-silver-700 leading-snug w-full">
-                          {row.item}
-                          {row.note && <span className="ml-2 text-xs text-silver-400">({row.note})</span>}
-                        </td>
-                        <td className="px-4 py-3 text-right shrink-0">
-                          <PriceTag price={row.price} />
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-            {table.note && (
-              <p className="mt-2 text-xs text-silver-400 italic flex gap-1.5 items-center">
-                <Info className="w-3 h-3 shrink-0" /> {table.note}
-              </p>
-            )}
+    <div className="rounded-2xl border border-silver-200/90 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:border-silver-300 mb-4">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between p-4 sm:p-5 text-left bg-silver-50/60 hover:bg-silver-50 transition-colors"
+      >
+        <div className="min-w-0 pr-4">
+          <div className="flex items-center gap-2">
+            <h3 className="font-bold text-base sm:text-lg text-silver-900 leading-tight">
+              {section.title}
+            </h3>
           </div>
-        );
-      })}
-      {lists.length > 0 && (
-        <div className="grid sm:grid-cols-2 gap-4 mt-2">
-          {lists.map((list, li) => {
-            const items = list.items || [];
+          {section.subtitle && (
+            <p className="text-xs sm:text-sm text-silver-500 mt-0.5 leading-relaxed">
+              {section.subtitle}
+            </p>
+          )}
+        </div>
+        <ChevronRight
+          className={cn(
+            "w-5 h-5 text-silver-400 shrink-0 transition-transform duration-200",
+            open && "rotate-90 text-primary"
+          )}
+        />
+      </button>
+
+      {open && (
+        <div className="p-4 sm:p-5 pt-2 border-t border-silver-100 divide-y divide-silver-100">
+          {section.tables?.map((table, tIdx) => (
+            <div key={tIdx} className={cn("py-3 first:pt-1 last:pb-1", table.heading && "space-y-2")}>
+              {table.heading && (
+                <div className="flex items-center justify-between gap-2 pt-1 pb-1">
+                  <p className="text-xs font-bold uppercase tracking-wider text-primary">
+                    {table.heading}
+                  </p>
+                  {table.note && (
+                    <span className="text-[11px] text-silver-400 italic">
+                      {table.note}
+                    </span>
+                  )}
+                </div>
+              )}
+              <div className="space-y-1.5">
+                {table.rows.map((row, rIdx) => (
+                  <div
+                    key={rIdx}
+                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4 py-2 px-3 rounded-xl hover:bg-silver-50/80 transition-colors"
+                  >
+                    <div className="min-w-0">
+                      <p className="text-xs sm:text-sm font-medium text-silver-800 leading-snug">
+                        {row.item}
+                      </p>
+                      {row.note && (
+                        <p className="text-[11px] text-silver-400 mt-0.5 leading-tight">
+                          {row.note}
+                        </p>
+                      )}
+                    </div>
+                    <PriceTag price={row.price} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {section.lists?.map((list, lIdx) => {
+            const isNoteList = list.heading?.toLowerCase().includes("note") || list.heading?.toLowerCase().includes("important");
             return (
               <div
-                key={li}
+                key={lIdx}
                 className={cn(
-                  "rounded-xl border border-silver-200 p-4",
-                  list.heading === "Note" ? "bg-amber-50 border-amber-200" : "bg-silver-50"
+                  "mt-3 p-3.5 rounded-xl text-xs space-y-1.5",
+                  isNoteList ? "bg-amber-500/[0.06] border border-amber-500/20 text-amber-900" : "bg-silver-50 text-silver-700"
                 )}
               >
                 {list.heading && (
-                  <p className={cn(
-                    "text-xs font-bold uppercase tracking-widest mb-2",
-                    list.heading === "Note" ? "text-amber-600" : "text-silver-500"
-                  )}>
+                  <p className="font-bold flex items-center gap-1.5 text-xs">
+                    <Info className="w-3.5 h-3.5 shrink-0 text-primary" />
                     {list.heading}
                   </p>
                 )}
-                <ul className="space-y-1.5">
-                  {items.map((item, idx) => (
-                    <li key={idx} className="flex gap-2 text-sm text-silver-700">
-                      <CheckCircle className={cn("w-3.5 h-3.5 mt-0.5 shrink-0",
-                        list.heading === "Note" ? "text-amber-500" : "text-primary"
-                      )} />
+                <ul className="space-y-1 pl-4 list-disc text-silver-600">
+                  {list.items.map((item, iIdx) => (
+                    <li key={iIdx} className="leading-relaxed text-[11px] sm:text-xs">
                       {item}
                     </li>
                   ))}
@@ -145,9 +179,13 @@ interface PricingHeroProps {
 export function PricingClient({
   pricingCategories,
   pricingHero,
+  commercialFramework,
+  termsPage,
 }: {
   pricingCategories?: PricingCategory[];
   pricingHero?: PricingHeroProps;
+  commercialFramework?: SiteContent["commercialFramework"];
+  termsPage?: SiteContent["termsPage"];
 }) {
   const categories = pricingCategories && pricingCategories.length > 0 ? pricingCategories : defaultPricingCategories;
   const [activeCategory, setActiveCategory] = useState(categories[0]?.id || "");
@@ -241,26 +279,36 @@ export function PricingClient({
         <div className="lg:hidden mb-6">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-silver-200 bg-white text-silver-800 font-semibold text-sm shadow-sm"
+            className="w-full flex items-center justify-between p-4 rounded-2xl border border-silver-200 bg-silver-50 text-silver-800 font-semibold text-sm shadow-sm"
           >
             <span className="flex items-center gap-2">
-              {iconMap[activeData.icon]}
+              <span className="text-primary">{iconMap[activeData.icon]}</span>
               {activeData.label}
             </span>
-            <ChevronRight className={cn("w-4 h-4 transition-transform", mobileOpen && "rotate-90")} />
+            <span className="text-xs text-silver-400 flex items-center gap-1">
+              Change category <ChevronRight className="w-4 h-4" />
+            </span>
           </button>
+
           {mobileOpen && (
-            <div className="mt-2 rounded-xl border border-silver-200 bg-white shadow-xl overflow-hidden">
+            <div className="mt-2 rounded-2xl border border-silver-200 bg-white p-2 shadow-xl space-y-1 z-30">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
-                  onClick={() => { setActiveCategory(cat.id); setMobileOpen(false); }}
+                  onClick={() => {
+                    setActiveCategory(cat.id);
+                    setMobileOpen(false);
+                  }}
                   className={cn(
-                    "w-full flex items-center gap-3 px-4 py-3 text-sm font-medium border-b border-silver-100 last:border-0 transition-colors",
-                    cat.id === activeCategory ? "bg-primary/[0.07] text-primary" : "text-silver-700 hover:bg-silver-50"
+                    "w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-left text-sm transition-colors",
+                    activeCategory === cat.id
+                      ? "bg-primary text-white font-semibold shadow-sm"
+                      : "text-silver-700 hover:bg-silver-100"
                   )}
                 >
-                  {iconMap[cat.icon]}
+                  <span className={activeCategory === cat.id ? "text-white" : "text-primary"}>
+                    {iconMap[cat.icon]}
+                  </span>
                   {cat.label}
                 </button>
               ))}
@@ -269,33 +317,36 @@ export function PricingClient({
         </div>
 
         <div className="flex gap-8 items-start">
-          {/* ── Sidebar ──────────────────────────────── */}
-          <aside className="hidden lg:block w-60 shrink-0 sticky top-28">
-            <div className="rounded-2xl border border-silver-200 bg-white shadow-sm overflow-hidden">
-              <div className="px-4 py-3 border-b border-silver-100 bg-silver-50">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-silver-400">
-                  Categories
-                </p>
-              </div>
-              <nav className="p-2">
+          {/* ── Desktop Sidebar ──────────────────────── */}
+          <aside className="hidden lg:block w-72 shrink-0 sticky top-28">
+            <div className="rounded-2xl border border-silver-200/90 bg-white p-2 shadow-sm overflow-hidden">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-silver-400 px-3 py-2">
+                Categories
+              </p>
+              <nav className="space-y-1">
                 {categories.map((cat) => (
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
                     className={cn(
-                      "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 text-left mb-0.5 last:mb-0",
-                      cat.id === activeCategory
-                        ? "bg-primary text-white shadow-md shadow-primary/20"
+                      "w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-xs font-semibold transition-all duration-200",
+                      activeCategory === cat.id
+                        ? "bg-primary text-white shadow-md shadow-primary/20 scale-[1.01]"
                         : "text-silver-600 hover:bg-silver-100 hover:text-silver-900"
                     )}
                   >
-                    <span className={cat.id === activeCategory ? "text-white" : "text-silver-400"}>
-                      {iconMap[cat.icon]}
+                    <span className="flex items-center gap-2.5 min-w-0">
+                      <span className={activeCategory === cat.id ? "text-white" : "text-primary shrink-0"}>
+                        {iconMap[cat.icon]}
+                      </span>
+                      <span className="truncate">{cat.label}</span>
                     </span>
-                    {cat.label}
-                    {cat.id === activeCategory && (
-                      <ChevronRight className="w-3.5 h-3.5 ml-auto" />
-                    )}
+                    <ChevronRight
+                      className={cn(
+                        "w-3.5 h-3.5 shrink-0 transition-transform",
+                        activeCategory === cat.id ? "text-white/80 translate-x-0.5" : "text-silver-300"
+                      )}
+                    />
                   </button>
                 ))}
               </nav>
@@ -344,8 +395,116 @@ export function PricingClient({
               ))}
             </div>
 
+            {/* ══════ SECTION 56: IMPORTANT COMMERCIAL TERMS (10 POINTS) ══════ */}
+            <div className="mt-14 rounded-3xl border border-silver-200/90 bg-white p-8 sm:p-10 relative overflow-hidden shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div>
+                  <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest mb-3 w-fit">
+                    <Shield className="w-3.5 h-3.5" />
+                    Commercial Governance
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-black text-silver-900 tracking-tight">
+                    Important Terms & <span className="text-gradient-red">Operational Principles</span>
+                  </h3>
+                  <p className="text-xs sm:text-sm text-silver-500 mt-1">
+                    Fundamental commercial, scope, advance payment, and intellectual property terms.
+                  </p>
+                </div>
+
+                <Link
+                  href="/terms"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-silver-200 hover:border-primary/40 bg-silver-50 hover:bg-white text-xs font-bold text-silver-800 hover:text-primary transition-all duration-300 shadow-xs shrink-0 self-start sm:self-center"
+                >
+                  <FileCheck className="w-3.5 h-3.5 text-primary" />
+                  Read Full Terms (MSA)
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-3.5">
+                {(termsPage?.importantTerms || [
+                  { id: 1, title: 'Starting & Indicative Pricing', description: 'All prices are starting/indicative prices for baseline features.' },
+                  { id: 2, title: 'Approved Requirements & Scope', description: 'Final pricing is based exclusively on approved requirements and scope.' },
+                  { id: 3, title: 'GST & Statutory Taxes', description: 'GST/taxes are additional where applicable.' },
+                  { id: 4, title: 'Third-Party Charges', description: 'Third-party charges are separate unless explicitly included.' },
+                  { id: 5, title: 'Advance Payment & Sprints', description: 'Development begins after project confirmation and agreed advance payment.' },
+                  { id: 6, title: 'Scope Changes & CR Policy', description: 'Major scope changes may affect cost and delivery timeline.' },
+                  { id: 7, title: 'Delivery Timeline', description: 'Delivery timeline depends on project complexity and client approvals.' },
+                  { id: 8, title: 'Source-Code Ownership', description: 'Source-code ownership and licensing terms are defined in the project agreement.' },
+                  { id: 9, title: 'Maintenance & AMC Terms', description: 'Maintenance and AMC terms are mutually agreed before commencement.' },
+                  { id: 10, title: 'Custom Quotation Supremacy', description: 'Final commercial quotation supersedes this general rate card for the specific project.' },
+                ]).map((term) => (
+                  <div
+                    key={term.id}
+                    className="flex items-start gap-3 p-3.5 rounded-2xl bg-silver-50/60 border border-silver-200/80 hover:bg-white hover:border-primary/30 transition-colors"
+                  >
+                    <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-white border border-silver-200 text-xs font-black text-silver-700 shrink-0 mt-0.5">
+                      {term.id}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold text-silver-900 leading-snug">{term.title}</p>
+                      <p className="text-[11px] text-silver-500 leading-relaxed mt-0.5">{term.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ══════ SECTION 55: COMMERCIAL FRAMEWORK CARD ══════ */}
+            {commercialFramework && (
+              <div className="mt-8 rounded-3xl border border-silver-200/90 bg-silver-50/60 p-8 sm:p-10 relative overflow-hidden shadow-sm">
+                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest mb-4 w-fit">
+                  <FileCheck className="w-3.5 h-3.5" />
+                  {commercialFramework.badge}
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-black text-silver-900 tracking-tight mb-3">
+                  {commercialFramework.title}{" "}
+                  <span className="text-gradient-red">{commercialFramework.titleAccent}</span>
+                </h3>
+
+                <p className="text-silver-600 text-sm sm:text-base max-w-3xl leading-relaxed mb-8">
+                  {commercialFramework.description}
+                </p>
+
+                {/* 13-Point Quotation Breakdown */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
+                  {commercialFramework.quotationPoints.map((point, pi) => (
+                    <div
+                      key={pi}
+                      className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-silver-200/80 shadow-xs"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                      <span className="text-xs font-semibold text-silver-800">{point}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Our Commitment Banner */}
+                <div className="rounded-2xl bg-silver-900 text-white p-6 sm:p-8 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+                  <Quote className="w-8 h-8 text-primary mb-3" />
+                  <h4 className="text-lg sm:text-xl font-bold mb-2">
+                    "{commercialFramework.commitmentQuote}"
+                  </h4>
+                  <p className="text-xs sm:text-sm text-silver-300 leading-relaxed max-w-2xl mb-6">
+                    {commercialFramework.commitmentText}
+                  </p>
+
+                  <Link
+                    href={commercialFramework.ctaLink || "/#contact"}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white text-xs sm:text-sm font-bold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/30 hover:scale-[1.02]"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    {commercialFramework.ctaText || "Request a Custom Quotation"}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            )}
+
             {/* Bottom CTA */}
-            <div className="mt-12 rounded-3xl bg-gradient-to-br from-silver-50 via-white to-primary/[0.04] border border-silver-200/90 p-8 sm:p-10 relative overflow-hidden shadow-sm">
+            <div className="mt-8 rounded-3xl bg-gradient-to-br from-silver-50 via-white to-primary/[0.04] border border-silver-200/90 p-8 sm:p-10 relative overflow-hidden shadow-sm">
               <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/[0.06] rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest mb-3.5">
