@@ -12,78 +12,44 @@ import {
   Database, Cpu, Shield, Layers, MonitorSmartphone, Building2,
 } from 'lucide-react';
 
-// ── Mega-menu categories ──────────────────────────────────────────────────
-const megaMenuCategories = [
+// ── 6 Main Services ──────────────────────────────────────────────────
+const mainServices = [
   {
-    heading: "Web & E-Commerce",
+    slug: 'website-development',
+    title: 'Website Development',
+    description: 'Modern, high-performance corporate sites & web apps',
     icon: Globe,
-    color: "from-blue-500/20 to-cyan-500/10",
-    links: [
-      { slug: 'website-development', label: 'Website Development', desc: 'Static, dynamic & corporate sites', icon: Globe },
-      { slug: 'website-development', label: 'E-Commerce', desc: 'Online stores & marketplaces', icon: ShoppingCart },
-      { slug: 'custom-software-development', label: 'Web Applications', desc: 'CMS, portals & dashboards', icon: Layers },
-    ],
   },
   {
-    heading: "Mobile Apps",
+    slug: 'mobile-app-development',
+    title: 'Mobile App Development',
+    description: 'Native iOS, Android & cross-platform mobile apps',
     icon: Smartphone,
-    color: "from-violet-500/20 to-purple-500/10",
-    links: [
-      { slug: 'mobile-app-development', label: 'Android Development', desc: 'Native & cross-platform apps', icon: Smartphone },
-      { slug: 'mobile-app-development', label: 'iOS Development', desc: 'Swift & SwiftUI apps', icon: MonitorSmartphone },
-      { slug: 'mobile-app-development', label: 'Flutter / React Native', desc: 'One codebase, both stores', icon: Code },
-    ],
   },
   {
-    heading: "Enterprise Solutions",
-    icon: Building2,
-    color: "from-orange-500/20 to-amber-500/10",
-    links: [
-      { slug: 'custom-software-development', label: 'ERP Development', desc: 'Full enterprise resource planning', icon: Building2 },
-      { slug: 'custom-software-development', label: 'CRM Development', desc: 'Sales & customer management', icon: Package },
-      { slug: 'custom-software-development', label: 'SaaS Products', desc: 'Multi-tenant cloud platforms', icon: Cloud },
-    ],
+    slug: 'custom-software-development',
+    title: 'Custom Software Development',
+    description: 'Scalable enterprise ERP, CRM & cloud SaaS platforms',
+    icon: Code,
   },
   {
-    heading: "Backend & AI",
-    icon: Cpu,
-    color: "from-green-500/20 to-emerald-500/10",
-    links: [
-      { slug: 'ai-services', label: 'AI & Automation', desc: 'LLMs, chatbots & workflows', icon: Bot },
-      { slug: 'custom-software-development', label: 'Backend & APIs', desc: 'Node.js, Python, Java & more', icon: Server },
-      { slug: 'custom-software-development', label: 'Database & Cloud', desc: 'DevOps, AWS, Docker, CI/CD', icon: Database },
-    ],
-  },
-  {
-    heading: "Design & Marketing",
+    slug: 'graphics-design',
+    title: 'Graphics Design',
+    description: 'Modern UI/UX, brand identity & digital visual assets',
     icon: Palette,
-    color: "from-pink-500/20 to-rose-500/10",
-    links: [
-      { slug: 'graphics-design', label: 'UI/UX & Branding', desc: 'Logos, identity & design systems', icon: Palette },
-      { slug: 'seo-and-digital-marketing', label: 'SEO Services', desc: 'Rankings, audits & content', icon: Megaphone },
-      { slug: 'seo-and-digital-marketing', label: 'Digital Marketing', desc: 'Social, ads & lead gen', icon: Shield },
-    ],
   },
   {
-    heading: "Support & Extras",
-    icon: Wrench,
-    color: "from-slate-500/20 to-gray-500/10",
-    links: [
-      { slug: 'custom-software-development', label: 'Migration & Modernization', desc: 'Legacy to modern stacks', icon: ArrowRight },
-      { slug: 'custom-software-development', label: 'Testing & QA', desc: 'Manual, automated & API tests', icon: Wrench },
-      { slug: 'custom-software-development', label: 'Maintenance & AMC', desc: 'Ongoing support & security', icon: Shield },
-    ],
+    slug: 'seo-and-digital-marketing',
+    title: 'SEO & Digital Marketing',
+    description: 'Organic search rankings, audits & growth marketing',
+    icon: Megaphone,
   },
-];
-
-// All 6 existing service pages (for the footer link at bottom of mega-menu)
-const allServices = [
-  { slug: 'mobile-app-development',      label: "Mobile App Development", icon: Smartphone },
-  { slug: 'website-development',         label: "Website Development",    icon: Globe       },
-  { slug: 'custom-software-development', label: "Custom Software",        icon: Code        },
-  { slug: 'graphics-design',             label: "Graphics Design",        icon: Palette     },
-  { slug: 'seo-and-digital-marketing',   label: "SEO & Marketing",        icon: Megaphone   },
-  { slug: 'ai-services',                 label: "AI Services",            icon: Bot         },
+  {
+    slug: 'ai-services',
+    title: 'AI Services',
+    description: 'LLM agents, intelligent workflows & smart AI tools',
+    icon: Bot,
+  },
 ];
 
 const navLinks = [
@@ -102,7 +68,7 @@ const mobileNavLinks = [
     href: "/#services",
     label: "Services",
     children: [
-      ...allServices.map(s => ({ href: `/services/${s.slug}`, label: s.label })),
+      ...mainServices.map(s => ({ href: `/services/${s.slug}`, label: s.title })),
     ],
   },
   { href: "/technologies", label: "Tech Stack" },
@@ -179,7 +145,7 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                 <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] w-0 group-hover:w-6 rounded-full bg-primary transition-all duration-300" />
               </Link>
 
-              {/* ── Services mega-menu trigger ── */}
+              {/* ── Services dropdown trigger ── */}
               <div
                 className="relative"
                 onMouseEnter={openMega}
@@ -191,11 +157,11 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] w-0 group-hover:w-8 rounded-full bg-primary transition-all duration-300" />
                 </button>
 
-                {/* ── Mega-menu panel (100% Solid Opaque Background) ── */}
+                {/* ── Services Dropdown Panel (100% Solid Opaque & Direct Links) ── */}
                 {megaOpen && (
                   <div
                     className={cn(
-                      "absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[860px] transition-all duration-200 z-50",
+                      "absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[660px] transition-all duration-200 z-50",
                       megaVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
                     )}
                     onMouseEnter={openMega}
@@ -210,105 +176,84 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                       {/* Top gradient bar */}
                       <div className="h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
-                      {/* Grid of categories */}
-                      <div className="grid grid-cols-3 gap-0 p-6">
-                        {megaMenuCategories.map((cat, ci) => {
-                          const CatIcon = cat.icon;
+                      {/* Header label */}
+                      <div className="px-6 pt-5 pb-2 flex items-center justify-between">
+                        <span className={cn(
+                          "text-[10px] font-black uppercase tracking-[0.2em]",
+                          light ? "text-silver-400" : "text-neutral-500"
+                        )}>
+                          Our Core Capabilities
+                        </span>
+                        <span className="text-[11px] font-semibold text-primary">
+                          6 Specialized Practice Areas
+                        </span>
+                      </div>
+
+                      {/* Grid of 6 Main Services */}
+                      <div className="grid grid-cols-2 gap-2 p-4 pt-1">
+                        {mainServices.map((service) => {
+                          const Icon = service.icon;
                           return (
-                            <div key={ci} className="p-3">
-                              <div className="flex items-center gap-2 mb-3">
-                                <div className={cn("p-1.5 rounded-lg bg-gradient-to-br", cat.color)}>
-                                  <CatIcon className="w-3.5 h-3.5 text-primary" />
-                                </div>
+                            <Link
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              onClick={() => setMegaOpen(false)}
+                              className={cn(
+                                "group relative flex items-start gap-3.5 p-3.5 rounded-2xl transition-all duration-200 border",
+                                light
+                                  ? "bg-silver-50/60 border-silver-200/80 hover:bg-primary hover:border-primary hover:shadow-lg hover:shadow-primary/20"
+                                  : "bg-white/[0.03] border-white/[0.06] hover:bg-primary hover:border-primary hover:shadow-lg hover:shadow-primary/25"
+                              )}
+                            >
+                              <div className={cn(
+                                "p-2.5 rounded-xl shrink-0 transition-colors duration-200",
+                                light
+                                  ? "bg-white text-primary border border-silver-200/90 group-hover:bg-white/20 group-hover:text-white group-hover:border-transparent"
+                                  : "bg-white/10 text-primary group-hover:bg-white/20 group-hover:text-white"
+                              )}>
+                                <Icon className="w-5 h-5 transition-transform duration-200 group-hover:scale-110" />
+                              </div>
+                              <div className="min-w-0 flex-1">
                                 <p className={cn(
-                                  "text-[10px] font-black uppercase tracking-widest",
-                                  light ? "text-silver-500" : "text-neutral-400"
+                                  "text-sm font-bold leading-tight transition-colors duration-200",
+                                  light
+                                    ? "text-silver-900 group-hover:text-white"
+                                    : "text-white group-hover:text-white"
                                 )}>
-                                  {cat.heading}
+                                  {service.title}
+                                </p>
+                                <p className={cn(
+                                  "text-xs mt-1 leading-snug transition-colors duration-200 line-clamp-2",
+                                  light
+                                    ? "text-silver-500 group-hover:text-white/90"
+                                    : "text-neutral-400 group-hover:text-white/90"
+                                )}>
+                                  {service.description}
                                 </p>
                               </div>
-                              <div className="space-y-1">
-                                {cat.links.map((link, li) => {
-                                  const LinkIcon = link.icon;
-                                  return (
-                                    <Link
-                                      key={li}
-                                      href={`/services/${link.slug}`}
-                                      onClick={() => setMegaOpen(false)}
-                                      className={cn(
-                                        "flex items-start gap-2.5 p-2 rounded-xl transition-all duration-200 group hover:scale-[1.02]",
-                                        light
-                                          ? "hover:bg-primary hover:text-white"
-                                          : "hover:bg-primary hover:text-white"
-                                      )}
-                                    >
-                                      <div className={cn(
-                                        "p-1.5 rounded-lg shrink-0 mt-0.5 transition-colors duration-200",
-                                        light
-                                          ? "bg-silver-100 group-hover:bg-white/20"
-                                          : "bg-white/10 group-hover:bg-white/20"
-                                      )}>
-                                        <LinkIcon className={cn(
-                                          "w-3.5 h-3.5 transition-colors duration-200",
-                                          light
-                                            ? "text-silver-700 group-hover:text-white"
-                                            : "text-neutral-300 group-hover:text-white"
-                                        )} />
-                                      </div>
-                                      <div className="min-w-0">
-                                        <p className={cn(
-                                          "text-[13px] font-bold leading-tight transition-colors duration-200",
-                                          light
-                                            ? "text-silver-900 group-hover:text-white"
-                                            : "text-white group-hover:text-white"
-                                        )}>
-                                          {link.label}
-                                        </p>
-                                        <p className={cn(
-                                          "text-[11px] mt-0.5 leading-tight transition-colors duration-200",
-                                          light
-                                            ? "text-silver-500 group-hover:text-white/90"
-                                            : "text-neutral-400 group-hover:text-white/90"
-                                        )}>
-                                          {link.desc}
-                                        </p>
-                                      </div>
-                                    </Link>
-                                  );
-                                })}
-                              </div>
-                            </div>
+                            </Link>
                           );
                         })}
                       </div>
 
-                      {/* Footer row */}
+                      {/* Dropdown Footer Row */}
                       <div className={cn(
                         "px-6 py-3.5 border-t flex items-center justify-between",
                         light ? "border-silver-100 bg-silver-50" : "border-white/10 bg-[#0d0d10]"
                       )}>
-                        <div className="flex items-center gap-1.5 flex-wrap">
-                          {allServices.map(s => {
-                            const Icon = s.icon;
-                            return (
-                              <Link
-                                key={s.slug}
-                                href={`/services/${s.slug}`}
-                                onClick={() => setMegaOpen(false)}
-                                className={cn(
-                                  "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold border transition-all duration-200",
-                                  light
-                                    ? "border-silver-200 text-silver-700 hover:border-primary hover:text-primary hover:bg-white"
-                                    : "border-white/10 text-neutral-300 hover:border-primary hover:text-white hover:bg-white/5"
-                                )}
-                              >
-                                <Icon className="w-3 h-3" />
-                                {s.label}
-                              </Link>
-                            );
-                          })}
-                        </div>
-                        <div className="flex items-center gap-3 shrink-0 ml-3">
+                        <Link
+                          href="/#services"
+                          onClick={() => setMegaOpen(false)}
+                          className={cn(
+                            "flex items-center gap-1.5 text-xs font-semibold transition-colors",
+                            light ? "text-silver-600 hover:text-primary" : "text-neutral-400 hover:text-white"
+                          )}
+                        >
+                          <span>Explore Overview Matrix</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+
+                        <div className="flex items-center gap-3">
                           <Link
                             href="/book-a-slot"
                             onClick={() => setMegaOpen(false)}

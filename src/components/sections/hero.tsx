@@ -12,7 +12,7 @@ import {
   Smartphone, Globe, Code, Palette, Megaphone, Bot,
   Users, Briefcase,
 } from 'lucide-react';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Header } from '@/components/layout/header';
 import type { SiteContent, ServiceItem } from '@/lib/content-types';
 import { getIcon } from '@/lib/icon-map';
 
@@ -137,110 +137,8 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
           />
         </div>
 
-        {/* ══════ NAVBAR ══════ */}
-        <header className={cn(
-          "fixed top-0 sm:top-4 inset-x-0 z-50 flex justify-center px-0 sm:px-4 transition-all duration-500",
-        )}>
-          <div className={cn(
-            "w-full max-w-6xl sm:rounded-full transition-all duration-500 border border-transparent",
-            scrolled
-              ? "bg-white/70 backdrop-blur-xl sm:border-white/40 shadow-[0_8px_30px_-16px_rgba(0,0,0,0.1)] py-2 sm:py-0 border-b-silver-200"
-              : "bg-transparent py-4 sm:py-2"
-          )}>
-            <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16 sm:h-20">
-
-              {/* ── Logo ── */}
-              <Link href="/" className="relative group flex-shrink-0">
-                <div className="absolute -inset-3 rounded-2xl bg-primary/10 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 pointer-events-none" />
-                <Image
-                  src={siteSettings.logo}
-                  alt={siteSettings.logoAlt}
-                  width={200}
-                  height={72}
-                  className="relative object-contain w-32 sm:w-40 md:w-[180px] h-auto transition-all duration-500 group-hover:scale-105"
-                  priority
-                />
-              </Link>
-
-              {/* ── Desktop nav ── */}
-              <nav className="hidden md:flex items-center gap-1 bg-white/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/60 shadow-sm">
-                <Link href="/"
-                  className="relative px-4 py-2 text-sm font-semibold text-silver-600 hover:text-silver-900 transition-all duration-300 group rounded-full hover:bg-white/80">
-                  <span className="relative z-10">Home</span>
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] w-0 group-hover:w-6 rounded-full bg-primary transition-all duration-300" />
-                </Link>
-
-                {/* Services dropdown */}
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <button className="relative flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-silver-600 hover:text-silver-900 transition-all duration-300 group rounded-full hover:bg-white/80 outline-none">
-                      <span className="relative z-10">Services</span>
-                      <ChevronDown className="h-3.5 w-3.5 text-primary transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] w-0 group-hover:w-8 rounded-full bg-primary transition-all duration-300" />
-                    </button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
-                    className="w-[420px] bg-white/95 backdrop-blur-2xl border border-silver-200 rounded-3xl p-3 mt-4 shadow-2xl shadow-silver-900/10"
-                    sideOffset={8}
-                  >
-                    <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent rounded-t-3xl" />
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-silver-400 px-3 mb-2">What We Do</p>
-                    <div className="grid grid-cols-2 gap-1.5">
-                      {services.map(s => {
-                        const Icon = s.icon;
-                        return (
-                          <DropdownMenuItem key={s.slug} asChild>
-                            <Link href={`/services/${s.slug}`}
-                              className="flex items-start gap-3 p-3 rounded-2xl border border-transparent hover:border-primary hover:bg-primary transition-all duration-200 cursor-pointer group hover:shadow-md hover:shadow-primary/20">
-                              <div className="p-2 bg-silver-100 rounded-xl group-hover:bg-white/20 transition-colors duration-200 flex-shrink-0">
-                                <Icon className="h-4 w-4 text-silver-600 group-hover:text-white transition-colors duration-200" />
-                              </div>
-                              <div className="min-w-0">
-                                <p className="text-sm font-semibold text-silver-900 group-hover:text-white transition-colors duration-200 leading-tight">{s.title}</p>
-                                <p className="text-[11px] text-silver-500 mt-0.5 group-hover:text-white/85 transition-colors duration-200">{s.description}</p>
-                              </div>
-                            </Link>
-                          </DropdownMenuItem>
-                        );
-                      })}
-                    </div>
-                    <div className="mt-3 pt-3 border-t border-silver-200">
-                      <Link href="/#services"
-                        className="flex items-center justify-center gap-2 py-2 text-xs font-semibold text-primary hover:text-primary/80 transition-colors duration-200 rounded-xl hover:bg-primary/[0.06] group">
-                        Browse All Services
-                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-                      </Link>
-                    </div>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-
-                {navLinks.map(l => (
-                  <Link key={l.href} href={l.href}
-                    className="relative px-4 py-2 text-sm font-semibold text-silver-600 hover:text-silver-900 transition-all duration-300 group rounded-full hover:bg-white/80">
-                    <span className="relative z-10">{l.label}</span>
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] w-0 group-hover:w-6 rounded-full bg-primary transition-all duration-300" />
-                  </Link>
-                ))}
-              </nav>
-
-              {/* ── Right side CTA ── */}
-              <div className="flex items-center gap-2 sm:gap-3">
-                <Button size="sm" asChild
-                  className="flex items-center gap-1 sm:gap-2 relative overflow-hidden bg-primary hover:bg-primary text-white font-bold px-3 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.03] group">
-                  <Link href="#contact">
-                    <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
-                    <span>{content.navCta}</span>
-                  </Link>
-                </Button>
-
-                <div className="md:hidden">
-                  <MobileNav navLinks={mobileNavLinks}
-                    triggerClassName="text-silver-700 bg-white/50 backdrop-blur-sm border border-silver-200 hover:border-primary/40 hover:text-primary rounded-full shadow-sm" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
+        {/* ══════ UNIFIED NAVBAR ══════ */}
+        <Header variant="light" />
 
          {/* ══════ HERO CONTENT ══════ */}
          <div className="relative z-10 flex-1 flex items-center overflow-hidden pt-20 pb-10 sm:pt-24 sm:pb-14 md:pt-28 md:pb-20">
