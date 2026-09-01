@@ -88,12 +88,11 @@ const allServices = [
 
 const navLinks = [
   { href: "/",             label: "Home"       },
-  { href: "/book-a-slot",  label: "Book a Slot"},
   { href: "/technologies", label: "Tech Stack" },
   { href: "/our-work",     label: "Our Work"   },
   { href: "/pricing",      label: "Pricing"    },
-  { href: "/#contact",     label: "Contact"    },
   { href: "/about-us",     label: "About Us"   },
+  { href: "/#contact",     label: "Contact"    },
 ];
 
 const mobileNavLinks = [
@@ -109,8 +108,8 @@ const mobileNavLinks = [
   { href: "/technologies", label: "Tech Stack" },
   { href: "/our-work",     label: "Our Work"   },
   { href: "/pricing",      label: "Pricing"    },
-  { href: "/#contact",     label: "Contact"    },
   { href: "/about-us",     label: "About Us"   },
+  { href: "/#contact",     label: "Contact"    },
 ];
 
 export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
@@ -122,8 +121,8 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const navLinkClass = light
-    ? "relative px-4 py-2 text-sm font-semibold text-silver-600 hover:text-silver-900 transition-all duration-300 group rounded-full hover:bg-white/80"
-    : "relative px-4 py-2 text-sm font-semibold text-white/70 hover:text-white transition-all duration-300 group rounded-full hover:bg-white/[0.05]";
+    ? "relative px-3 py-1.5 xl:px-4 xl:py-2 text-[13px] xl:text-sm font-semibold text-silver-700 hover:text-silver-950 transition-all duration-200 group rounded-full hover:bg-silver-100/80 whitespace-nowrap flex-shrink-0"
+    : "relative px-3 py-1.5 xl:px-4 xl:py-2 text-[13px] xl:text-sm font-semibold text-white/80 hover:text-white transition-all duration-200 group rounded-full hover:bg-white/[0.08] whitespace-nowrap flex-shrink-0";
 
   useEffect(() => {
     const onScroll = () => {
@@ -148,8 +147,8 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
           "w-full max-w-6xl sm:rounded-full transition-all duration-500 border",
           scrolled
             ? light
-              ? "bg-white/70 backdrop-blur-xl border-white/40 shadow-[0_8px_30px_-16px_rgba(0,0,0,0.1)] py-2 sm:py-0 border-b-silver-200"
-              : "bg-[#0a0a0a]/70 backdrop-blur-xl border-white/10 shadow-[0_8px_30px_-16px_rgba(0,0,0,0.5)] py-2 sm:py-0"
+              ? "bg-white/95 backdrop-blur-xl border-silver-200 shadow-[0_8px_30px_-16px_rgba(0,0,0,0.12)] py-2 sm:py-0"
+              : "bg-[#0a0a0a]/95 backdrop-blur-xl border-white/10 shadow-[0_8px_30px_-16px_rgba(0,0,0,0.6)] py-2 sm:py-0"
             : "bg-transparent py-4 sm:py-2 border-transparent"
         )}>
           <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16 sm:h-20">
@@ -163,16 +162,16 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                 width={210}
                 height={75}
                 priority
-                className="relative object-contain w-32 sm:w-40 md:w-[180px] h-auto transition-all duration-500 group-hover:scale-105 drop-shadow-2xl"
+                className="relative object-contain w-32 sm:w-40 md:w-[170px] h-auto transition-all duration-500 group-hover:scale-105 drop-shadow-2xl"
               />
             </Link>
 
             {/* ── Desktop nav ── */}
             <nav className={cn(
-              "hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full shadow-sm",
+              "hidden lg:flex items-center gap-0.5 xl:gap-1 px-2.5 py-1.5 rounded-full shadow-sm whitespace-nowrap",
               light
-                ? "bg-white/40 backdrop-blur-md border border-white/60"
-                : "bg-white/[0.03] backdrop-blur-md border border-white/5"
+                ? "bg-white/80 border border-silver-200/80 shadow-xs"
+                : "bg-[#141416]/80 border border-white/10 shadow-xs"
             )}>
               {/* Home */}
               <Link href="/" className={navLinkClass}>
@@ -192,24 +191,24 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] w-0 group-hover:w-8 rounded-full bg-primary transition-all duration-300" />
                 </button>
 
-                {/* ── Mega-menu panel ── */}
+                {/* ── Mega-menu panel (100% Solid Opaque Background) ── */}
                 {megaOpen && (
                   <div
                     className={cn(
-                      "absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[860px] transition-all duration-200",
+                      "absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[860px] transition-all duration-200 z-50",
                       megaVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
                     )}
                     onMouseEnter={openMega}
                     onMouseLeave={closeMega}
                   >
                     <div className={cn(
-                      "rounded-3xl shadow-2xl border overflow-hidden",
+                      "rounded-3xl shadow-[0_25px_70px_-15px_rgba(0,0,0,0.25)] border overflow-hidden",
                       light
-                        ? "bg-white/98 border-silver-200"
-                        : "bg-[#0d0d0d]/99 border-white/[0.08]"
+                        ? "bg-white border-silver-200"
+                        : "bg-[#121215] border-white/15 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.85)]"
                     )}>
                       {/* Top gradient bar */}
-                      <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+                      <div className="h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
                       {/* Grid of categories */}
                       <div className="grid grid-cols-3 gap-0 p-6">
@@ -223,7 +222,7 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                                 </div>
                                 <p className={cn(
                                   "text-[10px] font-black uppercase tracking-widest",
-                                  light ? "text-silver-500" : "text-neutral-500"
+                                  light ? "text-silver-500" : "text-neutral-400"
                                 )}>
                                   {cat.heading}
                                 </p>
@@ -236,35 +235,40 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                                       key={li}
                                       href={`/services/${link.slug}`}
                                       onClick={() => setMegaOpen(false)}
-                                      className="flex items-start gap-2.5 p-2 rounded-xl transition-all duration-200 group hover:bg-primary hover:shadow-md hover:scale-[1.02]"
+                                      className={cn(
+                                        "flex items-start gap-2.5 p-2 rounded-xl transition-all duration-200 group hover:scale-[1.02]",
+                                        light
+                                          ? "hover:bg-primary hover:text-white"
+                                          : "hover:bg-primary hover:text-white"
+                                      )}
                                     >
                                       <div className={cn(
                                         "p-1.5 rounded-lg shrink-0 mt-0.5 transition-colors duration-200",
                                         light
                                           ? "bg-silver-100 group-hover:bg-white/20"
-                                          : "bg-white/[0.05] group-hover:bg-white/20"
+                                          : "bg-white/10 group-hover:bg-white/20"
                                       )}>
                                         <LinkIcon className={cn(
-                                          "w-3 h-3 transition-colors duration-200",
+                                          "w-3.5 h-3.5 transition-colors duration-200",
                                           light
-                                            ? "text-silver-600 group-hover:text-white"
-                                            : "text-neutral-400 group-hover:text-white"
+                                            ? "text-silver-700 group-hover:text-white"
+                                            : "text-neutral-300 group-hover:text-white"
                                         )} />
                                       </div>
                                       <div className="min-w-0">
                                         <p className={cn(
-                                          "text-[13px] font-semibold leading-tight transition-colors duration-200",
+                                          "text-[13px] font-bold leading-tight transition-colors duration-200",
                                           light
-                                            ? "text-silver-800 group-hover:text-white"
-                                            : "text-neutral-200 group-hover:text-white"
+                                            ? "text-silver-900 group-hover:text-white"
+                                            : "text-white group-hover:text-white"
                                         )}>
                                           {link.label}
                                         </p>
                                         <p className={cn(
                                           "text-[11px] mt-0.5 leading-tight transition-colors duration-200",
                                           light
-                                            ? "text-silver-500 group-hover:text-white/85"
-                                            : "text-neutral-400 group-hover:text-white/85"
+                                            ? "text-silver-500 group-hover:text-white/90"
+                                            : "text-neutral-400 group-hover:text-white/90"
                                         )}>
                                           {link.desc}
                                         </p>
@@ -280,10 +284,10 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
 
                       {/* Footer row */}
                       <div className={cn(
-                        "px-6 py-3 border-t flex items-center justify-between",
-                        light ? "border-silver-100 bg-silver-50/60" : "border-white/[0.05] bg-white/[0.02]"
+                        "px-6 py-3.5 border-t flex items-center justify-between",
+                        light ? "border-silver-100 bg-silver-50" : "border-white/10 bg-[#0d0d10]"
                       )}>
-                        <div className="flex items-center gap-1 flex-wrap">
+                        <div className="flex items-center gap-1.5 flex-wrap">
                           {allServices.map(s => {
                             const Icon = s.icon;
                             return (
@@ -294,8 +298,8 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                                 className={cn(
                                   "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold border transition-all duration-200",
                                   light
-                                    ? "border-silver-200 text-silver-600 hover:border-primary/30 hover:text-primary hover:bg-primary/[0.04]"
-                                    : "border-white/10 text-neutral-500 hover:border-primary/30 hover:text-primary hover:bg-primary/[0.06]"
+                                    ? "border-silver-200 text-silver-700 hover:border-primary hover:text-primary hover:bg-white"
+                                    : "border-white/10 text-neutral-300 hover:border-primary hover:text-white hover:bg-white/5"
                                 )}
                               >
                                 <Icon className="w-3 h-3" />
@@ -308,14 +312,17 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                           <Link
                             href="/book-a-slot"
                             onClick={() => setMegaOpen(false)}
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 hover:bg-primary text-primary hover:text-white text-xs font-bold transition-all duration-200"
+                            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary text-white text-xs font-bold transition-all duration-200 hover:bg-primary/90 shadow-sm"
                           >
                             <span>📅 Book Strategy Call</span>
                           </Link>
                           <Link
                             href="/pricing"
                             onClick={() => setMegaOpen(false)}
-                            className="flex items-center gap-1 text-xs font-bold text-silver-600 hover:text-primary transition-colors"
+                            className={cn(
+                              "flex items-center gap-1 text-xs font-bold transition-colors",
+                              light ? "text-silver-700 hover:text-primary" : "text-neutral-300 hover:text-white"
+                            )}
                           >
                             <span>Pricing</span>
                             <ArrowRight className="w-3.5 h-3.5" />
@@ -339,7 +346,7 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
             {/* ── Right CTA ── */}
             <div className="flex items-center gap-2 sm:gap-3">
               <Button size="sm" asChild
-                className="flex items-center gap-1 sm:gap-2 relative overflow-hidden bg-primary hover:bg-primary/90 text-white font-bold px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-primary/35 hover:scale-[1.03] group">
+                className="flex items-center gap-1 sm:gap-2 relative overflow-hidden bg-primary hover:bg-primary/90 text-white font-bold px-3.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-primary/35 hover:scale-[1.03] group whitespace-nowrap">
                 <Link href="/book-a-slot" className="flex items-center gap-1.5">
                   <span className="relative flex h-2 w-2 shrink-0">
                     <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75 animate-ping" />
