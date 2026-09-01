@@ -68,7 +68,7 @@ export function LoadingScreen() {
     <div
       className={cn(
         "fixed inset-0 z-[99999] flex flex-col items-center justify-center overflow-hidden bg-white",
-        "transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]",
+        "transition-all duration-500 ease-out",
         exiting ? "opacity-0 scale-[1.05] pointer-events-none" : "opacity-100 scale-100"
       )}
     >
