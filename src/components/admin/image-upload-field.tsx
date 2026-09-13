@@ -28,22 +28,43 @@ export function ImageUploadField({
 
   const handleUpload = async (file: File) => {
     setError('');
+
+    if (file.size > 10 * 1024 * 1024) {
+      setError('File is too large. Maximum size is 10MB.');
+      return;
+    }
+
     setUploading(true);
     try {
       const formData = new FormData();
       formData.append('file', file);
 
-      const res = await fetch('/api/upload', { method: 'POST', body: formData });
-      const data = await res.json();
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+        credentials: 'include',
+      });
+
+      let data: any = {};
+      try {
+        data = await res.json();
+      } catch {
+        // response was not JSON
+      }
 
       if (!res.ok) {
-        setError(data.error || 'Upload failed');
+        setError(data.error || `Upload failed (${res.status}). Please try again.`);
         return;
       }
 
-      onChange(data.url);
-    } catch {
-      setError('Upload failed. Please try again.');
+      if (data.url) {
+        onChange(data.url);
+      } else {
+        setError('Upload succeeded but no image URL was returned.');
+      }
+    } catch (err: any) {
+      console.error('Image upload failed:', err);
+      setError(err?.message || 'Upload failed. Please check your connection.');
     } finally {
       setUploading(false);
     }

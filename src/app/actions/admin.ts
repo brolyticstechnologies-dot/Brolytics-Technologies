@@ -1,6 +1,6 @@
 "use server";
 
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getSiteContent, updateSiteContent, updateSectionContent } from '@/lib/content';
 import type { SiteContent, ContentSection } from '@/lib/content-types';
@@ -28,10 +28,16 @@ export async function loginAdmin(
     return { success: false, message: 'Invalid password. Please try again.' };
   }
 
+  const headerList = await headers();
+  const host = headerList.get('host') || '';
+  const proto = headerList.get('x-forwarded-proto') || '';
+  const isLocal = host.includes('localhost') || host.includes('127.0.0.1');
+  const isHttps = proto === 'https' || (!isLocal && process.env.NODE_ENV === 'production');
+
   const cookieStore = await cookies();
   cookieStore.set(SESSION_COOKIE, getSessionToken(), {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: isHttps,
     sameSite: 'lax',
     maxAge: 60 * 60 * 24 * 7,
     path: '/',
