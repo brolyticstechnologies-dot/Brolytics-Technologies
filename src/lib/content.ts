@@ -59,16 +59,16 @@ async function saveToSupabase(content: SiteContent): Promise<boolean> {
 }
 
 export async function getSiteContent(): Promise<SiteContent> {
-  // 1. Check in-memory runtime cache
-  if (runtimeCache) {
-    return runtimeCache;
-  }
-
-  // 2. Try loading from Supabase (persistent across all serverless instances)
+  // 1. Always load from Supabase first (cloud source of truth)
   const supabaseContent = await loadFromSupabase();
   if (supabaseContent) {
     runtimeCache = supabaseContent;
     return supabaseContent;
+  }
+
+  // 2. Fallback to in-memory runtime cache if Supabase is offline
+  if (runtimeCache) {
+    return runtimeCache;
   }
 
   // 3. Try reading from /tmp/site-content.json (if written previously on serverless)

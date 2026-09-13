@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     "Learn more about Brolytics Technologies — our team, mission, values, and journey transforming businesses into digital powerhouses.",
 };
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function AboutUsPage() {
   const content = await getSiteContent();
 

@@ -53,6 +53,20 @@ export async function logoutAdmin(): Promise<void> {
   redirect('/admin/login');
 }
 
+function revalidateAllPages() {
+  try {
+    revalidatePath('/', 'layout');
+    revalidatePath('/about-us');
+    revalidatePath('/our-work');
+    revalidatePath('/pricing');
+    revalidatePath('/technologies');
+    revalidatePath('/terms');
+    revalidatePath('/admin');
+  } catch (err) {
+    console.warn('Revalidation warning:', err);
+  }
+}
+
 export async function updateContentSection<K extends ContentSection>(
   section: K,
   data: SiteContent[K]
@@ -64,8 +78,7 @@ export async function updateContentSection<K extends ContentSection>(
 
   try {
     await updateSectionContent(section, data);
-    revalidatePath('/', 'layout');
-    revalidatePath('/admin');
+    revalidateAllPages();
     return { success: true, message: `${String(section)} updated successfully!` };
   } catch (error: any) {
     console.error('Failed to update content:', error);
@@ -89,8 +102,7 @@ export async function updateContentSections(
       }
     }
     await updateSiteContent(content);
-    revalidatePath('/', 'layout');
-    revalidatePath('/admin');
+    revalidateAllPages();
     const names = Object.keys(sections).join(', ');
     return { success: true, message: `${names} updated successfully!` };
   } catch (error: any) {
@@ -109,8 +121,7 @@ export async function updateFullContent(
 
   try {
     await updateSiteContent(content);
-    revalidatePath('/', 'layout');
-    revalidatePath('/admin');
+    revalidateAllPages();
     return { success: true, message: 'All content saved successfully!' };
   } catch (error: any) {
     console.error('Failed to update content:', error);
