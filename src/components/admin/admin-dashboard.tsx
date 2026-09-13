@@ -14,7 +14,7 @@ import { ImageUploadField } from '@/components/admin/image-upload-field';
 import {
   LayoutDashboard, LogOut, Save, ExternalLink, Home, Users,
   BarChart3, Briefcase, MessageSquare, Settings, Star, Layers,
-  BadgeIndianRupee, Scale, Code, Shield,
+  BadgeIndianRupee, Scale, Code, Shield, Download,
 } from 'lucide-react';
 
 interface AdminDashboardProps {
@@ -75,6 +75,25 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
     setContent((prev) => ({ ...prev, [section]: data }));
   };
 
+  const exportBackup = () => {
+    const jsonString = `data:text/json;charset=utf-8,${encodeURIComponent(
+      JSON.stringify(content, null, 2)
+    )}`;
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute('href', jsonString);
+    downloadAnchor.setAttribute(
+      'download',
+      `brolytics-site-content-${new Date().toISOString().slice(0, 10)}.json`
+    );
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+    toast({
+      title: 'Backup Downloaded!',
+      description: 'Your complete site-content.json backup has been saved to your computer.',
+    });
+  };
+
   return (
     <div className="min-h-screen bg-silver-50">
       <header className="sticky top-0 z-50 bg-white border-b border-silver-200 shadow-sm">
@@ -84,6 +103,16 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
             <h1 className="text-lg font-black text-silver-900">Brolytics CMS</h1>
           </div>
           <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={exportBackup}
+              className="rounded-xl hidden sm:flex"
+              title="Download full site content as JSON"
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Backup JSON
+            </Button>
             <Button variant="outline" size="sm" asChild className="rounded-xl hidden sm:flex">
               <a href="/" target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-2" />

@@ -2,6 +2,7 @@
 
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 import { getSiteContent, updateSiteContent, updateSectionContent } from '@/lib/content';
 import type { SiteContent, ContentSection } from '@/lib/content-types';
 import { SESSION_COOKIE, getSessionToken, getAdminPassword } from '@/lib/admin-auth';
@@ -63,10 +64,12 @@ export async function updateContentSection<K extends ContentSection>(
 
   try {
     await updateSectionContent(section, data);
+    revalidatePath('/', 'layout');
+    revalidatePath('/admin');
     return { success: true, message: `${String(section)} updated successfully!` };
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to update content:', error);
-    return { success: false, message: 'Failed to save changes. Please try again.' };
+    return { success: false, message: error?.message || 'Failed to save changes. Please try again.' };
   }
 }
 
@@ -86,11 +89,13 @@ export async function updateContentSections(
       }
     }
     await updateSiteContent(content);
+    revalidatePath('/', 'layout');
+    revalidatePath('/admin');
     const names = Object.keys(sections).join(', ');
     return { success: true, message: `${names} updated successfully!` };
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to update content:', error);
-    return { success: false, message: 'Failed to save changes. Please try again.' };
+    return { success: false, message: error?.message || 'Failed to save changes. Please try again.' };
   }
 }
 
@@ -104,9 +109,11 @@ export async function updateFullContent(
 
   try {
     await updateSiteContent(content);
+    revalidatePath('/', 'layout');
+    revalidatePath('/admin');
     return { success: true, message: 'All content saved successfully!' };
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to update content:', error);
-    return { success: false, message: 'Failed to save changes. Please try again.' };
+    return { success: false, message: error?.message || 'Failed to save changes. Please try again.' };
   }
 }

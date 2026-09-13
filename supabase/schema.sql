@@ -68,3 +68,29 @@ USING (true);
 CREATE INDEX IF NOT EXISTS idx_slot_bookings_created_at 
 ON public.slot_bookings (created_at DESC);
 
+-- ==============================================================================
+-- 6. Create site_content table (For Cloud-Synced CMS Persistence on Vercel)
+-- ==============================================================================
+CREATE TABLE IF NOT EXISTS public.site_content (
+    id TEXT PRIMARY KEY DEFAULT 'current',
+    data JSONB NOT NULL,
+    updated_at TIMESTAMPTZ DEFAULT now()
+);
+
+ALTER TABLE public.site_content ENABLE ROW LEVEL SECURITY;
+
+-- Allow public read of published site content
+CREATE POLICY "Allow public read site content"
+ON public.site_content
+FOR SELECT
+TO anon, authenticated
+USING (true);
+
+-- Allow upsert / insert / update
+CREATE POLICY "Allow public update site content"
+ON public.site_content
+FOR ALL
+TO anon, authenticated
+USING (true)
+WITH CHECK (true);
+
