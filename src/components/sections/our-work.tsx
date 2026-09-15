@@ -167,20 +167,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
 
           {/* Footer link */}
-          <div className="mt-auto flex items-center justify-between pt-4 border-t border-silver-100 group-hover:border-primary/10 transition-colors duration-400">
+          <div className="mt-auto pt-4 border-t border-silver-100 group-hover:border-primary/10 transition-colors duration-400">
             <Link
               href={href}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-silver-400 group-hover:text-primary transition-colors duration-400"
+              className="flex items-center justify-between w-full group/btn"
+              aria-label={`View details for ${title}`}
             >
-              View Details
-              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-400 group-hover:translate-x-0.5" aria-hidden="true" />
-            </Link>
-            <Link
-              href={href}
-              className="p-2 rounded-full border border-silver-200 bg-silver-50 group-hover:bg-primary group-hover:border-primary transition-all duration-400 group-hover:scale-110"
-              aria-label={`View ${title}`}
-            >
-              <ArrowUpRight className="h-4 w-4 text-silver-500 group-hover:text-white transition-colors duration-400" aria-hidden="true" />
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-silver-500 group-hover/btn:text-primary transition-colors duration-300">
+                View Details
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" aria-hidden="true" />
+              </span>
+              <span
+                className="p-2 rounded-full border border-silver-200 bg-silver-50 group-hover/btn:bg-primary group-hover/btn:border-primary text-silver-500 group-hover/btn:text-white transition-all duration-300 group-hover/btn:scale-105"
+                aria-hidden="true"
+              >
+                <ArrowUpRight className="h-4 w-4 transition-colors duration-300" />
+              </span>
             </Link>
           </div>
         </div>
@@ -224,7 +226,7 @@ const StatCard = ({
       )}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="relative text-center rounded-[1.15rem] bg-white px-4 py-5 sm:py-6 overflow-hidden">
+      <div className="relative text-center rounded-2xl bg-white px-4 py-3.5 sm:py-4 overflow-hidden">
         <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-primary/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
 
         <div className="relative inline-flex p-3 mb-3 rounded-xl bg-gradient-to-br from-primary/12 to-primary/5 border border-primary/15 group-hover:scale-105 transition-transform duration-400">
@@ -272,22 +274,22 @@ export function OurWork({ content: contentProp }: OurWorkProps = {}) {
         {/* Header */}
         <div
           className={cn(
-            "text-center mb-14 md:mb-16 max-w-3xl mx-auto transition-all duration-1000",
+            "text-center mb-8 md:mb-10 max-w-3xl mx-auto transition-all duration-1000",
             ""
           )}
         >
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 mb-6 rounded-full border border-silver-200 bg-white/80 backdrop-blur-sm shadow-sm">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 mb-5 rounded-full border border-silver-200 bg-white/80 backdrop-blur-sm shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-primary/50 animate-ping" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
             <Briefcase className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-silver-600">
+            <span className="text-xs font-semibold uppercase tracking-wider text-silver-700">
               {header.badge}
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.08] mb-5">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.08] mb-4">
             <span className="text-silver">{header.title}</span>
             <span className="text-gradient-red"> {header.titleAccent}</span>
           </h2>
@@ -298,7 +300,7 @@ export function OurWork({ content: contentProp }: OurWorkProps = {}) {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-12 md:mb-14">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-8 md:mb-10">
           {achievementStats.map((stat, index) => (
             <StatCard key={stat.label} {...stat} isVisible={isVisible} index={index} />
           ))}

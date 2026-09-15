@@ -203,11 +203,11 @@ export function Footer({ content: contentProp, siteSettings: settingsProp }: Foo
         {/* Social + newsletter */}
         <div
           className={cn(
-            "flex flex-col lg:flex-row items-center justify-between gap-8 py-10 border-b border-silver-200 transition-all duration-1000 delay-200",
+            "grid grid-cols-1 md:grid-cols-12 items-center gap-6 py-10 border-b border-silver-200 transition-all duration-1000 delay-200",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           )}
         >
-          <div className="flex items-center gap-2.5">
+          <div className="md:col-span-4 flex items-center justify-center md:justify-start gap-2.5">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -223,18 +223,18 @@ export function Footer({ content: contentProp, siteSettings: settingsProp }: Foo
             })}
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
-            <p className="text-sm text-silver-500 whitespace-nowrap">Subscribe for updates</p>
+          <div className="md:col-span-8 flex flex-col sm:flex-row items-center justify-center md:justify-end gap-3.5">
+            <p className="text-sm font-medium text-silver-600 whitespace-nowrap">Subscribe for updates & tech insights</p>
             <div className="flex w-full sm:w-auto rounded-xl overflow-hidden border border-silver-200 bg-white focus-within:border-primary/40 focus-within:ring-2 focus-within:ring-primary/10 transition-all duration-300 shadow-sm">
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 sm:w-52 px-4 py-3 bg-transparent text-silver-900 text-sm placeholder:text-silver-400 focus:outline-none"
+                className="flex-1 sm:w-56 px-4 py-2.5 bg-transparent text-silver-900 text-sm placeholder:text-silver-400 focus:outline-none"
                 aria-label="Email for newsletter"
               />
               <button
                 type="button"
-                className="px-5 py-3 bg-primary hover:bg-primary/90 text-white text-sm font-bold transition-colors duration-300 whitespace-nowrap"
+                className="px-5 py-2.5 bg-primary hover:bg-primary/90 text-white text-sm font-bold transition-colors duration-300 whitespace-nowrap"
               >
                 Subscribe
               </button>

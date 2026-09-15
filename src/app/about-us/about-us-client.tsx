@@ -47,7 +47,7 @@ function SectionHeading({ badge, title, accent, subtitle, isVisible }: {
             <span className="absolute inline-flex h-full w-full rounded-full bg-primary/60 animate-ping" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
-          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-silver-600">{badge}</span>
+          <span className="text-xs font-semibold uppercase tracking-wider text-silver-700">{badge}</span>
         </div>
       )}
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-silver-900 mb-4">
@@ -80,8 +80,8 @@ function FeatureCard({ iconName, title, description, index, isVisible }: {
       style={{ transitionDelay: `${index * 120}ms` }}
     >
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl" />
-      <div className="inline-flex p-3 rounded-xl bg-primary/10 group-hover:bg-primary group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-500 mb-5">
-        <Icon className="h-6 w-6 text-primary group-hover:text-white transition-colors duration-500" />
+      <div className="inline-flex p-3.5 sm:p-4 rounded-2xl bg-primary/10 border border-primary/15 group-hover:bg-primary group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-500 mb-5">
+        <Icon className="h-7 w-7 sm:h-8 sm:w-8 text-primary group-hover:text-white transition-colors duration-500" />
       </div>
       <h3 className="text-lg font-black text-silver-900 mb-2.5 group-hover:text-primary transition-colors duration-300">{title}</h3>
       <p className="text-sm text-silver-500 leading-relaxed">{description}</p>
@@ -245,7 +245,7 @@ export function AboutUsClient({
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
                     </span>
                     <Rocket className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
-                    <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-silver-600">
+                    <span className="text-xs font-semibold tracking-wide text-silver-700">
                       {hero?.badge || "Innovation Driven"}
                     </span>
                   </div>
@@ -334,7 +334,7 @@ export function AboutUsClient({
                           </div>
                           <div>
                             <p className="text-base font-black text-silver-900 leading-none">{s.value}</p>
-                            <p className="text-[10px] text-silver-400 uppercase tracking-wider font-medium mt-0.5">{s.label}</p>
+                            <p className="text-xs text-silver-500 font-medium mt-0.5">{s.label}</p>
                           </div>
                         </div>
                       );
@@ -347,12 +347,12 @@ export function AboutUsClient({
               {loaded && (
                 <div className="animate-fade-up relative mx-auto w-full max-w-[460px] lg:max-w-none" style={{ animationDelay: "0.25s" }}>
                   <div className="relative mx-auto max-w-[460px]">
-                    <div className="absolute -inset-5 rounded-[2.25rem] bg-silver-200/40 blur-2xl pointer-events-none" />
-                    <div className="absolute -inset-2 rounded-[1.85rem] bg-gradient-to-br from-silver-200/50 to-transparent rotate-2" />
-                    <div className="absolute -inset-1 rounded-[1.65rem] bg-gradient-to-tr from-primary/[0.08] via-transparent to-silver-200/40 -rotate-1" />
+                    <div className="absolute -inset-5 rounded-3xl bg-silver-200/40 blur-2xl pointer-events-none" />
+                    <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-silver-200/50 to-transparent rotate-2" />
+                    <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-primary/[0.08] via-transparent to-silver-200/40 -rotate-1" />
 
-                    <div className="relative rounded-[1.5rem] p-[2px] bg-gradient-to-br from-silver-300 via-white to-silver-300 shadow-2xl shadow-silver-900/12">
-                      <div className="relative overflow-hidden rounded-[1.45rem] bg-silver-100 aspect-[4/5] sm:aspect-[5/6]">
+                    <div className="relative rounded-3xl p-[2px] bg-gradient-to-br from-silver-300 via-white to-silver-300 shadow-2xl shadow-silver-900/12">
+                      <div className="relative overflow-hidden rounded-[1.4rem] bg-silver-100 aspect-[4/5] sm:aspect-[5/6]">
                         <Image
                           src={hero?.image || "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"}
                           alt={hero?.imageAlt || "Brolytics Technologies team"}
@@ -445,7 +445,7 @@ export function AboutUsClient({
 
                       {upskills.length > 0 && (
                         <div className="mt-8 pt-6 border-t border-silver-100">
-                          <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-silver-400 mb-3.5">Always Upskilling In</p>
+                          <p className="text-xs font-bold uppercase tracking-wider text-silver-500 mb-3.5">Always Upskilling In</p>
                           <div className="flex flex-wrap gap-2">
                             {upskills.map((t) => (
                               <span key={t} className="px-3.5 py-1.5 rounded-full bg-silver-50 border border-silver-200 text-xs font-semibold text-silver-600 hover:border-primary/40 hover:text-primary hover:bg-primary/[0.04] transition-all duration-300 cursor-default">{t}</span>
@@ -612,7 +612,7 @@ export function AboutUsClient({
                         </div>
 
                         {pillar.subtitle && (
-                          <p className="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">
+                          <p className="text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
                             {pillar.subtitle}
                           </p>
                         )}
@@ -678,7 +678,7 @@ export function AboutUsClient({
                       <div className="p-3 rounded-2xl bg-white/10 text-primary w-fit mb-4 group-hover:scale-110 transition-transform">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <h4 className="text-base font-bold text-white mb-2">{diff.title}</h4>
+                      <h3 className="text-base font-bold text-white mb-2">{diff.title}</h3>
                       <p className="text-xs text-silver-400 leading-relaxed">{diff.description}</p>
                     </div>
                   );
@@ -752,7 +752,7 @@ export function AboutUsClient({
                   <div
                     key={t.name + i}
                     className={cn(
-                      "group relative bg-white border border-silver-200 rounded-2xl p-7 flex flex-col transition-all duration-700 hover:border-primary/30 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-20px_rgba(143,38,71,0.25)]",
+                      "group relative bg-white border border-silver-200/90 rounded-2xl p-7 flex flex-col shadow-sm sm:shadow-md transition-all duration-500 hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary/10",
                       testimonialsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                     )}
                     style={{ transitionDelay: `${i * 150}ms` }}

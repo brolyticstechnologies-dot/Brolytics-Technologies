@@ -26,6 +26,13 @@ import {
   FileCheck,
   Quote,
   Shield,
+  Tag,
+  Landmark,
+  CreditCard,
+  Zap,
+  RefreshCw,
+  Code2,
+  ShieldAlert,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { pricingCategories as defaultPricingCategories } from "@/data/brolytics-pricing";
@@ -116,18 +123,19 @@ function SectionCard({ section }: { section: PricingCategory["sections"][0] }) {
                 {table.rows.map((row, rIdx) => (
                   <div
                     key={rIdx}
-                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4 py-2 px-3 rounded-xl hover:bg-silver-50/80 transition-colors"
+                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4 py-2 px-3 rounded-xl hover:bg-silver-50/80 transition-colors group/row"
                   >
-                    <div className="min-w-0">
+                    <div className="min-w-0 max-w-full sm:max-w-[70%]">
                       <p className="text-xs sm:text-sm font-medium text-silver-800 leading-snug">
                         {row.item}
                       </p>
                       {row.note && (
-                        <p className="text-[11px] text-silver-400 mt-0.5 leading-tight">
+                        <p className="text-xs text-silver-400 mt-0.5 leading-tight">
                           {row.note}
                         </p>
                       )}
                     </div>
+                    <span className="hidden sm:block flex-1 border-b border-dotted border-silver-300/80 mx-3 mb-0.5" aria-hidden="true" />
                     <PriceTag price={row.price} />
                   </div>
                 ))}
@@ -306,7 +314,7 @@ export function PricingClient({
           {heroBadge && (
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/[0.04] mb-5">
               <IndianRupee className="w-3.5 h-3.5 text-primary" />
-              <span className="text-[11px] font-bold uppercase tracking-widest text-primary">
+              <span className="text-xs font-bold tracking-wide text-primary">
                 {heroBadge}
               </span>
             </div>
@@ -538,20 +546,35 @@ export function PricingClient({
                   { id: 8, title: 'Source-Code Ownership', description: 'Source-code ownership and licensing terms are defined in the project agreement.' },
                   { id: 9, title: 'Maintenance & AMC Terms', description: 'Maintenance and AMC terms are mutually agreed before commencement.' },
                   { id: 10, title: 'Custom Quotation Supremacy', description: 'Final commercial quotation supersedes this general rate card for the specific project.' },
-                ]).map((term) => (
-                  <div
-                    key={term.id}
-                    className="flex items-start gap-3 p-3.5 rounded-2xl bg-silver-50/60 border border-silver-200/80 hover:bg-white hover:border-primary/30 transition-colors"
-                  >
-                    <span className="flex items-center justify-center w-6 h-6 rounded-lg bg-white border border-silver-200 text-xs font-black text-silver-700 shrink-0 mt-0.5">
-                      {term.id}
-                    </span>
-                    <div className="min-w-0">
-                      <p className="text-xs font-bold text-silver-900 leading-snug">{term.title}</p>
-                      <p className="text-[11px] text-silver-500 leading-relaxed mt-0.5">{term.description}</p>
+                ]).map((term) => {
+                  const termIconMap: Record<number, React.ComponentType<{ className?: string }>> = {
+                    1: Tag,
+                    2: FileCheck,
+                    3: Landmark,
+                    4: CreditCard,
+                    5: Zap,
+                    6: RefreshCw,
+                    7: Clock,
+                    8: Code2,
+                    9: Wrench,
+                    10: ShieldAlert,
+                  };
+                  const Icon = termIconMap[term.id] || Info;
+                  return (
+                    <div
+                      key={term.id}
+                      className="flex items-start gap-3.5 p-4 rounded-2xl bg-silver-50/60 border border-silver-200/80 hover:bg-white hover:border-primary/30 hover:shadow-sm transition-all"
+                    >
+                      <div className="p-2 rounded-xl bg-primary/10 text-primary shrink-0 mt-0.5 border border-primary/15">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs sm:text-sm font-bold text-silver-900 leading-snug">{term.title}</p>
+                        <p className="text-xs text-silver-600 leading-relaxed mt-1">{term.description}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 

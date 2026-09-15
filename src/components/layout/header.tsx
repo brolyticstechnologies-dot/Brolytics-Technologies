@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { MobileNav } from '@/components/layout/mobile-nav';
 import { useState, useEffect, useRef } from 'react';
@@ -77,6 +78,7 @@ const mobileNavLinks = [
 ];
 
 export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
+  const pathname = usePathname();
   const light = variant === 'light';
   const [scrolled,      setScrolled]      = useState(false);
   const [progress,      setProgress]      = useState(0);
@@ -278,12 +280,28 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
               </div>
 
               {/* Remaining nav links */}
-              {navLinks.filter(l => l.label !== 'Home').map(l => (
-                <Link key={l.href} href={l.href} className={navLinkClass}>
-                  <span className="relative z-10">{l.label}</span>
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] w-0 group-hover:w-6 rounded-full bg-primary transition-all duration-300" />
-                </Link>
-              ))}
+              {navLinks.filter(l => l.label !== 'Home').map(l => {
+                const isActive = pathname === l.href;
+                return (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={cn(
+                      navLinkClass,
+                      isActive && (light ? "text-primary bg-primary/[0.08] font-bold" : "text-white bg-white/10 font-bold")
+                    )}
+                  >
+                    <span className="relative z-10">{l.label}</span>
+                    <span
+                      className={cn(
+                        "absolute bottom-1 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-primary transition-all duration-300",
+                        isActive ? "w-6" : "w-0 group-hover:w-6"
+                      )}
+                    />
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* ── Right CTA ── */}
