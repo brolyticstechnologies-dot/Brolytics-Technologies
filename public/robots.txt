@@ -1,0 +1,29 @@
+User-Agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /api/admin/*
+
+User-Agent: GPTBot
+User-Agent: ChatGPT-User
+User-Agent: Google-Extended
+User-Agent: PerplexityBot
+User-Agent: ClaudeBot
+User-Agent: anthropic-ai
+User-Agent: Applebot-Extended
+User-Agent: Bytespider
+User-Agent: CCBot
+Allow: /
+Allow: /services/*
+Allow: /our-work
+Allow: /pricing
+Allow: /about-us
+Allow: /technologies
+Allow: /book-a-slot
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /admin/*
+Disallow: /api/*
+
+Host: https://brolyticstechnologies.com
+Sitemap: https://brolyticstechnologies.com/sitemap.xml
