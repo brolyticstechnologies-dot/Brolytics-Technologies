@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   /* config options here */
   outputFileTracingRoot: path.join(__dirname),
   serverExternalPackages: ['nodemailer'],
+  compress: true,
+  poweredByHeader: false,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -13,6 +15,8 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 2592000,
     remotePatterns: [
       {
         protocol: 'https',

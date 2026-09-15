@@ -10,6 +10,8 @@ export const metadata: Metadata = {
     "Complete, transparent pricing for Website Development, Mobile Apps, Custom Software, ERP, CRM, SaaS, AI Services, Backend, Cloud, SEO, and Digital Marketing. No hidden fees.",
 };
 
+export const revalidate = 60;
+
 export default async function PricingPage() {
   const content = await getSiteContent();
 

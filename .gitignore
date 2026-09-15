@@ -46,3 +46,6 @@ firestore-debug.log
 
 # CMS automated backups
 /data/backups/
+
+# IDE / extensions
+.postqode/

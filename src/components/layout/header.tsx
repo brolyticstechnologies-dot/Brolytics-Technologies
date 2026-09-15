@@ -54,7 +54,6 @@ const mainServices = [
 
 const navLinks = [
   { href: "/",             label: "Home"       },
-  { href: "/technologies", label: "Tech Stack" },
   { href: "/our-work",     label: "Our Work"   },
   { href: "/pricing",      label: "Pricing"    },
   { href: "/about-us",     label: "About Us"   },
@@ -63,7 +62,7 @@ const navLinks = [
 
 const mobileNavLinks = [
   { href: "/", label: "Home" },
-  { href: "/book-a-slot", label: "📅 Book a Strategy Slot" },
+  { href: "/book-a-slot", label: "Book a Strategy Slot" },
   {
     href: "/#services",
     label: "Services",
@@ -71,7 +70,6 @@ const mobileNavLinks = [
       ...mainServices.map(s => ({ href: `/services/${s.slug}`, label: s.title })),
     ],
   },
-  { href: "/technologies", label: "Tech Stack" },
   { href: "/our-work",     label: "Our Work"   },
   { href: "/pricing",      label: "Pricing"    },
   { href: "/about-us",     label: "About Us"   },
@@ -259,7 +257,7 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                             onClick={() => setMegaOpen(false)}
                             className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary text-white text-xs font-bold transition-all duration-200 hover:bg-primary/90 shadow-sm"
                           >
-                            <span>📅 Book Strategy Call</span>
+                            <span>Book Strategy Call</span>
                           </Link>
                           <Link
                             href="/pricing"

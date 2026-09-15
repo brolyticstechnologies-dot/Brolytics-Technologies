@@ -11,7 +11,7 @@ function cleanVal(val: string | undefined): string {
 /** Retrieves admin password from environment variable */
 export function getAdminPassword(): string {
   const envPass = cleanVal(process.env.ADMIN_PASSWORD);
-  return envPass || 'BrolyticsAdminSecure2026!';
+  return envPass || '@Brolytics-dev#';
 }
 
 /** Retrieves session secret/token from environment variable */

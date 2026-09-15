@@ -196,7 +196,7 @@ export function ContactForm({ content }: ContactFormProps) {
                     href="/book-a-slot"
                     className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl bg-silver-900 hover:bg-black text-white font-bold text-sm shadow-sm transition-all hover:scale-[1.01]"
                   >
-                    <span>📅 Or Book a Dedicated 30-Min Strategy Slot</span>
+                    <span>Or Book a Dedicated 30-Min Strategy Slot</span>
                   </a>
                 </div>
               </div>

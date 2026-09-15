@@ -17,7 +17,6 @@ import type { SiteContent, ServiceItem } from '@/lib/content-types';
 import { getIcon } from '@/lib/icon-map';
 
 const navLinks = [
-  { href: "/technologies", label: "Tech Stack" },
   { href: "/our-work", label: "Our Work" },
   { href: "/pricing", label: "Pricing" },
   { href: "/#contact", label: "Contact" },
@@ -40,7 +39,6 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
       label: "Services",
       children: services.map(s => ({ href: `/services/${s.slug}`, label: s.title }))
     },
-    { href: "/technologies", label: "Tech Stack" },
     { href: "/our-work", label: "Our Work" },
     { href: "/pricing", label: "Pricing" },
     { href: "/#contact", label: "Contact" },

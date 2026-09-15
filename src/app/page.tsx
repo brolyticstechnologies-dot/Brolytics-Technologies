@@ -11,8 +11,7 @@ import { ContactForm } from '@/components/sections/contact-form';
 import { OurClients } from '@/components/sections/our-clients';
 import { getSiteContent } from '@/lib/content';
 
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+export const revalidate = 60;
 
 export default async function HomePage() {
   const content = await getSiteContent();

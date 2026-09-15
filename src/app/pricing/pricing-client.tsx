@@ -496,7 +496,7 @@ export function PricingClient({
                       href="/book-a-slot"
                       className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white text-xs sm:text-sm font-bold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/30 hover:scale-[1.02]"
                     >
-                      <span>📅 Book a 30-Min Strategy Slot</span>
+                      <span>Book a 30-Min Strategy Slot</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                     <Link
@@ -530,7 +530,7 @@ export function PricingClient({
                     href="/book-a-slot"
                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-primary/25 hover:scale-[1.02]"
                   >
-                    <span>📅 Book 30-Min Strategy Call</span>
+                    <span>Book 30-Min Strategy Call</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link

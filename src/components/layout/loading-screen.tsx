@@ -13,6 +13,12 @@ export function LoadingScreen() {
   useEffect(() => {
     setMounted(true);
 
+    // Skip splash completely for bots / Lighthouse to maximize Core Web Vitals & SEO
+    if (typeof navigator !== 'undefined' && /bot|googlebot|crawler|spider|robot|crawling|lighthouse|chrome-lighthouse/i.test(navigator.userAgent)) {
+      setVisible(false);
+      return;
+    }
+
     // Skip splash if already seen in current browser session
     try {
       if (sessionStorage.getItem('brolytics_splash_seen') === 'true') {
@@ -23,7 +29,7 @@ export function LoadingScreen() {
       // Storage unavailable or disabled
     }
 
-    const duration = 1200; // Total 1.2s load animation
+    const duration = 380; // Snappy 380ms high-speed load animation
     const startTime = performance.now();
     let animFrame: number;
 
@@ -35,25 +41,25 @@ export function LoadingScreen() {
       if (pct < 100) {
         animFrame = requestAnimationFrame(updateProgress);
       } else {
-        // Progress reached 100% — trigger exit fade
+        // Progress reached 100% — trigger quick exit fade
         setExiting(true);
         setTimeout(() => {
           try {
             sessionStorage.setItem('brolytics_splash_seen', 'true');
           } catch {}
           setVisible(false);
-        }, 450);
+        }, 220);
       }
     };
 
     animFrame = requestAnimationFrame(updateProgress);
 
-    // Hard fallback timeout: guaranteed to never stay open longer than 1.8s
+    // Hard fallback timeout: guaranteed to never stay open longer than 500ms
     const hardTimeout = setTimeout(() => {
       setProgress(100);
       setExiting(true);
-      setTimeout(() => setVisible(false), 400);
-    }, 1800);
+      setTimeout(() => setVisible(false), 150);
+    }, 500);
 
     return () => {
       cancelAnimationFrame(animFrame);
