@@ -68,7 +68,10 @@ function SectionCard({ section }: { section: PricingCategory["sections"][0] }) {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="rounded-2xl border border-silver-200/90 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:border-silver-300 mb-4">
+    <div
+      id={section.id}
+      className="scroll-mt-28 sm:scroll-mt-36 rounded-2xl border border-silver-200/90 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:border-silver-300 mb-4"
+    >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between p-4 sm:p-5 text-left bg-silver-50/60 hover:bg-silver-50 transition-colors"
@@ -203,6 +206,79 @@ export function PricingClient({
   const heroDisclaimer = pricingHero?.disclaimer || "All prices are starting prices in Indian Rupees (INR) and exclude GST, domain, hosting, third-party API costs and government charges unless specified.";
 
   const activeData = categories.find((c) => c.id === activeCategory) || categories[0];
+  const [activeSectionId, setActiveSectionId] = useState<string>(activeData.sections?.[0]?.id || "");
+
+  // Smooth scroll handler with header clearance and URL hash update
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveSectionId(sectionId);
+      if (typeof window !== "undefined") {
+        window.history.replaceState(null, "", `#${sectionId}`);
+      }
+    }
+  };
+
+  // Observe which sub-category section is in view using IntersectionObserver
+  useEffect(() => {
+    if (!activeData?.sections || activeData.sections.length === 0) return;
+
+    // Set first section active initially
+    setActiveSectionId(activeData.sections[0].id);
+
+    const observers: IntersectionObserver[] = [];
+
+    activeData.sections.forEach((sec) => {
+      const el = document.getElementById(sec.id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSectionId(sec.id);
+            }
+          });
+        },
+        {
+          rootMargin: "-120px 0px -55% 0px",
+          threshold: 0.1,
+        }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
+  }, [activeCategory, activeData]);
+
+  // Deep-linking support on page load (e.g. /pricing#dynamic-cms-website)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+
+    const matchedCat = categories.find((cat) =>
+      cat.sections.some((sec) => sec.id === hash)
+    );
+
+    if (matchedCat) {
+      if (matchedCat.id !== activeCategory) {
+        setActiveCategory(matchedCat.id);
+      }
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          setActiveSectionId(hash);
+        }
+      }, 350);
+    }
+  }, []);
 
   useEffect(() => {
     if (contentRef.current) {
@@ -379,13 +455,42 @@ export function PricingClient({
                 </div>
                 <h2 className="text-2xl font-black text-silver-900">{activeData.label}</h2>
               </div>
-              <div className="flex gap-2 flex-wrap">
-                {activeData.sections.map((s) => (
-                  <span key={s.id} className="px-3 py-1 rounded-full bg-silver-100 text-silver-600 text-xs font-medium">
-                    {s.title}
-                  </span>
-                ))}
-              </div>
+              {/* Interactive Sub-Category Navigation Bar (Universal for all categories) */}
+              {activeData.sections && activeData.sections.length > 0 && (
+                <div className="sticky top-16 sm:top-20 z-20 -mx-4 px-4 sm:mx-0 sm:px-0 py-2.5 mb-6 bg-white/95 backdrop-blur-md border-b border-silver-100/90 transition-all">
+                  <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none snap-x">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-silver-400 shrink-0 mr-1 hidden sm:inline">
+                      Jump to:
+                    </span>
+                    {activeData.sections.map((s) => {
+                      const isActive = activeSectionId === s.id;
+                      return (
+                        <button
+                          key={s.id}
+                          type="button"
+                          onClick={() => scrollToSection(s.id)}
+                          aria-current={isActive ? "true" : undefined}
+                          className={cn(
+                            "snap-start shrink-0 px-3.5 py-1.5 rounded-full text-xs transition-all duration-200 outline-none flex items-center gap-1.5 cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+                            isActive
+                              ? "bg-primary text-white font-bold shadow-sm shadow-primary/25 ring-2 ring-primary/20 scale-[1.02]"
+                              : "bg-silver-100 hover:bg-silver-200/90 text-silver-700 hover:text-silver-950 font-semibold border border-silver-200/70 hover:border-silver-300"
+                          )}
+                        >
+                          <span
+                            className={cn(
+                              "w-1.5 h-1.5 rounded-full transition-colors shrink-0",
+                              isActive ? "bg-white" : "bg-primary/60"
+                            )}
+                            aria-hidden="true"
+                          />
+                          <span>{s.title}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Sections */}
