@@ -58,12 +58,13 @@ export function ServiceWhyChooseSection({
               <div
                 key={item.title}
                 className={cn(
-                  "group relative rounded-[1.25rem] border border-silver-200/80 bg-white/80 backdrop-blur-sm p-6 sm:p-7 transition-all duration-700 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1",
+                  "group relative rounded-2xl border border-silver-200/80 bg-white/80 backdrop-blur-sm p-6 sm:p-7 transition-all duration-700 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1",
+                  "sm:last:col-span-2 sm:last:max-w-md sm:last:mx-auto sm:last:w-full lg:last:col-span-1 lg:last:col-start-2 lg:last:max-w-none",
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 )}
                 style={{ transitionDelay: `${150 + index * 70}ms` }}
               >
-                <div className="absolute inset-x-0 top-0 h-1 rounded-t-[1.25rem] bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover:via-primary/60 transition-all duration-500" />
+                <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover:via-primary/60 transition-all duration-500" />
 
                 <div className="mb-4 inline-flex p-3 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 text-primary group-hover:scale-105 transition-transform duration-300">
                   <Icon className="w-7 h-7" aria-hidden="true" />

@@ -115,13 +115,13 @@ export function ServiceHero({
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
                   </span>
                   <Icon className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
-                  <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-silver-600">{badge}</span>
+                  <span className="text-xs font-semibold tracking-wide text-silver-700">{badge}</span>
                 </div>
               )}
 
               {loaded && (
                 <h1
-                  className="animate-fade-up text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.4rem] font-black tracking-tight leading-[1.08] mb-6"
+                  className="animate-fade-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] mb-6"
                   style={{ animationDelay: "0.12s" }}
                 >
                   {renderSplitColorTitle(title)}
@@ -159,7 +159,7 @@ export function ServiceHero({
                       size="lg"
                       variant="outline"
                       asChild
-                      className="group border border-silver-300 hover:border-primary/40 bg-white/75 hover:bg-white text-silver-800 font-bold px-7 sm:px-8 py-6 text-base rounded-2xl transition-all duration-300 hover:scale-[1.03] backdrop-blur-sm shadow-sm"
+                      className="group border-2 border-silver-300 hover:border-primary bg-white hover:bg-silver-50 text-silver-900 hover:text-primary font-bold px-7 sm:px-8 py-6 text-base rounded-2xl transition-all duration-300 hover:scale-[1.03] shadow-sm hover:shadow-md"
                     >
                       <Link href={secondaryCta.href} className="flex items-center gap-2">
                         <span>{secondaryCta.label}</span>
@@ -185,7 +185,7 @@ export function ServiceHero({
                           />
                         )
                       )}
-                      <span className="h-8 w-8 rounded-full ring-2 ring-white bg-silver-900 flex items-center justify-center text-[9px] font-bold text-white shadow-sm">
+                      <span className="h-8 w-8 rounded-full ring-2 ring-white bg-silver-900 flex items-center justify-center text-xs font-bold text-white shadow-sm">
                         26+
                       </span>
                     </div>
@@ -195,7 +195,7 @@ export function ServiceHero({
                           <Star key={i} className="h-3 w-3 fill-primary text-primary" aria-hidden="true" />
                         ))}
                       </div>
-                      <p className="text-[11px] text-silver-500 mt-0.5">
+                      <p className="text-xs text-silver-500 mt-0.5">
                         <span className="font-bold text-silver-900">4.9/5</span> client rating
                       </p>
                     </div>
@@ -210,7 +210,7 @@ export function ServiceHero({
                         </div>
                         <div>
                           <p className="text-base font-black text-silver-900 leading-none">{s.value}</p>
-                          <p className="text-[10px] text-silver-400 uppercase tracking-wider font-medium mt-0.5">{s.label}</p>
+                          <p className="text-xs text-silver-500 font-medium mt-0.5">{s.label}</p>
                         </div>
                       </div>
                     );
@@ -223,12 +223,12 @@ export function ServiceHero({
             {loaded && (
               <div className="animate-fade-up relative mx-auto w-full max-w-[460px] lg:max-w-none" style={{ animationDelay: "0.25s" }}>
                 <div className="relative mx-auto max-w-[460px]">
-                  <div className="absolute -inset-5 rounded-[2.25rem] bg-silver-200/40 blur-2xl pointer-events-none" />
-                  <div className="absolute -inset-2 rounded-[1.85rem] bg-gradient-to-br from-silver-200/50 to-transparent rotate-2" />
-                  <div className="absolute -inset-1 rounded-[1.65rem] bg-gradient-to-tr from-primary/[0.08] via-transparent to-silver-200/40 -rotate-1" />
+                  <div className="absolute -inset-5 rounded-3xl bg-silver-200/40 blur-2xl pointer-events-none" />
+                  <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-silver-200/50 to-transparent rotate-2" />
+                  <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-primary/[0.08] via-transparent to-silver-200/40 -rotate-1" />
 
-                  <div className="relative rounded-[1.5rem] p-[2px] bg-gradient-to-br from-silver-300 via-white to-silver-300 shadow-2xl shadow-silver-900/12">
-                    <div className="relative overflow-hidden rounded-[1.45rem] bg-silver-100 aspect-[4/5] sm:aspect-[5/6]">
+                  <div className="relative rounded-3xl p-[2px] bg-gradient-to-br from-silver-300 via-white to-silver-300 shadow-2xl shadow-silver-900/12">
+                    <div className="relative overflow-hidden rounded-2xl bg-silver-100 aspect-[4/5] sm:aspect-[5/6]">
                       <Image src={image.src} alt={image.alt} fill className="object-cover" priority />
                       <div className="absolute inset-0 bg-gradient-to-t from-silver-900/45 via-transparent to-transparent" />
 
@@ -246,7 +246,7 @@ export function ServiceHero({
                           {highlights.map((item) => (
                             <span
                               key={item}
-                              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-silver-200 text-[11px] font-semibold text-silver-700"
+                              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-silver-200 text-xs font-semibold text-silver-700"
                             >
                               <ShieldCheck className="h-3 w-3 text-primary flex-shrink-0" aria-hidden="true" />
                               {item}
@@ -263,7 +263,7 @@ export function ServiceHero({
                     style={{ animationDelay: "0.5s" }}
                   >
                     <p className="text-2xl font-black text-silver-900 leading-none">98%</p>
-                    <p className="text-[10px] text-silver-500 uppercase tracking-wider font-semibold mt-1">Client Satisfaction</p>
+                    <p className="text-xs text-silver-500 font-semibold mt-1">Client Satisfaction</p>
                   </div>
 
                   {/* Floating accent dot */}

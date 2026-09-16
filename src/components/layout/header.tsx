@@ -107,10 +107,10 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
   return (
     <>
       <header className={cn(
-        "fixed top-0 sm:top-4 inset-x-0 z-50 flex justify-center px-0 sm:px-4 transition-all duration-500",
+        "fixed top-0 sm:top-4 inset-x-0 z-50 flex justify-center px-0 sm:px-4 transition-all duration-300 pointer-events-none print:hidden",
       )}>
         <div className={cn(
-          "w-full max-w-6xl sm:rounded-full transition-all duration-500 border",
+          "pointer-events-auto w-full max-w-6xl sm:rounded-full transition-all duration-300 border",
           scrolled
             ? light
               ? "bg-white/95 backdrop-blur-xl border-silver-200 shadow-[0_8px_30px_-16px_rgba(0,0,0,0.12)] py-2 sm:py-0"

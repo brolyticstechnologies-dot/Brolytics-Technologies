@@ -64,19 +64,19 @@ export function ServiceOfferingsSection({
             <div
               key={item.title}
               className={cn(
-                "group relative rounded-[1.25rem] p-[1px] bg-gradient-to-br from-silver-200/80 via-white to-silver-200/60 transition-all duration-700 hover:from-primary/30 hover:via-primary/10 hover:to-silver-200/80 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1",
+                "group relative rounded-2xl p-[1px] bg-gradient-to-br from-silver-200/80 via-white to-silver-200/60 transition-all duration-700 hover:from-primary/30 hover:via-primary/10 hover:to-silver-200/80 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: `${150 + index * 80}ms` }}
             >
-              <div className="relative h-full rounded-[1.2rem] bg-white p-6 sm:p-7 overflow-hidden">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/[0.06] to-transparent rounded-bl-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative h-full rounded-2xl bg-white p-6 sm:p-7 overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-primary/[0.06] to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="flex items-start justify-between gap-4 mb-5">
                   <div className="p-3 rounded-xl bg-primary/10 text-primary border border-primary/15 group-hover:scale-105 transition-transform duration-300">
                     {item.icon}
                   </div>
-                  <span className="text-[11px] font-black text-silver-300 tabular-nums">
+                  <span className="text-xs font-bold text-silver-300 tabular-nums">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>

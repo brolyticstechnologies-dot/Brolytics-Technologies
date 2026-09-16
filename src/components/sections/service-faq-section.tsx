@@ -44,14 +44,16 @@ export function ServiceFaqSection({
           <ServiceSectionHeader eyebrow={eyebrow} title={title} description={description} />
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4 sm:space-y-5">
           {faqs.map((faq, index) => {
             const isOpen = expandedFaq === index;
+            const contentId = `faq-answer-${index}`;
+            const buttonId = `faq-button-${index}`;
             return (
               <div
                 key={faq.question}
                 className={cn(
-                  "rounded-[1.1rem] border transition-all duration-500 overflow-hidden",
+                  "rounded-2xl border transition-all duration-500 overflow-hidden",
                   isOpen
                     ? "border-primary/25 bg-white shadow-md shadow-primary/5"
                     : "border-silver-200/80 bg-white/80 hover:border-primary/15",
@@ -60,10 +62,12 @@ export function ServiceFaqSection({
                 style={{ transitionDelay: `${120 + index * 60}ms` }}
               >
                 <button
+                  id={buttonId}
                   type="button"
                   onClick={() => setExpandedFaq(isOpen ? null : index)}
-                  className="w-full text-left p-5 sm:p-6 flex items-start gap-4"
+                  className="w-full text-left p-5 sm:p-6 flex items-start gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
                   aria-expanded={isOpen}
+                  aria-controls={contentId}
                 >
                   <div
                     className={cn(
@@ -85,6 +89,9 @@ export function ServiceFaqSection({
                     </h3>
 
                     <div
+                      id={contentId}
+                      role="region"
+                      aria-labelledby={buttonId}
                       className={cn(
                         "grid transition-all duration-500 ease-out",
                         isOpen ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0"
