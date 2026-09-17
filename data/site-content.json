@@ -558,8 +558,8 @@
       },
       {
         "icon": "phone",
-        "text": "+91 8340715516, +91 8507507173",
-        "href": "tel:+918340715516"
+        "text": "+91 85075 07173",
+        "href": "tel:+918507507173"
       }
     ]
   },
@@ -636,8 +636,8 @@
       },
       {
         "icon": "phone",
-        "text": "+91 8340715516",
-        "href": "tel:+918340715516"
+        "text": "+91 85075 07173",
+        "href": "tel:+918507507173"
       }
     ],
     "socialLinks": [
@@ -852,7 +852,7 @@
     "website": "www.brolyticstechnologies.com",
     "tagline": "Your trusted IT partner for websites, mobile apps, AI, and custom software solutions.",
     "contactEmail": "brolyticstechnologies@gmail.com",
-    "contactPhone": "+91 8340715516"
+    "contactPhone": "+91 85075 07173"
   },
   "pricing": [
     {
