@@ -62,8 +62,8 @@ export function PageNav() {
     <div
       ref={navRef}
       className={cn(
-        "fixed top-0 inset-x-0 z-40 transition-all duration-500",
-        visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        "fixed top-16 sm:top-20 inset-x-0 z-40 transition-all duration-500",
+        visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
       )}
     >
       {/* Progress bar */}

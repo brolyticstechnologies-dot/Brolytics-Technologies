@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { LoadingScreen } from "@/components/layout/loading-screen";
 import { RootJsonLd } from "@/components/seo/json-ld";
+import { SmoothScroll } from "@/components/layout/smooth-scroll";
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -107,7 +108,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="scroll-pt-24" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
@@ -115,7 +116,9 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <LoadingScreen />
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <Toaster />
       </body>
     </html>

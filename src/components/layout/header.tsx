@@ -81,7 +81,6 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
   const pathname = usePathname();
   const light = variant === 'light';
   const [scrolled,      setScrolled]      = useState(false);
-  const [progress,      setProgress]      = useState(0);
   const [megaOpen,      setMegaOpen]      = useState(false);
   const [megaVisible,   setMegaVisible]   = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -91,14 +90,25 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
     : "relative px-3 py-1.5 xl:px-4 xl:py-2 text-[13px] xl:text-sm font-semibold text-white/80 hover:text-white transition-all duration-200 group rounded-full hover:bg-white/[0.08] whitespace-nowrap flex-shrink-0";
 
   useEffect(() => {
+    let rafId = 0;
+    let lastScrolled = false;
     const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(total > 0 ? Math.min(window.scrollY / total, 1) : 0);
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        const nowScrolled = window.scrollY > 40;
+        if (nowScrolled !== lastScrolled) {
+          lastScrolled = nowScrolled;
+          setScrolled(nowScrolled);
+        }
+        rafId = 0;
+      });
     };
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const openMega  = () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaOpen(true); setMegaVisible(true); };
@@ -328,13 +338,7 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
         </div>
       </header>
 
-      {/* Scroll progress bar */}
-      <div className={cn("fixed top-0 inset-x-0 h-px z-50 pointer-events-none", light ? "bg-silver-200/60" : "bg-white/[0.04]")}>
-        <div
-          className="h-full bg-gradient-to-r from-primary/60 via-primary to-primary/60 transition-all duration-150 origin-left"
-          style={{ transform: `scaleX(${progress})` }}
-        />
-      </div>
+
     </>
   );
 }

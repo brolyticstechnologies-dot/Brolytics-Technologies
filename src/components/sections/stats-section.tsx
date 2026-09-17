@@ -94,7 +94,7 @@ export function StatsSection({ content }: StatsSectionProps) {
     <section
       ref={ref}
       id="stats"
-      className="relative py-16 sm:py-24 md:py-28 overflow-hidden bg-gradient-to-br from-[hsl(345,68%,18%)] via-primary to-[hsl(345,55%,32%)]"
+      className="relative py-16 sm:py-24 md:py-28 overflow-hidden isolate bg-gradient-to-br from-[hsl(345,68%,18%)] via-primary to-[hsl(345,55%,32%)]"
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, LayoutGrid, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -144,8 +145,6 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
 
   const [active, setActive] = useState<FilterTab>("All");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
-  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
-  const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   // Get dynamic category list based on current projects + default categories
@@ -156,20 +155,6 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
 
   const filtered =
     active === "All" ? allProjects : allProjects.filter((p) => p.category.trim().toLowerCase() === active.trim().toLowerCase());
-
-  // Sliding indicator position
-  useEffect(() => {
-    const el = tabRefs.current[active];
-    if (!el) return;
-    const parent = el.parentElement;
-    if (!parent) return;
-    const parentRect = parent.getBoundingClientRect();
-    const elRect = el.getBoundingClientRect();
-    setIndicatorStyle({
-      left: elRect.left - parentRect.left,
-      width: elRect.width,
-    });
-  }, [active, allProjects]);
 
   return (
     <section
@@ -206,20 +191,12 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
         {/* Filter Tabs with sliding indicator */}
         <div
           className={cn(
-            "mb-10 transition-all duration-700 delay-200",
+            "mb-10 transition-all duration-700 delay-200 w-full overflow-hidden",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           )}
         >
-          <div className="relative flex items-center justify-center flex-wrap gap-y-2 gap-x-0">
-            <div className="relative flex items-center flex-wrap justify-center gap-1 bg-silver-50 rounded-full border border-silver-200 p-1.5 shadow-sm">
-              {/* Sliding indicator */}
-              <div
-                className="absolute h-8 rounded-full bg-primary transition-all duration-300 ease-out pointer-events-none"
-                style={{
-                  left: indicatorStyle.left,
-                  width: indicatorStyle.width,
-                }}
-              />
+          <div className="w-full overflow-x-auto no-scrollbar py-2 px-1">
+            <div className="flex items-center sm:justify-center gap-1.5 min-w-max mx-auto bg-silver-50 rounded-full border border-silver-200 p-1.5 shadow-sm w-fit">
               {TABS.map((tab) => {
                 const count =
                   tab === "All"
@@ -229,18 +206,24 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
                 return (
                   <button
                     key={tab}
-                    ref={(el) => { tabRefs.current[tab] = el; }}
                     onClick={() => setActive(tab)}
                     className={cn(
-                      "relative z-10 px-3.5 py-1.5 rounded-full text-[11px] font-semibold transition-colors duration-200 whitespace-nowrap",
-                      isActive ? "text-white" : "text-silver-500 hover:text-silver-800"
+                      "relative z-10 px-3.5 py-1.5 rounded-full text-[11px] font-semibold transition-colors duration-200 whitespace-nowrap shrink-0",
+                      isActive ? "text-white" : "text-silver-600 hover:text-silver-900"
                     )}
                   >
-                    {tab}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activePortfolioTabPill"
+                        className="absolute inset-0 rounded-full bg-primary shadow-sm -z-10"
+                        transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                      />
+                    )}
+                    <span>{tab}</span>
                     <span
                       className={cn(
-                        "ml-1.5 text-[9px] font-bold tabular-nums",
-                        isActive ? "text-white/80" : "text-silver-400"
+                        "ml-1.5 text-[9px] font-bold tabular-nums relative z-10",
+                        isActive ? "text-white/85" : "text-silver-400"
                       )}
                     >
                       {count}

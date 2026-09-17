@@ -256,7 +256,7 @@ export function OurWork({ content: contentProp }: OurWorkProps = {}) {
   const projectCount = content.homeProjectCount;
 
   return (
-    <section ref={ref} id="our-work" className="relative py-16 sm:py-24 md:py-28 bg-silver-50 text-silver-900 overflow-hidden">
+    <section ref={ref} id="our-work" className="relative py-16 sm:py-24 md:py-28 bg-silver-50 text-silver-900 overflow-hidden isolate">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-silver-50 via-white to-silver-50" />

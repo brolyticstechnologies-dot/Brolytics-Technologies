@@ -22,7 +22,7 @@ export function AboutUs({ content, coreValues }: AboutUsProps) {
     <section
       id="about-us"
       ref={ref}
-      className="relative py-16 sm:py-24 bg-white text-silver-900 overflow-hidden"
+      className="relative py-16 sm:py-24 bg-white text-silver-900 overflow-hidden isolate"
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">

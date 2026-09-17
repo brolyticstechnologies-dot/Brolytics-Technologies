@@ -34,7 +34,7 @@ export function TechStackTeaser({ curatedTech }: TechStackTeaserProps) {
   const techList = curatedTech && curatedTech.length > 0 ? curatedTech : defaultCuratedTech;
 
   return (
-    <section className="py-20 bg-white border-b border-silver-100 relative overflow-hidden">
+    <section className="py-20 bg-white border-b border-silver-100 relative overflow-hidden isolate">
       {/* Ambient background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] rounded-full bg-primary/[0.03] blur-[120px]" />

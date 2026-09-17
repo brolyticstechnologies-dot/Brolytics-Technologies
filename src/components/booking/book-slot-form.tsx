@@ -225,7 +225,7 @@ export function BookSlotForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-3xl border border-silver-200/90 bg-white p-6 sm:p-10 shadow-xl relative overflow-hidden"
+      className="rounded-3xl border border-silver-200/90 bg-white p-4 sm:p-8 md:p-10 shadow-xl relative overflow-hidden"
     >
       <div className="space-y-8">
         {/* ── Step 1: Select Service ── */}
@@ -329,28 +329,30 @@ export function BookSlotForm() {
           </div>
 
           {/* Meeting Mode Selector */}
-          <div className="flex gap-2 mt-4 pt-4 border-t border-silver-100">
-            <span className="text-xs font-bold text-silver-600 self-center mr-2">Meeting Platform:</span>
-            {meetingModes.map((mode) => {
-              const Icon = mode.icon;
-              const isSelected = selectedMode === mode.id;
-              return (
-                <button
-                  type="button"
-                  key={mode.id}
-                  onClick={() => setSelectedMode(mode.id)}
-                  className={cn(
-                    'flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all',
-                    isSelected
-                      ? 'border-primary bg-primary/10 text-primary'
-                      : 'border-silver-200 bg-white text-silver-600 hover:border-silver-300'
-                  )}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {mode.label}
-                </button>
-              );
-            })}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-4 pt-4 border-t border-silver-100">
+            <span className="text-xs font-bold text-silver-600 self-start sm:self-center mr-2">Meeting Platform:</span>
+            <div className="flex flex-wrap gap-2">
+              {meetingModes.map((mode) => {
+                const Icon = mode.icon;
+                const isSelected = selectedMode === mode.id;
+                return (
+                  <button
+                    type="button"
+                    key={mode.id}
+                    onClick={() => setSelectedMode(mode.id)}
+                    className={cn(
+                      'flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all',
+                      isSelected
+                        ? 'border-primary bg-primary/10 text-primary'
+                        : 'border-silver-200 bg-white text-silver-600 hover:border-silver-300'
+                    )}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    {mode.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -430,18 +432,21 @@ export function BookSlotForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-6 rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold text-base shadow-xl shadow-primary/25 hover:scale-[1.01] transition-all duration-300 disabled:opacity-50"
+            className="w-full h-auto min-h-[52px] py-4 sm:py-5 px-4 rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold text-sm sm:text-base shadow-xl shadow-primary/25 hover:scale-[1.01] transition-all duration-300 disabled:opacity-50 whitespace-normal"
           >
             {isSubmitting ? (
-              <span className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 animate-spin" />
+              <span className="flex items-center justify-center gap-2 shrink-0">
+                <Sparkles className="w-4 h-4 animate-spin shrink-0" />
                 Reserving Your Slot...
               </span>
             ) : (
-              <span className="flex items-center gap-2">
-                <Calendar className="w-5 h-5" />
-                Confirm & Book Strategy Slot for {selectedDate.split(',')[0]}, {selectedTime}
-                <ArrowRight className="w-5 h-5" />
+              <span className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap text-center leading-snug w-full">
+                <Calendar className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                <span>Confirm & Book Strategy Slot</span>
+                <span className="inline-block text-xs sm:text-sm font-semibold px-2 py-0.5 rounded-full bg-white/20 whitespace-nowrap">
+                  for {selectedDate.split(',')[0]}, {selectedTime}
+                </span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 hidden sm:inline-block" />
               </span>
             )}
           </Button>

@@ -56,16 +56,12 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
   const allSlides = slides.length > 0 ? slides : [fallbackSlide];
   const [slideIdx, setSlideIdx] = useState(0);
   const [slideIn,  setSlideIn]  = useState(true);
-  const [scrolled, setScrolled] = useState(false);
-  
 
   
 
-  useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', h);
-    return () => window.removeEventListener('scroll', h);
-  }, []);
+  
+
+
 
   // Cycle the accent word + showcase image together
   useEffect(() => {
@@ -117,7 +113,7 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
         }
       `}</style>
 
-       <section className="relative min-h-screen flex flex-col bg-white overflow-hidden">
+       <section className="relative min-h-screen flex flex-col bg-white overflow-hidden isolate">
 
         {/* ── Ambient background ── */}
         <div className="absolute inset-0 pointer-events-none">

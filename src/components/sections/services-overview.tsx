@@ -118,7 +118,7 @@ export function ServicesOverview({ services: serviceItems, overview }: ServicesO
     <section
       id="services"
       ref={ref}
-      className="relative py-16 sm:py-24 md:py-28 bg-white text-silver-900 overflow-hidden"
+      className="relative py-16 sm:py-24 md:py-28 bg-white text-silver-900 overflow-hidden isolate"
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">

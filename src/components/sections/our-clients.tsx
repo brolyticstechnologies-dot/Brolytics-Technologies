@@ -46,7 +46,7 @@ export function OurClients({ content: contentProp }: OurClientsProps = {}) {
     <section
       ref={ref}
       id="our-clients"
-      className="relative py-16 sm:py-24 md:py-28 overflow-hidden bg-gradient-to-br from-[hsl(345,68%,22%)] via-primary to-[hsl(345,55%,38%)]"
+      className="relative py-16 sm:py-24 md:py-28 overflow-hidden isolate bg-gradient-to-br from-[hsl(345,68%,22%)] via-primary to-[hsl(345,55%,38%)]"
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">

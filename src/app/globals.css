@@ -93,15 +93,29 @@
     @apply border-border;
   }
   html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+    /* overflow-x: clip prevents horizontal blowouts without breaking
+       position: sticky (unlike overflow-x: hidden which creates a new
+       scrolling context in WebKit/Blink). scroll-behavior is handled
+       by Lenis, not CSS. */
+    overflow-x: clip;
+  }
+  /* Lenis smooth-scroll engine overrides */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
   }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+  }
+  /* Anchor targets clear the fixed header (≈96px = 6rem) */
+  [id] {
+    scroll-margin-top: 6rem;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans font-semibold text-foreground;
