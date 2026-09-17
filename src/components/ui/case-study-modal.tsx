@@ -44,7 +44,10 @@ export function CaseStudyModal({ project, isOpen, onClose }: CaseStudyModalProps
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-4xl w-[94vw] max-h-[90vh] p-0 gap-0 rounded-2xl sm:rounded-3xl border border-silver-200 bg-white shadow-2xl focus:outline-none overflow-y-auto">
+      <DialogContent 
+        className="max-w-4xl w-[94vw] max-h-[90vh] p-0 gap-0 rounded-2xl sm:rounded-3xl border border-silver-200 bg-white shadow-2xl focus:outline-none overflow-y-auto"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
         {/* Modal Header Image Banner */}
         <div className="relative w-full aspect-[16/10] sm:max-h-96 shrink-0 overflow-hidden bg-silver-900">
           <Image
