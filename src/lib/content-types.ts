@@ -69,6 +69,7 @@ export interface ProjectItem {
   duration: string;
   href?: string;
   testimonial?: ProjectTestimonial;
+  isHidden?: boolean;
 }
 
 export interface PricingFeature {

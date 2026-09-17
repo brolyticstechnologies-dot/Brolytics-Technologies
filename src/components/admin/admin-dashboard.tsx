@@ -435,6 +435,17 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
                           update('ourWork', { ...content.ourWork, projects: p });
                         }}
                       />
+                      <div className="flex items-center mt-6">
+                        <CheckboxField
+                          label="Hide Project from Public View"
+                          checked={proj.isHidden ?? false}
+                          onChange={(v) => {
+                            const p = [...content.ourWork.projects];
+                            p[i] = { ...proj, isHidden: v };
+                            update('ourWork', { ...content.ourWork, projects: p });
+                          }}
+                        />
+                      </div>
                       <SelectField
                         label="Category"
                         value={proj.category}

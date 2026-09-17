@@ -44,9 +44,9 @@ export function CaseStudyModal({ project, isOpen, onClose }: CaseStudyModalProps
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-4xl w-[94vw] max-h-[90vh] overflow-y-auto p-0 gap-0 rounded-2xl sm:rounded-3xl border border-silver-200 bg-white shadow-2xl focus:outline-none">
+      <DialogContent className="max-w-4xl w-[94vw] max-h-[90vh] p-0 gap-0 rounded-2xl sm:rounded-3xl border border-silver-200 bg-white shadow-2xl focus:outline-none flex flex-col overflow-hidden">
         {/* Modal Header Image Banner */}
-        <div className="relative w-full h-56 sm:h-72 md:h-80 overflow-hidden bg-silver-900">
+        <div className="relative w-full h-56 sm:h-72 md:h-80 shrink-0 overflow-hidden bg-silver-900">
           <Image
             src={project.imageUrl}
             alt={project.title}
@@ -83,7 +83,7 @@ export function CaseStudyModal({ project, isOpen, onClose }: CaseStudyModalProps
         </div>
 
         {/* Modal Body Content */}
-        <div className="p-5 sm:p-7 md:p-9 space-y-7">
+        <div className="p-5 sm:p-7 md:p-9 space-y-7 overflow-y-auto flex-1">
           {/* Overview Description */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-silver-400 mb-2">

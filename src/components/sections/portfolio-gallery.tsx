@@ -141,7 +141,7 @@ function ThumbnailCard({
 
 export function PortfolioGallery({ projects: customProjects }: { projects?: ProjectItem[] }) {
   const siteContent = useSiteContent();
-  const allProjects: ProjectItem[] = customProjects || siteContent?.ourWork.projects || defaultProjects;
+  const allProjects: ProjectItem[] = (customProjects || siteContent?.ourWork.projects || (defaultProjects as unknown as ProjectItem[])).filter(p => !p.isHidden);
 
   const [active, setActive] = useState<FilterTab>("All");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
