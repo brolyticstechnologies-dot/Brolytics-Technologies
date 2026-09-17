@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { LoadingScreen } from "@/components/layout/loading-screen";
 import { RootJsonLd } from "@/components/seo/json-ld";
 import { SmoothScroll } from "@/components/layout/smooth-scroll";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -120,6 +121,7 @@ export default function RootLayout({
           {children}
         </SmoothScroll>
         <Toaster />
+        <SpeedInsights />
       </body>
     </html>
   );
