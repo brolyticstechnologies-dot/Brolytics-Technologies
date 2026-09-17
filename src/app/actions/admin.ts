@@ -54,16 +54,13 @@ export async function logoutAdmin(): Promise<void> {
 }
 
 function revalidateAllPages() {
-  try {
-    revalidatePath('/', 'layout');
-    revalidatePath('/about-us');
-    revalidatePath('/our-work');
-    revalidatePath('/pricing');
-    revalidatePath('/technologies');
-    revalidatePath('/terms');
-    revalidatePath('/admin');
-  } catch (err) {
-    console.warn('Revalidation warning:', err);
+  const paths = ['/', '/about-us', '/our-work', '/pricing', '/technologies', '/terms', '/admin'];
+  for (const path of paths) {
+    try {
+      revalidatePath(path);
+    } catch (err) {
+      console.warn(`Revalidation warning for ${path}:`, err);
+    }
   }
 }
 

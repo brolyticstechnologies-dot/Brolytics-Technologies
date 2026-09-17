@@ -15,21 +15,34 @@ let runtimeCache: SiteContent | null = null;
  * Attempts to load content from Supabase site_content table (if created)
  */
 async function loadFromSupabase(): Promise<SiteContent | null> {
+  // In local development, prefer local disk content for instant performance
+  if (process.env.NODE_ENV === 'development') {
+    return null;
+  }
+
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2500);
+
     const res = await fetch(`${SUPABASE_URL}/rest/v1/site_content?id=eq.current&select=data`, {
       headers: {
         apikey: SUPABASE_ANON_KEY,
         Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
       },
       cache: 'no-store',
+      signal: controller.signal,
     });
+    clearTimeout(timeoutId);
+
     if (res.ok) {
       const rows = await res.json();
       if (Array.isArray(rows) && rows.length > 0 && rows[0]?.data) {
         return rows[0].data as SiteContent;
       }
     }
-  } catch {}
+  } catch {
+    // Supabase unavailable or timed out - seamlessly fallback to local/cached content
+  }
   return null;
 }
 
@@ -38,6 +51,9 @@ async function loadFromSupabase(): Promise<SiteContent | null> {
  */
 async function saveToSupabase(content: SiteContent): Promise<boolean> {
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3500);
+
     const res = await fetch(`${SUPABASE_URL}/rest/v1/site_content`, {
       method: 'POST',
       headers: {
@@ -51,7 +67,9 @@ async function saveToSupabase(content: SiteContent): Promise<boolean> {
         data: content,
         updated_at: new Date().toISOString(),
       }),
+      signal: controller.signal,
     });
+    clearTimeout(timeoutId);
     return res.ok;
   } catch {
     return false;
@@ -131,10 +149,7 @@ export async function updateSiteContent(content: SiteContent): Promise<void> {
   // Update memory cache immediately
   runtimeCache = content;
 
-  // Try saving to Supabase (best for serverless cloud persistence)
-  await saveToSupabase(content);
-
-  // Try writing to local data/site-content.json (for local dev & persistent servers)
+  // 1. First write to local data/site-content.json (for local dev & persistent servers)
   let diskWriteSuccess = false;
   try {
     await fs.mkdir(path.dirname(CONTENT_PATH), { recursive: true });
@@ -145,13 +160,20 @@ export async function updateSiteContent(content: SiteContent): Promise<void> {
     console.warn('Local disk write failed (expected on read-only serverless):', fsErr);
   }
 
-  // If local disk write failed or on serverless, write to /tmp
+  // 2. If on serverless where local disk is read-only, write to /tmp
   if (!diskWriteSuccess) {
     try {
       await fs.writeFile(TMP_CONTENT_PATH, JSON.stringify(content, null, 2), 'utf-8');
     } catch (tmpErr) {
       console.warn('Writing to /tmp fallback also encountered error:', tmpErr);
     }
+  }
+
+  // 3. Sync to Supabase in background with quick timeout (best for serverless cloud persistence)
+  try {
+    await saveToSupabase(content);
+  } catch (supabaseErr) {
+    console.warn('Supabase sync warning:', supabaseErr);
   }
 }
 

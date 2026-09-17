@@ -36,10 +36,11 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
         description: result.message,
         variant: result.success ? 'default' : 'destructive',
       });
-    } catch {
+    } catch (err: any) {
+      console.error('Save failed:', err);
       toast({
         title: 'Error',
-        description: 'Failed to save changes. Please try again.',
+        description: err?.message || 'Failed to save changes. Please try again.',
         variant: 'destructive',
       });
     } finally {
@@ -60,10 +61,11 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
         description: result.message,
         variant: result.success ? 'default' : 'destructive',
       });
-    } catch {
+    } catch (err: any) {
+      console.error('Save failed:', err);
       toast({
         title: 'Error',
-        description: 'Failed to save changes. Please try again.',
+        description: err?.message || 'Failed to save changes. Please try again.',
         variant: 'destructive',
       });
     } finally {
