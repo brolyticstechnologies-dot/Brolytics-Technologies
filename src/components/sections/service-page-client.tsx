@@ -398,7 +398,7 @@ className="relative py-16 bg-gradient-to-b from-black to-neutral-950 overflow-hi
 key={index}
 className={cn(
                     "text-center group transition-all duration-1000",
-                    statsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    "scroll-animate opacity-0 translate-y-8"
 )}
 style={{ transitionDelay: `${index * 200}ms` }}
         >
@@ -437,7 +437,7 @@ className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-950 to-black o
           <div className="relative container mx-auto px-6 max-w-screen-xl">
             <div className={cn(
               "text-center mb-16 md:mb-20 transition-all duration-1000",
-              featuresRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              "scroll-animate opacity-0 translate-y-8"
 )}>
               <div className="relative inline-block">
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
@@ -456,7 +456,7 @@ Experience cutting-edge features designed to elevate your business and deliver e
 key={index}
 className={cn(
                     "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 p-8 hover:border-white/10 transition-all duration-700 hover:scale-105",
-                    featuresRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    "scroll-animate opacity-0 translate-y-8"
 )}
 style={{ transitionDelay: `${index * 150}ms` }}
         >
@@ -498,7 +498,7 @@ className="relative py-20 md:py-32 bg-black overflow-hidden"
           <div className="relative container mx-auto px-6 max-w-screen-xl">
             <div className={cn(
               "text-center mb-16 md:mb-20 transition-all duration-1000",
-              detailsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              "scroll-animate opacity-0 translate-y-8"
 )}>
               <div className="relative inline-block">
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
@@ -519,7 +519,7 @@ key={detail.slug}
 value={detail.slug}
 className={cn(
                       "group flex items-center gap-3 px-6 py-3 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 backdrop-blur-xl rounded-xl border border-white/10 hover:bg-primary/10 hover:border-primary/30 transition-all duration-500 hover:scale-105",
-                      detailsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
+                      "scroll-animate opacity-0 translate-y-6",
                       "data-[state=active]:bg-gradient-to-br data-[state=active]:from-primary/20 data-[state=active]:to-primary/10 data-[state=active]:border-primary/50"
 )}
 style={{ transitionDelay: `${index * 100}ms` }}
@@ -538,7 +538,7 @@ key={detail.slug}
 value={detail.slug}
 className={cn(
                     "mt-0 transition-all duration-1000",
-                    detailsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                    "scroll-animate opacity-0 translate-y-6"
 )}
 style={{ transitionDelay: `${(index + 1) * 100}ms` }}
         >
@@ -671,7 +671,7 @@ className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-950 to-black o
           <div className="relative container mx-auto px-6 max-w-screen-xl">
             <div className={cn(
               "text-center mb-16 md:mb-20 transition-all duration-1000",
-              processRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              "scroll-animate opacity-0 translate-y-8"
 )}>
               <div className="relative inline-block">
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
@@ -690,7 +690,7 @@ A proven methodology that ensures successful project delivery from concept to la
 key={index}
 className={cn(
                     "group relative transition-all duration-1000",
-                    processRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    "scroll-animate opacity-0 translate-y-8"
 )}
 style={{ transitionDelay: `${index * 200}ms` }}
         >
@@ -756,7 +756,7 @@ className="relative py-20 md:py-32 bg-black overflow-hidden"
           <div className="relative container mx-auto px-6 max-w-screen-xl">
             <div className={cn(
               "text-center mb-16 md:mb-20 transition-all duration-1000",
-              benefitsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              "scroll-animate opacity-0 translate-y-8"
 )}>
               <div className="relative inline-block">
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
@@ -775,7 +775,7 @@ Discover the tangible benefits and competitive advantages our solutions deliver.
 key={index}
 className={cn(
                     "group relative bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-3xl border border-white/5 p-8 md:p-10 hover:border-white/10 transition-all duration-700 hover:scale-105",
-                    benefitsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    "scroll-animate opacity-0 translate-y-8"
 )}
 style={{ transitionDelay: `${index * 200}ms` }}
         >
@@ -820,7 +820,7 @@ className="relative py-20 md:py-32 bg-gradient-to-br from-neutral-950 to-black o
           <div className="relative container mx-auto px-6 max-w-4xl">
             <div className={cn(
               "text-center mb-16 md:mb-20 transition-all duration-1000",
-              faqRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              "scroll-animate opacity-0 translate-y-8"
 )}>
               <div className="relative inline-block">
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">
@@ -839,7 +839,7 @@ Get answers to common questions about our services and process.
 key={index}
 className={cn(
                     "group bg-gradient-to-br from-neutral-800/20 via-neutral-900/30 to-black/40 backdrop-blur-xl rounded-2xl border border-white/5 hover:border-white/10 transition-all duration-700",
-                    faqRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    "scroll-animate opacity-0 translate-y-8"
 )}
 style={{ transitionDelay: `${index * 100}ms` }}
         >
@@ -882,7 +882,7 @@ className="relative py-20 md:py-32 bg-gradient-to-br from-black to-neutral-900 o
           </div>
           <div className={cn(
             "relative container mx-auto px-6 max-w-5xl text-center transition-all duration-1000",
-            ctaRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            "scroll-animate opacity-0 translate-y-8"
 )}>
             <div className="relative inline-block mb-8">
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-neutral-200 to-neutral-400 mb-6 tracking-tight">

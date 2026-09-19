@@ -35,7 +35,7 @@ export function ServiceCtaSection({
         <div
           className={cn(
             "relative rounded-3xl p-[1px] bg-gradient-to-br from-primary/30 via-silver-200/60 to-primary/20 shadow-2xl shadow-silver-900/8 transition-all duration-1000",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            "scroll-animate opacity-0 translate-y-8"
           )}
         >
           <div className="relative rounded-3xl bg-white px-6 py-10 sm:px-10 sm:py-12 md:px-14 md:py-14 text-center overflow-hidden">

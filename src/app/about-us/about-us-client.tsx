@@ -39,7 +39,7 @@ function SectionHeading({ badge, title, accent, subtitle, isVisible }: {
   return (
     <div className={cn(
       "text-center mb-14 md:mb-16 transition-all duration-1000",
-      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      "scroll-animate opacity-0 translate-y-8"
     )}>
       {badge && (
         <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full border border-silver-200 bg-white shadow-sm">
@@ -75,7 +75,7 @@ function FeatureCard({ iconName, title, description, index, isVisible }: {
     <div
       className={cn(
         "group relative bg-white border border-silver-200 rounded-2xl p-7 transition-all duration-700 hover:border-primary/30 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-20px_rgba(143,38,71,0.25)]",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        "scroll-animate opacity-0 translate-y-8"
       )}
       style={{ transitionDelay: `${index * 120}ms` }}
     >
@@ -102,7 +102,7 @@ function TeamMemberCard({ member, index, isVisible }: {
     <div
       className={cn(
         "group relative flex flex-col h-full bg-gradient-to-b from-white to-silver-50/50 border border-silver-200 rounded-3xl p-4 sm:p-6 md:p-8 text-center transition-all duration-500 hover:-translate-y-[6px] hover:border-primary/40 hover:shadow-[0_24px_50px_-16px_rgba(143,38,71,0.25)] overflow-hidden",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        "scroll-animate opacity-0 translate-y-8"
       )}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
@@ -424,7 +424,7 @@ export function AboutUsClient({
               <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 max-w-6xl mx-auto items-stretch">
                 <div className={cn(
                   "transition-all duration-1000 delay-200",
-                  storyRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  "scroll-animate opacity-0 translate-y-8"
                 )}>
                   <div className="group relative h-full bg-white border border-silver-200 rounded-3xl p-8 md:p-10 shadow-sm overflow-hidden transition-all duration-500 hover:border-primary/25 hover:shadow-[0_24px_50px_-24px_rgba(143,38,71,0.2)]">
                     <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
@@ -459,7 +459,7 @@ export function AboutUsClient({
                 <div
                   className={cn(
                     "flex flex-col gap-6 transition-all duration-1000",
-                    storyRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    "scroll-animate opacity-0 translate-y-8"
                   )}
                   style={{ transitionDelay: "350ms" }}
                 >
@@ -537,7 +537,7 @@ export function AboutUsClient({
               {expertise.footerNote && (
                 <p className={cn(
                   "text-center text-silver-500 text-sm md:text-base leading-relaxed max-w-3xl mx-auto mt-12 transition-all duration-1000 delay-500",
-                  expertiseRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  "scroll-animate opacity-0 translate-y-8"
                 )}>
                   {expertise.footerNote}
                 </p>
@@ -595,7 +595,7 @@ export function AboutUsClient({
                       key={pillar.id || i}
                       className={cn(
                         "flex flex-col justify-between p-8 rounded-3xl border border-silver-200/90 bg-silver-50/40 hover:bg-white hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 group",
-                        pillarsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                        "scroll-animate opacity-0 translate-y-8"
                       )}
                       style={{ transitionDelay: `${i * 80}ms` }}
                     >
@@ -669,7 +669,7 @@ export function AboutUsClient({
                       key={diff.id || di}
                       className={cn(
                         "p-6 rounded-3xl bg-white/[0.04] border border-white/10 hover:border-primary/50 hover:bg-white/[0.08] transition-all duration-300 group",
-                        diffsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                        "scroll-animate opacity-0 translate-y-8"
                       )}
                       style={{ transitionDelay: `${di * 90}ms` }}
                     >
@@ -751,7 +751,7 @@ export function AboutUsClient({
                     key={t.name + i}
                     className={cn(
                       "group relative bg-white border border-silver-200/90 rounded-2xl p-7 flex flex-col shadow-sm sm:shadow-md transition-all duration-500 hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary/10",
-                      testimonialsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                      "scroll-animate opacity-0 translate-y-8"
                     )}
                     style={{ transitionDelay: `${i * 150}ms` }}
                   >
@@ -775,7 +775,7 @@ export function AboutUsClient({
 
               <div className={cn(
                 "text-center mt-16 transition-all duration-1000 delay-500 flex flex-col sm:flex-row items-center justify-center gap-3.5",
-                testimonialsRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                "scroll-animate opacity-0 translate-y-8"
               )}>
                 <Button size="lg" asChild
                   className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 text-base rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/35">

@@ -42,7 +42,7 @@ export function CaseStudiesSection({ projects: customProjects }: { projects?: Pr
         <div
           className={cn(
             "text-center mb-16 transition-all duration-1000",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            "scroll-animate opacity-0 translate-y-8"
           )}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full border border-silver-200 bg-white/80 backdrop-blur-sm shadow-sm">

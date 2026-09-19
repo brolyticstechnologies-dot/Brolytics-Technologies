@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+
 import Image from "next/image";
 import { ArrowRight, LayoutGrid, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -170,7 +170,7 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
         <div
           className={cn(
             "text-center mb-12 transition-all duration-1000",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            "scroll-animate opacity-0 translate-y-8"
           )}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full border border-silver-200 bg-silver-50 shadow-sm">
@@ -192,7 +192,7 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
         <div
           className={cn(
             "mb-10 transition-all duration-700 delay-200 w-full overflow-hidden",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            "scroll-animate opacity-0 translate-y-4"
           )}
         >
           <div className="w-full overflow-x-auto no-scrollbar py-2 px-1">
@@ -208,17 +208,10 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
                     key={tab}
                     onClick={() => setActive(tab)}
                     className={cn(
-                      "relative z-10 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200 whitespace-nowrap shrink-0",
-                      isActive ? "text-white" : "text-silver-600 hover:text-silver-900"
+                      "relative z-10 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap shrink-0",
+                      isActive ? "bg-primary text-white shadow-sm" : "text-silver-600 hover:text-silver-900 hover:bg-silver-100/50"
                     )}
                   >
-                    {isActive && (
-                      <motion.div
-                        layoutId="activePortfolioTabPill"
-                        className="absolute inset-0 rounded-full bg-primary shadow-sm -z-10"
-                        transition={{ type: "spring", stiffness: 450, damping: 32 }}
-                      />
-                    )}
                     <span>{tab}</span>
                     <span
                       className={cn(

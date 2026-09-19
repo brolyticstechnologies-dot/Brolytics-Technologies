@@ -45,7 +45,7 @@ export function ServiceWhyChooseSection({
         <div
           className={cn(
             "transition-all duration-1000",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            "scroll-animate opacity-0 translate-y-8"
           )}
         >
           <ServiceSectionHeader eyebrow={eyebrow} title={title} description={description} />
@@ -60,7 +60,7 @@ export function ServiceWhyChooseSection({
                 className={cn(
                   "group relative rounded-2xl border border-silver-200/80 bg-white/80 backdrop-blur-sm p-6 sm:p-7 transition-all duration-700 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1",
                   "sm:last:col-span-2 sm:last:max-w-md sm:last:mx-auto sm:last:w-full lg:last:col-span-1 lg:last:col-start-2 lg:last:max-w-none",
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  "scroll-animate opacity-0 translate-y-8"
                 )}
                 style={{ transitionDelay: `${150 + index * 70}ms` }}
               >

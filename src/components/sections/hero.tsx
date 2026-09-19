@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
 import { MobileNav } from '@/components/layout/mobile-nav';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
@@ -157,14 +156,12 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                       {content.badge}
                     </span>
                   </div>
-               <motion.h1
-                 initial={{ opacity: 0, y: 30 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+               <h1
                  className={cn(
-                   "font-black tracking-tight mb-7",
+                   "font-black tracking-tight mb-7 animate-in fade-in slide-in-from-bottom-8 duration-700",
                    ""
                  )}
+                 style={{ animationFillMode: "both", animationDelay: "200ms" }}
                >
                  <span className="block text-[1.75rem] min-[480px]:text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.35rem] leading-[1.05] text-silver-900 text-balance">
                        {content.titleLine1}
@@ -188,7 +185,7 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                      <span className="block text-[1.75rem] min-[480px]:text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.35rem] leading-[1.08] sm:leading-[1.05] text-gradient-red text-balance">
                    {content.titleLine3}
                      </span>
-                    </motion.h1>
+                    </h1>
 
                  <p
                    className={cn(

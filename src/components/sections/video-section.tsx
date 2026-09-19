@@ -48,7 +48,7 @@ export function VideoSection() {
       ref={ref}
       className={cn(
         "relative w-full h-[30rem] md:h-[40rem] lg:h-[50rem] overflow-hidden group bg-black transition-all duration-1000",
-        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        "scroll-animate opacity-0 scale-95"
       )}
     >
       {/* Background Effects */}

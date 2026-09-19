@@ -42,7 +42,7 @@ export function ServiceIntroSection({
         <div
           className={cn(
             "grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-14 items-start transition-all duration-1000",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            "scroll-animate opacity-0 translate-y-8"
           )}
         >
           {/* Left — headline + highlights */}
@@ -68,7 +68,7 @@ export function ServiceIntroSection({
                       key={item.label}
                       className={cn(
                         "group flex items-start gap-4 p-4 rounded-2xl border border-silver-200/80 bg-white/70 backdrop-blur-sm transition-all duration-500 hover:border-primary/25 hover:shadow-md hover:shadow-primary/5",
-                        isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                        "scroll-animate opacity-0 -translate-x-4"
                       )}
                       style={{ transitionDelay: `${200 + index * 100}ms` }}
                     >
@@ -90,7 +90,7 @@ export function ServiceIntroSection({
           <div
             className={cn(
               "relative transition-all duration-1000 delay-150",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              "scroll-animate opacity-0 translate-y-8"
             )}
           >
             <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/[0.06] via-transparent to-silver-200/40 blur-sm pointer-events-none" />

@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search,
   Globe,
@@ -204,12 +203,9 @@ export function TechnologiesClient({
             {filteredCategories.map((cat) => {
               const Icon = iconMap[cat.icon] || Code;
               return (
-                <motion.div
+                <div
                   key={cat.id}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="p-6 sm:p-8 rounded-3xl border border-silver-200/80 bg-white shadow-sm hover:shadow-md transition-shadow"
+                  className="p-6 sm:p-8 rounded-3xl border border-silver-200/80 bg-white shadow-sm hover:shadow-md transition-all animate-in fade-in slide-in-from-bottom-4 duration-300"
                 >
                   {/* Category Header */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-silver-100 pb-5 mb-6">
@@ -248,7 +244,7 @@ export function TechnologiesClient({
                       </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
