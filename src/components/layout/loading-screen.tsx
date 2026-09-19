@@ -80,7 +80,7 @@ export function LoadingScreen() {
     >
       {/* ── Ambient Background Glow ── */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[800px] h-[50vh] rounded-[100%] blur-[140px] pointer-events-none transition-opacity duration-500"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[800px] h-[50vh] rounded-full blur-[140px] pointer-events-none transition-opacity duration-500"
         style={{
           background: 'radial-gradient(ellipse, hsl(345 63% 34% / 0.12) 0%, transparent 70%)',
           opacity: exiting ? 0 : 1,
@@ -147,7 +147,7 @@ export function LoadingScreen() {
 
           {/* Percentage Counter */}
           <div className="flex items-center justify-between w-full px-1">
-            <span className="text-[11px] font-bold tracking-wider text-silver-400 uppercase">
+            <span className="text-xs font-bold tracking-wider text-silver-400 uppercase">
               Loading Experience
             </span>
             <span className="text-xs font-mono font-bold text-silver-700 tabular-nums">

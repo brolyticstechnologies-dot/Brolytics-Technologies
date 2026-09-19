@@ -183,7 +183,7 @@ export function CaseStudyModal({ project, isOpen, onClose }: CaseStudyModalProps
                     <p className="text-xs font-bold text-silver-900">
                       {project.testimonial.name}
                     </p>
-                    <p className="text-[11px] text-silver-500">
+                    <p className="text-xs text-silver-500">
                       {project.testimonial.role}
                     </p>
                   </div>

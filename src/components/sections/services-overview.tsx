@@ -25,14 +25,6 @@ const ServiceCard = ({
   index: number;
   isVisible: boolean;
 }) => {
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    if (isVisible && !hasAnimated) {
-      const timer = setTimeout(() => setHasAnimated(true), index * 100);
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible, index, hasAnimated]);
 
   const Icon = service.icon;
   const num = String(index + 1).padStart(2, "0");
@@ -61,7 +53,7 @@ const ServiceCard = ({
 
         <span
           aria-hidden="true"
-          className="absolute -top-1 right-4 text-[4.5rem] font-black leading-none text-silver-100/90 select-none pointer-events-none group-hover:text-primary/[0.07] transition-colors duration-500"
+          className="absolute top-3 right-4 text-3xl sm:text-4xl font-black leading-none text-silver-200/20 select-none pointer-events-none group-hover:text-primary/10 transition-colors duration-500"
         >
           {num}
         </span>
@@ -86,7 +78,7 @@ const ServiceCard = ({
               {service.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 rounded-md bg-silver-50 text-[10px] font-bold uppercase tracking-[0.08em] text-silver-500 border border-silver-200/80 group-hover:border-primary/15 group-hover:bg-primary/[0.04] group-hover:text-silver-600 transition-colors duration-300"
+                  className="px-2.5 py-1 rounded-md bg-silver-50 text-xs font-bold uppercase tracking-wider text-silver-500 border border-silver-200/80 group-hover:border-primary/15 group-hover:bg-primary/[0.04] group-hover:text-silver-600 transition-colors duration-300"
                 >
                   {tag}
                 </span>
@@ -96,7 +88,7 @@ const ServiceCard = ({
         </div>
 
         <div className="relative mt-6 pt-4 border-t border-silver-100 group-hover:border-primary/10 transition-colors duration-300 flex items-center justify-between gap-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-silver-400 group-hover:text-primary transition-colors duration-300">
+          <span className="text-xs font-bold uppercase tracking-wider text-silver-400 group-hover:text-primary transition-colors duration-300">
             Explore service
           </span>
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-silver-500 group-hover:text-primary transition-colors duration-300">
@@ -146,13 +138,13 @@ export function ServicesOverview({ services: serviceItems, overview }: ServicesO
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
             <Zap className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-silver-600">
+            <span className="text-xs font-bold uppercase tracking-widest text-silver-600">
               {header.badge}
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.08] mb-5">
-            <span className="text-silver">{header.title}</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black tracking-tight leading-[1.08] mb-5">
+            <span className="text-silver-500">{header.title}</span>
             <span className="text-gradient-red"> {header.titleAccent}</span>
           </h2>
 

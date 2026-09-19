@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
           <Button
             type="submit"
             disabled={pending}
-            className="w-full h-12 bg-primary hover:bg-primary text-white font-bold rounded-xl"
+            className="w-full h-12 rounded-xl"
           >
             {pending ? 'Signing in...' : 'Sign In'}
           </Button>

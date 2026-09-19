@@ -41,11 +41,11 @@ export function ServiceSectionHeader({
         )}
       >
         <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-        <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-silver-500">{eyebrow}</span>
+        <span className="text-xs font-bold uppercase tracking-[0.18em] text-silver-500">{eyebrow}</span>
       </div>
 
       <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-black tracking-tight leading-[1.1] mb-4">
-        <span className="text-silver">{first}</span>
+        <span className="text-silver-500">{first}</span>
         {second && <span className="text-gradient-red">{" " + second}</span>}
       </h2>
 

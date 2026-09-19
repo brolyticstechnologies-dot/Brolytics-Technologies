@@ -44,10 +44,10 @@ export function AboutUs({ content, coreValues }: AboutUsProps) {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
             <Rocket className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-silver-600">{header.badge}</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-silver-600">{header.badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.08] mb-5">
-            <span className="text-silver">{header.title}</span>
+            <span className="text-silver-500">{header.title}</span>
             <span className="text-gradient-red"> {header.titleAccent}</span>
           </h2>
           <p className="text-base md:text-lg text-silver-500 leading-relaxed">
@@ -64,11 +64,11 @@ export function AboutUs({ content, coreValues }: AboutUsProps) {
           )}>
             <div className="relative group max-w-[560px] mx-auto px-2 sm:px-0">
               {/* Offset panels */}
-              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-silver-200/60 to-transparent rotate-2" />
-              <div className="absolute -inset-1 rounded-[1.75rem] bg-gradient-to-tr from-silver-200/60 via-transparent to-silver-200/40 -rotate-1" />
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-silver-200/60 to-transparent rotate-2" />
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-silver-200/60 via-transparent to-silver-200/40 -rotate-1" />
 
-              <div className="relative rounded-[1.6rem] p-[2px] bg-gradient-to-br from-silver-300 via-white to-silver-300 shadow-2xl shadow-silver-900/15">
-                <div className="relative overflow-hidden rounded-[1.5rem]">
+              <div className="relative rounded-3xl p-[2px] bg-gradient-to-br from-silver-300 via-white to-silver-300 shadow-2xl shadow-silver-900/15">
+                <div className="relative overflow-hidden rounded-3xl">
                   <Image
                     src={content.image}
                     alt={content.imageAlt}
@@ -84,13 +84,13 @@ export function AboutUs({ content, coreValues }: AboutUsProps) {
               <div className="absolute top-2 right-2 sm:-top-5 sm:-right-5 animate-float-y">
                 <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl sm:rounded-2xl bg-white border border-silver-200 px-2.5 py-2 sm:px-4 sm:py-3 shadow-xl shadow-silver-900/10">
                   <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                  <span className="text-[10px] sm:text-xs font-bold text-silver-800">{content.badge1}</span>
+                  <span className="text-xs sm:text-xs font-bold text-silver-800">{content.badge1}</span>
                 </div>
               </div>
               <div className="absolute bottom-2 left-2 sm:-bottom-5 sm:-left-5 animate-float-slow">
                 <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl sm:rounded-2xl bg-silver-900 px-2.5 py-2 sm:px-4 sm:py-3 shadow-xl shadow-silver-900/25">
                   <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                  <span className="text-[10px] sm:text-xs font-bold text-white">{content.badge2}</span>
+                  <span className="text-xs sm:text-xs font-bold text-white">{content.badge2}</span>
                 </div>
               </div>
             </div>
@@ -103,7 +103,7 @@ export function AboutUs({ content, coreValues }: AboutUsProps) {
           )}>
             <div className="space-y-6">
               <h3 className="text-3xl sm:text-4xl md:text-5xl font-black leading-tight">
-                <span className="text-silver">{content.heading}{' '}</span>
+                <span className="text-silver-500">{content.heading}{' '}</span>
                 <span className="text-gradient-red">{content.headingAccent}</span>
               </h3>
 
@@ -123,7 +123,7 @@ export function AboutUs({ content, coreValues }: AboutUsProps) {
             <div className="pt-2">
               <Button
                 size="lg"
-                className="group relative w-full sm:w-auto bg-primary hover:bg-primary text-white transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/35 overflow-hidden rounded-2xl"
+                className="group relative w-full sm:w-auto transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/35 overflow-hidden rounded-2xl"
                 asChild
               >
                 <Link href="/about-us" className="flex items-center justify-center gap-3 px-6 sm:px-8 py-5 sm:py-6">

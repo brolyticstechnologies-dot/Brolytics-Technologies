@@ -837,7 +837,7 @@ export function AdminDashboard({ initialContent }: AdminDashboardProps) {
 
                                 {/* Rows */}
                                 <div className="space-y-2">
-                                  <p className="text-[10px] font-bold uppercase">Rows</p>
+                                  <p className="text-xs font-bold uppercase">Rows</p>
                                   {table.rows.map((row, rIdx) => (
                                     <div key={rIdx} className="flex gap-2 items-center">
                                       <div className="flex-1"><TextField label="" value={row.item} placeholder="Item" onChange={(v) => {
@@ -1982,7 +1982,7 @@ function EditorPanel({
     <div className="bg-white rounded-2xl border border-silver-200 shadow-sm">
       <div className="flex items-center justify-between px-6 py-4 border-b border-silver-200">
         <h2 className="text-lg font-black text-silver-900">{title}</h2>
-        <Button onClick={onSave} disabled={saving} className="bg-primary hover:bg-primary text-white font-bold rounded-xl">
+        <Button onClick={onSave} disabled={saving} className="rounded-xl">
           <Save className="w-4 h-4 mr-2" />
           {saving ? 'Saving...' : 'Save Changes'}
         </Button>

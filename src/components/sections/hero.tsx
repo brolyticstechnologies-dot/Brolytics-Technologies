@@ -153,7 +153,7 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                    <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
                  </span>
                     <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
-                    <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.14em] sm:tracking-[0.18em] uppercase text-silver-600">
+                    <span className="text-xs sm:text-sm font-bold tracking-wider uppercase text-silver-600">
                       {content.badge}
                     </span>
                   </div>
@@ -192,7 +192,7 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
 
                  <p
                    className={cn(
-                     "text-sm sm:text-[15px] md:text-[17px] text-silver-500 leading-[1.7] sm:leading-[1.75] max-w-[34rem] mx-auto lg:mx-0 mb-8 sm:mb-9 px-1 sm:px-0",
+                     "text-sm sm:text-base md:text-lg text-silver-500 leading-[1.7] sm:leading-[1.75] max-w-[34rem] mx-auto lg:mx-0 mb-8 sm:mb-9 px-1 sm:px-0",
                      ""
                    )}
                    
@@ -210,7 +210,7 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                   <Button
                       size="lg"
                       asChild
-                      className="service-cta-shine group relative overflow-hidden bg-primary hover:bg-primary text-white font-bold w-full min-[480px]:w-auto px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-[15px] rounded-full transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/35"
+                      className="service-cta-shine group relative overflow-hidden w-full min-[480px]:w-auto px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base rounded-full transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/35"
                     >
                       <Link href="#contact" className="flex items-center gap-2.5">
                         <Sparkles className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
@@ -223,7 +223,7 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                       size="lg"
                       variant="outline"
                       asChild
-                      className="group border border-silver-300 hover:border-primary/40 bg-white hover:bg-white text-silver-800 font-bold w-full min-[480px]:w-auto px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-[15px] rounded-full transition-all duration-300 hover:scale-[1.03] shadow-sm"
+                      className="group border border-silver-300 hover:border-primary/40 bg-white hover:bg-white text-silver-800 font-bold w-full min-[480px]:w-auto px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base rounded-full transition-all duration-300 hover:scale-[1.03] shadow-sm"
                     >
                       <Link href="/our-work" className="flex items-center gap-2">
                         <span>{content.secondaryCta}</span>
@@ -253,7 +253,7 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                               className={cn("h-7 w-7 sm:h-8 sm:w-8 rounded-full ring-2 ring-white bg-gradient-to-br shadow-sm", g)}
                             />
                           ))}
-                          <span className="h-7 w-7 sm:h-8 sm:w-8 rounded-full ring-2 ring-white bg-silver-900 flex items-center justify-center text-[8px] sm:text-[9px] font-bold text-white shadow-sm">
+                          <span className="h-7 w-7 sm:h-8 sm:w-8 rounded-full ring-2 ring-white bg-silver-900 flex items-center justify-center text-xs sm:text-xs font-bold text-white shadow-sm">
                             {content.clientCount}
                           </span>
                         </div>
@@ -263,7 +263,7 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                               <Star key={i} className="h-3 w-3 fill-primary text-primary" aria-hidden="true" />
                             ))}
                           </div>
-                          <p className="text-[10px] sm:text-[11px] text-silver-500 mt-0.5 whitespace-nowrap">
+                          <p className="text-xs text-silver-500 mt-0.5 whitespace-nowrap">
                             <span className="font-bold text-silver-900">{content.rating}</span> client rating
                           </p>
                         </div>
@@ -287,8 +287,8 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                               </div>
                               <div className="text-left min-w-0">
                                 <p className="text-sm sm:text-base font-black text-silver-900 leading-none">{s.value}</p>
-                                <p className="text-[9px] sm:text-[10px] text-silver-400 uppercase tracking-wide sm:tracking-wider font-semibold mt-1 leading-tight">
-                                  {s.label}
+                                <p className="text-xs text-silver-500 tracking-wide font-semibold mt-1 leading-tight capitalize">
+                                  {s.label.toLowerCase()}
                                 </p>
                               </div>
                             </div>
@@ -306,12 +306,12 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                )}
                >
                   <div className="relative mx-auto w-full">
-                    <div className="absolute -inset-3 sm:-inset-5 rounded-[2.25rem] bg-silver-200/40 blur-2xl pointer-events-none" />
-                    <div className="absolute -inset-1.5 sm:-inset-2 rounded-[1.85rem] bg-gradient-to-br from-silver-200/50 to-transparent rotate-2" />
-                    <div className="absolute -inset-1 rounded-[1.65rem] bg-gradient-to-tr from-primary/[0.08] via-transparent to-silver-200/40 -rotate-1" />
+                    <div className="absolute -inset-3 sm:-inset-5 rounded-3xl bg-silver-200/40 blur-2xl pointer-events-none" />
+                    <div className="absolute -inset-1.5 sm:-inset-2 rounded-3xl bg-gradient-to-br from-silver-200/50 to-transparent rotate-2" />
+                    <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-primary/[0.08] via-transparent to-silver-200/40 -rotate-1" />
 
-                    <div className="relative rounded-[1.5rem] p-[2px] bg-gradient-to-br from-silver-300 via-white to-silver-300 shadow-2xl shadow-silver-900/12">
-                      <div className="relative overflow-hidden rounded-[1.45rem] bg-silver-100 aspect-[4/5] sm:aspect-[5/6] min-h-[320px] sm:min-h-0">
+                    <div className="relative rounded-3xl p-[2px] bg-gradient-to-br from-silver-300 via-white to-silver-300 shadow-2xl shadow-silver-900/12">
+                      <div className="relative overflow-hidden rounded-2xl bg-silver-100 aspect-[4/5] sm:aspect-[5/6] min-h-[320px] sm:min-h-0">
                          {allSlides.map((slide, i) => (
                            <Image
                              key={i}
@@ -329,7 +329,7 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                           <div className="p-1 sm:p-1.5 rounded-lg bg-primary/10 shrink-0">
                             <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" aria-hidden="true" />
                           </div>
-                           <span className="text-[10px] sm:text-xs font-semibold text-silver-800 truncate">{allSlides[slideIdx]?.word || "Innovation"}</span>
+                           <span className="text-xs font-semibold text-silver-800 truncate">{allSlides[slideIdx]?.word || "Innovation"}</span>
                         </div>
                       </div>
                     </div>
@@ -360,7 +360,7 @@ export function Hero({ content, services: serviceItems, siteSettings }: HeroProp
                   <div key={copy} className="flex items-center flex-shrink-0" aria-hidden={copy === 1}>
                     {marqueeList.map((item, idx) => (
                       <span key={`${copy}-${idx}-${item}`} className="flex items-center">
-                        <span className="text-xs font-bold uppercase tracking-[0.25em] text-silver-400 whitespace-nowrap px-8">{item}</span>
+                        <span className="text-xs font-bold tracking-widest text-silver-400 whitespace-nowrap px-8 capitalize">{item.toLowerCase()}</span>
                         <Sparkles className="h-3 w-3 text-primary/50 flex-shrink-0" />
                       </span>
                     ))}

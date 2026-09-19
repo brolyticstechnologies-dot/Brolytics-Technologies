@@ -14,7 +14,7 @@ interface OurClientsProps {
 function LogoCard({ client }: { client: { name: string; logo: string } }) {
   return (
     <div className="group relative mx-3 sm:mx-4 flex-shrink-0 w-44 min-[480px]:w-52 sm:w-64 h-28 min-[480px]:h-32 sm:h-36 rounded-2xl p-[1px] bg-gradient-to-br from-silver-200/70 via-white to-silver-200/50 hover:from-primary/30 hover:via-primary/8 hover:to-silver-200/60 transition-all duration-400 hover:shadow-[0_18px_40px_-16px_rgba(143,38,71,0.2)]">
-      <div className="relative flex h-full w-full items-center justify-center rounded-[0.95rem] bg-white px-6 py-5 overflow-hidden">
+      <div className="relative flex h-full w-full items-center justify-center rounded-2xl bg-white px-6 py-5 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
         <Image
           src={client.logo}
@@ -74,7 +74,7 @@ export function OurClients({ content: contentProp }: OurClientsProps = {}) {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
           </span>
           <Globe className="w-3.5 h-3.5 text-white" aria-hidden="true" />
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/90">
             {header.badge}
           </span>
         </div>

@@ -101,7 +101,7 @@ export function TechnologiesClient({
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/[0.04] mb-5">
             <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span className="text-[11px] font-bold uppercase tracking-widest text-primary">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">
               {header.badge}
             </span>
           </div>
@@ -236,7 +236,7 @@ export function TechnologiesClient({
                       >
                         <div>
                           <div className="flex items-center justify-between gap-1 mb-1">
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-silver-400 group-hover:text-primary transition-colors">
+                            <span className="text-xs font-bold uppercase tracking-wider text-silver-400 group-hover:text-primary transition-colors">
                               {item.subcategory || 'Standard'}
                             </span>
                             <div className="w-1.5 h-1.5 rounded-full bg-silver-300 group-hover:bg-primary transition-colors" />

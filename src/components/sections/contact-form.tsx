@@ -113,7 +113,7 @@ export function ContactForm({ content }: ContactFormProps) {
           ""
         )}>
           <p className="text-xs font-semibold tracking-[0.3em] text-primary uppercase mb-4">{content.badge}</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-silver tracking-tight mb-5">{content.title}</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-silver-500 tracking-tight mb-5">{content.title}</h2>
           <div className="hairline w-16 h-px mx-auto mb-6" />
           <p className="text-silver-500 text-lg max-w-2xl mx-auto leading-relaxed">
             {content.subtitle}
@@ -127,7 +127,7 @@ export function ContactForm({ content }: ContactFormProps) {
             ""
           )}>
             <div className="relative mb-10">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-silver mb-4 leading-tight">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-silver-500 mb-4 leading-tight">
                 {content.sideTitle}
               </h3>
               <div className="relative w-20 h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full mb-6" />
@@ -290,7 +290,7 @@ export function ContactForm({ content }: ContactFormProps) {
                   {/* Submit */}
                   <Button
                     type="submit"
-                    className="group relative w-full bg-primary hover:bg-primary text-white font-bold text-base py-6 rounded-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/35 disabled:opacity-50 disabled:hover:scale-100 overflow-hidden mt-6"
+                    className="group relative w-full text-base py-6 rounded-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/35 disabled:opacity-50 disabled:hover:scale-100 overflow-hidden mt-6"
                     disabled={form.formState.isSubmitting}
                   >
                     <div className="relative flex items-center justify-center space-x-2">

@@ -86,8 +86,8 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const navLinkClass = light
-    ? "relative px-3 py-1.5 xl:px-4 xl:py-2 text-[13px] xl:text-sm font-semibold text-silver-700 hover:text-silver-950 transition-all duration-200 group rounded-full hover:bg-silver-100/80 whitespace-nowrap flex-shrink-0"
-    : "relative px-3 py-1.5 xl:px-4 xl:py-2 text-[13px] xl:text-sm font-semibold text-white/80 hover:text-white transition-all duration-200 group rounded-full hover:bg-white/[0.08] whitespace-nowrap flex-shrink-0";
+    ? "relative px-3 py-1.5 xl:px-4 xl:py-2 text-sm xl:text-sm font-semibold text-silver-700 hover:text-silver-950 transition-all duration-200 group rounded-full hover:bg-silver-100/80 whitespace-nowrap flex-shrink-0"
+    : "relative px-3 py-1.5 xl:px-4 xl:py-2 text-sm xl:text-sm font-semibold text-white/80 hover:text-white transition-all duration-200 group rounded-full hover:bg-white/[0.08] whitespace-nowrap flex-shrink-0";
 
   useEffect(() => {
     let rafId = 0;
@@ -189,12 +189,12 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                       {/* Header label */}
                       <div className="px-6 pt-5 pb-2 flex items-center justify-between">
                         <span className={cn(
-                          "text-[10px] font-black uppercase tracking-[0.2em]",
-                          light ? "text-silver-400" : "text-neutral-500"
+                          "text-xs font-black uppercase tracking-[0.2em]",
+                          light ? "text-silver-400" : "text-silver-500"
                         )}>
                           Our Core Capabilities
                         </span>
-                        <span className="text-[11px] font-semibold text-primary">
+                        <span className="text-xs font-semibold text-primary">
                           6 Specialized Practice Areas
                         </span>
                       </div>
@@ -236,7 +236,7 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                                   "text-xs mt-1 leading-snug transition-colors duration-200 line-clamp-2",
                                   light
                                     ? "text-silver-500 group-hover:text-white/90"
-                                    : "text-neutral-400 group-hover:text-white/90"
+                                    : "text-silver-400 group-hover:text-white/90"
                                 )}>
                                   {service.description}
                                 </p>
@@ -256,7 +256,7 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                           onClick={() => setMegaOpen(false)}
                           className={cn(
                             "flex items-center gap-1.5 text-xs font-semibold transition-colors",
-                            light ? "text-silver-600 hover:text-primary" : "text-neutral-400 hover:text-white"
+                            light ? "text-silver-600 hover:text-primary" : "text-silver-400 hover:text-white"
                           )}
                         >
                           <span>Explore Overview Matrix</span>
@@ -276,7 +276,7 @@ export function Header({ variant = 'dark' }: { variant?: 'dark' | 'light' }) {
                             onClick={() => setMegaOpen(false)}
                             className={cn(
                               "flex items-center gap-1 text-xs font-bold transition-colors",
-                              light ? "text-silver-700 hover:text-primary" : "text-neutral-300 hover:text-white"
+                              light ? "text-silver-700 hover:text-primary" : "text-silver-300 hover:text-white"
                             )}
                           >
                             <span>Pricing</span>

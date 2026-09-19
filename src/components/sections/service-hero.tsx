@@ -32,7 +32,7 @@ function renderSplitColorTitle(title: string) {
   const midPoint = Math.ceil(words.length / 2);
   return (
     <>
-      <span className="text-silver">{words.slice(0, midPoint).join(" ")}</span>
+      <span className="text-silver-500">{words.slice(0, midPoint).join(" ")}</span>
       <span className="text-gradient-red">{" " + words.slice(midPoint).join(" ")}</span>
     </>
   );
@@ -53,12 +53,7 @@ export function ServiceHero({
   secondaryCta,
   highlights = ["On-time delivery", "Dedicated support", "Quality guaranteed"],
 }: ServiceHeroProps) {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 120);
-    return () => clearTimeout(t);
-  }, []);
+  const loaded = true;
 
   return (
     <>
@@ -145,7 +140,7 @@ export function ServiceHero({
                   <Button
                     size="lg"
                     asChild
-                    className="service-cta-shine group relative overflow-hidden bg-primary hover:bg-primary text-white font-bold px-7 sm:px-8 py-6 text-base rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/35"
+                    className="service-cta-shine group relative overflow-hidden px-7 sm:px-8 py-6 text-base rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/35"
                   >
                     <Link href={primaryCta.href} className="flex items-center gap-2.5">
                       <Sparkles className="h-4 w-4 flex-shrink-0" aria-hidden="true" />

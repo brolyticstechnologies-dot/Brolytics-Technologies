@@ -85,7 +85,7 @@ export function Footer({ content: contentProp, siteSettings: settingsProp }: Foo
           )}
         >
           <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-silver-200/80 via-primary/25 to-silver-200/80">
-            <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 rounded-[0.95rem] bg-white/90 backdrop-blur-sm px-6 py-6 sm:px-8 sm:py-7 overflow-hidden shadow-sm">
+            <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 rounded-2xl bg-white/90 backdrop-blur-sm px-6 py-6 sm:px-8 sm:py-7 overflow-hidden shadow-sm">
               <div className="absolute top-0 right-0 w-48 h-48 bg-primary/[0.05] rounded-full blur-3xl pointer-events-none" />
               <div className="relative text-center md:text-left">
                 <p className="text-xl sm:text-2xl font-black text-silver-900 leading-tight">
@@ -96,7 +96,7 @@ export function Footer({ content: contentProp, siteSettings: settingsProp }: Foo
               <Button
                 asChild
                 size="lg"
-                className="relative shrink-0 bg-primary hover:bg-primary text-white font-bold px-7 py-6 rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-primary/30 group"
+                className="relative shrink-0 px-7 py-6 rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-primary/30 group"
               >
                 <Link href="/#contact" className="flex items-center gap-2.5">
                   <Sparkles className="h-4 w-4" aria-hidden="true" />
@@ -133,7 +133,7 @@ export function Footer({ content: contentProp, siteSettings: settingsProp }: Foo
               {content.brandTags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-lg bg-silver-50 border border-silver-200 text-[11px] font-semibold text-silver-600"
+                  className="px-3 py-1 rounded-lg bg-silver-50 border border-silver-200 text-xs font-semibold text-silver-600"
                 >
                   {tag}
                 </span>
@@ -168,35 +168,19 @@ export function Footer({ content: contentProp, siteSettings: settingsProp }: Foo
             {/* Contact */}
             <div className="lg:col-span-3 space-y-3">
               <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-silver-500 mb-5">Get In Touch</h3>
-              {contactInfo.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="group flex items-center gap-3 p-3 sm:p-3.5 rounded-xl bg-white border border-silver-200 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 transition-all duration-300 overflow-hidden"
-                  >
-                    <div className="p-2 rounded-lg bg-primary/10 border border-primary/15 shrink-0 group-hover:scale-105 transition-transform duration-300">
-                      <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-silver-400">{item.label}</p>
-                      <p className="text-xs sm:text-[13px] font-semibold text-silver-900 group-hover:text-primary transition-colors duration-300 truncate" title={item.value}>
-                        {item.value}
-                      </p>
-                    </div>
-                  </Link>
-                );
-              })}
-              <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl bg-white border border-silver-200 overflow-hidden">
-                <div className="p-2 rounded-lg bg-primary/10 border border-primary/15 shrink-0">
-                  <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-silver-400">Location</p>
-                  <p className="text-xs sm:text-sm text-silver-600 leading-relaxed truncate">{content.location}</p>
-                </div>
-              </div>
+              <ul className="space-y-3">
+                {contactInfo.map((item) => (
+                  <li key={item.label}>
+                    <FooterLink href={item.href}>{item.value}</FooterLink>
+                  </li>
+                ))}
+                <li className="pt-2">
+                  <span className="inline-flex items-start gap-2 text-sm text-silver-500">
+                    <MapPin className="h-4 w-4 shrink-0 text-silver-400 mt-0.5" aria-hidden="true" />
+                    <span className="leading-relaxed max-w-[200px]">{content.location}</span>
+                  </span>
+                </li>
+              </ul>
             </div>
         </div>
 

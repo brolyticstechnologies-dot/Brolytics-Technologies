@@ -139,12 +139,12 @@ function TeamMemberCard({ member, index, isVisible }: {
       <div className="relative flex-grow flex flex-col justify-center items-center z-10">
         <h3 className="text-base sm:text-lg md:text-xl font-black text-silver-900 tracking-[0.02em] mb-1.5 md:mb-2 group-hover:text-primary transition-colors duration-300">{member.name}</h3>
         
-        <span className="inline-flex items-center justify-center px-2 py-0.5 sm:px-3 sm:py-1 md:px-3.5 md:py-1.5 rounded-full bg-gradient-to-r from-primary/10 to-transparent border border-primary/20 text-primary text-[9px] sm:text-[10px] md:text-[11px] font-bold">
+        <span className="inline-flex items-center justify-center px-2 py-0.5 sm:px-3 sm:py-1 md:px-3.5 md:py-1.5 rounded-full bg-gradient-to-r from-primary/10 to-transparent border border-primary/20 text-primary text-xs sm:text-xs md:text-xs font-bold">
           {member.role}
         </span>
 
         {member.tagline && (
-          <p className="text-[11px] sm:text-xs md:text-sm font-medium text-silver-500 italic mt-2 md:mt-3 mb-1 line-clamp-2 px-1 md:px-2 leading-snug">
+          <p className="text-xs sm:text-xs md:text-sm font-medium text-silver-500 italic mt-2 md:mt-3 mb-1 line-clamp-2 px-1 md:px-2 leading-snug">
             "{member.tagline}"
           </p>
         )}
@@ -182,7 +182,7 @@ export function AboutUsClient({
   strategicPillars,
   executionDifferentiators,
 }: AboutUsClientProps) {
-  const [loaded, setLoaded] = useState(false);
+  const loaded = true;
   const storyRef        = useScrollAnimation({ threshold: 0.1 });
   const expertiseRef    = useScrollAnimation({ threshold: 0.1 });
   const valuesRef       = useScrollAnimation({ threshold: 0.1 });
@@ -190,8 +190,6 @@ export function AboutUsClient({
   const diffsRef        = useScrollAnimation({ threshold: 0.1 });
   const teamRef         = useScrollAnimation({ threshold: 0.2 });
   const testimonialsRef = useScrollAnimation({ threshold: 0.1 });
-
-  useEffect(() => { const t = setTimeout(() => setLoaded(true), 150); return () => clearTimeout(t); }, []);
 
   const hero = content?.hero;
   const whoWeAre = content?.whoWeAre;
@@ -278,7 +276,7 @@ export function AboutUsClient({
                     <Button
                       size="lg"
                       asChild
-                      className="group relative overflow-hidden bg-primary hover:bg-primary text-white font-bold px-7 sm:px-8 py-6 text-base rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/35"
+                      className="group relative overflow-hidden px-7 sm:px-8 py-6 text-base rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/35"
                     >
                       <Link href="#who-we-are" className="flex items-center gap-2.5">
                         <Sparkles className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
@@ -311,7 +309,7 @@ export function AboutUsClient({
                         {["from-silver-300 to-silver-500", "from-primary/70 to-primary", "from-silver-400 to-silver-600"].map((g, i) => (
                           <span key={i} className={cn("h-8 w-8 rounded-full ring-2 ring-white bg-gradient-to-br shadow-sm", g)} />
                         ))}
-                        <span className="h-8 w-8 rounded-full ring-2 ring-white bg-silver-900 flex items-center justify-center text-[9px] font-bold text-white shadow-sm">26+</span>
+                        <span className="h-8 w-8 rounded-full ring-2 ring-white bg-silver-900 flex items-center justify-center text-xs font-bold text-white shadow-sm">26+</span>
                       </div>
                       <div>
                         <div className="flex items-center gap-0.5">
@@ -319,7 +317,7 @@ export function AboutUsClient({
                             <Star key={i} className="h-3 w-3 fill-primary text-primary" aria-hidden="true" />
                           ))}
                         </div>
-                        <p className="text-[11px] text-silver-500 mt-0.5">
+                        <p className="text-xs text-silver-500 mt-0.5">
                           <span className="font-bold text-silver-900">4.9/5</span> client rating
                         </p>
                       </div>
@@ -352,7 +350,7 @@ export function AboutUsClient({
                     <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-primary/[0.08] via-transparent to-silver-200/40 -rotate-1" />
 
                     <div className="relative rounded-3xl p-[2px] bg-gradient-to-br from-silver-300 via-white to-silver-300 shadow-2xl shadow-silver-900/12">
-                      <div className="relative overflow-hidden rounded-[1.4rem] bg-silver-100 aspect-[4/5] sm:aspect-[5/6]">
+                      <div className="relative overflow-hidden rounded-2xl bg-silver-100 aspect-[4/5] sm:aspect-[5/6]">
                         <Image
                           src={hero?.image || "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"}
                           alt={hero?.imageAlt || "Brolytics Technologies team"}
@@ -374,7 +372,7 @@ export function AboutUsClient({
                               {hero.valuePills.map((item) => (
                                 <span
                                   key={item}
-                                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-silver-200 text-[11px] font-semibold text-silver-700"
+                                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/80 border border-silver-200 text-xs font-semibold text-silver-700"
                                 >
                                   {item}
                                 </span>
@@ -391,7 +389,7 @@ export function AboutUsClient({
                         style={{ animationDelay: "0.5s" }}
                       >
                         <p className="text-2xl font-black text-silver-900 leading-none">{hero.floatingStat.value}</p>
-                        <p className="text-[10px] text-silver-500 uppercase tracking-wider font-semibold mt-1">{hero.floatingStat.label}</p>
+                        <p className="text-xs text-silver-500 uppercase tracking-wider font-semibold mt-1">{hero.floatingStat.label}</p>
                       </div>
                     )}
 
@@ -468,7 +466,7 @@ export function AboutUsClient({
                   {journey.length > 0 && (
                     <div className="relative flex-1 bg-white border border-silver-200 rounded-3xl p-8 shadow-sm overflow-hidden transition-all duration-500 hover:border-primary/25 hover:shadow-[0_24px_50px_-24px_rgba(143,38,71,0.2)]">
                       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-                      <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-silver-400 mb-6">Our Journey</p>
+                      <p className="text-xs font-bold uppercase tracking-[0.25em] text-silver-400 mb-6">Our Journey</p>
 
                       <div className="relative">
                         <div className="absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-silver-200 via-silver-200 to-primary/40" />
@@ -504,7 +502,7 @@ export function AboutUsClient({
                       <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
                       <Quote className="h-7 w-7 text-primary mb-4" />
                       <p className="text-white text-lg md:text-xl font-bold leading-snug mb-4">{whoWeAre.philosophy}</p>
-                      <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-silver-300">Our Philosophy</p>
+                      <p className="text-xs font-bold uppercase tracking-[0.25em] text-silver-300">Our Philosophy</p>
                     </div>
                   )}
                 </div>
@@ -652,7 +650,7 @@ export function AboutUsClient({
 
             <div className="relative container mx-auto px-6 max-w-7xl">
               <div className="text-center max-w-3xl mx-auto mb-14">
-                <span className="px-4 py-1.5 rounded-full bg-white/10 text-[11px] font-bold uppercase tracking-widest text-primary-foreground border border-white/10 mb-4 inline-block">
+                <span className="px-4 py-1.5 rounded-full bg-white/10 text-xs font-bold uppercase tracking-widest text-primary-foreground border border-white/10 mb-4 inline-block">
                   Engineered For Trust
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-4">

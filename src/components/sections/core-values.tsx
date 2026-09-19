@@ -15,14 +15,6 @@ const CoreValueCard = ({ icon: Icon, title, description, index, isVisible }: {
   index: number;
   isVisible: boolean;
 }) => {
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    if (isVisible && !hasAnimated) {
-      const timer = setTimeout(() => setHasAnimated(true), index * 120);
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible, index, hasAnimated]);
 
   return (
     <div
@@ -92,9 +84,9 @@ export function CoreValues({ content }: { content: SiteContent['coreValues'] }) 
       <div className="text-center mb-16">
         <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full border border-silver-200 bg-white shadow-sm">
           <Star className="w-4 h-4 text-primary" />
-          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-silver-600">{content.badge}</span>
+          <span className="text-xs font-bold uppercase tracking-[0.25em] text-silver-600">{content.badge}</span>
         </div>
-        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-silver tracking-tight leading-tight mb-5">
+        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-silver-500 tracking-tight leading-tight mb-5">
           {content.title}
         </h3>
         <div className="hairline w-32 h-px mx-auto mb-6" />

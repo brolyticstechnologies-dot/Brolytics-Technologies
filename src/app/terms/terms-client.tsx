@@ -136,7 +136,7 @@ export function TermsClient({ termsPage, siteSettings }: TermsClientProps) {
         <div className="relative container mx-auto px-4 sm:px-6 max-w-5xl text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/[0.04] mb-6 shadow-xs">
             <Scale className="w-3.5 h-3.5 text-primary" />
-            <span className="text-[11px] font-bold uppercase tracking-widest text-primary">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">
               {header.badge}
             </span>
           </div>
@@ -200,7 +200,7 @@ export function TermsClient({ termsPage, siteSettings }: TermsClientProps) {
                       {term.category && (
                         <span
                           className={cn(
-                            'text-[10px] font-bold px-2 py-0.5 rounded-full border shrink-0',
+                            'text-xs font-bold px-2 py-0.5 rounded-full border shrink-0',
                             badgeClass
                           )}
                         >
@@ -265,7 +265,7 @@ export function TermsClient({ termsPage, siteSettings }: TermsClientProps) {
           <div className="rounded-3xl bg-silver-900 text-white p-8 sm:p-12 relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-80 h-80 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
             <div className="relative z-10 text-center max-w-2xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-[11px] font-bold uppercase tracking-widest text-primary-foreground mb-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-bold uppercase tracking-widest text-primary-foreground mb-4">
                 <Sparkles className="w-3.5 h-3.5" />
                 Custom Project Agreement
               </div>

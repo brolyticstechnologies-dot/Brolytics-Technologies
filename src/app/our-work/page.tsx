@@ -29,18 +29,18 @@ function StatCard({
 }) {
   return (
     <div
-      className="group relative rounded-[1.2rem] p-[1px] bg-gradient-to-br from-silver-200/70 via-white to-silver-200/50 hover:from-primary/30 hover:via-primary/8 hover:to-silver-200/60 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg animate-fade-up"
+      className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-silver-200/70 via-white to-silver-200/50 hover:from-primary/30 hover:via-primary/8 hover:to-silver-200/60 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg animate-fade-up"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="relative flex items-center gap-3 rounded-[1.15rem] bg-white px-4 py-4 sm:py-5">
-        <div className="p-2.5 rounded-xl bg-primary/10 group-hover:scale-105 transition-transform duration-400">
-          <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+      <div className="relative flex items-center gap-3 sm:gap-4 rounded-2xl bg-white px-4 py-5 sm:px-5 sm:py-6">
+        <div className="p-2.5 sm:p-3 rounded-xl bg-primary/10 group-hover:scale-105 transition-transform duration-400">
+          <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" aria-hidden="true" />
         </div>
         <div>
-          <p className="text-xl sm:text-2xl font-black text-silver-900 group-hover:text-primary transition-colors duration-400 leading-none">
+          <p className="text-2xl sm:text-3xl font-black text-silver-900 group-hover:text-primary transition-colors duration-400 leading-none">
             {value}
           </p>
-          <p className="text-[10px] sm:text-[11px] text-silver-400 uppercase tracking-wider font-medium mt-1">
+          <p className="text-xs sm:text-sm text-silver-400 capitalize tracking-wide font-medium mt-1">
             {label}
           </p>
         </div>
@@ -50,12 +50,7 @@ function StatCard({
 }
 
 export default function OurWorkPage() {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 120);
-    return () => clearTimeout(t);
-  }, []);
+  const loaded = true;
 
   return (
     <div className="bg-white text-silver-900">
@@ -96,7 +91,7 @@ export default function OurWorkPage() {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
                 </span>
                 <Briefcase className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
-                <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-silver-600">
+                <span className="text-xs font-bold tracking-wide capitalize text-silver-600">
                   Our Portfolio
                 </span>
               </div>

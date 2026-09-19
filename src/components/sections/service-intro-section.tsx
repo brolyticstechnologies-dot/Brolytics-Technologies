@@ -49,11 +49,11 @@ export function ServiceIntroSection({
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full border border-silver-200 bg-white/80 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-silver-500">{eyebrow}</span>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-silver-500">{eyebrow}</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-[2.6rem] font-black tracking-tight leading-[1.12] mb-8">
-              <span className="text-silver">{titleWords.slice(0, splitAt).join(" ")}</span>
+              <span className="text-silver-500">{titleWords.slice(0, splitAt).join(" ")}</span>
               {titleWords.length > splitAt && (
                 <span className="text-gradient-red">{" " + titleWords.slice(splitAt).join(" ")}</span>
               )}
@@ -93,10 +93,10 @@ export function ServiceIntroSection({
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
-            <div className="absolute -inset-3 rounded-[1.75rem] bg-gradient-to-br from-primary/[0.06] via-transparent to-silver-200/40 blur-sm pointer-events-none" />
+            <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/[0.06] via-transparent to-silver-200/40 blur-sm pointer-events-none" />
 
-            <div className="relative rounded-[1.5rem] p-[1px] bg-gradient-to-br from-silver-300/80 via-white to-primary/20 shadow-xl shadow-silver-900/8">
-              <div className="relative rounded-[1.45rem] bg-white p-7 sm:p-9 md:p-10 overflow-hidden">
+            <div className="relative rounded-3xl p-[1px] bg-gradient-to-br from-silver-300/80 via-white to-primary/20 shadow-xl shadow-silver-900/8">
+              <div className="relative rounded-2xl bg-white p-7 sm:p-9 md:p-10 overflow-hidden">
                 {/* Decorative quote */}
                 <Quote
                   className="absolute top-5 right-6 h-16 w-16 text-primary/[0.08] rotate-180"

@@ -57,14 +57,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   isVisible,
 }) => {
   const displayResults = results || (impact ? `${impact.metric} ${impact.label}` : 'Verified Outcome');
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    if (isVisible && !hasAnimated) {
-      const timer = setTimeout(() => setHasAnimated(true), index * 120);
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible, index, hasAnimated]);
 
   const getCategoryIcon = (cat: string) => {
     switch (cat.toLowerCase()) {
@@ -87,17 +79,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const num = String(index + 1).padStart(2, "0");
 
   return (
-    <div
+    <Link
+      href={href}
       className={cn(
-        "group relative rounded-[1.35rem] p-[1px] transition-all duration-500 transform-gpu",
+        "group block relative rounded-2xl p-[1px] transition-all duration-500 transform-gpu",
         "bg-gradient-to-br from-silver-200/70 via-white to-silver-200/50",
         "hover:from-primary/35 hover:via-primary/10 hover:to-silver-200/60",
         "hover:shadow-xl hover:-translate-y-1",
-        ""
+        "focus:outline-hidden focus-visible:ring-2 focus-visible:ring-primary/40"
       )}
       style={{ transitionDelay: `${index * 100}ms` }}
+      aria-label={`View details for ${title}`}
     >
-      <div className="relative flex h-full flex-col rounded-[1.3rem] bg-white overflow-hidden">
+      <div
+        className="relative flex h-full flex-col rounded-2xl bg-white overflow-hidden text-left"
+      >
         {/* Image */}
         <div className="relative w-full aspect-[16/10] overflow-hidden">
           <Image
@@ -113,7 +109,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="absolute top-3.5 left-3.5 z-10">
             <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary rounded-full shadow-lg shadow-primary/25">
               <CategoryIcon className="w-3.5 h-3.5 text-white flex-shrink-0" aria-hidden="true" />
-              <p className="text-[10px] font-bold text-white uppercase tracking-wider leading-none whitespace-nowrap">
+              <p className="text-xs font-bold text-white uppercase tracking-wider leading-none whitespace-nowrap">
                 {category}
               </p>
             </div>
@@ -122,11 +118,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="absolute top-3.5 right-3.5 z-10">
             <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/92 backdrop-blur-md rounded-full border border-white/60 shadow-md">
               <Clock className="w-3.5 h-3.5 text-primary flex-shrink-0" aria-hidden="true" />
-              <p className="text-[10px] text-silver-700 font-semibold leading-none whitespace-nowrap">{duration}</p>
+              <p className="text-xs text-silver-700 font-semibold leading-none whitespace-nowrap">{duration}</p>
             </div>
           </div>
 
-          <span className="absolute bottom-3.5 right-3.5 z-10 text-[10px] font-black text-white/50 tabular-nums tracking-wider">
+          <span className="absolute bottom-3.5 right-3.5 z-10 text-xs font-black text-white/50 tabular-nums tracking-wider">
             {num}
           </span>
         </div>
@@ -148,7 +144,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <TrendingUp className="w-4 h-4 text-primary" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[10px] font-bold text-silver-400 uppercase tracking-wider mb-0.5">Impact</p>
+                <p className="text-xs font-bold text-silver-400 uppercase tracking-wider mb-0.5">Impact</p>
                 <p className="text-xs font-bold text-silver-800 leading-snug line-clamp-2">{displayResults}</p>
               </div>
             </div>
@@ -159,35 +155,31 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             {technologies.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="px-2.5 py-1 rounded-lg bg-silver-50 border border-silver-200 text-[11px] font-semibold text-silver-500 group-hover:border-primary/15 transition-colors duration-400"
+                className="px-2.5 py-1 rounded-lg bg-silver-50 border border-silver-200 text-xs font-semibold text-silver-500 group-hover:border-primary/15 transition-colors duration-400"
               >
                 {tech}
               </span>
             ))}
           </div>
 
-          {/* Footer link */}
+          {/* Footer link visual cue */}
           <div className="mt-auto pt-4 border-t border-silver-100 group-hover:border-primary/10 transition-colors duration-400">
-            <Link
-              href={href}
-              className="flex items-center justify-between w-full group/btn"
-              aria-label={`View details for ${title}`}
-            >
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-silver-500 group-hover/btn:text-primary transition-colors duration-300">
+            <div className="flex items-center justify-between w-full group/btn">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-silver-500 group-hover:text-primary transition-colors duration-300">
                 View Details
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" aria-hidden="true" />
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </span>
               <span
-                className="p-2 rounded-full border border-silver-200 bg-silver-50 group-hover/btn:bg-primary group-hover/btn:border-primary text-silver-500 group-hover/btn:text-white transition-all duration-300 group-hover/btn:scale-105"
+                className="p-2 rounded-full border border-silver-200 bg-silver-50 group-hover:bg-primary group-hover:border-primary text-silver-500 group-hover:text-white transition-all duration-300 group-hover:scale-105"
                 aria-hidden="true"
               >
                 <ArrowUpRight className="h-4 w-4 transition-colors duration-300" />
               </span>
-            </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -206,19 +198,11 @@ const StatCard = ({
   isVisible: boolean;
   index: number;
 }) => {
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    if (isVisible && !hasAnimated) {
-      const timer = setTimeout(() => setHasAnimated(true), index * 100);
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible, index, hasAnimated]);
 
   return (
     <div
       className={cn(
-        "group relative rounded-[1.2rem] p-[1px] transition-all duration-500 transform-gpu",
+        "group relative rounded-2xl p-[1px] transition-all duration-500 transform-gpu",
         "bg-gradient-to-br from-silver-200/70 via-white to-silver-200/50",
         "hover:from-primary/30 hover:via-primary/8 hover:to-silver-200/60",
         "hover:shadow-lg hover:-translate-y-1",
@@ -236,8 +220,8 @@ const StatCard = ({
         <p className="text-2xl font-black text-silver-900 group-hover:text-primary transition-colors duration-400 leading-none mb-1">
           {value}
         </p>
-        <p className="text-xs font-bold text-silver-800 mb-0.5">{label}</p>
-        <p className="text-[11px] text-silver-400 leading-tight">{description}</p>
+        <p className="text-sm font-bold text-silver-800 mb-0.5">{label}</p>
+        <p className="text-sm text-silver-500 leading-tight">{description}</p>
       </div>
     </div>
   );
@@ -290,7 +274,7 @@ export function OurWork({ content: contentProp }: OurWorkProps = {}) {
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.08] mb-4">
-            <span className="text-silver">{header.title}</span>
+            <span className="text-silver-500">{header.title}</span>
             <span className="text-gradient-red"> {header.titleAccent}</span>
           </h2>
 

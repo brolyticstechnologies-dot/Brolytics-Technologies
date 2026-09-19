@@ -47,12 +47,12 @@ export function CaseStudiesSection({ projects: customProjects }: { projects?: Pr
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full border border-silver-200 bg-white/80 backdrop-blur-sm shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-silver-600">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-silver-600">
               Featured Case Studies
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-[2.8rem] font-black tracking-tight leading-tight mb-4">
-            <span className="text-silver">Flagship Work —</span>{" "}
+            <span className="text-silver-500">Flagship Work —</span>{" "}
             <span className="text-gradient-red">In Detail.</span>
           </h2>
           <p className="text-base text-silver-500 max-w-xl mx-auto leading-relaxed">
@@ -74,7 +74,7 @@ export function CaseStudiesSection({ projects: customProjects }: { projects?: Pr
               <div key={projectId} className="relative">
                 {/* Timeline dot */}
                 <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 items-center justify-center w-9 h-9 rounded-full bg-white border-2 border-silver-300 shadow-sm top-1/2">
-                  <span className="text-[9px] font-black text-primary tabular-nums">
+                  <span className="text-xs font-black text-primary tabular-nums">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>

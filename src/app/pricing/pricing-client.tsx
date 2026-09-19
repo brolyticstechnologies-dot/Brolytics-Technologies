@@ -113,7 +113,7 @@ function SectionCard({ section }: { section: PricingCategory["sections"][0] }) {
                     {table.heading}
                   </p>
                   {table.note && (
-                    <span className="text-[11px] text-silver-400 italic">
+                    <span className="text-xs text-silver-400 italic">
                       {table.note}
                     </span>
                   )}
@@ -161,7 +161,7 @@ function SectionCard({ section }: { section: PricingCategory["sections"][0] }) {
                 )}
                 <ul className="space-y-1 pl-4 list-disc text-silver-600">
                   {list.items.map((item, iIdx) => (
-                    <li key={iIdx} className="leading-relaxed text-[11px] sm:text-xs">
+                    <li key={iIdx} className="leading-relaxed text-xs sm:text-xs">
                       {item}
                     </li>
                   ))}
@@ -404,7 +404,7 @@ export function PricingClient({
           {/* ── Desktop Sidebar ──────────────────────── */}
           <aside className="hidden lg:block w-72 shrink-0 sticky top-28">
             <div className="rounded-2xl border border-silver-200/90 bg-white p-2 shadow-sm overflow-hidden">
-              <p className="text-[11px] font-bold uppercase tracking-wider text-silver-400 px-3 py-2">
+              <p className="text-xs font-bold uppercase tracking-wider text-silver-400 px-3 py-2">
                 Categories
               </p>
               <nav className="space-y-1">
@@ -467,7 +467,7 @@ export function PricingClient({
               {activeData.sections && activeData.sections.length > 0 && (
                 <div className="sticky top-16 sm:top-20 z-20 -mx-4 px-4 sm:mx-0 sm:px-0 py-2.5 mb-6 bg-white/95 backdrop-blur-md border-b border-silver-100/90 transition-all">
                   <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none snap-x">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-silver-400 shrink-0 mr-1 hidden sm:inline">
+                    <span className="text-xs font-bold uppercase tracking-wider text-silver-400 shrink-0 mr-1 hidden sm:inline">
                       Jump to:
                     </span>
                     {activeData.sections.map((s) => {
@@ -512,7 +512,7 @@ export function PricingClient({
             <div className="mt-14 rounded-3xl border border-silver-200/90 bg-white p-8 sm:p-10 relative overflow-hidden shadow-sm">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
-                  <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest mb-3 w-fit">
+                  <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-3 w-fit">
                     <Shield className="w-3.5 h-3.5" />
                     Commercial Governance
                   </div>
@@ -581,7 +581,7 @@ export function PricingClient({
             {/* ══════ SECTION 55: COMMERCIAL FRAMEWORK CARD ══════ */}
             {commercialFramework && (
               <div className="mt-8 rounded-3xl border border-silver-200/90 bg-silver-50/60 p-8 sm:p-10 relative overflow-hidden shadow-sm">
-                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest mb-4 w-fit">
+                <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-4 w-fit">
                   <FileCheck className="w-3.5 h-3.5" />
                   {commercialFramework.badge}
                 </div>
@@ -643,7 +643,7 @@ export function PricingClient({
             <div className="mt-8 rounded-3xl bg-gradient-to-br from-silver-50 via-white to-primary/[0.04] border border-silver-200/90 p-8 sm:p-10 relative overflow-hidden shadow-sm">
               <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/[0.06] rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest mb-3.5">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-3.5">
                   <Sparkles className="w-3.5 h-3.5" />
                   Ready to Start?
                 </div>

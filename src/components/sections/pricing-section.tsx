@@ -41,12 +41,12 @@ export function PricingSection({ pricing: customPricing }: { pricing?: PricingTi
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full border border-silver-200 bg-silver-50 shadow-sm">
             <BadgeIndianRupee className="w-3.5 h-3.5 text-primary" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-silver-600">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-silver-600">
               Transparent Pricing
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-[2.8rem] font-black tracking-tight leading-tight mb-4">
-            <span className="text-silver">Invest in Quality.</span>{" "}
+            <span className="text-silver-500">Invest in Quality.</span>{" "}
             <span className="text-gradient-red">See Real ROI.</span>
           </h2>
           <p className="text-base text-silver-500 max-w-lg mx-auto leading-relaxed mb-8">
@@ -103,7 +103,7 @@ export function PricingSection({ pricing: customPricing }: { pricing?: PricingTi
                 {/* Most Popular Badge */}
                 {tier.isPopular && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
-                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-widest shadow-lg animate-pulse-soft">
+                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary text-white text-xs font-black uppercase tracking-widest shadow-lg animate-pulse-soft">
                       <Sparkles className="w-3 h-3" />
                       Most Popular
                     </span>
@@ -199,7 +199,7 @@ export function PricingSection({ pricing: customPricing }: { pricing?: PricingTi
             <div className="absolute bottom-0 left-16 right-16 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
             <div className="relative">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary mb-3">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">
                 Custom Project
               </p>
               <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
@@ -211,7 +211,7 @@ export function PricingSection({ pricing: customPricing }: { pricing?: PricingTi
               </p>
               <Link
                 href="/#contact"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-primary/30"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-primary/30"
               >
                 Book a Free Discovery Call
                 <ArrowRight className="w-4 h-4" />

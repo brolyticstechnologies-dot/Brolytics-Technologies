@@ -34,11 +34,10 @@ function StatItem({
 
   useEffect(() => {
     if (isVisible && !hasAnimated.current) {
-      const timer = setTimeout(() => startAnimation(), index * 120);
+      startAnimation();
       hasAnimated.current = true;
-      return () => clearTimeout(timer);
     }
-  }, [isVisible, startAnimation, index]);
+  }, [isVisible, startAnimation]);
 
   return (
     <div
@@ -70,12 +69,12 @@ function StatItem({
             {plus && <span className="text-primary">+</span>}
           </p>
 
-          <p className="text-[10px] sm:text-[11px] font-bold text-silver-800 uppercase tracking-[0.14em] leading-snug mb-3 px-1">
+          <p className="text-xs font-bold text-silver-800 uppercase tracking-wider leading-snug mb-3 px-1">
             {label}
           </p>
 
           <div className="mt-auto w-full pt-3 border-t border-silver-100">
-            <p className="text-[11px] sm:text-xs text-silver-400 leading-snug group-hover:text-silver-500 transition-colors duration-300">
+            <p className="text-xs text-silver-400 leading-snug group-hover:text-silver-500 transition-colors duration-300">
               {hint}
             </p>
           </div>
@@ -125,12 +124,12 @@ export function StatsSection({ content }: StatsSectionProps) {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
             </span>
             <TrendingUp className="w-3.5 h-3.5 text-white/90" aria-hidden="true" />
-            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">
+            <span className="text-xs font-bold uppercase tracking-widest text-white/90">
               {header.badge}
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black tracking-tight leading-[1.08] mb-5">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black tracking-tight leading-[1.08] mb-5">
             <span className="text-white">{header.title}</span>
             <span className="bg-gradient-to-r from-white via-white/95 to-white/75 bg-clip-text text-transparent">
               {" "}{header.titleAccent}

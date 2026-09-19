@@ -65,10 +65,10 @@ function ThumbnailCard({
         <div className="absolute inset-0 bg-gradient-to-t from-silver-950/60 via-transparent to-transparent" />
 
         {/* Category badge (left) */}
-        <div className="absolute top-3 left-3 z-10">
+        <div className="absolute top-4 left-4 z-10">
           <span
             className={cn(
-              "inline-flex px-2.5 py-1 rounded-full text-[10px] font-bold border backdrop-blur-md shadow-sm",
+              "inline-flex px-2.5 py-1 rounded-full text-xs font-bold border backdrop-blur-md shadow-sm",
               CATEGORY_COLORS[project.category] || "bg-white/90 text-silver-800 border-white/60"
             )}
           >
@@ -78,8 +78,8 @@ function ThumbnailCard({
 
         {/* Flagship ribbon (top-right corner) */}
         {isFlagship && (
-          <div className="absolute top-3 right-3 z-10">
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-white text-[10px] font-bold shadow-lg border border-primary/30 backdrop-blur-md">
+          <div className="absolute top-4 right-4 z-10">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-white text-xs font-bold shadow-lg border border-primary/30 backdrop-blur-md">
               <Sparkles className="w-2.5 h-2.5" />
               Flagship
             </span>
@@ -101,11 +101,11 @@ function ThumbnailCard({
       {/* Card body */}
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="text-[11px] font-bold text-primary flex items-center gap-1">
+          <span className="text-xs font-bold text-primary flex items-center gap-1">
             <Sparkles className="w-3 h-3" />
             {project.duration || "Delivered"}
           </span>
-          <span className="text-[10px] font-semibold text-silver-400">{yearText}</span>
+          <span className="text-xs font-semibold text-silver-400">{yearText}</span>
         </div>
 
         <h3 className="text-base font-black text-silver-900 leading-snug mb-2 group-hover:text-primary transition-colors duration-300">
@@ -122,13 +122,13 @@ function ThumbnailCard({
             {project.technologies.slice(0, 3).map((tech) => (
               <span
                 key={tech}
-                className="px-2 py-0.5 rounded-md bg-silver-50 border border-silver-200 text-[10px] font-semibold text-silver-600"
+                className="px-2 py-0.5 rounded-md bg-silver-50 border border-silver-200 text-xs font-semibold text-silver-600"
               >
                 {tech}
               </span>
             ))}
             {project.technologies.length > 3 && (
-              <span className="px-1.5 py-0.5 rounded-md bg-silver-50 text-[10px] font-bold text-silver-400">
+              <span className="px-1.5 py-0.5 rounded-md bg-silver-50 text-xs font-bold text-silver-400">
                 +{project.technologies.length - 3}
               </span>
             )}
@@ -175,12 +175,12 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full border border-silver-200 bg-silver-50 shadow-sm">
             <LayoutGrid className="w-3.5 h-3.5 text-primary" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-silver-600">
+            <span className="text-xs font-bold capitalize tracking-wide text-silver-600">
               Portfolio Gallery
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-[2.8rem] font-black tracking-tight leading-tight mb-4">
-            <span className="text-silver">{allProjects.length} Projects.</span>{" "}
+            <span className="text-silver-500">{allProjects.length} Projects.</span>{" "}
             <span className="text-gradient-red">Real Results.</span>
           </h2>
           <p className="text-base text-silver-500 max-w-xl mx-auto leading-relaxed">
@@ -208,7 +208,7 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
                     key={tab}
                     onClick={() => setActive(tab)}
                     className={cn(
-                      "relative z-10 px-3.5 py-1.5 rounded-full text-[11px] font-semibold transition-colors duration-200 whitespace-nowrap shrink-0",
+                      "relative z-10 px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200 whitespace-nowrap shrink-0",
                       isActive ? "text-white" : "text-silver-600 hover:text-silver-900"
                     )}
                   >
@@ -222,7 +222,7 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
                     <span>{tab}</span>
                     <span
                       className={cn(
-                        "ml-1.5 text-[9px] font-bold tabular-nums relative z-10",
+                        "ml-1.5 text-xs font-bold tabular-nums relative z-10",
                         isActive ? "text-white/85" : "text-silver-400"
                       )}
                     >
@@ -236,7 +236,7 @@ export function PortfolioGallery({ projects: customProjects }: { projects?: Proj
         </div>
 
         {/* Result count */}
-        <p className="text-center text-xs text-silver-400 mb-8">
+        <p className="text-center text-sm sm:text-base text-silver-400 mb-8">
           Showing{" "}
           <span className="font-bold text-silver-700">{filtered.length}</span>{" "}
           project{filtered.length !== 1 ? "s" : ""}

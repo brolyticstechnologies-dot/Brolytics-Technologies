@@ -325,7 +325,7 @@ backgroundSize: '50px 50px'
               <div className="absolute -bottom-4 left-1/4 w-3 h-3 bg-gradient-to-r from-orange-500 to-primary rounded-full animate-bounce" style={{ animationDelay: '2s' }} />
             </div>
 
-            <p className="text-lg md:text-xl text-neutral-300 leading-relaxed font-light mb-12 max-w-4xl mx-auto">
+            <p className="text-lg md:text-xl text-silver-300 leading-relaxed font-light mb-12 max-w-4xl mx-auto">
         {currentSlide?.description || `Transform your business with our cutting-edge ${serviceCategoryTitle} solutions that drive growth and innovation.`}
             </p>
 
@@ -376,7 +376,7 @@ aria-label={`Slide ${index + 1}`}
 
         {/* Scroll Indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-4 animate-bounce">
-            <div className="text-sm text-neutral-400 font-medium tracking-wide">Scroll to explore</div>
+            <div className="text-sm text-silver-400 font-medium tracking-wide">Scroll to explore</div>
             <ChevronDown className="w-6 h-6 text-primary animate-pulse" />
           </div>
         </section>
@@ -411,7 +411,7 @@ style={{ transitionDelay: `${index * 200}ms` }}
                     <div className="text-3xl md:text-4xl font-black text-white mb-2 group-hover:text-primary transition-colors duration-300">
         {stat.number}
                     </div>
-                    <div className="text-sm text-neutral-400 font-medium">
+                    <div className="text-sm text-silver-400 font-medium">
         {stat.label}
                     </div>
                   </div>
@@ -445,7 +445,7 @@ Powerful <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-te
         </h2>
         <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
               </div>
-              <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
+              <p className="text-lg md:text-xl text-silver-400 max-w-3xl mx-auto mt-6 leading-relaxed">
 Experience cutting-edge features designed to elevate your business and deliver exceptional results.
               </p>
             </div>
@@ -470,7 +470,7 @@ style={{ transitionDelay: `${index * 150}ms` }}
                     <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">
         {feature.title}
                     </h3>
-                    <p className="text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors duration-300">
+                    <p className="text-silver-400 leading-relaxed group-hover:text-silver-300 transition-colors duration-300">
         {feature.description}
                     </p>
                   </div>
@@ -506,7 +506,7 @@ className="relative py-20 md:py-32 bg-black overflow-hidden"
                 </h2>
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
               </div>
-              <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
+              <p className="text-lg md:text-xl text-silver-400 max-w-3xl mx-auto mt-6 leading-relaxed">
         {service.description}
               </p>
             </div>
@@ -568,7 +568,7 @@ data-ai-hint={extractAiHint(detail.backgroundImage)}
                             <h3 className="text-2xl font-bold text-white">{detail.title}</h3>
                           </div>
                         </div>
-                        <p className="text-base text-neutral-300 leading-relaxed">{detail.description || 'No description available.'}</p>
+                        <p className="text-base text-silver-300 leading-relaxed">{detail.description || 'No description available.'}</p>
         {detail.subDetails && Array.isArray(detail.subDetails) && detail.subDetails.length > 0 && (
                           <div className="space-y-6">
         {detail.subDetails.map((subDetail, i) => (
@@ -581,7 +581,7 @@ data-ai-hint={extractAiHint(detail.backgroundImage)}
                                     <h5 className="text-white font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
         {subDetail.title || 'Untitled'}
                                     </h5>
-                                    <p className="text-sm text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300 leading-relaxed mb-4">
+                                    <p className="text-sm text-silver-400 group-hover:text-silver-300 transition-colors duration-300 leading-relaxed mb-4">
         {subDetail.description || 'No description available.'}
                                     </p>
                                   </div>
@@ -592,7 +592,7 @@ data-ai-hint={extractAiHint(detail.backgroundImage)}
                                     <h6 className="text-primary font-medium mb-2 text-sm">Key Features:</h6>
                                     <ul className="space-y-1">
         {subDetail.features.map((feature, idx) => (
-                                        <li key={idx} className="text-xs text-neutral-400 flex items-start gap-2">
+                                        <li key={idx} className="text-xs text-silver-400 flex items-start gap-2">
                                           <CheckCircle className="w-3 h-3 text-primary mt-0.5 flex-shrink-0" />
 <span>{feature}</span>
                                         </li>
@@ -606,7 +606,7 @@ data-ai-hint={extractAiHint(detail.backgroundImage)}
                                     <h6 className="text-primary font-medium mb-2 text-sm">Benefits:</h6>
                                     <ul className="space-y-1">
         {subDetail.benefits.map((benefit, idx) => (
-                                        <li key={idx} className="text-xs text-neutral-400 flex items-start gap-2">
+                                        <li key={idx} className="text-xs text-silver-400 flex items-start gap-2">
                                           <Star className="w-3 h-3 text-orange-500 mt-0.5 flex-shrink-0" />
 <span>{benefit}</span>
                                         </li>
@@ -620,7 +620,7 @@ data-ai-hint={extractAiHint(detail.backgroundImage)}
                                     <h6 className="text-primary font-medium mb-2 text-sm">Why Choose Us:</h6>
                                     <ul className="space-y-1">
         {subDetail.whyChooseUs.map((reason, idx) => (
-                                        <li key={idx} className="text-xs text-neutral-400 flex items-start gap-2">
+                                        <li key={idx} className="text-xs text-silver-400 flex items-start gap-2">
                                           <Award className="w-3 h-3 text-yellow-500 mt-0.5 flex-shrink-0" />
 <span>{reason}</span>
                                         </li>
@@ -679,7 +679,7 @@ Our <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-text te
         </h2>
         <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
               </div>
-              <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
+              <p className="text-lg md:text-xl text-silver-400 max-w-3xl mx-auto mt-6 leading-relaxed">
 A proven methodology that ensures successful project delivery from concept to launch.
               </p>
             </div>
@@ -718,7 +718,7 @@ style={{ transitionDelay: `${index * 200}ms` }}
         {step.title}
                           </h3>
                         </div>
-                        <p className="text-neutral-400 leading-relaxed mb-4 group-hover:text-neutral-300 transition-colors duration-300">
+                        <p className="text-silver-400 leading-relaxed mb-4 group-hover:text-silver-300 transition-colors duration-300">
         {step.description}
                         </p>
                         <div className="flex items-center gap-2">
@@ -764,7 +764,7 @@ Why Choose <span className="bg-gradient-to-r from-primary to-orange-500 bg-clip-
                 </h2>
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
               </div>
-              <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
+              <p className="text-lg md:text-xl text-silver-400 max-w-3xl mx-auto mt-6 leading-relaxed">
 Discover the tangible benefits and competitive advantages our solutions deliver.
               </p>
             </div>
@@ -787,13 +787,13 @@ style={{ transitionDelay: `${index * 200}ms` }}
                       </div>
                       <div className="text-right">
                         <div className="text-2xl font-black text-primary mb-1">{benefit.metric}</div>
-                        <div className="text-xs text-neutral-500">Average result</div>
+                        <div className="text-xs text-silver-500">Average result</div>
                       </div>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">
         {benefit.title}
                     </h3>
-                    <p className="text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors duration-300">
+                    <p className="text-silver-400 leading-relaxed group-hover:text-silver-300 transition-colors duration-300">
         {benefit.description}
                     </p>
                   </div>
@@ -828,7 +828,7 @@ Frequently Asked <span className="bg-gradient-to-r from-primary to-orange-500 bg
                 </h2>
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse" />
               </div>
-              <p className="text-lg md:text-xl text-neutral-400 max-w-3xl mx-auto mt-6 leading-relaxed">
+              <p className="text-lg md:text-xl text-silver-400 max-w-3xl mx-auto mt-6 leading-relaxed">
 Get answers to common questions about our services and process.
               </p>
             </div>
@@ -858,7 +858,7 @@ className={cn(
         {expandedFaq === index && (
                     <div className="px-6 pb-6">
                       <div className="pt-4 border-t border-white/10">
-                        <p className="text-neutral-400 leading-relaxed">{faq.answer}</p>
+                        <p className="text-silver-400 leading-relaxed">{faq.answer}</p>
                       </div>
                     </div>
         )}
@@ -891,7 +891,7 @@ Transform Your <span className="bg-gradient-to-r from-primary to-orange-500 bg-c
               <div className="absolute -top-6 -left-6 w-4 h-4 bg-primary rounded-full animate-ping" />
               <div className="absolute -top-4 -right-8 w-3 h-3 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
             </div>
-            <p className="text-lg md:text-xl text-neutral-300 leading-relaxed font-light mb-12 max-w-4xl mx-auto">
+            <p className="text-lg md:text-xl text-silver-300 leading-relaxed font-light mb-12 max-w-4xl mx-auto">
 Ready to elevate your business with our expert {serviceCategoryTitle} solutions? Let's build something extraordinary together.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">

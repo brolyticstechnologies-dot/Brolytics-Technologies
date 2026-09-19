@@ -40,7 +40,7 @@ export function BookSlotClient({
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/[0.04] mb-5 shadow-xs">
               <Calendar className="w-3.5 h-3.5 text-primary" />
-              <span className="text-[11px] font-bold uppercase tracking-widest text-primary">
+              <span className="text-xs font-bold uppercase tracking-widest text-primary">
                 Free 30-Min Strategy Call
               </span>
             </div>
@@ -63,7 +63,7 @@ export function BookSlotClient({
               </div>
               <div className="min-w-0">
                 <p className="text-xs font-bold text-silver-900">With Tech Founders</p>
-                <p className="text-[10px] text-silver-500">Direct senior insight</p>
+                <p className="text-xs text-silver-500">Direct senior insight</p>
               </div>
             </div>
 
@@ -73,7 +73,7 @@ export function BookSlotClient({
               </div>
               <div className="min-w-0">
                 <p className="text-xs font-bold text-silver-900">100% Free & NDA</p>
-                <p className="text-[10px] text-silver-500">Your IP is protected</p>
+                <p className="text-xs text-silver-500">Your IP is protected</p>
               </div>
             </div>
 
@@ -83,7 +83,7 @@ export function BookSlotClient({
               </div>
               <div className="min-w-0">
                 <p className="text-xs font-bold text-silver-900">Architecture Advice</p>
-                <p className="text-[10px] text-silver-500">Stack & scaling plan</p>
+                <p className="text-xs text-silver-500">Stack & scaling plan</p>
               </div>
             </div>
 
@@ -93,7 +93,7 @@ export function BookSlotClient({
               </div>
               <div className="min-w-0">
                 <p className="text-xs font-bold text-silver-900">Instant Confirmation</p>
-                <p className="text-[10px] text-silver-500">Google Meet invite</p>
+                <p className="text-xs text-silver-500">Google Meet invite</p>
               </div>
             </div>
           </div>

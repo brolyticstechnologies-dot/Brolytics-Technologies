@@ -48,7 +48,7 @@ export function BookSlotSection() {
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/[0.05] shadow-xs">
               <Calendar className="w-3.5 h-3.5 text-primary" />
-              <span className="text-[11px] font-black uppercase tracking-wider text-primary">
+              <span className="text-xs font-black uppercase tracking-wider text-primary">
                 Direct Founder Consultation
               </span>
             </div>
@@ -69,8 +69,8 @@ export function BookSlotSection() {
                   <Users className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-silver-900">With Tech Leads</h3>
-                  <p className="text-[11px] text-silver-500">Direct architecture discussion</p>
+                  <h3 className="text-sm font-bold text-silver-900">With Tech Leads</h3>
+                  <p className="text-xs text-silver-500">Direct architecture discussion</p>
                 </div>
               </div>
 
@@ -79,8 +79,8 @@ export function BookSlotSection() {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-silver-900">100% Free & NDA</h3>
-                  <p className="text-[11px] text-silver-500">Your ideas stay confidential</p>
+                  <h3 className="text-sm font-bold text-silver-900">100% Free & NDA</h3>
+                  <p className="text-xs text-silver-500">Your ideas stay confidential</p>
                 </div>
               </div>
 
@@ -89,8 +89,8 @@ export function BookSlotSection() {
                   <Zap className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-silver-900">Instant Estimate</h3>
-                  <p className="text-[11px] text-silver-500">Ballpark cost & timeline</p>
+                  <h3 className="text-sm font-bold text-silver-900">Instant Estimate</h3>
+                  <p className="text-xs text-silver-500">Ballpark cost & timeline</p>
                 </div>
               </div>
 
@@ -99,8 +99,8 @@ export function BookSlotSection() {
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-silver-900">Google Meet Link</h3>
-                  <p className="text-[11px] text-silver-500">Automated calendar invite</p>
+                  <h3 className="text-sm font-bold text-silver-900">Google Meet Link</h3>
+                  <p className="text-xs text-silver-500">Automated calendar invite</p>
                 </div>
               </div>
             </div>
@@ -112,8 +112,8 @@ export function BookSlotSection() {
                   <MessageSquare className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-silver-900">Need an immediate answer?</p>
-                  <p className="text-[11px] text-silver-500">Chat with us on WhatsApp</p>
+                  <p className="text-sm font-bold text-silver-900">Need an immediate answer?</p>
+                  <p className="text-xs text-silver-500">Chat with us on WhatsApp</p>
                 </div>
               </div>
               <a

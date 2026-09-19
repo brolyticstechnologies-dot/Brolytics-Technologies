@@ -10,6 +10,7 @@ import {
   Sparkles,
   CheckCircle2,
   ArrowRight,
+  ArrowLeft,
   ShieldCheck,
   Globe,
   Smartphone,
@@ -89,6 +90,7 @@ export function BookSlotForm() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [notes, setNotes] = useState('');
+  const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isBooked, setIsBooked] = useState(false);
@@ -225,237 +227,404 @@ export function BookSlotForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-3xl border border-silver-200/90 bg-white p-4 sm:p-8 md:p-10 shadow-xl relative overflow-hidden"
+      className="rounded-3xl border border-silver-200/90 bg-white p-5 sm:p-8 md:p-10 shadow-xl relative overflow-hidden"
     >
-      <div className="space-y-8">
+      {/* ── Wizard Step Navigation ── */}
+      <div className="flex items-center justify-between pb-6 mb-8 border-b border-silver-100 gap-2">
+        <button
+          type="button"
+          onClick={() => setCurrentStep(1)}
+          className={cn(
+            "flex items-center gap-2 text-xs sm:text-sm font-bold transition-colors",
+            currentStep === 1
+              ? "text-primary"
+              : currentStep > 1
+              ? "text-silver-900 hover:text-primary cursor-pointer"
+              : "text-silver-400"
+          )}
+        >
+          <span
+            className={cn(
+              "flex items-center justify-center w-6 h-6 rounded-full text-xs font-black transition-all shrink-0",
+              currentStep === 1
+                ? "bg-primary text-white ring-4 ring-primary/15"
+                : currentStep > 1
+                ? "bg-emerald-600 text-white"
+                : "bg-silver-200 text-silver-600"
+            )}
+          >
+            {currentStep > 1 ? "✓" : "1"}
+          </span>
+          <span className="hidden sm:inline">Choose Service</span>
+          <span className="sm:hidden">Service</span>
+        </button>
+
+        <div
+          className={cn(
+            "flex-1 h-0.5 mx-1.5 sm:mx-3 transition-colors",
+            currentStep >= 2 ? "bg-primary" : "bg-silver-200"
+          )}
+        />
+
+        <button
+          type="button"
+          onClick={() => setCurrentStep(2)}
+          className={cn(
+            "flex items-center gap-2 text-xs sm:text-sm font-bold transition-colors",
+            currentStep === 2
+              ? "text-primary"
+              : currentStep > 2
+              ? "text-silver-900 hover:text-primary cursor-pointer"
+              : "text-silver-400"
+          )}
+        >
+          <span
+            className={cn(
+              "flex items-center justify-center w-6 h-6 rounded-full text-xs font-black transition-all shrink-0",
+              currentStep === 2
+                ? "bg-primary text-white ring-4 ring-primary/15"
+                : currentStep > 2
+                ? "bg-emerald-600 text-white"
+                : "bg-silver-200 text-silver-600"
+            )}
+          >
+            {currentStep > 2 ? "✓" : "2"}
+          </span>
+          <span className="hidden sm:inline">Date & Time</span>
+          <span className="sm:hidden">Schedule</span>
+        </button>
+
+        <div
+          className={cn(
+            "flex-1 h-0.5 mx-1.5 sm:mx-3 transition-colors",
+            currentStep === 3 ? "bg-primary" : "bg-silver-200"
+          )}
+        />
+
+        <button
+          type="button"
+          onClick={() => setCurrentStep(3)}
+          className={cn(
+            "flex items-center gap-2 text-xs sm:text-sm font-bold transition-colors",
+            currentStep === 3 ? "text-primary" : "text-silver-400"
+          )}
+        >
+          <span
+            className={cn(
+              "flex items-center justify-center w-6 h-6 rounded-full text-xs font-black transition-all shrink-0",
+              currentStep === 3
+                ? "bg-primary text-white ring-4 ring-primary/15"
+                : "bg-silver-200 text-silver-600"
+            )}
+          >
+            3
+          </span>
+          <span className="hidden sm:inline">Your Details</span>
+          <span className="sm:hidden">Details</span>
+        </button>
+      </div>
+
+      <div className="space-y-6">
         {/* ── Step 1: Select Service ── */}
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white text-xs font-black">
-              1
-            </span>
-            <Label className="text-sm font-bold text-silver-900">
-              What are you looking to build or discuss?
-            </Label>
+        {currentStep === 1 && (
+          <div className="space-y-6 animate-fade-in">
+            <div>
+              <Label className="text-base font-bold text-silver-900 block mb-1">
+                What are you looking to build or discuss?
+              </Label>
+              <p className="text-xs sm:text-sm text-silver-500 mb-4">
+                Select the service area that best matches your project goal.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                {servicesList.map((srv) => {
+                  const Icon = srv.icon;
+                  const isSelected = selectedService === srv.label;
+                  return (
+                    <button
+                      type="button"
+                      key={srv.id}
+                      onClick={() => setSelectedService(srv.label)}
+                      className={cn(
+                        'flex flex-col items-start p-3 rounded-2xl border text-left transition-all duration-200',
+                        isSelected
+                          ? 'border-primary bg-primary/[0.04] text-primary ring-2 ring-primary/20 shadow-xs'
+                          : 'border-silver-200 bg-silver-50/60 hover:bg-white hover:border-silver-300 text-silver-700'
+                      )}
+                    >
+                      <Icon className={cn('w-4 h-4 mb-2', isSelected ? 'text-primary' : 'text-silver-400')} />
+                      <span className="text-xs font-bold leading-tight line-clamp-2">{srv.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-4 border-t border-silver-100 gap-3">
+              <span className="text-xs text-silver-500">
+                Selected: <strong className="text-silver-900 font-bold">{selectedService}</strong>
+              </span>
+              <Button
+                type="button"
+                onClick={() => setCurrentStep(2)}
+                className="rounded-xl px-5 py-2.5 bg-primary text-white font-bold text-xs sm:text-sm hover:bg-primary/90 shadow-md shadow-primary/20 gap-2 shrink-0"
+              >
+                <span>Continue to Schedule</span>
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
-            {servicesList.map((srv) => {
-              const Icon = srv.icon;
-              const isSelected = selectedService === srv.label;
-              return (
-                <button
-                  type="button"
-                  key={srv.id}
-                  onClick={() => setSelectedService(srv.label)}
-                  className={cn(
-                    'flex flex-col items-start p-3 rounded-2xl border text-left transition-all duration-200',
-                    isSelected
-                      ? 'border-primary bg-primary/[0.04] text-primary ring-2 ring-primary/20 shadow-xs'
-                      : 'border-silver-200 bg-silver-50/60 hover:bg-white hover:border-silver-300 text-silver-700'
-                  )}
-                >
-                  <Icon className={cn('w-4 h-4 mb-2', isSelected ? 'text-primary' : 'text-silver-400')} />
-                  <span className="text-xs font-bold leading-tight line-clamp-2">{srv.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
+        )}
 
         {/* ── Step 2: Date & Time Picker ── */}
-        <div>
-          <div className="flex items-center justify-between gap-2 mb-3">
-            <div className="flex items-center gap-2">
-              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white text-xs font-black">
-                2
+        {currentStep === 2 && (
+          <div className="space-y-6 animate-fade-in">
+            <div className="flex items-center justify-between gap-2">
+              <div>
+                <Label className="text-base font-bold text-silver-900 block">
+                  Select Preferred Date & Time (IST)
+                </Label>
+                <p className="text-xs sm:text-sm text-silver-500">
+                  Pick a convenient slot for your 30-minute founder consultation.
+                </p>
+              </div>
+              <span className="text-xs font-semibold text-silver-500 hidden sm:flex items-center gap-1 bg-silver-50 px-2.5 py-1 rounded-full border border-silver-200">
+                <Clock className="w-3.5 h-3.5 text-primary" /> 30-Min Strategy Call
               </span>
-              <Label className="text-sm font-bold text-silver-900">
-                Select Preferred Date & Time (IST)
-              </Label>
             </div>
-            <span className="text-[11px] font-semibold text-silver-400 flex items-center gap-1">
-              <Clock className="w-3 h-3 text-primary" /> 30-Min Strategy Call
-            </span>
-          </div>
 
-          {/* Date Slider Pills */}
-          <div className="flex gap-2 overflow-x-auto pb-3 pt-1 scrollbar-none">
-            {availableDates.map((item) => {
-              const isSelected = selectedDate === item.dateStr;
-              return (
-                <button
-                  type="button"
-                  key={item.dateStr}
-                  onClick={() => setSelectedDate(item.dateStr)}
-                  className={cn(
-                    'flex-shrink-0 flex flex-col items-center justify-center w-20 py-3 rounded-2xl border text-center transition-all duration-200',
-                    isSelected
-                      ? 'border-primary bg-primary text-white shadow-md shadow-primary/20 scale-[1.03]'
-                      : 'border-silver-200 bg-white text-silver-700 hover:border-silver-300 hover:bg-silver-50'
-                  )}
-                >
-                  <span className={cn('text-[10px] uppercase font-bold', isSelected ? 'text-white/80' : 'text-silver-400')}>
-                    {item.dayName}
-                  </span>
-                  <span className="text-lg font-black leading-tight my-0.5">{item.dayNum}</span>
-                  <span className={cn('text-[10px] font-semibold', isSelected ? 'text-white/80' : 'text-silver-400')}>
-                    {item.monthName}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Time Slots */}
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mt-3">
-            {timeSlots.map((slot) => {
-              const isSelected = selectedTime === slot;
-              return (
-                <button
-                  type="button"
-                  key={slot}
-                  onClick={() => setSelectedTime(slot)}
-                  className={cn(
-                    'py-2 px-1 text-xs font-bold rounded-xl border text-center transition-all',
-                    isSelected
-                      ? 'border-primary bg-primary text-white shadow-xs'
-                      : 'border-silver-200 bg-silver-50/80 text-silver-700 hover:bg-white hover:border-silver-300'
-                  )}
-                >
-                  {slot}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Meeting Mode Selector */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-4 pt-4 border-t border-silver-100">
-            <span className="text-xs font-bold text-silver-600 self-start sm:self-center mr-2">Meeting Platform:</span>
-            <div className="flex flex-wrap gap-2">
-              {meetingModes.map((mode) => {
-                const Icon = mode.icon;
-                const isSelected = selectedMode === mode.id;
+            {/* Date Slider Pills */}
+            <div className="flex gap-2 overflow-x-auto pb-3 pt-1 scrollbar-none">
+              {availableDates.map((item) => {
+                const isSelected = selectedDate === item.dateStr;
                 return (
                   <button
                     type="button"
-                    key={mode.id}
-                    onClick={() => setSelectedMode(mode.id)}
+                    key={item.dateStr}
+                    onClick={() => setSelectedDate(item.dateStr)}
                     className={cn(
-                      'flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all',
+                      'flex-shrink-0 flex flex-col items-center justify-center w-20 py-3 rounded-2xl border text-center transition-all duration-200',
                       isSelected
-                        ? 'border-primary bg-primary/10 text-primary'
-                        : 'border-silver-200 bg-white text-silver-600 hover:border-silver-300'
+                        ? 'border-primary bg-primary text-white shadow-md shadow-primary/20 scale-[1.03]'
+                        : 'border-silver-200 bg-white text-silver-700 hover:border-silver-300 hover:bg-silver-50'
                     )}
                   >
-                    <Icon className="w-3.5 h-3.5" />
-                    {mode.label}
+                    <span className={cn('text-xs uppercase font-bold', isSelected ? 'text-white/80' : 'text-silver-400')}>
+                      {item.dayName}
+                    </span>
+                    <span className="text-lg font-black leading-tight my-0.5">{item.dayNum}</span>
+                    <span className={cn('text-xs font-semibold', isSelected ? 'text-white/80' : 'text-silver-400')}>
+                      {item.monthName}
+                    </span>
                   </button>
                 );
               })}
             </div>
+
+            {/* Time Slots */}
+            <div>
+              <span className="text-xs font-bold text-silver-600 mb-2 block">Available Time Slots (IST):</span>
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                {timeSlots.map((slot) => {
+                  const isSelected = selectedTime === slot;
+                  return (
+                    <button
+                      type="button"
+                      key={slot}
+                      onClick={() => setSelectedTime(slot)}
+                      className={cn(
+                        'py-2 px-1 text-xs font-bold rounded-xl border text-center transition-all',
+                        isSelected
+                          ? 'border-primary bg-primary text-white shadow-xs'
+                          : 'border-silver-200 bg-silver-50/80 text-silver-700 hover:bg-white hover:border-silver-300'
+                      )}
+                    >
+                      {slot}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Meeting Mode Selector */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 pt-4 border-t border-silver-100">
+              <span className="text-xs font-bold text-silver-600 self-start sm:self-center mr-2">Meeting Platform:</span>
+              <div className="flex flex-wrap gap-2">
+                {meetingModes.map((mode) => {
+                  const Icon = mode.icon;
+                  const isSelected = selectedMode === mode.id;
+                  return (
+                    <button
+                      type="button"
+                      key={mode.id}
+                      onClick={() => setSelectedMode(mode.id)}
+                      className={cn(
+                        'flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all',
+                        isSelected
+                          ? 'border-primary bg-primary/10 text-primary'
+                          : 'border-silver-200 bg-white text-silver-600 hover:border-silver-300'
+                      )}
+                    >
+                      <Icon className="w-3.5 h-3.5" />
+                      {mode.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-4 border-t border-silver-100 gap-3">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setCurrentStep(1)}
+                className="rounded-xl border-silver-200 text-silver-700 hover:bg-silver-50 text-xs sm:text-sm font-semibold gap-1.5"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Back
+              </Button>
+              <Button
+                type="button"
+                onClick={() => setCurrentStep(3)}
+                className="rounded-xl px-5 py-2.5 bg-primary text-white font-bold text-xs sm:text-sm hover:bg-primary/90 shadow-md shadow-primary/20 gap-2 shrink-0"
+              >
+                <span>Continue to Details</span>
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* ── Step 3: Client Details ── */}
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white text-xs font-black">
-              3
-            </span>
-            <Label className="text-sm font-bold text-silver-900">
-              Your Contact & Project Details
-            </Label>
-          </div>
-
-          <div className="grid sm:grid-cols-3 gap-4 mb-4">
-            <div className="space-y-1.5">
-              <Label htmlFor="slot-name" className="text-xs font-semibold text-silver-700">
-                Full Name <span className="text-primary">*</span>
-              </Label>
-              <Input
-                id="slot-name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="e.g. John Doe"
-                className="h-11 rounded-xl bg-white border-silver-200 text-sm focus:border-primary"
-                required
-              />
+        {currentStep === 3 && (
+          <div className="space-y-6 animate-fade-in">
+            {/* Slot Summary Pill */}
+            <div className="p-3.5 rounded-2xl bg-silver-50 border border-silver-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+              <div className="space-y-0.5">
+                <p className="font-bold text-silver-900">
+                  {selectedService} • {selectedDate.split(',')[0]}, {selectedTime} IST
+                </p>
+                <p className="text-silver-500">Platform: {selectedMode}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setCurrentStep(2)}
+                className="text-primary font-bold hover:underline self-start sm:self-center"
+              >
+                Change Slot
+              </button>
             </div>
 
-            <div className="space-y-1.5">
-              <Label htmlFor="slot-email" className="text-xs font-semibold text-silver-700">
-                Work / Personal Email <span className="text-primary">*</span>
+            <div>
+              <Label className="text-base font-bold text-silver-900 block mb-1">
+                Your Contact Information
               </Label>
-              <Input
-                id="slot-email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="e.g. john@company.com"
-                className="h-11 rounded-xl bg-white border-silver-200 text-sm focus:border-primary"
-                required
-              />
+              <p className="text-xs sm:text-sm text-silver-500 mb-4">
+                We will send the calendar invitation and meeting link to these details.
+              </p>
+
+              <div className="grid sm:grid-cols-3 gap-4 mb-4">
+                <div className="space-y-1.5">
+                  <Label htmlFor="slot-name" className="text-xs font-semibold text-silver-700">
+                    Full Name <span className="text-primary">*</span>
+                  </Label>
+                  <Input
+                    id="slot-name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="e.g. John Doe"
+                    className="h-11 rounded-xl bg-white border-silver-200 text-sm focus:border-primary"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <Label htmlFor="slot-email" className="text-xs font-semibold text-silver-700">
+                    Work / Personal Email <span className="text-primary">*</span>
+                  </Label>
+                  <Input
+                    id="slot-email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="e.g. john@company.com"
+                    className="h-11 rounded-xl bg-white border-silver-200 text-sm focus:border-primary"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <Label htmlFor="slot-phone" className="text-xs font-semibold text-silver-700">
+                    Phone / WhatsApp <span className="text-primary">*</span>
+                  </Label>
+                  <Input
+                    id="slot-phone"
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="+91 XXXXX XXXXX"
+                    className="h-11 rounded-xl bg-white border-silver-200 text-sm focus:border-primary"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <Label htmlFor="slot-notes" className="text-xs font-semibold text-silver-700">
+                  Brief Project Notes or Agenda <span className="text-silver-400 text-xs">(Optional)</span>
+                </Label>
+                <Textarea
+                  id="slot-notes"
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder="Tell us a little bit about what you want to achieve or any specific questions..."
+                  className="rounded-xl bg-white border-silver-200 text-sm min-h-20 resize-none focus:border-primary"
+                />
+              </div>
             </div>
 
-            <div className="space-y-1.5">
-              <Label htmlFor="slot-phone" className="text-xs font-semibold text-silver-700">
-                Phone / WhatsApp <span className="text-primary">*</span>
-              </Label>
-              <Input
-                id="slot-phone"
-                type="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="+91 XXXXX XXXXX"
-                className="h-11 rounded-xl bg-white border-silver-200 text-sm focus:border-primary"
-                required
-              />
+            {/* Navigation & Submit */}
+            <div className="pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setCurrentStep(2)}
+                  className="rounded-xl border-silver-200 text-silver-700 hover:bg-silver-50 text-xs sm:text-sm font-semibold gap-1.5 w-full sm:w-auto"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Back
+                </Button>
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-1 w-full sm:w-auto h-auto min-h-[48px] py-3.5 px-6 rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold text-sm sm:text-base shadow-xl shadow-primary/25 hover:scale-[1.01] transition-all duration-300 disabled:opacity-50 whitespace-normal"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center gap-2 shrink-0">
+                      <Sparkles className="w-4 h-4 animate-spin shrink-0" />
+                      Reserving Your Slot...
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap text-center leading-snug w-full">
+                      <Calendar className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                      <span>Confirm & Book Strategy Slot</span>
+                      <span className="inline-block text-xs sm:text-sm font-semibold px-2 py-0.5 rounded-full bg-white/20 whitespace-nowrap">
+                        for {selectedDate.split(',')[0]}, {selectedTime}
+                      </span>
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 hidden sm:inline-block" />
+                    </span>
+                  )}
+                </Button>
+              </div>
+
+              <p className="text-xs text-silver-400 text-center mt-4 flex items-center justify-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                100% Free consultation • No obligations • NDA-protected discussion
+              </p>
             </div>
           </div>
-
-          <div className="space-y-1.5">
-            <Label htmlFor="slot-notes" className="text-xs font-semibold text-silver-700">
-              Brief Project Notes or Agenda <span className="text-silver-400 text-xs">(Optional)</span>
-            </Label>
-            <Textarea
-              id="slot-notes"
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              placeholder="Tell us a little bit about what you want to achieve or any specific questions..."
-              className="rounded-xl bg-white border-silver-200 text-sm min-h-20 resize-none focus:border-primary"
-            />
-          </div>
-        </div>
-
-        {/* Submit Button */}
-        <div className="pt-2">
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full h-auto min-h-[52px] py-4 sm:py-5 px-4 rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold text-sm sm:text-base shadow-xl shadow-primary/25 hover:scale-[1.01] transition-all duration-300 disabled:opacity-50 whitespace-normal"
-          >
-            {isSubmitting ? (
-              <span className="flex items-center justify-center gap-2 shrink-0">
-                <Sparkles className="w-4 h-4 animate-spin shrink-0" />
-                Reserving Your Slot...
-              </span>
-            ) : (
-              <span className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap text-center leading-snug w-full">
-                <Calendar className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-                <span>Confirm & Book Strategy Slot</span>
-                <span className="inline-block text-xs sm:text-sm font-semibold px-2 py-0.5 rounded-full bg-white/20 whitespace-nowrap">
-                  for {selectedDate.split(',')[0]}, {selectedTime}
-                </span>
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 hidden sm:inline-block" />
-              </span>
-            )}
-          </Button>
-
-          <p className="text-[11px] text-silver-400 text-center mt-3 flex items-center justify-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            100% Free consultation • No obligations • NDA-protected discussion
-          </p>
-        </div>
+        )}
       </div>
     </form>
   );

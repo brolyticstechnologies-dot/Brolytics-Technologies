@@ -34,21 +34,21 @@ export function ServiceCtaSection({
       <div className="relative container mx-auto px-6 max-w-4xl">
         <div
           className={cn(
-            "relative rounded-[1.75rem] p-[1px] bg-gradient-to-br from-primary/30 via-silver-200/60 to-primary/20 shadow-2xl shadow-silver-900/8 transition-all duration-1000",
+            "relative rounded-3xl p-[1px] bg-gradient-to-br from-primary/30 via-silver-200/60 to-primary/20 shadow-2xl shadow-silver-900/8 transition-all duration-1000",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <div className="relative rounded-[1.7rem] bg-white px-6 py-10 sm:px-10 sm:py-12 md:px-14 md:py-14 text-center overflow-hidden">
+          <div className="relative rounded-3xl bg-white px-6 py-10 sm:px-10 sm:py-12 md:px-14 md:py-14 text-center overflow-hidden">
             <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-primary/[0.05] blur-2xl pointer-events-none" />
             <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-silver-200/40 blur-2xl pointer-events-none" />
 
             <div className="relative inline-flex items-center gap-2 px-3 py-1.5 mb-6 rounded-full border border-primary/15 bg-primary/[0.05]">
               <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary/80">Ready to Start?</span>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-primary/80">Ready to Start?</span>
             </div>
 
             <h2 className="relative text-3xl sm:text-4xl md:text-[2.6rem] font-black tracking-tight leading-[1.1] mb-5">
-              <span className="text-silver">{titleWords.slice(0, splitAt).join(" ")}</span>
+              <span className="text-silver-500">{titleWords.slice(0, splitAt).join(" ")}</span>
               {titleWords.length > splitAt && (
                 <span className="text-gradient-red">{" " + titleWords.slice(splitAt).join(" ")}</span>
               )}

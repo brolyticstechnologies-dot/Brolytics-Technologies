@@ -40,7 +40,6 @@ function useCountUp(target: string, active: boolean) {
 
 export function CaseStudyCard({ project, index, isVisible }: CaseStudyCardProps) {
   const [expanded, setExpanded] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const [impactVisible, setImpactVisible] = useState(false);
   const impactRef = useRef<HTMLDivElement>(null);
   const isEven = index % 2 === 0;
@@ -53,12 +52,7 @@ export function CaseStudyCard({ project, index, isVisible }: CaseStudyCardProps)
   const techList = project.technologies || [];
   const descriptionText = project.detailedDescription || project.description || "";
 
-  useEffect(() => {
-    if (isVisible && !hasAnimated) {
-      const t = setTimeout(() => setHasAnimated(true), index * 150);
-      return () => clearTimeout(t);
-    }
-  }, [isVisible, index, hasAnimated]);
+
 
   // Impact counter trigger
   useEffect(() => {
@@ -78,8 +72,7 @@ export function CaseStudyCard({ project, index, isVisible }: CaseStudyCardProps)
     <article
       id={`case-study-${projectId}`}
       className={cn(
-        "group relative transition-all duration-700",
-        hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        "group relative transition-all duration-700"
       )}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
@@ -104,17 +97,17 @@ export function CaseStudyCard({ project, index, isVisible }: CaseStudyCardProps)
 
           {/* Category + Year badges */}
           <div className="absolute top-4 left-4 flex flex-col gap-2">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-wider shadow-lg">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-wider shadow-lg">
               {project.category}
             </span>
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-[10px] font-semibold text-silver-700 border border-white/60">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-semibold text-silver-700 border border-white/60">
               <Clock className="w-3 h-3 text-primary" />
               {project.duration}
             </span>
           </div>
 
           {/* Year watermark */}
-          <span className="absolute bottom-4 right-4 text-[11px] font-black text-white/40 tracking-widest">
+          <span className="absolute bottom-4 right-4 text-xs font-black text-white/40 tracking-widest">
             {yearText}
           </span>
         </div>
@@ -153,13 +146,13 @@ export function CaseStudyCard({ project, index, isVisible }: CaseStudyCardProps)
                 <div className="space-y-4 pb-4">
                   {project.challenge && (
                     <div className="pl-3 border-l-2 border-silver-200">
-                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-silver-400 mb-1">The Challenge</p>
+                      <p className="text-xs font-black uppercase tracking-[0.2em] text-silver-400 mb-1">The Challenge</p>
                       <p className="text-xs text-silver-600 leading-relaxed">{project.challenge}</p>
                     </div>
                   )}
                   {project.solution && (
                     <div className="pl-3 border-l-2 border-primary/50">
-                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-primary mb-1">Our Solution</p>
+                      <p className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-1">Our Solution</p>
                       <p className="text-xs text-silver-600 leading-relaxed">{project.solution}</p>
                     </div>
                   )}
@@ -180,7 +173,7 @@ export function CaseStudyCard({ project, index, isVisible }: CaseStudyCardProps)
               <p className="text-2xl font-black text-primary leading-none">{metricDisplay}</p>
               <p className="text-xs font-bold text-silver-800 leading-tight">{impactLabel}</p>
               {impactSubtext && (
-                <p className="text-[10px] text-silver-400 mt-0.5">{impactSubtext}</p>
+                <p className="text-xs text-silver-400 mt-0.5">{impactSubtext}</p>
               )}
             </div>
           </div>
@@ -191,7 +184,7 @@ export function CaseStudyCard({ project, index, isVisible }: CaseStudyCardProps)
               {techList.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded-lg bg-silver-50 border border-silver-200 text-[10px] font-semibold text-silver-500 group-hover:border-primary/15 transition-colors duration-400"
+                  className="px-2.5 py-1 rounded-lg bg-silver-50 border border-silver-200 text-xs font-semibold text-silver-500 group-hover:border-primary/15 transition-colors duration-400"
                 >
                   {tech}
                 </span>
@@ -205,7 +198,7 @@ export function CaseStudyCard({ project, index, isVisible }: CaseStudyCardProps)
               <p className="text-xs italic text-silver-500 leading-relaxed mb-1">
                 &ldquo;{project.testimonial.quote}&rdquo;
               </p>
-              <footer className="text-[10px] font-bold text-silver-400">
+              <footer className="text-xs font-bold text-silver-400">
                 — {project.testimonial.name}, {project.testimonial.role}
               </footer>
             </blockquote>

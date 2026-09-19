@@ -52,7 +52,7 @@ export function FloatingBookSlotBtn() {
               Book a Strategy Slot
               <Sparkles className="w-3 h-3 text-primary animate-pulse hidden sm:inline" />
             </span>
-            <span className="text-[10px] text-silver-400 leading-tight hidden sm:inline font-medium">
+            <span className="text-xs text-silver-400 leading-tight hidden sm:inline font-medium">
               Free 30-min founder call
             </span>
           </div>
