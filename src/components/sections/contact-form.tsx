@@ -164,7 +164,7 @@ export function ContactForm({ content }: ContactFormProps) {
           {/* Form */}
           <div className={cn(
             "transition-all duration-1000 delay-500",
-            "scroll-animate opacity-0 translate-x-12"
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
           )}>
             {state.status === 'success' ? (
               <div className="relative p-6 sm:p-10 card-silver rounded-3xl overflow-hidden text-center bg-white shadow-xl animate-fade-up">

@@ -38,7 +38,7 @@ export function ServiceFaqSection({
         <div
           className={cn(
             "transition-all duration-1000",
-            "scroll-animate opacity-0 translate-y-8"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
           <ServiceSectionHeader eyebrow={eyebrow} title={title} description={description} />
@@ -57,7 +57,7 @@ export function ServiceFaqSection({
                   isOpen
                     ? "border-primary/25 bg-white shadow-md shadow-primary/5"
                     : "border-silver-200/80 bg-white/80 hover:border-primary/15",
-                  "scroll-animate opacity-0 translate-y-6"
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 )}
                 style={{ transitionDelay: `${120 + index * 60}ms` }}
               >

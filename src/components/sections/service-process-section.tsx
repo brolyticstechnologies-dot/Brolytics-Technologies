@@ -45,7 +45,7 @@ export function ServiceProcessSection({
         <div
           className={cn(
             "transition-all duration-1000",
-            "scroll-animate opacity-0 translate-y-8"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
           <ServiceSectionHeader eyebrow={eyebrow} title={title} description={description} />
@@ -60,7 +60,7 @@ export function ServiceProcessSection({
                 key={step.title}
                 className={cn(
                   "relative flex flex-col md:flex-row md:items-start gap-4 md:gap-8 transition-all duration-1000",
-                  "scroll-animate opacity-0 translate-y-10",
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
                   index % 2 !== 0 && "md:flex-row-reverse"
                 )}
                 style={{ transitionDelay: `${200 + index * 100}ms` }}

@@ -53,7 +53,7 @@ export function ServiceOfferingsSection({
         <div
           className={cn(
             "transition-all duration-1000",
-            "scroll-animate opacity-0 translate-y-8"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
           <ServiceSectionHeader eyebrow={eyebrow} title={title} description={description} />
@@ -65,7 +65,7 @@ export function ServiceOfferingsSection({
               key={item.title}
               className={cn(
                 "group relative rounded-2xl p-[1px] bg-gradient-to-br from-silver-200/80 via-white to-silver-200/60 transition-all duration-700 hover:from-primary/30 hover:via-primary/10 hover:to-silver-200/80 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1",
-                "scroll-animate opacity-0 translate-y-8"
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: `${150 + index * 80}ms` }}
             >

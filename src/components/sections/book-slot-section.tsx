@@ -43,7 +43,7 @@ export function BookSlotSection() {
           <div
             className={cn(
               'lg:col-span-5 transition-all duration-1000 space-y-6',
-              "scroll-animate opacity-0 -translate-x-8"
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             )}
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/[0.05] shadow-xs">
@@ -131,7 +131,7 @@ export function BookSlotSection() {
           <div
             className={cn(
               'lg:col-span-7 transition-all duration-1000 delay-200',
-              "scroll-animate opacity-0 translate-x-8"
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             )}
           >
             <BookSlotForm />

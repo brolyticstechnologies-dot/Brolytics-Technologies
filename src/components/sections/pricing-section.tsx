@@ -36,7 +36,7 @@ export function PricingSection({ pricing: customPricing }: { pricing?: PricingTi
         <div
           className={cn(
             "text-center mb-12 transition-all duration-1000",
-            "scroll-animate opacity-0 translate-y-8"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 mb-5 rounded-full border border-silver-200 bg-silver-50 shadow-sm">
@@ -85,7 +85,7 @@ export function PricingSection({ pricing: customPricing }: { pricing?: PricingTi
         <div
           className={cn(
             "grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 transition-all duration-700 delay-200",
-            "scroll-animate opacity-0 translate-y-8"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
           {tiers.map((tier) => {
@@ -190,7 +190,7 @@ export function PricingSection({ pricing: customPricing }: { pricing?: PricingTi
         <div
           className={cn(
             "relative rounded-2xl overflow-hidden transition-all duration-700 delay-400",
-            "scroll-animate opacity-0 translate-y-8"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
           <div className="relative bg-silver-900 px-8 py-10 text-center overflow-hidden">

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight, Cpu, Layers } from 'lucide-react';
 import type { SiteContent } from '@/lib/content-types';
 

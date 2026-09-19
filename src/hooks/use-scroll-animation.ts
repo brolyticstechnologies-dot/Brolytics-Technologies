@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState, useTransition } from 'react';
 
 export function useScrollAnimation<T extends HTMLElement = any>(options?: IntersectionObserverInit) {
   const elementRef = useRef<T | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [, startTransition] = useTransition();
 
-  // Keep the latest options without making them a re-run dependency,
-  // so the observer is created once and never torn down mid-observation.
   const optionsRef = useRef(options);
   optionsRef.current = options;
 
@@ -14,16 +14,17 @@ export function useScrollAnimation<T extends HTMLElement = any>(options?: Inters
     const element = elementRef.current;
     if (!element) return;
 
-    // If IntersectionObserver isn't available, reveal immediately.
     if (typeof IntersectionObserver === 'undefined') {
-      element.classList.add('is-visible');
+      setIsVisible(true);
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          startTransition(() => {
+            setIsVisible(true);
+          });
           observer.disconnect();
         }
       },
@@ -38,5 +39,5 @@ export function useScrollAnimation<T extends HTMLElement = any>(options?: Inters
     return () => observer.disconnect();
   }, []);
 
-  return { ref: elementRef, isVisible: false }; // Keep isVisible for backwards compatibility during refactor, but it doesn't trigger renders
+  return { ref: elementRef, isVisible };
 }
