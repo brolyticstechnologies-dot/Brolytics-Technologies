@@ -99,7 +99,7 @@ export default function OurWorkPage() {
 
             {loaded && (
               <h1
-                className="animate-fade-up text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.4rem] font-black tracking-tight leading-[1.08] mb-6"
+                className="animate-fade-up text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] mb-6"
                 style={{ animationDelay: "0.12s" }}
               >
                 <span className="text-silver-900">Work That</span>
